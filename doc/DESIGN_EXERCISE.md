@@ -42,16 +42,16 @@ class Level {
 
 #### Simulation High Level Design
 * The simulation copies the 2D matrix of cell information before updating each cells, 
-and thus can refer to the old copy for each neighbor calculation. To know its neighbours, it can just call
-x+-1 and y+-1 locations. 
+and thus can refer to the old copy for each neighbor calculation. To know its neighbours, it can hold pointers
+to its neighbours above, below, and to its left and right if they exist. 
 
 * The main method gets the input for the type of simulation and creates the subclasses accordingly. Thus each cell,
- can call update() method. 
+ can call update() method to update their state accordingly based on te simulation rules set out when creating the simulation.
 
 * Within the methods, team seemed to agree that we can use 2D array to implement the grid. However to allow flexibility within classes,
- and methods, those methods can return iterable of iterable object. Thus, developers only need to know that the return object is of iterable type.
+ and methods, those methods can return Iterable of Iterable object. Thus, developers only need to know that the return object is of Iterable type.
 
-* Everything specific to the simulation should be on configuration file. These can be the size of the grid, the start position, the probability of neighbour interaction etc.
+* Everything specific to the simulation should be on configuration file. These can be the size of the grid, the start position, the probability of taking on a certain state in the next step given its neighbours, etc.
 
 * Simulation is updated by using the grid output 
 (or the updated grid) with the simulator method. Simulator method should accept (or use the instance variable) of the grid information, thus once updated
