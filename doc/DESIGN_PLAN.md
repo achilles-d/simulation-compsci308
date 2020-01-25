@@ -26,7 +26,11 @@ still maintaining clear separation from the model.
 
 
 ## User Interface
+We will create a user interface that follows the basic layout shown below. This will also include a file browser 
+allowing the user to graphically choose the XML file to load. Any errors or other messages will be displayed on the 
+GUI.
 
+![alt text](CS308%20Simulation%20GUI.jpg)
 
 ## Design Details
 
