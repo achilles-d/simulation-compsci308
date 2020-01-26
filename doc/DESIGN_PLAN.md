@@ -23,7 +23,15 @@ implemented in multiple ways in separate concrete classes.
 still maintaining clear separation from the model.
 
 ## Overview
-
+* Model: Grid (2D array), Cell (state and pointers to its neighbors)
+* Visualize: Controller, Animator 
+** Animator: search through grid, get each state, and set colors accordingly
+Initialize JavaFX - start()
+references to each color as a public static final variable 
+Grid size 
+Passes Along thew new XML to the controller
+** Controller 
+Read the XML and create a new instance of Grid with appropriate cells
 
 ## User Interface
 We will create a user interface that follows the basic layout shown below. This will also include a file browser 
@@ -45,8 +53,12 @@ GUI.
 ## Team Responsibilities
 
  * Achilles Dabrowski
+ ** 
 
  * Caleb Sanford
+ ** Visualizer, namely the actual GUI and the Visualizer class
+** Animator 
 
- * Cemal Yagcioglu 
+ * Cemal Yagcioglu
+ ** 
 
