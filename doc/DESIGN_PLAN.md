@@ -23,6 +23,7 @@ implemented in multiple ways in separate concrete classes.
 still maintaining clear separation from the model.
 
 ## Overview
+![alt text](sim-CRC.png)
 * Model: Grid (2D array), Cell (state and pointers to its neighbors)
 * Visualize: Controller, Animator 
 ** Animator: search through grid, get each state, and set colors accordingly
