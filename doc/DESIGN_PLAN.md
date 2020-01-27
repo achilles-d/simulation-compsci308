@@ -31,7 +31,8 @@ so that it can check the state of its neighbors to help the program select the a
 state for the next step in the simulation based on the simulation's rules. Each
 Cell will have public method *char getState()* method to allow to other classes what state the Cell
 is in at the current point of the simulation by returning the character that signfies
-the current state of the Cell. There will be five child classes of Cell that each
+the current state of the Cell. The public method *int countNeighbors()* will return
+the amount of Cells neighboring the Cell in the grid. There will be five child classes of Cell that each
 correspond to the five different types of simulations that will be implemented. 
 * __Grid:__ Instances of the Grid class will contain a 2D array (or, alternatively,
 and ArrayList of ArrayList<Cell>) of Cell objects
@@ -60,7 +61,9 @@ is initialized or a step is taken, the visualizer will fill the cells of the gri
 The private method *void step(int n)* will move the simulation n steps forward by
 calling update() on the Grid object contained for the simulation n times with the help
 of a loop. step() will be called when the user clicks the appropriate buttons
-on the UI described below to move the simulation forward. 
+on the UI described below to move the simulation forward. The private method 
+*void updateDisplay()* will update the color of the cells in the grid displayed in
+the window according to the current state of the Cells in the Grid. 
 
 ## User Interface
 We will create a user interface that follows the basic layout shown below. This will also include a file browser 
@@ -71,11 +74,11 @@ GUI.
 
 ## Design Details & Considerations
 * __Grid:__
-    Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is runned, it is on Visualizer to make use of it for its purposes. 
+    Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is run, it is on Visualizer to make use of it for its purposes. 
 	
-	Grid has 5 subclasses, each dedicated for a specific type of simulation.
+	Grid has 5 subclasses, each dedicated to a specific type of simulation.
 
-    Extra note: Updater method first copies the 2D data to a temporary variable, and makes use of that variable so that each state is only updated according to the actual step before. 
+    Extra note: update() first copies the 2D data to a temporary variable, and makes use of that variable so that each state is only updated according to the actual step before. 
 
 * __Cell:__
 	Cell class is the ’cell’ object of the 2D data in Grid class. It initializes and sets up parameters specific to cell such as its current state. It also has pointers to its neighbors for easy access during simulation calculations. 
@@ -94,31 +97,30 @@ A short discussion about the data structure: Our group shared the idea of using 
 
 #### Use Cases
 Use cases: 
-1-2-3: 
-1. Visualizer calls Grid Update method 
-2. Grid Update copies the current grid to a temporary variable
-3. Grid Update iterates through all the Cell Objects, calls CellObject.count(),
-4. CellObject.count() returns counts number of live neighbours by making use of its neighbor pointers [This part can be more flexible than described according to the difference between the types of simulation and the teams decision on it during implementation] 
-5. Grid updates the temporary 2D grid according to the returned number and the rule of the Game of Life
-6. Finally updates the Grid object according the specifications of tempory 2D grid. 
-7. Visualizer calls Visualizer.update() after calling the Grid Update, and Visualizer.update uses 2D Grid object and the states of cells within it to create JavaFx visual of it.
+* 1-2-3:
+1. Visualizer calls Grid update() method 
+2. update() copies the current grid to a temporary variable
+3. update() iterates through all the Cell Objects, calling Cell.countNeighbors() on each
+4. Cell.countNeighbors() returns counts number of live neighbours by making use of its neighbor pointers [This part can be more flexible than described according to the difference between the types of simulation and the teams decision on it during implementation] 
+5. Grid updates the temporary 2D grid according to the returned number of cells and the rules of the simulation for Game of Life
+6. The Grid's 2D array instance variable is assigned to the temporary array that was created
+7. Visualizer calls Visualizer.updateDisplay() after calling the Grid Update, and Visualizer.update uses 2D Grid object and the states of cells within it to create JavaFx visual of it.
+ 
+* 4: XML file is read by the file reader, and the first initialization of Grid Object by Controller class specifically initializes “Fire simulation” type Grid, which initializes Fire Simulation type Cells. During the initialization, probCatch is set as global parameter. 
 
-4: XML file is read by the file reader, and the first initialization of Grid Object by Controller class specifically initializes “Fire simulation” type Grid, which initializes Fire Simulation type Cells. During the initialization, probCatch is set as global parameter. 
-
-5: Visualizer’s update method checks whether the XML file is changed, it deletes the current objects, calls controller class method for initialization again, which reads XML file, and initializes Grid Object accordingly. 
+* 5: Visualizer’s update method checks whether the XML file is changed, it deletes the current objects, calls controller class method for initialization again, which reads XML file, and initializes Grid Object accordingly. 
 	
 
 
 
 ## Team Responsibilities
 
- * Achilles Dabrowski, Cell Object, Grid Object and their related subclasses' designer.  
- ** 
+ * Achilles Dabrowski will be responsible for implementing the Grid class, the
+ Cell class, and their subclasses. 
 
- * Caleb Sanford
- ** Visualizer, namely the actual GUI and the Visualizer class
-** Animator 
+ * Caleb Sanford will be responsible for implementing the Visualizer with a 
+ focus on the display GUI.
 
- * Cemal Yagcioglu, modeller for the 2D data calculation and update.
- ** 
+ * Cemal Yagcioglu will be responsible for the modeller for the 2D data calculation 
+ and the updating of Cells.
 
