@@ -71,7 +71,6 @@ GUI.
 
 ## Design Details & Considerations
 * __Grid:__
-    
     Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is runned, it is on Visualizer to make use of it for its purposes. 
 	
 	Grid has 5 subclasses, each dedicated for a specific type of simulation.
@@ -92,8 +91,6 @@ GUI.
 
 
 A short discussion about the data structure: Our group shared the idea of using 2D arrays for data manipulation. Yet, to offer a more flexible code, it discussed the option to output that data in iterable form rather than specific its type. This way different methods and classes can choose to implement their own specific collection type of choice to manipulate it. 
-
-#### Components
 
 #### Use Cases
 Use cases: 
