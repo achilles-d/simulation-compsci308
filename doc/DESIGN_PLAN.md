@@ -23,16 +23,40 @@ implemented in multiple ways in separate concrete classes.
 still maintaining clear separation from the model.
 
 ## Overview
+### CRC Diagram
 ![alt text](sim-CRC.png)
-* Model: Grid (2D array), Cell (state and pointers to its neighbors)
-* Visualize: Controller, Animator 
-** Animator: search through grid, get each state, and set colors accordingly
-Initialize JavaFX - start()
-references to each color as a public static final variable 
-Grid size 
-Passes Along thew new XML to the controller
-** Controller 
-Read the XML and create a new instance of Grid with appropriate cells
+* __Cell:__ Instances of the Cell class will keep track of the current state of each grid cell
+in the simulation. Each Cell will also have a pointer to each of its neighbors
+so that it can check the state of its neighbors to help the program select the appropriate
+state for the next step in the simulation based on the simulation's rules. Each
+Cell will have public method *char getState()* method to allow to other classes what state the Cell
+is in at the current point of the simulation by returning the character that signfies
+the current state of the Cell. There will be five child classes of Cell that each
+correspond to the five different types of simulations that will be implemented. 
+* __Grid:__ Instances of the Grid class will contain a 2D array (or, alternatively,
+and ArrayList of ArrayList<Cell>) of Cell objects
+corresponding to the locations of the cells in each grid as appropriate for each
+step in the simulation. The Grid class will have the public method *char getState(int i, int j)*  
+that returns the character signifying the current state of the cell in the ith 
+row and jth column of the grid. The Grid class will also have the public method
+*void update()* to update each of the Cells in the grid according the rules of the current
+simulation to move the simulation forward by one step. There will be five child 
+classes of Grid that each correspond to the five different types of simulations 
+that will be implemented. In addition, the Grid class will have the public method
+*initialize(String configFileDir)* that will create of 2D of Cells in the initial positions
+and states specified by the XML file in the directory contained in configFilDir. 
+This will called by the Grid's constructor, but can also be called after the simulation
+has begun if the user wishes to change the simulation to a new initial state, but 
+maintain the same type of simulation as that which was just running. 
+* __Visualizer__: Instances of the animator class are responsible for allowing
+the user to interact with the user to move the simulation forward at the speed
+specified by the user or to the amount of steps forward in time specified by the user. 
+The Visualizer class will create an instance of Grid's child class that corresponds
+to the type of simulation selected in the GUI, and will pass along the appropriate
+XML containing the initial grid configuration to the Grid's constructor. In addition,
+the Visualizer will contain public static final Paint variables that contain the appropriate
+colors corresponding to each of the possible states of the cells. When the simulation
+is initialized or a step is taken, the visualizer will fill the cells of the grid.
 
 ## User Interface
 We will create a user interface that follows the basic layout shown below. This will also include a file browser 
