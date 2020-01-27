@@ -57,6 +57,10 @@ XML containing the initial grid configuration to the Grid's constructor. In addi
 the Visualizer will contain public static final Paint variables that contain the appropriate
 colors corresponding to each of the possible states of the cells. When the simulation
 is initialized or a step is taken, the visualizer will fill the cells of the grid.
+The private method *void step(int n)* will move the simulation n steps forward by
+calling update() on the Grid object contained for the simulation n times with the help
+of a loop. step() will be called when the user clicks the appropriate buttons
+on the UI described below to move the simulation forward. 
 
 ## User Interface
 We will create a user interface that follows the basic layout shown below. This will also include a file browser 
