@@ -72,6 +72,15 @@ GUI.
 
 ![alt text](CS308%20Simulation%20GUI.jpg)
 
+The Buttons will allow the user to:
+- start a simulation
+- pause and resume the simulation
+- load a new simulation
+- step the simulation forward in single step increments 
+- The animation rate will be selected with a slider
+
+Note: all of the text displayed in the user interface will not be hard coded, it will be set using a resources file. This 
+will allow button names to be easily adjusted in the future. 
 ## Design Details & Considerations
 * __Grid:__
     Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is run, it is on Visualizer to make use of it for its purposes. 
@@ -90,7 +99,7 @@ GUI.
 	Controller initializes the Grid class according to the rules of the simulation. After it initializing Grid (and Grid initializing Cell), it (or Visualizer, depending on the implementation) call call update() method in Grid class to the next state. (To be more clear on both options, the team discussed whether the simulation should be pre-calculated and 2D data should be stored as 3D data with their respective ’simulation step’ numbers or should the  calculation of the grid should be made on the go during the simulation. In first option updating in controller makes more sense, in the latter updating in the visualizer makes more sense).
 
 * __Visualizer:__:
-	Visualizer is the class responsible for using the 2D Grid object along with UI components to output a visually informaning interface to the user. It makes use of JavaFx, and visualizes the simulation using cell’s state(and their chosen color) for the given simulation step. If ‘calculation on-the-go’ is implemented as discussed by the group, visualizer calls the update method of Grid objectfor every simulation step iteration and recalls its own updater for updating the visual objects according to the new calcuated grid. It also recognizes if the input file is changed by the user, and automatically updates the grid visual on the screen accordingly (even changing its size if necessary). 
+	Visualizer is the class responsible for using the 2D Grid object along with UI components to output a visually informing interface to the user. It makes use of JavaFx, and visualizes the simulation using cell’s state(and their chosen color) for the given simulation step. If ‘calculation on-the-go’ is implemented as discussed by the group, visualizer calls the update method of Grid objectfor every simulation step iteration and recalls its own updater for updating the visual objects according to the new calcuated grid. It also recognizes if the input file is changed by the user, and automatically updates the grid visual on the screen accordingly (even changing its size if necessary). 
 
 
 A short discussion about the data structure: Our group shared the idea of using 2D arrays for data manipulation. Yet, to offer a more flexible code, it discussed the option to output that data in iterable form rather than specific its type. This way different methods and classes can choose to implement their own specific collection type of choice to manipulate it. 
