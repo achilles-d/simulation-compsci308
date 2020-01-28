@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation id="GameOfLife">
+      <author>Gambardella, Matthew</author>
+      <title>XML Developer's Guide</title>
+      <width>Computer</width>
+      <height>44.95</height>
+      //Put here the details related to this specific simulation type
+      <publish_date>2000-10-01</publish_date>
+      <description>An in-depth look at creating applications
+         with XML.</description>
+
+   </simulation>
+</simulation>
