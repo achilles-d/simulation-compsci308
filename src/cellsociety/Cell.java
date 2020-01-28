@@ -14,4 +14,12 @@ public class Cell {
         cellLeft = left;
         cellRight = right;
     }
+
+    /**
+     * Returns the current state of the Cell in the simulation
+     * @return the character representing the current state of the Cell in the simulation
+     */
+    public char getState(){
+        return myState;
+    }
 }
