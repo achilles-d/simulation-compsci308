@@ -19,7 +19,7 @@ public class Controller {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse("ExampleXML.xml");
+            Document doc = builder.parse("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/ExampleXML.xml");
             Node simulation = doc.getElementById("GameOfLife");
             System.out.println(simulation);
 
@@ -30,5 +30,20 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        /*
+        Note from the class: Find the XMLParser.java document and check
+        private DocumentBuilder getDocumentBuilder(){
+            try{
+                return DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            }
+            catch (ParserConfigurationException e) {
+
+            }
+
+
+
+         */
+
     }
 }
