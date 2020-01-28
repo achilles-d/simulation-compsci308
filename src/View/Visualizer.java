@@ -39,23 +39,37 @@ public class Visualizer extends Application {
     }
 
     private void addToRoot() {
+
+        myRoot.getChildren().add(createStartButton());
+    }
+
+    private Button createStartButton () {
         Button button = new Button("My Label");
         button.setLayoutX(20);
         button.setLayoutY(20);
 
-        // action event
-        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                start_button_pressed();
-            }
-        };
+        EventHandler<ActionEvent> event = e -> start_button_pressed();
 
         button.setOnAction(event);
-        myRoot.getChildren().add(button);
+        return button;
+    }
+
+    private Button createStopButton () {
+        Button button = new Button("Stop");
+        button.setLayoutX(20);
+        button.setLayoutY(20);
+
+        EventHandler<ActionEvent> event = e -> stop_button_pressed();
+
+        button.setOnAction(event);
+        return button;
     }
 
     private void start_button_pressed () {
+
+    }
+
+    private void stop_button_pressed () {
 
     }
 
