@@ -1,13 +1,17 @@
 package cellsociety;
 
-public class Grid {
+public abstract class Grid {
     public Cell[][] myCells;
 
     public Grid(String configFileDir){
 
     }
 
-    public void initialize(String file){
+    /**
+     * Set grid size and initial cell states of grid according to XML file in the directory of fileDir
+     * @param fileDir directory for initial cell configuration XML file
+     */
+    public void initialize(String fileDir){
         //Set grid size and cell states according to XML file
     }
 

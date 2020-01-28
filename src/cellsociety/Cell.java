@@ -22,4 +22,19 @@ public class Cell {
     public char getState(){
         return myState;
     }
+
+    public int countNeighbors(){
+        int neighborCnt = 0;
+
+        if(cellAbove != null)
+            neighborCnt++;
+        if(cellBelow != null)
+            neighborCnt++;
+        if(cellLeft != null)
+            neighborCnt++;
+        if(cellRight != null)
+            neighborCnt++;
+
+        return neighborCnt;
+    }
 }
