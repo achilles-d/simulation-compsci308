@@ -8,10 +8,11 @@ public abstract class Grid {
     }
 
     /**
-     * Set grid size and initial cell states of grid according to XML file in the directory of fileDir
-     * @param fileDir directory for initial cell configuration XML file
+     * Set grid size and initial cell states of grid according to size and contents of array
+     * created by Controller
+     * @param initConfig directory for initial cell configuration XML file
      */
-    public void initialize(String fileDir){
+    public void initialize(String[][] initConfig){
         //Set grid size and cell states according to XML file
     }
 

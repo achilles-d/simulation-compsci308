@@ -6,7 +6,7 @@ public class GOFGrid extends Grid{
     super(configFileDir);
   }
 
-  public void initialize(String configFileDir){
+  public void initialize(String[][] initConfig){
   }
 
 }
