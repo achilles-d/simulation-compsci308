@@ -1,7 +1,7 @@
 package cellsociety;
 
 public abstract class Grid {
-    public Cell[][] myCells;
+    public Enum[][] myCells;
 
     public Grid(String configFileDir){
 
@@ -19,10 +19,10 @@ public abstract class Grid {
      * Return the current state of the cell at the ith row and jth column of the simulation's grid
      * @param i the row of the desired cell in the simulation's grid
      * @param j the column of the desired cell in the simulation's grid
-     * @return the character representing the current state of the cell at row i and column j of the grid
+     * @return the String representing the current state of the cell at row i and column j of the grid
      */
-    public char getCellState(int i, int j){
-        return myCells[i][j].getState();
+    public String getCellState(int i, int j){
+        return myCells[i][j].toString();
     }
 
 }
