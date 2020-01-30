@@ -1,10 +1,10 @@
 package cellsociety;
 
 public abstract class Grid {
-    public Enum[][] myCells;
+    protected Enum[][] myCells;
 
-    public Grid(String configFileDir){
-
+    public Grid(String[][] initConfig){
+        initialize(initConfig);
     }
 
     /**
@@ -12,7 +12,7 @@ public abstract class Grid {
      * created by Controller
      * @param initConfig directory for initial cell configuration XML file
      */
-    public void initialize(String[][] initConfig){
+    protected void initialize(String[][] initConfig){
         //Set grid size and cell states according to XML file
     }
 
