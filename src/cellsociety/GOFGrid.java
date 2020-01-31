@@ -15,4 +15,8 @@ public class GOFGrid extends Grid{
     }
   }
 
+  protected void update(){
+    
+  }
+
 }

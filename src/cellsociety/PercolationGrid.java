@@ -14,7 +14,11 @@ public class PercolationGrid extends Grid {
             return PercolationCell.FULL;
         }
         else{
-            return PercolationCell.PERCOLATED; 
+            return PercolationCell.PERCOLATED;
         }
+    }
+
+    protected void update(){
+
     }
 }

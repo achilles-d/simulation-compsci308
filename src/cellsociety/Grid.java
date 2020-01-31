@@ -35,4 +35,6 @@ public abstract class Grid {
 
     abstract protected Enum setCellState(String state);
 
+    abstract protected void update();
+
 }
