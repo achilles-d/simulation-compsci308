@@ -1,13 +1,15 @@
 package View;
 
+import cellsociety.Grid;
 import java.awt.Canvas;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GridAnimator {
   private Canvas myCanvas;
-  private List<List<>>
+  private GridAnimator[][] myCells;
 
-  public GridAnimator(Canvas canvas, int numberOfCellsX, int numberOfCellsY) {
+  public GridAnimator(Canvas canvas, Grid grid) {
     myCanvas = canvas;
 
   }

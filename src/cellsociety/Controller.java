@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Controller {
 
     public Controller(){
-        ReadXml();
+
     }
 
     public void ReadXml(){
