@@ -24,7 +24,7 @@ public abstract class Grid {
      * @param initConfig directory for initial cell configuration XML file
      */
     protected void initialize(String[][] initConfig){
-        myCells = new GOFCell[initConfig.length][initConfig[0].length];
+        myCells = new Enum[initConfig.length][initConfig[0].length];
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
                 myCells[i][j] = setCellState(initConfig[i][j]);

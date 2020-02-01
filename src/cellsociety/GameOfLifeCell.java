@@ -1,6 +1,6 @@
 package cellsociety;
 
-public enum GOFCell{
+public enum GameOfLifeCell {
   ALIVE, DEAD;
 }
 
