@@ -20,6 +20,6 @@ public class FireGrid extends Grid {
     }
 
     public void update(){
-        
+
     }
 }
