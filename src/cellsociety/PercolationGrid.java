@@ -21,8 +21,7 @@ public class PercolationGrid extends Grid {
     }
 
     protected void update(){
-        Enum[][] temp = new Enum[myCells.length][myCells[0].length];
-        temp = myCells.clone();
+        Enum[][] temp = copyCells();
         for(int i = 0; i < temp.length; i++){
             for(int j = 0; j < temp[0].length; j++){
                 if(temp[i][j] == PercolationCell.EMPTY && neighborIsPercolated(i, j, temp)){

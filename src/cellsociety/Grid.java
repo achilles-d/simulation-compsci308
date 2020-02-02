@@ -36,6 +36,16 @@ public abstract class Grid {
         return (i >= 0 && i < myCells.length && j >= 0 && j< myCells[0].length);
     }
 
+    protected Enum[][] copyCells(){
+        Enum[][] copy = new Enum[myCells.length][myCells[0].length];
+        for(int i = 0; i < myCells.length; i++){
+            for(int j = 0; j < myCells[0].length; j++){
+                copy[i][j] = myCells[i][j];
+            }
+        }
+        return copy;
+    }
+
     abstract protected Enum setCellState(String state);
 
     abstract protected void update();
