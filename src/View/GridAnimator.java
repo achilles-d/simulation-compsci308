@@ -1,5 +1,6 @@
 package View;
 
+import cellsociety.Controller;
 import cellsociety.Grid;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,10 @@ public class GridAnimator {
   private GridPane myPane;
   private List<List<CellAnimator>> myCells;
 
-  public GridAnimator(GridPane pane, Grid grid) {
+  public GridAnimator(GridPane pane, Controller controller) {
     myPane = pane;
 
-    //myCells = grid.getInitialStates();
+    //myCells = controller.getInitialStates();
   }
 
   private void makeCellArray (Grid grid) {
@@ -21,6 +22,6 @@ public class GridAnimator {
   }
 
   public void updateCells () {
-    //for
+
   }
 }
