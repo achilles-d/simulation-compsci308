@@ -21,16 +21,14 @@ public class PercolationGrid extends Grid {
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
-        if(gridCopy[i][j] == PercolationCell.EMPTY &&
-                (inBounds(i+1, j) && gridCopy[i+1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1, j) && gridCopy[i-1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j-1) && gridCopy[i][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j+1) && gridCopy[i][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i+1,j+1) && gridCopy[i+1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i+1,j-1) && gridCopy[i+1][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j+1) && gridCopy[i-1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j-1) && gridCopy[i-1][j-1] == PercolationCell.PERCOLATED) ){
-                myCells[i][j] = PercolationCell.PERCOLATED;
+        if(gridCopy[i][j] == PercolationCell.EMPTY){
+            for(int a = 0; a < maxCellNeighborCount; a++){
+                if(inBounds(i + deltaX[a], j + deltaY[a]) &&
+                        (gridCopy[i + deltaX[a]][j + deltaY[a]]) == PercolationCell.PERCOLATED){
+                    myCells[i][j] = PercolationCell.PERCOLATED;
+                    return;
+                }
+            }
         }
     }
 }

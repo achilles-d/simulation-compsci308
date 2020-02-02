@@ -1,6 +1,9 @@
 package cellsociety;
 
 public abstract class Grid {
+    public static final int[] deltaX = {1, -1, 0, 0, 1, -1, 1, -1};
+    public static final int[] deltaY = {0, 0, 1, -1, -1, 1, 1, -1};
+    public static final int maxCellNeighborCount = 8;
     protected Enum[][] myCells;
 
     public Grid(String[][] initConfig){
