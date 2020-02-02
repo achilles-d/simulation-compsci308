@@ -32,6 +32,9 @@ public abstract class Grid {
         }
     }
 
+    protected boolean inBounds(int i, int j){
+        return (i < myCells.length && j < myCells[0].length);
+    }
 
     abstract protected Enum setCellState(String state);
 
