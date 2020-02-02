@@ -19,7 +19,11 @@ public class PredatorPreyGrid extends Grid{
         }
     }
 
-    protected void update(){
+    public void update(){
         
+    }
+
+    protected void updateCellState(int i, int j, Enum[][] gridCopy){
+
     }
 }

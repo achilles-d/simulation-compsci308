@@ -18,7 +18,12 @@ public class SegregationGrid extends Grid {
         return cell;
     }
 
-    protected void update(){
+    public void update(){
 
     }
+
+    protected void updateCellState(int i, int j, Enum[][] gridCopy){
+
+    }
+
 }

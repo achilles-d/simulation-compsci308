@@ -19,7 +19,7 @@ public class FireGrid extends Grid {
         }
     }
 
-    public void update(){
+    protected void updateCellState(int i, int j, Enum[][] gridCopy){
 
     }
 }
