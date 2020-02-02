@@ -10,8 +10,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -39,14 +42,15 @@ public class Visualizer {
   private ResourceBundle myResources;
   private Button myStartButton;
   private Button myStopButton;
+  private Button myStepButton;
   private Button myFileButton;
+  private Slider mySlider;
 
   public Visualizer (Stage stage, Controller controller, String language) {
     myController = controller;
     myStage = stage;
     // use resources for labels
     myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + language);
-
   }
 
   public Scene makeScene (int width, int height) {
@@ -72,13 +76,20 @@ public class Visualizer {
 
   private Node makeInputPanel() {
     VBox result = new VBox();
-    myStartButton = makeButton("StartCommand", event -> start_button_pressed());
-    myStopButton = makeButton("StopCommand", event -> stop_button_pressed());
-    myFileButton = makeButton("LoadNewFileCommand", event -> file_button_pressed());
+    result.setSpacing(10);
+    result.setFillWidth(true);
+    myStartButton = makeButton("StartCommand", event -> startButtonPressed());
+    myStopButton = makeButton("StopCommand", event -> stopButtonPressed());
+    myStepButton = makeButton("StepForwardCommand", event -> stepButtonPressed());
+    myFileButton = makeButton("LoadNewFileCommand", event -> fileButtonPressed());
+    mySlider = makeSlider(event -> sliderMoved());
 
     result.getChildren().add(myStartButton);
     result.getChildren().add(myFileButton);
     result.getChildren().add(myStopButton);
+    result.getChildren().add(myStepButton);
+    result.getChildren().add(new Label(myResources.getString("AnimationRateCommand")));
+    result.getChildren().add(mySlider);
     return result;
   }
 
@@ -99,17 +110,34 @@ public class Visualizer {
     return result;
   }
 
-  private void file_button_pressed() {
+  private Slider makeSlider (EventHandler<ActionEvent> handler) {
+    Slider result = new Slider(0, 100, 50);
+    // enable the marks
+    result.setShowTickMarks(true);
+    // enable the Labels
+    result.setShowTickLabels(true);
+    return result;
+  }
+
+  private void fileButtonPressed() {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Open Resource File");
     fileChooser.showOpenDialog(myStage);
   }
 
-  private void start_button_pressed() {
+  private void startButtonPressed() {
 
   }
 
-  private void stop_button_pressed() {
+  private void stopButtonPressed() {
+
+  }
+
+  private void stepButtonPressed() {
+
+  }
+
+  private void sliderMoved() {
 
   }
 
