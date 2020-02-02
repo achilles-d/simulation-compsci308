@@ -23,11 +23,23 @@ public abstract class Grid {
      * created by Controller
      * @param initConfig directory for initial cell configuration XML file
      */
-    protected void initialize(String[][] initConfig){
+    public void initialize(String[][] initConfig){
         myCells = new Enum[initConfig.length][initConfig[0].length];
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
                 myCells[i][j] = setCellState(initConfig[i][j]);
+            }
+        }
+    }
+
+    /**
+     * Move the grid one step forward in the simulation according the to the simulation's rules
+     */
+    public void update(){
+        Enum[][] temp = copyCells();
+        for(int i = 0; i < temp.length; i++){
+            for(int j = 0; j < temp[0].length; j++){
+                updateCellState(i, j, temp);
             }
         }
     }
@@ -48,6 +60,8 @@ public abstract class Grid {
 
     abstract protected Enum setCellState(String state);
 
-    abstract protected void update();
+    abstract protected void updateCellState(int i, int j, Enum[][] gridCopy);
+
+
 
 }

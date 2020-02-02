@@ -20,25 +20,17 @@ public class PercolationGrid extends Grid {
         }
     }
 
-    protected void update(){
-        Enum[][] temp = copyCells();
-        for(int i = 0; i < temp.length; i++){
-            for(int j = 0; j < temp[0].length; j++){
-                if(temp[i][j] == PercolationCell.EMPTY && neighborIsPercolated(i, j, temp)){
-                    myCells[i][j] = PercolationCell.PERCOLATED;
-                }
-            }
+    protected void updateCellState(int i, int j, Enum[][] gridCopy){
+        if(gridCopy[i][j] == PercolationCell.EMPTY &&
+                (inBounds(i+1, j) && gridCopy[i+1][j] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1, j) && gridCopy[i-1][j] == PercolationCell.PERCOLATED) ||
+            (inBounds(i, j-1) && gridCopy[i][j-1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i, j+1) && gridCopy[i][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i+1,j+1) && gridCopy[i+1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i+1,j-1) && gridCopy[i+1][j-1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j+1) && gridCopy[i-1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j-1) && gridCopy[i-1][j-1] == PercolationCell.PERCOLATED) ){
+                myCells[i][j] = PercolationCell.PERCOLATED;
         }
-    }
-
-    private boolean neighborIsPercolated(int i, int j, Enum[][] grid){
-        return ( (inBounds(i+1, j) && grid[i+1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1, j) && grid[i-1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j-1) && grid[i][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j+1) && grid[i][j+1] == PercolationCell.PERCOLATED) ) ||
-            (inBounds(i+1,j+1) && grid[i+1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i+1,j-1) && grid[i+1][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j+1) && grid[i-1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j-1) && grid[i-1][j-1] == PercolationCell.PERCOLATED);
     }
 }
