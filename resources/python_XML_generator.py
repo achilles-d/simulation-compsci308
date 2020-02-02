@@ -1,0 +1,23 @@
+import random
+rowNo = int(input("Number of rows: "))
+colNo = int(input("Number of cols: "))
+percentageOfEmpty = int(input("Weight Probability of Empty Cell: "))
+percentageOfFull = int(input("Weight Probability of Full Cell: "))
+percentageOfPercolated = int(input("Weight Probability of Percolated Cell: "))
+percentagesList = [percentageOfEmpty,percentageOfFull,percentageOfPercolated]
+f= open("output.xml","w+")
+f.write('<?xml version="1.0"?>\n')
+f.write('<simulation>\n')
+f.write('   <simulation_type id="percolation">\n')
+f.write('      <author>Simulation Group 6</author>\n')
+f.write('      <title>Percolation Simulation</title>\n')
+f.write('      <width>'+str(colNo)+'</width>\n')
+f.write('      <height>'+str(rowNo)+'</height>\n')
+for i in range(colNo*rowNo):
+    thisState = random.choices(["EMPTY","FULL","PERCOLATED"],percentagesList)
+    f.write('      <cell id = "'+str(i)+'">\n')
+    f.write('         <state>'+thisState[0]+'</state>\n')
+    f.write('      </cell>\n')
+f.write('   </simulation_type >\n')
+f.write('</simulation>\n')
+f.close()
