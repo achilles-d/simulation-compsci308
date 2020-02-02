@@ -28,10 +28,14 @@ public class PercolationGrid extends Grid {
         }
     }
 
-    protected boolean neighborIsPercolated(int i, int j){
+    private boolean neighborIsPercolated(int i, int j){
         return ( (inBounds(i+1, j) && myCells[i+1][j] == PercolationCell.PERCOLATED) ||
             (inBounds(i-1, j) && myCells[i-1][j] == PercolationCell.PERCOLATED) ||
             (inBounds(i, j-1) && myCells[i][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j+1) && myCells[i][j+1] == PercolationCell.PERCOLATED) );
+            (inBounds(i, j+1) && myCells[i][j+1] == PercolationCell.PERCOLATED) ) ||
+            (inBounds(i+1,j+1) && myCells[i+1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i+1,j-1) && myCells[i+1][j-1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j+1) && myCells[i-1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j-1) && myCells[i-1][j-1] == PercolationCell.PERCOLATED);
     }
 }
