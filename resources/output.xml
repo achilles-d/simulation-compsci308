@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation_type id="percolation">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>5</width>
+      <height>5</height>
+      <cell id = "0">
+         <state>FULL</state>
+      </cell>
+      <cell id = "1">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "3">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "4">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "5">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "6">
+         <state>FULL</state>
+      </cell>
+      <cell id = "7">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "8">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "9">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "10">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "11">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "12">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "13">
+         <state>FULL</state>
+      </cell>
+      <cell id = "14">
+         <state>FULL</state>
+      </cell>
+      <cell id = "15">
+         <state>FULL</state>
+      </cell>
+      <cell id = "16">
+         <state>FULL</state>
+      </cell>
+      <cell id = "17">
+         <state>FULL</state>
+      </cell>
+      <cell id = "18">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "19">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "20">
+         <state>FULL</state>
+      </cell>
+      <cell id = "21">
+         <state>FULL</state>
+      </cell>
+      <cell id = "22">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "23">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "24">
+         <state>EMPTY</state>
+      </cell>
+   </simulation_type >
+</simulation>

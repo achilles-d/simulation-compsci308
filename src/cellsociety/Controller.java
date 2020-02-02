@@ -19,6 +19,19 @@ public class Controller {
     String [][] cellStatesGrid;
     public Controller(){
         ReadXml();
+        PercolationGrid grid = new PercolationGrid(cellStatesGrid);
+        printPretty(grid);
+        grid.update();
+        printPretty(grid);
+    }
+
+    private void printPretty(PercolationGrid grid) {
+        for(int i = 0; i < cellStatesGrid.length; i++){
+            for(int j = 0; j < cellStatesGrid[0].length; j++){
+                System.out.println("Row: "+ i + " Col: "+ j + " " + grid.getCellState(i,j));
+            }
+        }
+        System.out.println("");
     }
 
     public void ReadXml(){
@@ -26,7 +39,7 @@ public class Controller {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            File xmlDoc = new File("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/PercolationXMLExample2.xml");
+            File xmlDoc = new File("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/output.xml");
             Document doc = builder.parse(xmlDoc);
             //Read root element
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
