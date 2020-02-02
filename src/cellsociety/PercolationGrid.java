@@ -1,5 +1,7 @@
 package cellsociety;
 
+import java.util.Arrays;
+
 public class PercolationGrid extends Grid {
 
     public PercolationGrid(String[][] initConfig){
@@ -19,23 +21,25 @@ public class PercolationGrid extends Grid {
     }
 
     protected void update(){
-        for(int i = 0; i < myCells.length; i++){
-            for(int j = 0; j < myCells[0].length; j++){
-                if(myCells[i][j] == PercolationCell.EMPTY && neighborIsPercolated(i, j)){
+        Enum[][] temp = new Enum[myCells.length][myCells[0].length];
+        temp = myCells.clone();
+        for(int i = 0; i < temp.length; i++){
+            for(int j = 0; j < temp[0].length; j++){
+                if(temp[i][j] == PercolationCell.EMPTY && neighborIsPercolated(i, j, temp)){
                     myCells[i][j] = PercolationCell.PERCOLATED;
                 }
             }
         }
     }
 
-    private boolean neighborIsPercolated(int i, int j){
-        return ( (inBounds(i+1, j) && myCells[i+1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1, j) && myCells[i-1][j] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j-1) && myCells[i][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i, j+1) && myCells[i][j+1] == PercolationCell.PERCOLATED) ) ||
-            (inBounds(i+1,j+1) && myCells[i+1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i+1,j-1) && myCells[i+1][j-1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j+1) && myCells[i-1][j+1] == PercolationCell.PERCOLATED) ||
-            (inBounds(i-1,j-1) && myCells[i-1][j-1] == PercolationCell.PERCOLATED);
+    private boolean neighborIsPercolated(int i, int j, Enum[][] grid){
+        return ( (inBounds(i+1, j) && grid[i+1][j] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1, j) && grid[i-1][j] == PercolationCell.PERCOLATED) ||
+            (inBounds(i, j-1) && grid[i][j-1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i, j+1) && grid[i][j+1] == PercolationCell.PERCOLATED) ) ||
+            (inBounds(i+1,j+1) && grid[i+1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i+1,j-1) && grid[i+1][j-1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j+1) && grid[i-1][j+1] == PercolationCell.PERCOLATED) ||
+            (inBounds(i-1,j-1) && grid[i-1][j-1] == PercolationCell.PERCOLATED);
     }
 }
