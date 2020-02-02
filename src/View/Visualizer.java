@@ -13,10 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -49,8 +52,8 @@ public class Visualizer {
   public Scene makeScene (int width, int height) {
     BorderPane root = new BorderPane();
     // must be first since other panels may refer to page
-    Canvas myGridCanvas = new Canvas();
-    root.setCenter(myGridCanvas);
+    Node myGridPane = makeGrid();
+    root.setCenter(myGridPane);
     VBox vBox = new VBox();
     vBox.getChildren().add(makeInputPanel());
     root.setRight(vBox);
@@ -59,6 +62,12 @@ public class Visualizer {
     // activate CSS styling
     //scene.getStylesheets().add(getClass().getResource(DEFAULT_RESOURCE_PACKAGE + STYLESHEET).toExternalForm());
     return scene;
+  }
+
+  private Node makeGrid() {
+    GridPane grid = new GridPane();
+
+    return grid;
   }
 
   private Node makeInputPanel() {
