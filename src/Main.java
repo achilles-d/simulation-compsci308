@@ -10,6 +10,6 @@ public class Main {
      */
     public static void main (String[] args) {
         //Visualizer.launch(Visualizer.class);
-        //Controller test = new Controller();
+        Controller test = new Controller();
     }
 }
