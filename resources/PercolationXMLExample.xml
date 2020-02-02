@@ -1,14 +1,36 @@
 <?xml version="1.0"?>
 <simulation>
-   <simulation id="bk101">
-      <author>Gambardella, Matthew</author>
-      <title>XML Developer's Guide</title>
-      <width>Computer</width>
-      <height>44.95</height>
-      //Put here the details related to this specific simulation type
-      <publish_date>2000-10-01</publish_date>
-      <description>An in-depth look at creating applications
-         with XML.</description>
-
-   </simulation>
+   <simulation_type id="percolation">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>3</width>
+      <height>3</height>
+      <cell id = "0">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "3">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "4">
+         <state>FULL</state>
+      </cell>
+      <cell id = "5">
+         <state>PERCOLATED</state>
+      </cell>
+      <cell id = "6">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "7">
+         <state>FULL</state>
+      </cell>
+      <cell id = "8">
+         <state>PERCOLATED</state>
+      </cell>
+   </simulation_type >
 </simulation>
