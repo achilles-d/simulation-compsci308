@@ -39,7 +39,8 @@ public class Controller {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            File xmlDoc = new File("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/output.xml");
+            //File xmlDoc = new File("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/output.xml");
+            File xmlDoc = new File("./resources/output.xml");
             Document doc = builder.parse(xmlDoc);
             //Read root element
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
