@@ -26,7 +26,7 @@ public class GameOfLifeGrid extends Grid{
   protected void updateCellState(int i, int j, Enum[][] gridCopy){
     int aliveCount = 0;
     for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
-      if(gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == GameOfLifeCell.ALIVE){
+      if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) && gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == GameOfLifeCell.ALIVE){
         aliveCount++;
       }
     }

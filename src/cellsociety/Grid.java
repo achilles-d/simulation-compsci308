@@ -11,7 +11,7 @@ public abstract class Grid {
 
     /**
      * Create a grid that runs the cellular automata (CA) simulation
-     * @param initConfig an array of Strings corresponding to each cell's initial state 
+     * @param initConfig an array of Strings corresponding to each cell's initial state
      */
     public Grid(String[][] initConfig){
         initialize(initConfig);
@@ -49,9 +49,7 @@ public abstract class Grid {
         Enum[][] temp = copyCells();
         for(int i = 0; i < temp.length; i++){
             for(int j = 0; j < temp[0].length; j++){
-                if(inBounds(i, j)) {
-                    updateCellState(i, j, temp);
-                }
+                updateCellState(i, j, temp);
             }
         }
     }
