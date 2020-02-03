@@ -17,21 +17,35 @@ public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
+    private Grid myGrid;
+
     public Controller(){
         ReadXml();
-        PercolationGrid grid = new PercolationGrid(cellStatesGrid);
-        printPretty(grid);
-        grid.update();
-        printPretty(grid);
+        myGrid = new PercolationGrid(cellStatesGrid);
+        printPretty(myGrid);
+        myGrid.update();
+        printPretty(myGrid);
     }
 
-    private void printPretty(PercolationGrid grid) {
+    private void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
                 System.out.println("Row: "+ i + " Col: "+ j + " " + grid.getCellState(i,j));
             }
         }
         System.out.println("");
+    }
+
+    public Grid getGrid(){
+        return myGrid;
+    }
+
+    public int getGridWidth(){
+        return GRID_WIDTH;
+    }
+
+    public int  getGridHeight(){
+        return GRID_HEIGHT;
     }
 
     public void ReadXml(){

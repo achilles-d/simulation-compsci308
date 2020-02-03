@@ -86,10 +86,13 @@ public class Visualizer {
     // must be first since other panels may refer to page
     GridPane myGridPane = makeGrid();
     root.setCenter(myGridPane);
-    myAnimator = new GridAnimator(myGridPane, myController);
+    System.out.println(myGridPane.getWidth());
+    System.out.println(myGridPane.getHeight());
+    myAnimator = new GridAnimator(myGridPane, myController, 500);
     VBox vBox = new VBox();
     vBox.getChildren().add(makeInputPanel());
     root.setRight(vBox);
+    System.out.println(vBox.getWidth());
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
     // activate CSS styling
@@ -98,7 +101,10 @@ public class Visualizer {
   }
 
   private GridPane makeGrid() {
-    return new GridPane();
+    GridPane result = new GridPane();
+    result.setMaxWidth(500);
+    result.setMaxHeight(500);
+    return result;
   }
 
   private Node makeInputPanel() {
