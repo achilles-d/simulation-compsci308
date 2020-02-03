@@ -12,9 +12,15 @@ public class PredatorPreyGrid extends Grid{
     private int[][] myTotalTurnsSurvived;
 
     /**
-     * Create a grid to run the Game of Life simulation
+     * Create a grid to run the Predator-Prey (Wa-tor World) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state. "FISH" = cell with fish. "SHARK"
      *                   = cell with shark. "EMPTY" = empty cell
+     * @param minFishTurnsToBreed the amount of turns for which a fish must be alive in the simulation
+     *                            before it can breed new fish
+     * @param maxSharkTurns the maximum amount of turns for which a shark can live in the simulation
+     *                      without eating any fish
+     * @param minSharkTurnsToBreed the amount of turns for which a fish must be alive in the simulation
+     *                             before it can breed new fish
      */
     public PredatorPreyGrid(String[][] initConfig, int minFishTurnsToBreed, int maxSharkTurns, int minSharkTurnsToBreed){
         super(initConfig);
@@ -24,7 +30,7 @@ public class PredatorPreyGrid extends Grid{
     }
 
     @Override
-    public void initialize(String[][] initConfig){
+    protected void initialize(String[][] initConfig){
         super.initialize(initConfig);
         myCellTurnsSurvived = new int[myCells.length][myCells[0].length];
     }
