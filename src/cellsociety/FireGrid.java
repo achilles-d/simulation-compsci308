@@ -5,6 +5,14 @@ public class FireGrid extends Grid {
     private double probCatch;
     private double probGrow;
 
+    /**
+     * Create a grid to run the Spreading of Fire simulation
+     * @param initConfig an array of Strings corresponding to each cell's initial state. "TREE" = cell with tree.
+     *                   "EMPTY" = empty cell. "BURNING" = cell with burning tree
+     * @param pCatch probCatch, the probability that a cell with a tree neighboring a burning cell will also catch
+     *               on fire in the next step of the simulation
+     * @param pGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
+     */
     public FireGrid(String[][] initConfig, double pCatch, double pGrow){
         super(initConfig);
         probCatch = pCatch;

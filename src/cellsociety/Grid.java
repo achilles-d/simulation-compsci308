@@ -9,6 +9,10 @@ public abstract class Grid {
     protected static final int ALT_CELL_NEIGHBOR_COUNT = 4;
     protected Enum[][] myCells;
 
+    /**
+     * Create a grid that runs the cellular automata (CA) simulation
+     * @param initConfig an array of Strings corresponding to each cell's initial state 
+     */
     public Grid(String[][] initConfig){
         initialize(initConfig);
     }
@@ -27,7 +31,7 @@ public abstract class Grid {
     /**
      * Set grid size and initial cell states of grid according to size and contents of array
      * created by Controller
-     * @param initConfig directory for initial cell configuration XML file
+     * @param initConfig array of Strings which each correspond to the toString() of the cell enum's initial state
      */
     public void initialize(String[][] initConfig){
         myCells = new Enum[initConfig.length][initConfig[0].length];

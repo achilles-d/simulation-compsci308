@@ -5,8 +5,13 @@ public class GameOfLifeGrid extends Grid{
   public static final int maxAliveNeighbors = 3;
   public static final int minAliveNeighbors = 2;
 
-  public GameOfLifeGrid(String[][] configFileDir){
-    super(configFileDir);
+  /**
+   * Create a grid to run the Game of Life simulation
+   * @param initConfig an array of Strings corresponding to each cell's initial state. "ALIVE" = cell with living person.
+   *                   "DEAD" = cell with dead person
+   */
+  public GameOfLifeGrid(String[][] initConfig){
+    super(initConfig);
   }
 
   protected GameOfLifeCell setCellState(String state){

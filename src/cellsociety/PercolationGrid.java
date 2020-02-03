@@ -2,6 +2,11 @@ package cellsociety;
 
 public class PercolationGrid extends Grid {
 
+    /**
+     * Create a grid to run the Percolation simulation
+     * @param initConfig an array of Strings corresponding to each cell's initial state.
+     *                   "FULL" = filled cell. "EMPTY" = empty cell. "PERCOLATED" = percolated cell
+     */
     public PercolationGrid(String[][] initConfig){
         super(initConfig);
     }
