@@ -39,13 +39,15 @@ public abstract class Grid {
     }
 
     /**
-     * Move the grid one step forward in the simulation according the to the simulation's rules
+     * Move the grid one step forward in the simulation according to the simulation's rules
      */
     public void update(){
         Enum[][] temp = copyCells();
         for(int i = 0; i < temp.length; i++){
             for(int j = 0; j < temp[0].length; j++){
-                updateCellState(i, j, temp);
+                if(inBounds(i, j)) {
+                    updateCellState(i, j, temp);
+                }
             }
         }
     }
