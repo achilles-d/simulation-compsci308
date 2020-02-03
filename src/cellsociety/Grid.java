@@ -2,7 +2,6 @@ package cellsociety;
 
 public abstract class Grid {
     protected Enum[][] myCells;
-
     public Grid(String[][] initConfig){
         initialize(initConfig);
     }
