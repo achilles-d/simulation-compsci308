@@ -50,6 +50,7 @@ public class Visualizer {
 
   private Controller myController;
   private Stage myStage;
+  private GridAnimator myAnimator;
   // get strings from resource file
   private ResourceBundle myResources;
   private Slider mySlider;
@@ -77,7 +78,7 @@ public class Visualizer {
    * @param elapsedTime
    */
   public void step (double elapsedTime) {
-
+    myAnimator.updateCells();
   }
 
   public Scene makeScene (int width, int height) {
@@ -85,7 +86,7 @@ public class Visualizer {
     // must be first since other panels may refer to page
     GridPane myGridPane = makeGrid();
     root.setCenter(myGridPane);
-    GridAnimator myAnimator = new GridAnimator(myGridPane, myController);
+    myAnimator = new GridAnimator(myGridPane, myController);
     VBox vBox = new VBox();
     vBox.getChildren().add(makeInputPanel());
     root.setRight(vBox);
