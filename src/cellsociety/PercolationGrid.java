@@ -20,7 +20,7 @@ public class PercolationGrid extends Grid {
         }
     }
 
-    protected void update(){
+    public void update(){
         Enum[][] temp = new Enum[myCells.length][myCells[0].length];
         temp = myCells.clone();
         for(int i = 0; i < temp.length; i++){

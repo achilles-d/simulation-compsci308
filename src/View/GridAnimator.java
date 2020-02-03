@@ -55,6 +55,6 @@ public class GridAnimator {
   }
 
   public void updateCells () {
-
+    myController.getGrid().update();
   }
 }

@@ -19,7 +19,7 @@ public class PredatorPreyGrid extends Grid{
         }
     }
 
-    protected void update(){
+    public void update(){
         
     }
 }

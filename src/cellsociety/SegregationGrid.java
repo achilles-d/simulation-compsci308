@@ -18,7 +18,7 @@ public class SegregationGrid extends Grid {
         return cell;
     }
 
-    protected void update(){
+    public void update(){
 
     }
 }

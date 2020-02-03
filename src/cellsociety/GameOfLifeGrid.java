@@ -15,7 +15,7 @@ public class GameOfLifeGrid extends Grid{
     }
   }
 
-  protected void update(){
+  public void update(){
 
   }
 

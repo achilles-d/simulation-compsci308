@@ -78,7 +78,9 @@ public class Visualizer {
    * @param elapsedTime
    */
   public void step (double elapsedTime) {
-    myAnimator.updateCells();
+    if (running) {
+      myAnimator.updateCells();
+    }
   }
 
   public Scene makeScene (int width, int height) {
