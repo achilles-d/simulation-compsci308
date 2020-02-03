@@ -8,7 +8,7 @@ rowNo = int(input("  Number of rows: "))
 colNo = int(input("  Number of cols: "))
 stateTypesListForAll = [["EMPTY","FULL","PERCOLATED"],["ALIVE","DEAD"],["X","O","EMPTY"],["EMPTY","SHARK","FISH"],["EMPTY","TREE","BURNING"]]
 stateTypesForThis = stateTypesListForAll[simulationTypeNo]
-extraParamListForAll = [[],[],["satisfaction_percentage"],["fish_turns","shark_turns"],["prob_catch","prob_grow"]]
+extraParamListForAll = [[],[],["satisfaction_percentage"],["min_fish_turn_to_breed","max_shark_turns","min_shark_turns_to_breed"],["prob_catch","prob_grow"]]
 extraParamForThis = extraParamListForAll[simulationTypeNo]
 print("\nState Types for the simulation are: " + " ".join(stateTypesForThis))
 print("Enter Cell Type Distribution: \n")

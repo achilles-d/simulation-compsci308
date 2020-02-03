@@ -82,9 +82,10 @@ public class Controller {
                 //initialize
                 break;
             case "PREDATOR/PREY":
-                double fishTurns = readDoubleParameter(doc, "fish_turns");
-                double sharkTurns = readDoubleParameter(doc, "shark_turns");
-                grid = new PredatorPreyGrid(cellStatesGrid,fishTurns,sharkTurns);
+                int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
+                int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
+                int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+                grid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
@@ -107,7 +108,11 @@ public class Controller {
 
     private double readDoubleParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return Double.valueOf(parameter);
+        return Double.parseDouble(parameter);
+    }
+    private int readIntegerParameter(Document doc, String parameterName){
+        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
+        return Integer.parseInt(parameter);
     }
 
     private String getSimulationType(Document doc) {
