@@ -1,5 +1,7 @@
 package cellsociety;
 
+import java.util.ArrayList;
+
 public abstract class Grid {
     protected static final int[] DELTA_X = {1, -1, 0, 0, 1, -1, 1, -1};
     protected static final int[] DELTA_Y = {0, 0, 1, -1, -1, 1, 1, -1};
@@ -27,13 +29,7 @@ public abstract class Grid {
         return myCells[i][j].toString();
     }
 
-
-    /**
-     * Set grid size and initial cell states of grid according to size and contents of array
-     * created by Controller
-     * @param initConfig array of Strings which each correspond to the toString() of the cell enum's initial state
-     */
-    public void initialize(String[][] initConfig){
+    protected void initialize(String[][] initConfig){
         myCells = new Enum[initConfig.length][initConfig[0].length];
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
@@ -68,10 +64,30 @@ public abstract class Grid {
         return copy;
     }
 
+    protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell) {
+        ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
+        for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
+            if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) &&
+                    gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == targetCell){
+                cellIndices.add(new IndexPair(i + DELTA_X[a], j + DELTA_Y[a]));
+            }
+        }
+        return cellIndices;
+    }
+
+    protected ArrayList<IndexPair> altFindNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell) {
+        ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
+        for(int a = 0; a < ALT_CELL_NEIGHBOR_COUNT; a++){
+            if(inBounds(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]) &&
+                    gridCopy[i + ALT_DELTA_X[a]][j + ALT_DELTA_Y[a]] == targetCell){
+                cellIndices.add(new IndexPair(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]));
+            }
+        }
+        return cellIndices;
+    }
+
     abstract protected Enum setCellState(String state);
 
     abstract protected void updateCellState(int i, int j, Enum[][] gridCopy);
-
-
 
 }

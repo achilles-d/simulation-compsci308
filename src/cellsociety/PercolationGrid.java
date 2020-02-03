@@ -1,5 +1,7 @@
 package cellsociety;
 
+import java.util.ArrayList;
+
 public class PercolationGrid extends Grid {
 
     /**
@@ -24,13 +26,10 @@ public class PercolationGrid extends Grid {
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
-        if(gridCopy[i][j] == PercolationCell.EMPTY){
-            for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
-                if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) &&
-                        (gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == PercolationCell.PERCOLATED) ){
-                    myCells[i][j] = PercolationCell.PERCOLATED;
-                    return;
-                }
+        if(gridCopy[i][j] == PercolationCell.EMPTY) {
+            ArrayList<IndexPair> percolatedCellIndices = findNeighborIndices(i, j, gridCopy, PercolationCell.PERCOLATED);
+            if (!percolatedCellIndices.isEmpty()) {
+                myCells[i][j] = PercolationCell.PERCOLATED;
             }
         }
     }

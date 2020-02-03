@@ -24,12 +24,7 @@ public class GameOfLifeGrid extends Grid{
   }
 
   protected void updateCellState(int i, int j, Enum[][] gridCopy){
-    int aliveCount = 0;
-    for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
-      if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) && gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == GameOfLifeCell.ALIVE){
-        aliveCount++;
-      }
-    }
+    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE).size();
     if(gridCopy[i][j] == GameOfLifeCell.ALIVE){
       if((aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors)){
         myCells[i][j] = GameOfLifeCell.DEAD;

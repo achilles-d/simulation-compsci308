@@ -57,7 +57,7 @@ public class PredatorPreyGrid extends Grid{
     }
 
     private void updateFishCell(int i, int j, Enum[][] gridCopy) {
-        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
+        ArrayList<IndexPair> emptyCellIndices = altFindNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
         if(!emptyCellIndices.isEmpty()) {
             int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
             myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()] = PredatorPreyCell.FISH;
@@ -74,7 +74,7 @@ public class PredatorPreyGrid extends Grid{
             setCellEmpty(i,j);
         }
         else {
-            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH);
+            ArrayList<IndexPair> fishCellIndices = altFindNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH);
             if (!fishCellIndices.isEmpty()) {
                 int fishCellIndex = new Random().nextInt(fishCellIndices.size());
                 int newRow = fishCellIndices.get(fishCellIndex).getRow();
@@ -87,17 +87,6 @@ public class PredatorPreyGrid extends Grid{
                 }
             }
         }
-    }
-
-    private ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, PredatorPreyCell targetCell) {
-        ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
-        for(int a = 0; a < ALT_CELL_NEIGHBOR_COUNT; a++){
-            if(inBounds(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]) &&
-                    gridCopy[i + ALT_DELTA_X[a]][j + ALT_DELTA_Y[a]] == targetCell){
-                cellIndices.add(new IndexPair(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]));
-            }
-        }
-        return cellIndices;
     }
 
     private void setCellEmpty(int i, int j){

@@ -48,13 +48,9 @@ public class FireGrid extends Grid {
     }
 
     private void updateTreeCells(int i, int j, Enum[][] gridCopy) {
-        for(int a = 0; a < ALT_CELL_NEIGHBOR_COUNT; a++){
-            if(inBounds(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]) &&
-                    (gridCopy[i + ALT_DELTA_X[a]][j + ALT_DELTA_Y[a]] == FireCell.BURNING) ){
-                if(Math.random() < probCatch){
-                    myCells[i][j] = FireCell.BURNING;
-                }
-                return;
+        if(! altFindNeighborIndices(i, j, gridCopy , FireCell.BURNING).isEmpty()){
+            if(Math.random() < probCatch) {
+                myCells[i][j] = FireCell.BURNING;
             }
         }
     }
