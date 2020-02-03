@@ -18,7 +18,8 @@ public class Controller {
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
     public Controller(){
-        //ReadXml("./resources/output.xml");
+        //File xmlDoc = new File("./resources/output.xml");
+        //ReadXml(xmlDoc);
         PercolationGrid grid = new PercolationGrid(cellStatesGrid);
         printPretty(grid);
         grid.update();
@@ -34,7 +35,7 @@ public class Controller {
         System.out.println("");
     }
 
-    public void ReadXml(String pathName){ //add a argument
+    public void parseXmlFile(File xmlDoc){ //add a argument
         //Reader: game of life and percolation are same,
         //        segregation: +t satisfaction percentage,
         //        predator-prey: + fish number of turns, shark number of turns
@@ -47,15 +48,11 @@ public class Controller {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            //File xmlDoc = new File("./resources/output.xml");
-            File xmlDoc = new File(pathName);
             Document doc = builder.parse(xmlDoc);
-
             assignGridDimensions(doc);
             assignCellStates(doc);
             String simulationType = getSimulationType(doc);
             readParamsAndInitialize(doc, simulationType);
-
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -69,30 +66,33 @@ public class Controller {
     }
 
     private void readParamsAndInitialize(Document doc, String simulationType) {
+        Grid grid;
         switch(simulationType){
             case "PERCOLATION":
+                grid = new PercolationGrid(cellStatesGrid);
                 //initialize
                 break;
             case "GAME OF LIFE":
+                grid = new GameOfLifeGrid(cellStatesGrid);
                 //initialize
                 break;
             case "SEGREGATION":
                 double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 //initialize
                 break;
             case "PREDATOR/PREY":
                 double fishTurns = readDoubleParameter(doc, "fish_turns");
                 double sharkTurns = readDoubleParameter(doc, "shark_turns");
-                //initialize
+                grid = new PredatorPreyGrid(cellStatesGrid,fishTurns,sharkTurns);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
                 double probGrow = readDoubleParameter(doc, "prob_grow");
-                //initialize
+                grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
         }
     }
-
     //check this one
     public String[][] getUpdatedGrid(PercolationGrid grid){
         grid.update();
