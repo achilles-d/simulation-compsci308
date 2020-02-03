@@ -1,5 +1,5 @@
 package cellsociety;
 
 public enum FireCell {
-    EMPTY, TREE, BURNING;
+    EMPTY, TREE, BURNING, NEW_TREE;
 }
