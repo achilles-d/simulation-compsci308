@@ -18,7 +18,8 @@ public class Controller {
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
     public Controller(){
-        ReadXml();
+        //File xmlDoc = new File("./resources/output.xml");
+        //ReadXml(xmlDoc);
         PercolationGrid grid = new PercolationGrid(cellStatesGrid);
         printPretty(grid);
         grid.update();
@@ -34,41 +35,24 @@ public class Controller {
         System.out.println("");
     }
 
-    public void ReadXml(){
+    public void parseXmlFile(File xmlDoc){ //add a argument
+        //Reader: game of life and percolation are same,
+        //        segregation: +t satisfaction percentage,
+        //        predator-prey: + fish number of turns, shark number of turns
+        //        Spreading-fire: + probCatch, +proGrow
+        //Generator: game of life has only two states: ALIVE OR DEAD,
+        //           segregation +can have more than 3 states (X + O + [possible others] + EMPTY,
+        //           predator-prey: empty, shark, fish
+        //           Spreading-fire: Empty/Tree/Burning, Empty cells around the original screen
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            //File xmlDoc = new File("/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/output.xml");
-            File xmlDoc = new File("./resources/output.xml");
             Document doc = builder.parse(xmlDoc);
-            //Read root element
-            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
-            String widthString = doc.getElementsByTagName("width").item(0).getTextContent();
-            String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
-            GRID_WIDTH = Integer.parseInt(widthString);
-            GRID_HEIGHT = Integer.parseInt(heightString);
-            cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
-            System.out.println(widthString + " " + heightString);
-            //String[][] cellStates = new String[][];
-            NodeList cellList = doc.getElementsByTagName("cell");
-            for(int i=0; i<cellList.getLength(); i++){
-                Node cellNode = cellList.item(i);
-                //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
-                if(cellNode.getNodeType()==Node.ELEMENT_NODE){
-                    Element cellElement = (Element) cellNode;
-                    //System.out.println("STATE: " + cellElement.getElementsByTagName("state").item(0).getTextContent());
-                    cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
-                }
-            }
-            //
-            //Node simulation = doc.getElementById("GameOfLife");
-            System.out.println("CELL STATES GRID : " );
-            for(int i=0; i<cellList.getLength(); i++){
-                System.out.println("#######");
-                System.out.println("Row: "+i/GRID_WIDTH+ " Col: "+i%GRID_WIDTH);
-                System.out.println(cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH]);
-            }
+            assignGridDimensions(doc);
+            assignCellStates(doc);
+            String simulationType = getSimulationType(doc);
+            readParamsAndInitialize(doc, simulationType);
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -78,19 +62,82 @@ public class Controller {
             e.printStackTrace();
         }
 
-        /*
-        Note from the class: Find the XMLParser.java document and check
-        private DocumentBuilder getDocumentBuilder(){
-            try{
-                return DocumentBuilderFactory.newInstance().newDocumentBuilder();
+
+    }
+
+    private void readParamsAndInitialize(Document doc, String simulationType) {
+        Grid grid;
+        switch(simulationType){
+            case "PERCOLATION":
+                grid = new PercolationGrid(cellStatesGrid);
+                //initialize
+                break;
+            case "GAME OF LIFE":
+                grid = new GameOfLifeGrid(cellStatesGrid);
+                //initialize
+                break;
+            case "SEGREGATION":
+                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                //initialize
+                break;
+            case "PREDATOR/PREY":
+                int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
+                int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
+                int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+                grid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                break;
+            case "SPREADING FIRE":
+                double probCatch = readDoubleParameter(doc, "prob_catch");
+                double probGrow = readDoubleParameter(doc, "prob_grow");
+                grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                break;
+        }
+    }
+    //check this one
+    public String[][] getUpdatedGrid(PercolationGrid grid){
+        grid.update();
+        String[][] updatedGrid = new String [cellStatesGrid.length][cellStatesGrid[0].length];
+        for(int i = 0; i < cellStatesGrid.length; i++){
+            for(int j = 0; j < cellStatesGrid[0].length; j++){
+                updatedGrid[i][j] = grid.getCellState(i,j);
             }
-            catch (ParserConfigurationException e) {
+        }
+        return updatedGrid;
+    }
 
+    private double readDoubleParameter(Document doc, String parameterName){
+        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
+        return Double.parseDouble(parameter);
+    }
+    private int readIntegerParameter(Document doc, String parameterName){
+        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
+        return Integer.parseInt(parameter);
+    }
+
+    private String getSimulationType(Document doc) {
+        return doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
+    }
+
+    private void assignGridDimensions(Document doc) {
+        String widthString = doc.getElementsByTagName("width").item(0).getTextContent();
+        String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
+        GRID_WIDTH = Integer.parseInt(widthString);
+        GRID_HEIGHT = Integer.parseInt(heightString);
+        cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
+    }
+
+    private void assignCellStates(Document doc) {
+        //String[][] cellStates = new String[][];
+        NodeList cellList = doc.getElementsByTagName("cell");
+        for(int i=0; i<cellList.getLength(); i++){
+            Node cellNode = cellList.item(i);
+            //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
+            if(cellNode.getNodeType()==Node.ELEMENT_NODE){
+                Element cellElement = (Element) cellNode;
+                //System.out.println("STATE: " + cellElement.getElementsByTagName("state").item(0).getTextContent());
+                cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
             }
-
-
-
-         */
-
+        }
     }
 }
