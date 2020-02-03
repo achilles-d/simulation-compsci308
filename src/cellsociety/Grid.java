@@ -1,9 +1,12 @@
 package cellsociety;
 
 public abstract class Grid {
-    public static final int[] deltaX = {1, -1, 0, 0, 1, -1, 1, -1};
-    public static final int[] deltaY = {0, 0, 1, -1, -1, 1, 1, -1};
-    public static final int maxCellNeighborCount = 8;
+    protected static final int[] DELTA_X = {1, -1, 0, 0, 1, -1, 1, -1};
+    protected static final int[] DELTA_Y = {0, 0, 1, -1, -1, 1, 1, -1};
+    protected static final int[] ALT_DELTA_X = {1, -1, 0, 0};
+    protected static final int[] ALT_DELTA_Y = {0, 0, 1, -1};
+    protected static final int MAX_CELL_NEIGHBOR_COUNT = 8;
+    protected static final int ALT_CELL_NEIGHBOR_COUNT = 4;
     protected Enum[][] myCells;
 
     public Grid(String[][] initConfig){

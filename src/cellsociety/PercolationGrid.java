@@ -1,7 +1,5 @@
 package cellsociety;
 
-import java.util.Arrays;
-
 public class PercolationGrid extends Grid {
 
     public PercolationGrid(String[][] initConfig){
@@ -22,9 +20,9 @@ public class PercolationGrid extends Grid {
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
         if(gridCopy[i][j] == PercolationCell.EMPTY){
-            for(int a = 0; a < maxCellNeighborCount; a++){
-                if(inBounds(i + deltaX[a], j + deltaY[a]) &&
-                        (gridCopy[i + deltaX[a]][j + deltaY[a]]) == PercolationCell.PERCOLATED){
+            for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
+                if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) &&
+                        (gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]]) == PercolationCell.PERCOLATED){
                     myCells[i][j] = PercolationCell.PERCOLATED;
                     return;
                 }
