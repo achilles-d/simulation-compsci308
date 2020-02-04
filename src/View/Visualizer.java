@@ -54,6 +54,7 @@ public class Visualizer {
   // get strings from resource file
   private ResourceBundle myResources;
   private Slider mySlider;
+  private GridPane myGridPane;
 
   private boolean running = false;
 
@@ -79,6 +80,7 @@ public class Visualizer {
    */
   public void step (double elapsedTime) {
     if (running) {
+      myController.getGrid().update();
       myAnimator.updateCells();
     }
   }
@@ -86,19 +88,24 @@ public class Visualizer {
   public Scene makeScene (int width, int height) {
     BorderPane root = new BorderPane();
     // must be first since other panels may refer to page
-    GridPane myGridPane = makeGrid();
+    myGridPane = makeGrid();
     root.setCenter(myGridPane);
+
     System.out.println(myGridPane.getWidth());
     System.out.println(myGridPane.getHeight());
-    myAnimator = new GridAnimator(myGridPane, myController, 500);
+
     VBox vBox = new VBox();
     vBox.getChildren().add(makeInputPanel());
     root.setRight(vBox);
+    //System.out.println(this);
+    myAnimator = new GridAnimator(myGridPane, myController, 500);
+//    addToGrid(new Rectangle(30,30, Color.BLUE), 20,20);
     System.out.println(vBox.getWidth());
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
     // activate CSS styling
     //scene.getStylesheets().add(getClass().getResource(DEFAULT_RESOURCE_PACKAGE + STYLESHEET).toExternalForm());
+
     return scene;
   }
 
@@ -196,6 +203,7 @@ public class Visualizer {
    * Called when Step Forward button is pressed.
    */
   private void stepButtonPressed() {
-
+    myController.getGrid().update();
+    myAnimator.updateCells();
   }
 }

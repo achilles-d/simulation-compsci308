@@ -23,8 +23,8 @@ public class Controller {
         ReadXml();
         myGrid = new PercolationGrid(cellStatesGrid);
         printPretty(myGrid);
-        myGrid.update();
-        printPretty(myGrid);
+        //myGrid.update();
+        //printPretty(myGrid);
     }
 
     private void printPretty(Grid grid) {
