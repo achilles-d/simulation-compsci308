@@ -2,6 +2,10 @@ package cellsociety;
 
 import java.util.ArrayList;
 
+/**
+ * Provides a skeleton for the operation of each of the assigned cellular automata (CA) simulations
+ * @author Achilles Dabrowski
+ */
 public abstract class Grid {
     protected static final int[] DELTA_X = {1, -1, 0, 0, 1, -1, 1, -1};
     protected static final int[] DELTA_Y = {0, 0, 1, -1, -1, 1, 1, -1};

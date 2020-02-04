@@ -3,6 +3,10 @@ package cellsociety;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Facilitate a simulation of Schelling's Model of Segregation
+ * @author Achilles Dabrowski
+ */
 public class SegregationGrid extends Grid {
 
     private double myMinAgentSatisfaction;
@@ -35,6 +39,7 @@ public class SegregationGrid extends Grid {
 
     @Override
     protected void initialize(String[][] initConfig){
+        myCells = new Enum[initConfig.length][initConfig[0].length];
         myEmptyCellIndices = new ArrayList<IndexPair>();
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){

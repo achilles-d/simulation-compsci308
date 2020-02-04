@@ -1,5 +1,9 @@
 package cellsociety;
 
+/**
+ * Facilitates a simulation of Spreading of Fire
+ * @author Achilles Dabrowski
+ */
 public class FireGrid extends Grid {
 
     private double probCatch;

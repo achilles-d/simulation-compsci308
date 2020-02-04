@@ -3,6 +3,10 @@ package cellsociety;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Facilitates a Wa-Tor World / Predator-Prey simulation
+ * @author
+ */
 public class PredatorPreyGrid extends Grid{
 
     private int myMinFishTurnsToBreed;

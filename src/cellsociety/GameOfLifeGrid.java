@@ -1,5 +1,9 @@
 package cellsociety;
 
+/**
+ * Facilitates a simulation of the Game of Life
+ * @author Achilles Dabrowski 
+ */
 public class GameOfLifeGrid extends Grid{
 
   public static final int maxAliveNeighbors = 3;
