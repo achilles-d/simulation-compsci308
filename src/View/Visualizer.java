@@ -5,11 +5,9 @@ import java.io.File;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,22 +15,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import org.w3c.dom.Document;
 
 /**
@@ -52,17 +42,24 @@ public class Visualizer {
   private Controller myController;
   private Stage myStage;
   private GridAnimator myAnimator;
-  // get strings from resource file
   private ResourceBundle myResources;
   private Slider mySlider;
-  private GridPane myGridPane;
+  private double currTime = 0;
 
   private boolean running = false;
+  private boolean fileLoaded = false;
 
+  /**
+   * Constructor for Visualizer class. Sets instance variables and
+   * creates the continual loop for updating the simulation
+   *
+   * @param stage This is the main stage for the Application
+   * @param controller Instance of the Controller of the simulation
+   * @param language Determines which resource file to use for the GUI strings
+   */
   public Visualizer (Stage stage, Controller controller, String language) {
     myController = controller;
     myStage = stage;
-    // use resources for labels
     myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + language);
 
     // call step() method repeatedly forever
@@ -76,40 +73,50 @@ public class Visualizer {
   }
 
   /**
+   * This method is called time interval based on FRAMES_PER_SECOND.
+   * Responsible for animating the simulation
    *
-   * @param elapsedTime
+   * @param elapsedTime time between calls to step()
    */
   public void step (double elapsedTime) {
-    if (running) {
+    currTime += elapsedTime;
+    if (running && currTime*10 > mySlider.getValue()) {
       myController.getGrid().update();
       myAnimator.updateCells();
+      currTime = 0;
     }
   }
 
+  /**
+   * Creates the scene that displays the GUI
+   *
+   * @param width width in pixels of the GUI
+   * @param height height in pixels of the GUI
+   * @return the main Scene for the GUI
+   */
   public Scene makeScene (int width, int height) {
     BorderPane root = new BorderPane();
+
     // must be first since other panels may refer to page
-    myGridPane = makeGrid();
+    GridPane myGridPane = makeGrid();
     root.setCenter(myGridPane);
-
-    System.out.println(myGridPane.getWidth());
-    System.out.println(myGridPane.getHeight());
-
     VBox vBox = new VBox();
     vBox.getChildren().add(makeInputPanel());
+    vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
-    //System.out.println(this);
     myAnimator = new GridAnimator(myGridPane, myController, 500);
-//    addToGrid(new Rectangle(30,30, Color.BLUE), 20,20);
-    System.out.println(vBox.getWidth());
+
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
     // activate CSS styling
     //scene.getStylesheets().add(getClass().getResource(DEFAULT_RESOURCE_PACKAGE + STYLESHEET).toExternalForm());
-
     return scene;
   }
 
+  /**
+   *
+   * @return The GridPane that the cells will be displayed on
+   */
   private GridPane makeGrid() {
     GridPane result = new GridPane();
     result.setMaxWidth(500);
@@ -117,6 +124,9 @@ public class Visualizer {
     return result;
   }
 
+  /**
+   * @return Node that contains the User input Buttons and Slider
+   */
   private Node makeInputPanel() {
     VBox result = new VBox();
     result.setSpacing(10);
@@ -139,9 +149,10 @@ public class Visualizer {
   /**
    * makes a button using either an image or a label
    * taken from lab_browser
-   * @param property
-   * @param handler
-   * @return
+   *
+   * @param property String to look for in the resources file
+   * @param handler to handle user clicks
+   * @return Button instance
    */
   private Button makeButton (String property, EventHandler<ActionEvent> handler) {
     // represent all supported image suffixes
@@ -159,8 +170,9 @@ public class Visualizer {
   }
 
   /**
+   * Create a Slider for the user to change the animation rate
    *
-   * @return
+   * @return Slider instance
    */
   private Slider makeSlider () {
     Slider result = new Slider(0, 100, 50);
@@ -176,13 +188,18 @@ public class Visualizer {
    * user selected file.
    */
   private void fileButtonPressed() {
+    running = false;
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Open Resource File");
     File selectedFile = fileChooser.showOpenDialog(myStage);
+    if (selectedFile == null) {
+      System.out.println("You must select a file");
+      return;
+    }
     Document doc = myController.parseXmlFile(selectedFile);
     myController.readParamsAndInitialize(doc);
-    myAnimator.updateCells();
-    myController.printPretty(myController.getGrid());
+    myAnimator.makeCellArray();
+    fileLoaded = true;
   }
 
   /**
@@ -190,6 +207,10 @@ public class Visualizer {
    */
   private void startButtonPressed() {
     // Step forward at the current animation rate
+    if (!fileLoaded){
+      System.out.println("You must load a file before starting");
+      return;
+    }
     running = true;
 
   }
@@ -207,6 +228,10 @@ public class Visualizer {
    * Called when Step Forward button is pressed.
    */
   private void stepButtonPressed() {
+    if (!fileLoaded){
+      System.out.println("You must load a file before starting");
+      return;
+    }
     myController.getGrid().update();
     myAnimator.updateCells();
   }
