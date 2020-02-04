@@ -92,8 +92,8 @@ public class Controller {
                 myGrid = new GameOfLifeGrid(cellStatesGrid);
                 break;
             case "SEGREGATION":
-                //double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                //myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 break;
             case "PREDATOR/PREY":
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
@@ -157,7 +157,6 @@ public class Controller {
             //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
-                //System.out.println("STATE: " + cellElement.getElementsByTagName("state").item(0).getTextContent());
                 cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
             }
         }

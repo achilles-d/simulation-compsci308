@@ -35,6 +35,7 @@ public class SegregationGrid extends Grid {
 
     @Override
     protected void initialize(String[][] initConfig){
+        myCells = new Enum[initConfig.length][initConfig[0].length];
         myEmptyCellIndices = new ArrayList<IndexPair>();
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
