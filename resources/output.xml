@@ -1,15 +1,22 @@
 <?xml version="1.0"?>
 <simulation>
-   <simulation_type id="PERCOLATION">
+   <simulation_type id="SPREADING FIRE">
       <author>Simulation Group 6</author>
       <title>Percolation Simulation</title>
+<<<<<<< HEAD
       <width>40</width>
       <height>20</height>
+=======
+      <width>5</width>
+      <height>5</height>
+      <prob_catch>0.2</prob_catch>
+      <prob_grow>0.1</prob_grow>
+>>>>>>> f1667be89b1356027c55e26f122c31c8284878d0
       <cell id = "0">
          <state>EMPTY</state>
       </cell>
       <cell id = "1">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2">
          <state>EMPTY</state>
@@ -21,25 +28,36 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "5">
+<<<<<<< HEAD
          <state>PERCOLATED</state>
+=======
+         <state>EMPTY</state>
+>>>>>>> f1667be89b1356027c55e26f122c31c8284878d0
       </cell>
       <cell id = "6">
          <state>EMPTY</state>
       </cell>
       <cell id = "7">
+<<<<<<< HEAD
          <state>PERCOLATED</state>
       </cell>
       <cell id = "8">
          <state>EMPTY</state>
+=======
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "8">
+         <state>TREE</state>
+>>>>>>> f1667be89b1356027c55e26f122c31c8284878d0
       </cell>
       <cell id = "9">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "10">
          <state>EMPTY</state>
       </cell>
       <cell id = "11">
-         <state>PERCOLATED</state>
+         <state>BURNING</state>
       </cell>
       <cell id = "12">
          <state>FULL</state>
@@ -54,13 +72,20 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "16">
+<<<<<<< HEAD
          <state>PERCOLATED</state>
       </cell>
       <cell id = "17">
          <state>PERCOLATED</state>
+=======
+         <state>TREE</state>
+      </cell>
+      <cell id = "17">
+         <state>TREE</state>
+>>>>>>> f1667be89b1356027c55e26f122c31c8284878d0
       </cell>
       <cell id = "18">
-         <state>EMPTY</state>
+         <state>BURNING</state>
       </cell>
       <cell id = "19">
          <state>EMPTY</state>
@@ -78,6 +103,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "24">
+<<<<<<< HEAD
          <state>PERCOLATED</state>
       </cell>
       <cell id = "25">
@@ -500,7 +526,7 @@
       <cell id = "164">
          <state>EMPTY</state>
       </cell>
-      <cell id = "165">
+      <cell id = "165"> 
          <state>EMPTY</state>
       </cell>
       <cell id = "166">
@@ -2403,6 +2429,8 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "799">
+=======
+>>>>>>> f1667be89b1356027c55e26f122c31c8284878d0
          <state>EMPTY</state>
       </cell>
    </simulation_type >

@@ -29,15 +29,6 @@ public abstract class Grid {
         return myCells[i][j].toString();
     }
 
-    protected void initialize(String[][] initConfig){
-        myCells = new Enum[initConfig.length][initConfig[0].length];
-        for(int i = 0; i < initConfig.length; i++){
-            for(int j = 0; j < initConfig[0].length; j++){
-                myCells[i][j] = setCellState(initConfig[i][j]);
-            }
-        }
-    }
-
     /**
      * Move the grid one step forward in the simulation according to the simulation's rules
      */
@@ -49,6 +40,16 @@ public abstract class Grid {
             }
         }
     }
+
+    protected void initialize(String[][] initConfig){
+        myCells = new Enum[initConfig.length][initConfig[0].length];
+        for(int i = 0; i < initConfig.length; i++){
+            for(int j = 0; j < initConfig[0].length; j++){
+                myCells[i][j] = setCellState(initConfig[i][j]);
+            }
+        }
+    }
+
 
     protected boolean inBounds(int i, int j){
         return (i >= 0 && i < myCells.length && j >= 0 && j< myCells[0].length);
