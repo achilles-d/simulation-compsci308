@@ -178,7 +178,7 @@ public class Visualizer {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Open Resource File");
     File selectedFile = fileChooser.showOpenDialog(myStage);
-    //myController.ReadXml(selectedFile);
+    myController.parseXmlFile(selectedFile);
   }
 
   /**
