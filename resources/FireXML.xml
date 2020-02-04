@@ -2,7 +2,7 @@
 <simulation>
    <simulation_type id="SPREADING FIRE">
       <author>Simulation Group 6</author>
-      <title>Percolation Simulation</title>
+      <title>Fire Simulation</title>
       <width>50</width>
       <height>50</height>
       <prob_catch>0.3</prob_catch>
