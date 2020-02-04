@@ -33,6 +33,7 @@ public class PredatorPreyGrid extends Grid{
     protected void initialize(String[][] initConfig){
         super.initialize(initConfig);
         myCellTurnsSurvived = new int[myCells.length][myCells[0].length];
+        myTotalTurnsSurvived = new int[myCells.length][myCells[0].length];
     }
 
 

@@ -21,7 +21,7 @@ for i in range(len(extraParamForThis)):
 f= open("output.xml","w+")
 f.write('<?xml version="1.0"?>\n')
 f.write('<simulation>\n')
-f.write('   <simulation_type id="percolation">\n')
+f.write('   <simulation_type id="'+str(simulation_type)+'">\n')
 f.write('      <author>Simulation Group 6</author>\n')
 f.write('      <title>Percolation Simulation</title>\n')
 f.write('      <width>'+str(colNo)+'</width>\n')

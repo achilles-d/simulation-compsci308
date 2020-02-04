@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import org.w3c.dom.Document;
 
 /**
  * Class used to display the GUI for the simulation
@@ -178,7 +179,10 @@ public class Visualizer {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Open Resource File");
     File selectedFile = fileChooser.showOpenDialog(myStage);
-    myController.parseXmlFile(selectedFile);
+    Document doc = myController.parseXmlFile(selectedFile);
+    myController.readParamsAndInitialize(doc);
+    myAnimator.updateCells();
+    myController.printPretty(myController.getGrid());
   }
 
   /**

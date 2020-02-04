@@ -18,26 +18,33 @@ public class Controller {
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
     private Grid myGrid;
+    String simulationType;
 
-    public Controller(File xmlDoc){
-        //parseXmlFile(new File("./resources/output.xml"));
-        //myGrid = new PercolationGrid(cellStatesGrid);
-        Document doc = parseXmlFile(xmlDoc);
-        readParamsAndInitialize();
+    public Controller(){
+//        File xmlDoc = new File("./resources/output.xml");
+//        Document doc = parseXmlFile(xmlDoc);
+        //PercolationGrid grid = new PercolationGrid(cellStatesGrid);
+        //readParamsAndInitialize(doc);
 //        printPretty(myGrid);
-        //myGrid.update();
-        //printPretty(myGrid);
-
+//        myGrid.update();
+//        printPretty(myGrid);
+//        myGrid.update();
+//        printPretty(myGrid);
+//        myGrid.update();
+//        printPretty(myGrid);
     }
 
-    private void printPretty(Grid grid) {
+    public void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
-                System.out.println("Row: "+ i + " Col: "+ j + " " + grid.getCellState(i,j));
+                String padded = String.format("%15s", grid.getCellState(i,j)).replace(' ', ' ');
+                System.out.print(padded);
             }
+            System.out.println("");
         }
         System.out.println("");
     }
+
 
     public Grid getGrid(){
         return myGrid;
@@ -51,7 +58,8 @@ public class Controller {
         return GRID_HEIGHT;
     }
 
-    public void parseXmlFile(File xmlDoc){ //add a argument
+
+    public Document parseXmlFile(File xmlDoc){ //add a argument
         //Reader: game of life and percolation are same,
         //        segregation: +t satisfaction percentage,
         //        predator-prey: + fish number of turns, shark number of turns
@@ -67,9 +75,8 @@ public class Controller {
             Document doc = builder.parse(xmlDoc);
             assignGridDimensions(doc);
             assignCellStates(doc);
-            String simulationType = getSimulationType(doc);
-            readParamsAndInitialize(doc, simulationType);
-
+            simulationType = getSimulationType(doc);
+            return(doc);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -77,23 +84,22 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
 
     }
 
-    private void readParamsAndInitialize(Document doc, String simulationType) {
-        Grid grid;
+    public void readParamsAndInitialize(Document doc) {
         switch(simulationType){
             case "PERCOLATION":
-                grid = new PercolationGrid(cellStatesGrid);
+                myGrid = new PercolationGrid(cellStatesGrid);
                 //initialize
                 break;
             case "GAME OF LIFE":
-                grid = new GameOfLifeGrid(cellStatesGrid);
+                myGrid = new GameOfLifeGrid(cellStatesGrid);
                 //initialize
                 break;
             case "SEGREGATION":
-                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                //double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
                 //grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 //initialize
                 break;
@@ -101,13 +107,15 @@ public class Controller {
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
                 int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
                 int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-                grid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
                 double probGrow = readDoubleParameter(doc, "prob_grow");
-                grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
+            default:
+                myGrid = new PercolationGrid(cellStatesGrid);
         }
     }
     //check this one
@@ -128,7 +136,7 @@ public class Controller {
     }
     private int readIntegerParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return Integer.parseInt(parameter);
+        return (int) Double.parseDouble(parameter);
     }
 
     private String getSimulationType(Document doc) {
