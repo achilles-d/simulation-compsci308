@@ -2,6 +2,8 @@ package View;
 
 import cellsociety.Controller;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -221,7 +223,10 @@ public class Visualizer {
   private void stopButtonPressed() {
     // Pause the Current Animation
     running = false;
-
+//    List<String> list = new ArrayList<>();
+//    list.add("test1");
+//    list.add("test2");
+//    new Graph("Test", "test", 200,200, list);
   }
 
   /**
