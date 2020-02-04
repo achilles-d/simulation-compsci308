@@ -1,11 +1,15 @@
 package cellsociety;
 
+/**
+ * A container for indices corresponding to an element of interest in a 2D-grid
+ * @author Achilles Dabrowski
+ */
 public class IndexPair {
     private int myRow;
     private int myCol;
 
     /**
-     * Create store container for a pair of indices of interest in a 2D-grid
+     * Create a container for a pair of indices of interest in a 2D-grid
      * @param i the row index to be stored
      * @param j the column index to be stored
      */

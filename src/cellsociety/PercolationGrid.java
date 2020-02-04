@@ -2,6 +2,10 @@ package cellsociety;
 
 import java.util.ArrayList;
 
+/**
+ * Facilitates a simulation of Percolation
+ * @author Achilles Dabrowski
+ */
 public class PercolationGrid extends Grid {
 
     /**
