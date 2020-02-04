@@ -17,43 +17,53 @@ public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
+    private Grid myGrid;
+    String simulationType;
+
     public Controller(){
-        //File xmlDoc = new File("./resources/output.xml");
-        //ReadXml(xmlDoc);
-        PercolationGrid grid = new PercolationGrid(cellStatesGrid);
-        printPretty(grid);
-        grid.update();
-        printPretty(grid);
+
     }
 
-    private void printPretty(PercolationGrid grid) {
+    public void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
-                System.out.println("Row: "+ i + " Col: "+ j + " " + grid.getCellState(i,j));
+                String padded = String.format("%15s", grid.getCellState(i,j)).replace(' ', ' ');
+                System.out.print(padded);
             }
+            System.out.println("");
         }
         System.out.println("");
     }
 
-    public void parseXmlFile(File xmlDoc){ //add a argument
-        //Reader: game of life and percolation are same,
-        //        segregation: +t satisfaction percentage,
-        //        predator-prey: + fish number of turns, shark number of turns
-        //        Spreading-fire: + probCatch, +proGrow
-        //Generator: game of life has only two states: ALIVE OR DEAD,
-        //           segregation +can have more than 3 states (X + O + [possible others] + EMPTY,
-        //           predator-prey: empty, shark, fish
-        //           Spreading-fire: Empty/Tree/Burning, Empty cells around the original screen
 
+    public Grid getGrid(){
+        return myGrid;
+    }
+
+    public int getGridWidth(){
+        return GRID_WIDTH;
+    }
+
+    public int  getGridHeight(){
+        return GRID_HEIGHT;
+    }
+
+    /**
+     * This method reads the xml file, parse it, and assign the grid dimensions,
+     * cell states, and simulation type to the instance variables. It returns
+     * doc, which later can be used to initiate the simulation with these variables.
+     * @param xmlDoc XML file.
+     * @return doc
+     */
+    public Document parseXmlFile(File xmlDoc){ //add a argument
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlDoc);
             assignGridDimensions(doc);
             assignCellStates(doc);
-            String simulationType = getSimulationType(doc);
-            readParamsAndInitialize(doc, simulationType);
-
+            simulationType = getSimulationType(doc);
+            return(doc);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -61,41 +71,51 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+        return null;
     }
 
-    private void readParamsAndInitialize(Document doc, String simulationType) {
-        Grid grid;
+    /**
+     * This method uses document read by parseXmlFile
+     * to initiate the correct simulation type. For some simulations
+     * that require additional parameters to run, it also reads and
+     * passes those arguments to the initializer.
+     * @param doc Document that is parsed in parseXmlFile method.
+     */
+    public void readParamsAndInitialize(Document doc) {
         switch(simulationType){
             case "PERCOLATION":
-                grid = new PercolationGrid(cellStatesGrid);
-                //initialize
+                myGrid = new PercolationGrid(cellStatesGrid);
                 break;
             case "GAME OF LIFE":
-                grid = new GameOfLifeGrid(cellStatesGrid);
-                //initialize
+                myGrid = new GameOfLifeGrid(cellStatesGrid);
                 break;
             case "SEGREGATION":
-                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
-                //initialize
+                //double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                //myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 break;
             case "PREDATOR/PREY":
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
                 int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
                 int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-                grid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
                 double probGrow = readDoubleParameter(doc, "prob_grow");
-                grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
         }
     }
     //check this one
-    public String[][] getUpdatedGrid(PercolationGrid grid){
+
+    /**
+     * This method is intended to be used by Visualizer class
+     * to both update the grid and get the 2D array information
+     * of the updated grid. (Not used as of this implementation).
+     * @param grid The grid that is intended to be updated.
+     * @return updatedGrid
+     */
+    public String[][] getUpdatedGrid(Grid grid){
         grid.update();
         String[][] updatedGrid = new String [cellStatesGrid.length][cellStatesGrid[0].length];
         for(int i = 0; i < cellStatesGrid.length; i++){
@@ -112,7 +132,7 @@ public class Controller {
     }
     private int readIntegerParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return Integer.parseInt(parameter);
+        return (int) Double.parseDouble(parameter);
     }
 
     private String getSimulationType(Document doc) {

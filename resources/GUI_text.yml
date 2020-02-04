@@ -1,8 +1,0 @@
-title: "Simulation"
-start_button: "Start"
-resume_button: "Resume"
-stop_button: "Stop"
-pause_button: "Pause"
-animation_rate: "Animation Rate"
-step_button: "Step Forward"
-load_file: "Load Simulation File"

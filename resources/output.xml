@@ -1,28 +1,85 @@
 <?xml version="1.0"?>
 <simulation>
-   <simulation_type id="percolation">
+   <simulation_type id="SPREADING FIRE">
       <author>Simulation Group 6</author>
       <title>Percolation Simulation</title>
-      <width>3</width>
-      <height>2</height>
-      <fish_turns>5.0</fish_turns>
-      <shark_turns>2.0</shark_turns>
+      <width>5</width>
+      <height>5</height>
+      <prob_catch>0.2</prob_catch>
+      <prob_grow>0.1</prob_grow>
       <cell id = "0">
-         <state>FISH</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1">
          <state>EMPTY</state>
       </cell>
       <cell id = "2">
-         <state>SHARK</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "3">
-         <state>SHARK</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "4">
-         <state>SHARK</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "5">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "6">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "7">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "8">
+         <state>TREE</state>
+      </cell>
+      <cell id = "9">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "10">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "11">
+         <state>BURNING</state>
+      </cell>
+      <cell id = "12">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "13">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "14">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "15">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "16">
+         <state>TREE</state>
+      </cell>
+      <cell id = "17">
+         <state>TREE</state>
+      </cell>
+      <cell id = "18">
+         <state>BURNING</state>
+      </cell>
+      <cell id = "19">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "20">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "21">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "22">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "23">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "24">
          <state>EMPTY</state>
       </cell>
    </simulation_type >
