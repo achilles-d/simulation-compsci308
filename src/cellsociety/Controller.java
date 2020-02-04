@@ -1,18 +1,20 @@
 package cellsociety;
 
 import java.io.File;
-import java.net.URL;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
+/**
+ * @Author Cemal Yagcioglu
+ * Parses XML File, initiates the grid.
+ */
 public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
