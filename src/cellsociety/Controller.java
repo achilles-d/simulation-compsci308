@@ -17,25 +17,34 @@ public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
+    String simulationType;
+    private Grid grid;
     public Controller(){
-        //File xmlDoc = new File("./resources/output.xml");
-        //ReadXml(xmlDoc);
-        PercolationGrid grid = new PercolationGrid(cellStatesGrid);
+        File xmlDoc = new File("./resources/output.xml");
+        Document doc = parseXmlFile(xmlDoc);
+        //PercolationGrid grid = new PercolationGrid(cellStatesGrid);
+        readParamsAndInitialize(doc, simulationType);
+        printPretty(grid);
+        grid.update();
+        printPretty(grid);
+        grid.update();
         printPretty(grid);
         grid.update();
         printPretty(grid);
     }
 
-    private void printPretty(PercolationGrid grid) {
+    private void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
-                System.out.println("Row: "+ i + " Col: "+ j + " " + grid.getCellState(i,j));
+                String padded = String.format("%15s", grid.getCellState(i,j)).replace(' ', ' ');
+                System.out.print(padded);
             }
+            System.out.println("");
         }
         System.out.println("");
     }
 
-    public void parseXmlFile(File xmlDoc){ //add a argument
+    public Document parseXmlFile(File xmlDoc){ //add a argument
         //Reader: game of life and percolation are same,
         //        segregation: +t satisfaction percentage,
         //        predator-prey: + fish number of turns, shark number of turns
@@ -51,9 +60,8 @@ public class Controller {
             Document doc = builder.parse(xmlDoc);
             assignGridDimensions(doc);
             assignCellStates(doc);
-            String simulationType = getSimulationType(doc);
-            readParamsAndInitialize(doc, simulationType);
-
+            simulationType = getSimulationType(doc);
+            return(doc);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -61,12 +69,11 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
 
     }
 
     private void readParamsAndInitialize(Document doc, String simulationType) {
-        Grid grid;
         switch(simulationType){
             case "PERCOLATION":
                 grid = new PercolationGrid(cellStatesGrid);
@@ -77,8 +84,8 @@ public class Controller {
                 //initialize
                 break;
             case "SEGREGATION":
-                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                //double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                //grid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 //initialize
                 break;
             case "PREDATOR/PREY":
@@ -92,6 +99,8 @@ public class Controller {
                 double probGrow = readDoubleParameter(doc, "prob_grow");
                 grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
+            default:
+                grid = new PercolationGrid(cellStatesGrid);
         }
     }
     //check this one
@@ -112,7 +121,7 @@ public class Controller {
     }
     private int readIntegerParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return Integer.parseInt(parameter);
+        return (int) Double.parseDouble(parameter);
     }
 
     private String getSimulationType(Document doc) {
