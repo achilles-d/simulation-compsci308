@@ -29,7 +29,10 @@ f.write('      <height>'+str(rowNo)+'</height>\n')
 for i in range(len(parameter_vals)):
 	f.write('      <'+extraParamForThis[i]+'>'+str(parameter_vals[i])+'</'+extraParamForThis[i]+'>\n')
 for i in range(colNo*rowNo):
-    thisState = random.choices(stateTypesForThis,parameter_weights)
+    if(simulationTypeNo==4 and (i//colNo==0 or i//colNo==rowNo-1 or i%colNo==0 or i%colNo==colNo-1)):
+      thisState = ["EMPTY"]
+    else:
+    	thisState = random.choices(stateTypesForThis,parameter_weights)
     f.write('      <cell id = "'+str(i)+'">\n')
     f.write('         <state>'+thisState[0]+'</state>\n')
     f.write('      </cell>\n')
