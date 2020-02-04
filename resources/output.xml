@@ -6,7 +6,7 @@
       <width>5</width>
       <height>5</height>
       <prob_catch>0.2</prob_catch>
-      <prob_grow>0.3</prob_grow>
+      <prob_grow>0.1</prob_grow>
       <cell id = "0">
          <state>EMPTY</state>
       </cell>
@@ -26,10 +26,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "6">
-         <state>TREE</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "7">
-         <state>BURNING</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "8">
          <state>TREE</state>
@@ -41,13 +41,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "11">
-         <state>EMPTY</state>
+         <state>BURNING</state>
       </cell>
       <cell id = "12">
-         <state>TREE</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "13">
-         <state>TREE</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "14">
          <state>EMPTY</state>
@@ -62,7 +62,7 @@
          <state>TREE</state>
       </cell>
       <cell id = "18">
-         <state>TREE</state>
+         <state>BURNING</state>
       </cell>
       <cell id = "19">
          <state>EMPTY</state>

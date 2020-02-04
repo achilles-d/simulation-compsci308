@@ -29,18 +29,6 @@ public class PredatorPreyGrid extends Grid{
         myMinSharkTurnsToBreed = minSharkTurnsToBreed;
     }
 
-    /**
-     * Move the predator-prey simulation one step forward
-     */
-    @Override
-    public void update(){
-        for(int i = 0; i < myCells.length; i++){
-            for(int j = 0; j < myCells[0].length; j++){
-                updateCellState(i, j, myCells);
-            }
-        }
-    }
-
     @Override
     protected void initialize(String[][] initConfig){
         super.initialize(initConfig);

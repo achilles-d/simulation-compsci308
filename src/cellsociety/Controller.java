@@ -17,23 +17,24 @@ public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
+    private Grid myGrid;
     String simulationType;
-    private Grid grid;
+
     public Controller(){
-        File xmlDoc = new File("./resources/output.xml");
-        Document doc = parseXmlFile(xmlDoc);
+//        File xmlDoc = new File("./resources/output.xml");
+//        Document doc = parseXmlFile(xmlDoc);
         //PercolationGrid grid = new PercolationGrid(cellStatesGrid);
-        readParamsAndInitialize(doc, simulationType);
-        printPretty(grid);
-        grid.update();
-        printPretty(grid);
-        grid.update();
-        printPretty(grid);
-        grid.update();
-        printPretty(grid);
+        //readParamsAndInitialize(doc);
+//        printPretty(myGrid);
+//        myGrid.update();
+//        printPretty(myGrid);
+//        myGrid.update();
+//        printPretty(myGrid);
+//        myGrid.update();
+//        printPretty(myGrid);
     }
 
-    private void printPretty(Grid grid) {
+    public void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
                 String padded = String.format("%15s", grid.getCellState(i,j)).replace(' ', ' ');
@@ -43,6 +44,20 @@ public class Controller {
         }
         System.out.println("");
     }
+
+
+    public Grid getGrid(){
+        return myGrid;
+    }
+
+    public int getGridWidth(){
+        return GRID_WIDTH;
+    }
+
+    public int  getGridHeight(){
+        return GRID_HEIGHT;
+    }
+
 
     public Document parseXmlFile(File xmlDoc){ //add a argument
         //Reader: game of life and percolation are same,
@@ -73,14 +88,14 @@ public class Controller {
 
     }
 
-    private void readParamsAndInitialize(Document doc, String simulationType) {
+    public void readParamsAndInitialize(Document doc) {
         switch(simulationType){
             case "PERCOLATION":
-                grid = new PercolationGrid(cellStatesGrid);
+                myGrid = new PercolationGrid(cellStatesGrid);
                 //initialize
                 break;
             case "GAME OF LIFE":
-                grid = new GameOfLifeGrid(cellStatesGrid);
+                myGrid = new GameOfLifeGrid(cellStatesGrid);
                 //initialize
                 break;
             case "SEGREGATION":
@@ -92,15 +107,15 @@ public class Controller {
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
                 int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
                 int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-                grid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
                 double probGrow = readDoubleParameter(doc, "prob_grow");
-                grid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
             default:
-                grid = new PercolationGrid(cellStatesGrid);
+                myGrid = new PercolationGrid(cellStatesGrid);
         }
     }
     //check this one
