@@ -1,3 +1,5 @@
+# @Author: Cemal Yagcioglu
+# This python code runs in terminal and generates the desired XML file.
 import random
 outputFileName = input("Type File name that ends with .xml for the output. Example: output.xml \n")
 simulationTypeNo = int(input("Choose the number corresponding to the simulation: \n 1:PERCOLATION \n 2:GAME OF LIFE \n 3:SEGREGATION \n 4:PREDATOR/PREY \n 5:SPREADING FIRE \n    YOUR INPUT: "))-1
