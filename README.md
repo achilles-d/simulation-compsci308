@@ -3,15 +3,15 @@ simulation
 
 This project implements a cellular automata simulator.
 
-Names:
+Names: Achilles Dabrowski, Caleb Sanford, Cemal Yagcioglu
 
 ### Timeline
 
-Start Date: 
+Start Date: 25th January, 2020.
 
-Finish Date: 
+Finish Date: 3rd February, 2020.
 
-Hours Spent:
+Hours Spent: 40 
 
 ### Primary Roles
 
