@@ -18,20 +18,12 @@ public class PercolationGrid extends Grid {
     }
 
     protected PercolationCell setCellState(String state){
-        if(state.equals(PercolationCell.EMPTY.toString())){
-            return PercolationCell.EMPTY;
-        }
-        else if(state.equals(PercolationCell.FULL.toString())){
-            return PercolationCell.FULL;
-        }
-        else{
-            return PercolationCell.PERCOLATED;
-        }
+        return PercolationCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
         if(gridCopy[i][j] == PercolationCell.EMPTY) {
-            ArrayList<IndexPair> percolatedCellIndices = findNeighborIndices(i, j, gridCopy, PercolationCell.PERCOLATED);
+            ArrayList<IndexPair> percolatedCellIndices = findNeighborIndices(i, j, gridCopy, PercolationCell.PERCOLATED, STD_INDEX_DELTA);
             if (!percolatedCellIndices.isEmpty()) {
                 myCells[i][j] = PercolationCell.PERCOLATED;
             }

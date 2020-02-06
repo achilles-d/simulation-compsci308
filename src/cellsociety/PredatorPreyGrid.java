@@ -42,16 +42,7 @@ public class PredatorPreyGrid extends Grid{
 
 
     protected PredatorPreyCell setCellState(String state){
-        if(state.equals(PredatorPreyCell.SHARK.toString())){
-            return PredatorPreyCell.SHARK;
-        }
-        else if(state.equals(PredatorPreyCell.FISH.toString()))
-        {
-            return PredatorPreyCell.FISH;
-        }
-        else{
-            return PredatorPreyCell.EMPTY;
-        }
+        return PredatorPreyCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
@@ -67,7 +58,7 @@ public class PredatorPreyGrid extends Grid{
     }
 
     private void updateFishCell(int i, int j, Enum[][] gridCopy) {
-        ArrayList<IndexPair> emptyCellIndices = altFindNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY, ALT_INDEX_DELTA);
         if(!emptyCellIndices.isEmpty()) {
             int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
             myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()] = PredatorPreyCell.FISH;
@@ -86,13 +77,13 @@ public class PredatorPreyGrid extends Grid{
             return;
         }
         else {
-            ArrayList<IndexPair> fishCellIndices = altFindNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH);
+            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH, ALT_INDEX_DELTA);
             if(!fishCellIndices.isEmpty()) {
                 eatNeighboringFish(i, j, gridCopy, fishCellIndices);
                 return;
             }
         }
-        ArrayList<IndexPair> emptyCellIndices = altFindNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY, ALT_INDEX_DELTA);
         if(!emptyCellIndices.isEmpty()){
             moveSharkToEmptyCell(i, j, gridCopy, emptyCellIndices);
         }

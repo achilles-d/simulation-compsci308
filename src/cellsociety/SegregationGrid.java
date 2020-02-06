@@ -53,13 +53,7 @@ public class SegregationGrid extends Grid {
     }
 
     protected SegregationCell setCellState(String state) {
-        if (state.equals(SegregationCell.X.toString())) {
-            return SegregationCell.X;
-        } else if (state.equals(SegregationCell.O.toString())) {
-            return SegregationCell.O;
-        } else {
-            return SegregationCell.EMPTY;
-        }
+        return SegregationCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){

@@ -24,16 +24,7 @@ public class FireGrid extends Grid {
     }
 
     public FireCell setCellState(String state){
-
-        if(state.equals(FireCell.EMPTY.toString())){
-            return FireCell.EMPTY;
-        }
-        if(state.equals(FireCell.TREE.toString())){
-            return FireCell.TREE;
-        }
-        else{
-            return FireCell.BURNING;
-        }
+        return FireCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
@@ -52,7 +43,7 @@ public class FireGrid extends Grid {
     }
 
     private void updateTreeCells(int i, int j, Enum[][] gridCopy) {
-        if(! altFindNeighborIndices(i, j, gridCopy , FireCell.BURNING).isEmpty()){
+        if(! findNeighborIndices(i, j, gridCopy , FireCell.BURNING, ALT_INDEX_DELTA).isEmpty()){
             if(Math.random() < probCatch) {
                 myCells[i][j] = FireCell.BURNING;
             }
