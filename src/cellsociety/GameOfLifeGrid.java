@@ -19,16 +19,11 @@ public class GameOfLifeGrid extends Grid{
   }
 
   protected GameOfLifeCell setCellState(String state){
-    if(state.equals(GameOfLifeCell.ALIVE.toString())){
-      return GameOfLifeCell.ALIVE;
-    }
-    else{
-      return GameOfLifeCell.DEAD;
-    }
+    return GameOfLifeCell.valueOf(state);
   }
 
   protected void updateCellState(int i, int j, Enum[][] gridCopy){
-    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE).size();
+    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE, STD_INDEX_DELTA).size();
     if(gridCopy[i][j] == GameOfLifeCell.ALIVE){
       if((aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors)){
         myCells[i][j] = GameOfLifeCell.DEAD;
