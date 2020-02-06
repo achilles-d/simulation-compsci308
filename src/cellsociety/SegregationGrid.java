@@ -78,12 +78,12 @@ public class SegregationGrid extends Grid {
         int oppositeCellNeighborCount;
         int sameCellNeighborCount;
         if(myCells[i][j] == SegregationCell.X){
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
         }
         else{
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
         }
         if(oppositeCellNeighborCount == 0){
             return true;
