@@ -19,6 +19,8 @@ public abstract class Grid {
     protected static final int ALT_CELL_NEIGHBOR_COUNT = 4;
     protected Enum[][] myCells;
 
+    // more than two packages,
+    // protected grid DS
     /**
      * Create a grid that runs the cellular automata (CA) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state
