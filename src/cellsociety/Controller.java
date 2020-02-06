@@ -66,13 +66,11 @@ public class Controller {
             assignCellStates(doc);
             simulationType = getSimulationType(doc);
             return(doc);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+         catch (ParserConfigurationException|SAXException|IOException e) {
+            //Throw exception that tells that the document chosen cannot be read
+        }
+
         return null;
     }
 
@@ -93,17 +91,23 @@ public class Controller {
                 break;
             case "SEGREGATION":
                 double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
                 myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 break;
             case "PREDATOR/PREY":
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
                 int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
                 int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+                checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
+                checkIfIntegerIsOneOrHigher(maxSharkTurns);
+                checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
                 myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
                 break;
             case "SPREADING FIRE":
                 double probCatch = readDoubleParameter(doc, "prob_catch");
                 double probGrow = readDoubleParameter(doc, "prob_grow");
+                checkIfValueIsBetweenZeroAndOne(probCatch);
+                checkIfValueIsBetweenZeroAndOne(probGrow);
                 myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
                 break;
         }
@@ -120,7 +124,9 @@ public class Controller {
     }
 
     private String getSimulationType(Document doc) {
-        return doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
+        String simulationType = doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
+        checkValidityOfSimulationType(simulationType);
+        return simulationType;
     }
 
     private void assignGridDimensions(Document doc) {
@@ -128,19 +134,58 @@ public class Controller {
         String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
         GRID_WIDTH = Integer.parseInt(widthString);
         GRID_HEIGHT = Integer.parseInt(heightString);
+        checkWidthAndHeightValues();
         cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
     }
 
     private void assignCellStates(Document doc) {
         //String[][] cellStates = new String[][];
         NodeList cellList = doc.getElementsByTagName("cell");
+        checkNumberOfCells(cellList.getLength());
         for(int i=0; i<cellList.getLength(); i++){
             Node cellNode = cellList.item(i);
             //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
-                cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
+                String givenCellStateForThisIndex = cellElement.getElementsByTagName("state").item(0).getTextContent();
+                checkValidityOfCellState(givenCellStateForThisIndex);
+                cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = givenCellStateForThisIndex;
             }
         }
     }
+
+    private void checkNumberOfCells(int numberOfCells){
+        if(numberOfCells!=GRID_HEIGHT*GRID_WIDTH){
+            //throw error that tells that number of cells doesnot match grid size declared.
+        }
+    }
+    private void checkValidityOfCellState(String givenCellState){
+        //if(givenCellState is not in acceptableCellStates){
+            //throw an error that tells XML contains an illegal cell state
+       //}
+    }
+
+    private void checkValidityOfSimulationType(String simulationTypeInput) {
+        //if(simulationTypeInput is not an acceptable simulationtype){
+            //throw an error that tells, it is not an acceptable simulation type
+        //}
+    }
+
+    private void checkWidthAndHeightValues(){
+        if(GRID_WIDTH<=0 || GRID_HEIGHT<=0){
+            //throw an error saying the value inputs for grid width/height contains an error
+        }
+    }
+    private void checkIfValueIsBetweenZeroAndOne(Double valueIn){
+        if(valueIn<0 || valueIn>1){
+            //throw an error saying "Percentage Parameters are not within 0.0 to 1.0 range
+        }
+    }
+    private void checkIfIntegerIsOneOrHigher(int integerInput){
+        if(integerInput<=0){
+            //throw an error saying invalid Integer input
+        }
+
+    }
+
 }
