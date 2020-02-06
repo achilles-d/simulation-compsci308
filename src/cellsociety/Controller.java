@@ -90,27 +90,39 @@ public class Controller {
                 myGrid = new GameOfLifeGrid(cellStatesGrid);
                 break;
             case "SEGREGATION":
-                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
-                myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                setParamsAndInitializeSegregation(doc);
                 break;
             case "PREDATOR/PREY":
-                int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
-                int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
-                int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-                checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
-                checkIfIntegerIsOneOrHigher(maxSharkTurns);
-                checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
-                myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                setParamsAndInitializePredatorPrey(doc);
                 break;
             case "SPREADING FIRE":
-                double probCatch = readDoubleParameter(doc, "prob_catch");
-                double probGrow = readDoubleParameter(doc, "prob_grow");
-                checkIfValueIsBetweenZeroAndOne(probCatch);
-                checkIfValueIsBetweenZeroAndOne(probGrow);
-                myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                setParamsAndInitializeSpreadingFire(doc);
                 break;
         }
+    }
+
+    private void setParamsAndInitializeSegregation(Document doc) {
+        double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
+        myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+    }
+
+    private void setParamsAndInitializeSpreadingFire(Document doc) {
+        double probCatch = readDoubleParameter(doc, "prob_catch");
+        double probGrow = readDoubleParameter(doc, "prob_grow");
+        checkIfValueIsBetweenZeroAndOne(probCatch);
+        checkIfValueIsBetweenZeroAndOne(probGrow);
+        myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+    }
+
+    private void setParamsAndInitializePredatorPrey(Document doc) {
+        int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
+        int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
+        int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+        checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
+        checkIfIntegerIsOneOrHigher(maxSharkTurns);
+        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
+        myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
     }
 
 
