@@ -108,25 +108,7 @@ public class Controller {
                 break;
         }
     }
-    //check this one
-
-    /**
-     * This method is intended to be used by Visualizer class
-     * to both update the grid and get the 2D array information
-     * of the updated grid. (Not used as of this implementation).
-     * @param grid The grid that is intended to be updated.
-     * @return updatedGrid
-     */
-    public String[][] getUpdatedGrid(Grid grid){
-        grid.update();
-        String[][] updatedGrid = new String [cellStatesGrid.length][cellStatesGrid[0].length];
-        for(int i = 0; i < cellStatesGrid.length; i++){
-            for(int j = 0; j < cellStatesGrid[0].length; j++){
-                updatedGrid[i][j] = grid.getCellState(i,j);
-            }
-        }
-        return updatedGrid;
-    }
+   
 
     private double readDoubleParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
