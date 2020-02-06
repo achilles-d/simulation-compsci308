@@ -152,6 +152,7 @@ public class Controller {
         checkIfIntegerIsOneOrHigher(maxSharkTurns);
         checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
         myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+        
     }
 
 
