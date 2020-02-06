@@ -6,7 +6,7 @@
       <width>50</width>
       <height>50</height>
       <cell id = "0">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1">
          <state>EMPTY</state>
@@ -33,7 +33,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "9">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "10">
          <state>EMPTY</state>
@@ -42,19 +42,19 @@
          <state>FULL</state>
       </cell>
       <cell id = "12">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "13">
          <state>FULL</state>
       </cell>
       <cell id = "14">
-         <state>FULL</state>
-      </cell>
-      <cell id = "15">
          <state>EMPTY</state>
       </cell>
-      <cell id = "16">
+      <cell id = "15">
          <state>FULL</state>
+      </cell>
+      <cell id = "16">
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "17">
          <state>EMPTY</state>
@@ -66,13 +66,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "20">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "21">
          <state>EMPTY</state>
       </cell>
       <cell id = "22">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "23">
          <state>EMPTY</state>
@@ -84,13 +84,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "26">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "27">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "28">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "29">
          <state>EMPTY</state>
@@ -102,64 +102,64 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "32">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "33">
          <state>EMPTY</state>
       </cell>
       <cell id = "34">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "35">
          <state>EMPTY</state>
       </cell>
       <cell id = "36">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "37">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "38">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "39">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "40">
          <state>EMPTY</state>
       </cell>
       <cell id = "41">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "42">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "43">
          <state>EMPTY</state>
       </cell>
       <cell id = "44">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "45">
          <state>EMPTY</state>
       </cell>
       <cell id = "46">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "47">
          <state>EMPTY</state>
       </cell>
       <cell id = "48">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "49">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "50">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "51">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "52">
          <state>EMPTY</state>
@@ -177,28 +177,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "57">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "58">
          <state>FULL</state>
       </cell>
       <cell id = "59">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "60">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "61">
          <state>EMPTY</state>
       </cell>
       <cell id = "62">
-         <state>FULL</state>
-      </cell>
-      <cell id = "63">
          <state>EMPTY</state>
       </cell>
+      <cell id = "63">
+         <state>FULL</state>
+      </cell>
       <cell id = "64">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "65">
          <state>EMPTY</state>
@@ -207,10 +207,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "67">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "68">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "69">
          <state>EMPTY</state>
@@ -219,13 +219,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "71">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "72">
          <state>EMPTY</state>
       </cell>
       <cell id = "73">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "74">
          <state>EMPTY</state>
@@ -234,19 +234,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "76">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "77">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "78">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "79">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "80">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "81">
          <state>EMPTY</state>
@@ -267,22 +267,22 @@
          <state>FULL</state>
       </cell>
       <cell id = "87">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "88">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "89">
          <state>FULL</state>
       </cell>
       <cell id = "90">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "91">
          <state>EMPTY</state>
       </cell>
       <cell id = "92">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "93">
          <state>EMPTY</state>
@@ -306,7 +306,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "100">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "101">
          <state>FULL</state>
@@ -333,7 +333,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "109">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "110">
          <state>EMPTY</state>
@@ -345,7 +345,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "113">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "114">
          <state>EMPTY</state>
@@ -357,19 +357,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "117">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "118">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "119">
          <state>EMPTY</state>
       </cell>
       <cell id = "120">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "121">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "122">
          <state>EMPTY</state>
@@ -381,13 +381,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "125">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "126">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "127">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "128">
          <state>EMPTY</state>
@@ -396,7 +396,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "130">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "131">
          <state>FULL</state>
@@ -414,22 +414,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "136">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "137">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "138">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "139">
          <state>FULL</state>
       </cell>
+      <cell id = "139">
+         <state>EMPTY</state>
+      </cell>
       <cell id = "140">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "141">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "142">
          <state>EMPTY</state>
@@ -438,16 +438,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "144">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "145">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "146">
          <state>EMPTY</state>
       </cell>
       <cell id = "147">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "148">
          <state>EMPTY</state>
@@ -456,37 +456,37 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "150">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "151">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "152">
          <state>EMPTY</state>
       </cell>
+      <cell id = "152">
+         <state>PERCOLATED</state>
+      </cell>
       <cell id = "153">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "154">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "155">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "156">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "157">
          <state>FULL</state>
       </cell>
       <cell id = "158">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "159">
          <state>EMPTY</state>
       </cell>
       <cell id = "160">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "161">
          <state>EMPTY</state>
@@ -507,10 +507,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "167">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "168">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "169">
          <state>FULL</state>
@@ -519,10 +519,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "171">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "172">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "173">
          <state>FULL</state>
@@ -537,7 +537,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "177">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "178">
          <state>EMPTY</state>
@@ -549,16 +549,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "181">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "182">
          <state>EMPTY</state>
       </cell>
       <cell id = "183">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "184">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "185">
          <state>EMPTY</state>
@@ -567,10 +567,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "187">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "188">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "189">
          <state>EMPTY</state>
@@ -582,7 +582,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "192">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "193">
          <state>EMPTY</state>
@@ -591,10 +591,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "195">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "196">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "197">
          <state>EMPTY</state>
@@ -603,19 +603,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "199">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "200">
          <state>EMPTY</state>
       </cell>
       <cell id = "201">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "202">
          <state>EMPTY</state>
       </cell>
       <cell id = "203">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "204">
          <state>EMPTY</state>
@@ -636,31 +636,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "210">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "211">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "212">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "213">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "214">
          <state>EMPTY</state>
       </cell>
       <cell id = "215">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "216">
          <state>EMPTY</state>
       </cell>
       <cell id = "217">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "218">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "219">
          <state>EMPTY</state>
@@ -675,19 +675,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "223">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "224">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "225">
          <state>EMPTY</state>
       </cell>
       <cell id = "226">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "227">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "228">
          <state>FULL</state>
@@ -696,10 +696,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "230">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "231">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "232">
          <state>EMPTY</state>
@@ -714,7 +714,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "236">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "237">
          <state>FULL</state>
@@ -726,19 +726,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "240">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "241">
          <state>FULL</state>
       </cell>
       <cell id = "242">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "243">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "244">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "245">
          <state>EMPTY</state>
@@ -747,7 +747,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "247">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "248">
          <state>EMPTY</state>
@@ -759,13 +759,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "251">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "252">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "253">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "254">
          <state>EMPTY</state>
@@ -777,16 +777,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "257">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "258">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "259">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "260">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "261">
          <state>EMPTY</state>
@@ -795,37 +795,37 @@
          <state>FULL</state>
       </cell>
       <cell id = "263">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "264">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "265">
          <state>EMPTY</state>
       </cell>
       <cell id = "266">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "267">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "268">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "269">
          <state>EMPTY</state>
       </cell>
       <cell id = "270">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "271">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "272">
          <state>EMPTY</state>
       </cell>
       <cell id = "273">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "274">
          <state>EMPTY</state>
@@ -837,7 +837,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "277">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "278">
          <state>EMPTY</state>
@@ -849,7 +849,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "281">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "282">
          <state>EMPTY</state>
@@ -858,55 +858,55 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "284">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "285">
          <state>FULL</state>
       </cell>
       <cell id = "286">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "287">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "288">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "289">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "290">
          <state>EMPTY</state>
       </cell>
       <cell id = "291">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "292">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "293">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "294">
          <state>EMPTY</state>
       </cell>
       <cell id = "295">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "296">
          <state>EMPTY</state>
       </cell>
       <cell id = "297">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "298">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "299">
          <state>EMPTY</state>
       </cell>
       <cell id = "300">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "301">
          <state>EMPTY</state>
@@ -915,7 +915,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "303">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "304">
          <state>EMPTY</state>
@@ -939,73 +939,73 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "311">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "312">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "313">
          <state>EMPTY</state>
       </cell>
       <cell id = "314">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "315">
          <state>EMPTY</state>
       </cell>
       <cell id = "316">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "317">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "318">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "319">
-         <state>FULL</state>
-      </cell>
-      <cell id = "320">
          <state>EMPTY</state>
       </cell>
-      <cell id = "321">
+      <cell id = "320">
          <state>FULL</state>
+      </cell>
+      <cell id = "321">
+         <state>EMPTY</state>
       </cell>
       <cell id = "322">
          <state>EMPTY</state>
       </cell>
       <cell id = "323">
-         <state>FULL</state>
-      </cell>
-      <cell id = "324">
          <state>EMPTY</state>
       </cell>
+      <cell id = "324">
+         <state>FULL</state>
+      </cell>
       <cell id = "325">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "326">
          <state>EMPTY</state>
       </cell>
       <cell id = "327">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "328">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "329">
          <state>FULL</state>
       </cell>
-      <cell id = "330">
+      <cell id = "329">
          <state>EMPTY</state>
       </cell>
+      <cell id = "330">
+         <state>FULL</state>
+      </cell>
       <cell id = "331">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "332">
          <state>EMPTY</state>
       </cell>
       <cell id = "333">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "334">
          <state>EMPTY</state>
@@ -1014,7 +1014,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "336">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "337">
          <state>EMPTY</state>
@@ -1023,10 +1023,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "339">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "340">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "341">
          <state>EMPTY</state>
@@ -1035,25 +1035,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "343">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "344">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "345">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "346">
          <state>EMPTY</state>
       </cell>
       <cell id = "347">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "348">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "349">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "350">
          <state>EMPTY</state>
@@ -1062,7 +1062,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "352">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "353">
          <state>EMPTY</state>
@@ -1071,10 +1071,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "355">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "356">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "357">
          <state>EMPTY</state>
@@ -1083,10 +1083,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "359">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "360">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "361">
          <state>EMPTY</state>
@@ -1095,7 +1095,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "363">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "364">
          <state>FULL</state>
@@ -1107,19 +1107,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "367">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "368">
          <state>EMPTY</state>
       </cell>
       <cell id = "369">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "370">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "371">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "372">
          <state>EMPTY</state>
@@ -1128,13 +1128,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "374">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "375">
          <state>FULL</state>
       </cell>
       <cell id = "376">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "377">
          <state>EMPTY</state>
@@ -1146,13 +1146,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "380">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "381">
          <state>EMPTY</state>
       </cell>
       <cell id = "382">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "383">
          <state>EMPTY</state>
@@ -1161,13 +1161,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "385">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "386">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "387">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "388">
          <state>EMPTY</state>
@@ -1176,10 +1176,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "390">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "391">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "392">
          <state>EMPTY</state>
@@ -1194,10 +1194,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "396">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "397">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "398">
          <state>EMPTY</state>
@@ -1209,7 +1209,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "401">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "402">
          <state>EMPTY</state>
@@ -1221,7 +1221,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "405">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "406">
          <state>EMPTY</state>
@@ -1230,10 +1230,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "408">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "409">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "410">
          <state>EMPTY</state>
@@ -1242,46 +1242,46 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "412">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "413">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "414">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "415">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "416">
          <state>FULL</state>
       </cell>
-      <cell id = "417">
+      <cell id = "413">
+         <state>FULL</state>
+      </cell>
+      <cell id = "414">
+         <state>FULL</state>
+      </cell>
+      <cell id = "415">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "416">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "417">
+         <state>FULL</state>
       </cell>
       <cell id = "418">
          <state>EMPTY</state>
       </cell>
       <cell id = "419">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "420">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "421">
          <state>EMPTY</state>
       </cell>
       <cell id = "422">
-         <state>FULL</state>
-      </cell>
-      <cell id = "423">
-         <state>FULL</state>
-      </cell>
-      <cell id = "424">
          <state>EMPTY</state>
       </cell>
+      <cell id = "423">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "424">
+         <state>FULL</state>
+      </cell>
       <cell id = "425">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "426">
          <state>EMPTY</state>
@@ -1293,7 +1293,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "429">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "430">
          <state>EMPTY</state>
@@ -1302,40 +1302,40 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "432">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "433">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "434">
          <state>FULL</state>
       </cell>
       <cell id = "435">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "436">
          <state>EMPTY</state>
       </cell>
       <cell id = "437">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "438">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "439">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "440">
          <state>EMPTY</state>
       </cell>
       <cell id = "441">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "442">
          <state>EMPTY</state>
       </cell>
       <cell id = "443">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "444">
          <state>EMPTY</state>
@@ -1344,7 +1344,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "446">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "447">
          <state>EMPTY</state>
@@ -1362,7 +1362,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "452">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "453">
          <state>EMPTY</state>
@@ -1377,22 +1377,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "457">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "458">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "459">
          <state>EMPTY</state>
       </cell>
+      <cell id = "459">
+         <state>FULL</state>
+      </cell>
       <cell id = "460">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "461">
          <state>EMPTY</state>
       </cell>
       <cell id = "462">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "463">
          <state>EMPTY</state>
@@ -1401,7 +1401,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "465">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "466">
          <state>EMPTY</state>
@@ -1416,115 +1416,115 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "470">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "471">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "472">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "473">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "474">
          <state>FULL</state>
       </cell>
-      <cell id = "475">
+      <cell id = "471">
+         <state>FULL</state>
+      </cell>
+      <cell id = "472">
+         <state>FULL</state>
+      </cell>
+      <cell id = "473">
+         <state>FULL</state>
+      </cell>
+      <cell id = "474">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "475">
+         <state>FULL</state>
       </cell>
       <cell id = "476">
          <state>EMPTY</state>
       </cell>
       <cell id = "477">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "478">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "479">
          <state>EMPTY</state>
       </cell>
+      <cell id = "479">
+         <state>FULL</state>
+      </cell>
       <cell id = "480">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "481">
          <state>FULL</state>
       </cell>
       <cell id = "482">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "483">
          <state>EMPTY</state>
       </cell>
       <cell id = "484">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "485">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "486">
          <state>EMPTY</state>
       </cell>
       <cell id = "487">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "488">
          <state>EMPTY</state>
       </cell>
       <cell id = "489">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "490">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "491">
          <state>EMPTY</state>
       </cell>
       <cell id = "492">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "493">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "494">
          <state>EMPTY</state>
       </cell>
       <cell id = "495">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "496">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "497">
          <state>EMPTY</state>
       </cell>
       <cell id = "498">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "499">
          <state>EMPTY</state>
       </cell>
       <cell id = "500">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "501">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "502">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "503">
          <state>EMPTY</state>
       </cell>
+      <cell id = "503">
+         <state>FULL</state>
+      </cell>
       <cell id = "504">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "505">
          <state>EMPTY</state>
       </cell>
       <cell id = "506">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "507">
          <state>EMPTY</state>
@@ -1536,37 +1536,37 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "510">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "511">
          <state>EMPTY</state>
       </cell>
       <cell id = "512">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "513">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "514">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "515">
          <state>EMPTY</state>
       </cell>
       <cell id = "516">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "517">
          <state>EMPTY</state>
       </cell>
       <cell id = "518">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "519">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "520">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "521">
          <state>EMPTY</state>
@@ -1575,22 +1575,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "523">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "524">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "525">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "526">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "527">
          <state>EMPTY</state>
       </cell>
       <cell id = "528">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "529">
          <state>EMPTY</state>
@@ -1599,58 +1599,58 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "531">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "532">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "533">
          <state>EMPTY</state>
       </cell>
       <cell id = "534">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "535">
          <state>EMPTY</state>
       </cell>
       <cell id = "536">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "537">
          <state>FULL</state>
       </cell>
       <cell id = "538">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "539">
          <state>EMPTY</state>
       </cell>
       <cell id = "540">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "541">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "542">
          <state>EMPTY</state>
       </cell>
       <cell id = "543">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "544">
          <state>FULL</state>
       </cell>
       <cell id = "545">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "546">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "547">
          <state>FULL</state>
       </cell>
       <cell id = "548">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "549">
          <state>EMPTY</state>
@@ -1659,7 +1659,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "551">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "552">
          <state>EMPTY</state>
@@ -1668,7 +1668,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "554">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "555">
          <state>EMPTY</state>
@@ -1686,16 +1686,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "560">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "561">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "562">
          <state>EMPTY</state>
       </cell>
       <cell id = "563">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "564">
          <state>FULL</state>
@@ -1710,37 +1710,37 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "568">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "569">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "570">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "571">
          <state>EMPTY</state>
       </cell>
       <cell id = "572">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "573">
          <state>FULL</state>
       </cell>
+      <cell id = "573">
+         <state>EMPTY</state>
+      </cell>
       <cell id = "574">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "575">
          <state>EMPTY</state>
       </cell>
       <cell id = "576">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "577">
          <state>EMPTY</state>
       </cell>
       <cell id = "578">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "579">
          <state>EMPTY</state>
@@ -1749,34 +1749,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "581">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "582">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "583">
          <state>EMPTY</state>
       </cell>
       <cell id = "584">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "585">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "586">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "587">
          <state>EMPTY</state>
       </cell>
       <cell id = "588">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "589">
          <state>FULL</state>
       </cell>
-      <cell id = "590">
+      <cell id = "589">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "590">
+         <state>FULL</state>
       </cell>
       <cell id = "591">
          <state>EMPTY</state>
@@ -1785,16 +1785,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "593">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "594">
          <state>EMPTY</state>
       </cell>
       <cell id = "595">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "596">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "597">
          <state>EMPTY</state>
@@ -1806,7 +1806,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "600">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "601">
          <state>EMPTY</state>
@@ -1815,7 +1815,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "603">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "604">
          <state>EMPTY</state>
@@ -1830,7 +1830,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "608">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "609">
          <state>EMPTY</state>
@@ -1839,13 +1839,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "611">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "612">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "613">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "614">
          <state>EMPTY</state>
@@ -1854,13 +1854,13 @@
          <state>FULL</state>
       </cell>
       <cell id = "616">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "617">
          <state>EMPTY</state>
       </cell>
       <cell id = "618">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "619">
          <state>EMPTY</state>
@@ -1875,22 +1875,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "623">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "624">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "625">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "626">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "627">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "628">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "629">
          <state>EMPTY</state>
@@ -1902,7 +1902,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "632">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "633">
          <state>EMPTY</state>
@@ -1911,7 +1911,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "635">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "636">
          <state>EMPTY</state>
@@ -1920,7 +1920,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "638">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "639">
          <state>EMPTY</state>
@@ -1929,22 +1929,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "641">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "642">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "643">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "644">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "645">
          <state>EMPTY</state>
       </cell>
       <cell id = "646">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "647">
          <state>EMPTY</state>
@@ -1956,13 +1956,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "650">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "651">
          <state>EMPTY</state>
       </cell>
       <cell id = "652">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "653">
          <state>EMPTY</state>
@@ -1974,16 +1974,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "656">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "657">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "658">
          <state>EMPTY</state>
       </cell>
       <cell id = "659">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "660">
          <state>EMPTY</state>
@@ -1995,7 +1995,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "663">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "664">
          <state>EMPTY</state>
@@ -2013,7 +2013,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "669">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "670">
          <state>EMPTY</state>
@@ -2022,64 +2022,64 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "672">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "673">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "674">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "675">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "676">
          <state>EMPTY</state>
       </cell>
       <cell id = "677">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "678">
          <state>FULL</state>
       </cell>
       <cell id = "679">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "680">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "681">
          <state>EMPTY</state>
       </cell>
       <cell id = "682">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "683">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "684">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "685">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "686">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "687">
          <state>EMPTY</state>
       </cell>
       <cell id = "688">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "689">
          <state>EMPTY</state>
       </cell>
       <cell id = "690">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "691">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "692">
          <state>FULL</state>
@@ -2088,31 +2088,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "694">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "695">
          <state>EMPTY</state>
       </cell>
       <cell id = "696">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "697">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "698">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "699">
          <state>EMPTY</state>
       </cell>
       <cell id = "700">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "701">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "702">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "703">
          <state>EMPTY</state>
@@ -2121,10 +2121,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "705">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "706">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "707">
          <state>EMPTY</state>
@@ -2133,16 +2133,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "709">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "710">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "711">
          <state>EMPTY</state>
       </cell>
       <cell id = "712">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "713">
          <state>EMPTY</state>
@@ -2151,10 +2151,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "715">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "716">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "717">
          <state>EMPTY</state>
@@ -2163,10 +2163,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "719">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "720">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "721">
          <state>EMPTY</state>
@@ -2184,19 +2184,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "726">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "727">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "728">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "729">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "730">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "731">
          <state>EMPTY</state>
@@ -2208,28 +2208,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "734">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "735">
          <state>EMPTY</state>
       </cell>
       <cell id = "736">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "737">
          <state>EMPTY</state>
       </cell>
       <cell id = "738">
-         <state>FULL</state>
-      </cell>
-      <cell id = "739">
          <state>PERCOLATED</state>
       </cell>
-      <cell id = "740">
+      <cell id = "739">
          <state>EMPTY</state>
       </cell>
+      <cell id = "740">
+         <state>FULL</state>
+      </cell>
       <cell id = "741">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "742">
          <state>EMPTY</state>
@@ -2241,10 +2241,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "745">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "746">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "747">
          <state>EMPTY</state>
@@ -2277,7 +2277,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "757">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "758">
          <state>FULL</state>
@@ -2289,7 +2289,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "761">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "762">
          <state>EMPTY</state>
@@ -2301,34 +2301,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "765">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "766">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "767">
          <state>EMPTY</state>
       </cell>
       <cell id = "768">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "769">
          <state>EMPTY</state>
       </cell>
       <cell id = "770">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "771">
          <state>EMPTY</state>
       </cell>
       <cell id = "772">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "773">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "774">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "775">
          <state>EMPTY</state>
@@ -2340,16 +2340,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "778">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "779">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "780">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "781">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "782">
          <state>FULL</state>
@@ -2364,40 +2364,40 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "786">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "787">
          <state>EMPTY</state>
       </cell>
       <cell id = "788">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "789">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "790">
          <state>EMPTY</state>
       </cell>
       <cell id = "791">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "792">
          <state>EMPTY</state>
       </cell>
       <cell id = "793">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "794">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "795">
          <state>EMPTY</state>
       </cell>
       <cell id = "796">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "797">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "798">
          <state>EMPTY</state>
@@ -2406,7 +2406,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "800">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "801">
          <state>EMPTY</state>
@@ -2418,28 +2418,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "804">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "805">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "806">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "807">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "808">
          <state>EMPTY</state>
       </cell>
       <cell id = "809">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "810">
          <state>EMPTY</state>
       </cell>
       <cell id = "811">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "812">
          <state>EMPTY</state>
@@ -2451,73 +2451,73 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "815">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "816">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "817">
          <state>EMPTY</state>
       </cell>
       <cell id = "818">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "819">
          <state>EMPTY</state>
       </cell>
       <cell id = "820">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "821">
          <state>FULL</state>
       </cell>
+      <cell id = "821">
+         <state>EMPTY</state>
+      </cell>
       <cell id = "822">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "823">
          <state>EMPTY</state>
       </cell>
       <cell id = "824">
-         <state>FULL</state>
-      </cell>
-      <cell id = "825">
          <state>EMPTY</state>
       </cell>
+      <cell id = "825">
+         <state>FULL</state>
+      </cell>
       <cell id = "826">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "827">
          <state>EMPTY</state>
       </cell>
       <cell id = "828">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "829">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "830">
          <state>PERCOLATED</state>
       </cell>
       <cell id = "831">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "832">
          <state>EMPTY</state>
       </cell>
       <cell id = "833">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "834">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "835">
          <state>EMPTY</state>
       </cell>
       <cell id = "836">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "837">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "838">
          <state>FULL</state>
@@ -2535,16 +2535,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "843">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "844">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "845">
          <state>EMPTY</state>
       </cell>
       <cell id = "846">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "847">
          <state>EMPTY</state>
@@ -2553,7 +2553,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "849">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "850">
          <state>EMPTY</state>
@@ -2562,19 +2562,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "852">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "853">
          <state>EMPTY</state>
       </cell>
       <cell id = "854">
-         <state>FULL</state>
-      </cell>
-      <cell id = "855">
          <state>EMPTY</state>
       </cell>
+      <cell id = "855">
+         <state>FULL</state>
+      </cell>
       <cell id = "856">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "857">
          <state>EMPTY</state>
@@ -2583,13 +2583,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "859">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "860">
          <state>EMPTY</state>
       </cell>
       <cell id = "861">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "862">
          <state>EMPTY</state>
@@ -2598,7 +2598,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "864">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "865">
          <state>EMPTY</state>
@@ -2607,19 +2607,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "867">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "868">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "869">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "870">
          <state>FULL</state>
       </cell>
       <cell id = "871">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "872">
          <state>EMPTY</state>
@@ -2634,7 +2634,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "876">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "877">
          <state>EMPTY</state>
@@ -2646,10 +2646,10 @@
          <state>FULL</state>
       </cell>
       <cell id = "880">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "881">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "882">
          <state>FULL</state>
@@ -2658,28 +2658,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "884">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "885">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "886">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "887">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "888">
          <state>EMPTY</state>
       </cell>
       <cell id = "889">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "890">
          <state>EMPTY</state>
       </cell>
       <cell id = "891">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "892">
          <state>EMPTY</state>
@@ -2688,25 +2688,25 @@
          <state>FULL</state>
       </cell>
       <cell id = "894">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "895">
          <state>EMPTY</state>
       </cell>
       <cell id = "896">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "897">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "898">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "899">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "900">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "901">
          <state>EMPTY</state>
@@ -2715,16 +2715,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "903">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "904">
          <state>FULL</state>
       </cell>
-      <cell id = "905">
+      <cell id = "904">
          <state>EMPTY</state>
       </cell>
+      <cell id = "905">
+         <state>FULL</state>
+      </cell>
       <cell id = "906">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "907">
          <state>EMPTY</state>
@@ -2739,22 +2739,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "911">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "912">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "913">
          <state>EMPTY</state>
       </cell>
       <cell id = "914">
-         <state>FULL</state>
-      </cell>
-      <cell id = "915">
          <state>EMPTY</state>
       </cell>
-      <cell id = "916">
+      <cell id = "915">
          <state>FULL</state>
+      </cell>
+      <cell id = "916">
+         <state>EMPTY</state>
       </cell>
       <cell id = "917">
          <state>EMPTY</state>
@@ -2766,46 +2766,46 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "920">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "921">
          <state>EMPTY</state>
       </cell>
       <cell id = "922">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "923">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "924">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "925">
          <state>EMPTY</state>
       </cell>
+      <cell id = "923">
+         <state>FULL</state>
+      </cell>
+      <cell id = "924">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "925">
+         <state>FULL</state>
+      </cell>
       <cell id = "926">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "927">
          <state>EMPTY</state>
       </cell>
       <cell id = "928">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "929">
          <state>EMPTY</state>
       </cell>
       <cell id = "930">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "931">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "932">
          <state>FULL</state>
       </cell>
       <cell id = "933">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "934">
          <state>EMPTY</state>
@@ -2820,19 +2820,19 @@
          <state>FULL</state>
       </cell>
       <cell id = "938">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "939">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "940">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "941">
          <state>EMPTY</state>
       </cell>
       <cell id = "942">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "943">
          <state>EMPTY</state>
@@ -2844,7 +2844,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "946">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "947">
          <state>EMPTY</state>
@@ -2856,10 +2856,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "950">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "951">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "952">
          <state>FULL</state>
@@ -2868,7 +2868,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "954">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "955">
          <state>EMPTY</state>
@@ -2883,10 +2883,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "959">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "960">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "961">
          <state>EMPTY</state>
@@ -2898,7 +2898,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "964">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "965">
          <state>EMPTY</state>
@@ -2907,10 +2907,10 @@
          <state>FULL</state>
       </cell>
       <cell id = "967">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "968">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "969">
          <state>EMPTY</state>
@@ -2922,7 +2922,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "972">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "973">
          <state>EMPTY</state>
@@ -2931,37 +2931,37 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "975">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "976">
          <state>EMPTY</state>
       </cell>
       <cell id = "977">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "978">
          <state>EMPTY</state>
       </cell>
       <cell id = "979">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "980">
          <state>EMPTY</state>
       </cell>
       <cell id = "981">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "982">
          <state>EMPTY</state>
       </cell>
       <cell id = "983">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "984">
          <state>EMPTY</state>
       </cell>
       <cell id = "985">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "986">
          <state>EMPTY</state>
@@ -2973,10 +2973,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "989">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "990">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "991">
          <state>EMPTY</state>
@@ -2985,16 +2985,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "993">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "994">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "995">
          <state>EMPTY</state>
       </cell>
       <cell id = "996">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "997">
          <state>EMPTY</state>
@@ -3006,28 +3006,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1000">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1001">
          <state>EMPTY</state>
       </cell>
       <cell id = "1002">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1003">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1004">
          <state>EMPTY</state>
       </cell>
       <cell id = "1005">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1006">
          <state>EMPTY</state>
       </cell>
       <cell id = "1007">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1008">
          <state>EMPTY</state>
@@ -3036,25 +3036,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1010">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1011">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1012">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1013">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1014">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1015">
          <state>EMPTY</state>
       </cell>
       <cell id = "1016">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1017">
          <state>EMPTY</state>
@@ -3078,79 +3078,79 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1024">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1025">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1026">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1027">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1028">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1029">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1030">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1031">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1032">
          <state>EMPTY</state>
       </cell>
       <cell id = "1033">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1034">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1035">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1036">
          <state>FULL</state>
       </cell>
       <cell id = "1037">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1038">
          <state>EMPTY</state>
       </cell>
       <cell id = "1039">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1040">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1041">
          <state>EMPTY</state>
       </cell>
       <cell id = "1042">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1043">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1044">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1045">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1046">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1047">
          <state>EMPTY</state>
       </cell>
       <cell id = "1048">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1049">
          <state>EMPTY</state>
@@ -3162,7 +3162,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "1052">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1053">
          <state>EMPTY</state>
@@ -3174,10 +3174,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1056">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1057">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1058">
          <state>EMPTY</state>
@@ -3186,13 +3186,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1060">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1061">
          <state>EMPTY</state>
       </cell>
       <cell id = "1062">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1063">
          <state>EMPTY</state>
@@ -3201,13 +3201,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1065">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1066">
          <state>EMPTY</state>
       </cell>
       <cell id = "1067">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1068">
          <state>EMPTY</state>
@@ -3216,7 +3216,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1070">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1071">
          <state>FULL</state>
@@ -3228,22 +3228,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1074">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1075">
          <state>EMPTY</state>
       </cell>
       <cell id = "1076">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1077">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1078">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1079">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1080">
          <state>EMPTY</state>
@@ -3252,16 +3252,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1082">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1083">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1084">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1085">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1086">
          <state>EMPTY</state>
@@ -3270,7 +3270,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1088">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1089">
          <state>EMPTY</state>
@@ -3294,16 +3294,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1096">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1097">
          <state>PERCOLATED</state>
       </cell>
-      <cell id = "1098">
+      <cell id = "1097">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1098">
+         <state>FULL</state>
+      </cell>
       <cell id = "1099">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1100">
          <state>EMPTY</state>
@@ -3321,34 +3321,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1105">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1106">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1107">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1108">
          <state>EMPTY</state>
       </cell>
       <cell id = "1109">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1110">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1111">
          <state>EMPTY</state>
       </cell>
       <cell id = "1112">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1113">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1114">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1115">
          <state>FULL</state>
@@ -3360,7 +3360,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1118">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1119">
          <state>EMPTY</state>
@@ -3369,34 +3369,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1121">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1122">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1123">
          <state>EMPTY</state>
       </cell>
       <cell id = "1124">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1125">
          <state>EMPTY</state>
       </cell>
       <cell id = "1126">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1127">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1128">
          <state>EMPTY</state>
       </cell>
       <cell id = "1129">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1130">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1131">
          <state>EMPTY</state>
@@ -3408,7 +3408,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1134">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1135">
          <state>EMPTY</state>
@@ -3417,64 +3417,64 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1137">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1138">
          <state>EMPTY</state>
       </cell>
       <cell id = "1139">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1140">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1141">
          <state>FULL</state>
       </cell>
       <cell id = "1142">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1143">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1144">
          <state>EMPTY</state>
       </cell>
       <cell id = "1145">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1146">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1147">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1148">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1149">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1150">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1151">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1152">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1153">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1154">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1155">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1156">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1157">
          <state>EMPTY</state>
@@ -3486,7 +3486,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "1160">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1161">
          <state>EMPTY</state>
@@ -3498,13 +3498,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1164">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1165">
          <state>FULL</state>
       </cell>
-      <cell id = "1166">
+      <cell id = "1165">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "1166">
+         <state>FULL</state>
       </cell>
       <cell id = "1167">
          <state>EMPTY</state>
@@ -3519,7 +3519,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1171">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1172">
          <state>EMPTY</state>
@@ -3534,7 +3534,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1176">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1177">
          <state>EMPTY</state>
@@ -3543,16 +3543,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1179">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1180">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1181">
          <state>EMPTY</state>
       </cell>
       <cell id = "1182">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1183">
          <state>EMPTY</state>
@@ -3561,7 +3561,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1185">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1186">
          <state>EMPTY</state>
@@ -3570,16 +3570,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1188">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1189">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1190">
          <state>EMPTY</state>
       </cell>
       <cell id = "1191">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1192">
          <state>EMPTY</state>
@@ -3588,10 +3588,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1194">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1195">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1196">
          <state>EMPTY</state>
@@ -3600,10 +3600,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1198">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1199">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1200">
          <state>EMPTY</state>
@@ -3624,40 +3624,40 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1206">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1207">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1208">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1209">
          <state>EMPTY</state>
       </cell>
       <cell id = "1210">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1211">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1212">
          <state>EMPTY</state>
       </cell>
       <cell id = "1213">
-         <state>FULL</state>
-      </cell>
-      <cell id = "1214">
          <state>EMPTY</state>
       </cell>
-      <cell id = "1215">
+      <cell id = "1214">
          <state>FULL</state>
+      </cell>
+      <cell id = "1215">
+         <state>EMPTY</state>
       </cell>
       <cell id = "1216">
          <state>EMPTY</state>
       </cell>
       <cell id = "1217">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1218">
          <state>EMPTY</state>
@@ -3672,16 +3672,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1222">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1223">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1224">
          <state>EMPTY</state>
       </cell>
       <cell id = "1225">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1226">
          <state>EMPTY</state>
@@ -3690,25 +3690,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1228">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1229">
          <state>EMPTY</state>
       </cell>
       <cell id = "1230">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1231">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1232">
          <state>EMPTY</state>
       </cell>
       <cell id = "1233">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1234">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1235">
          <state>EMPTY</state>
@@ -3717,25 +3717,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1237">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1238">
          <state>EMPTY</state>
       </cell>
       <cell id = "1239">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1240">
          <state>EMPTY</state>
       </cell>
       <cell id = "1241">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1242">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1243">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1244">
          <state>EMPTY</state>
@@ -3744,7 +3744,7 @@
          <state>PERCOLATED</state>
       </cell>
       <cell id = "1246">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1247">
          <state>EMPTY</state>
@@ -3753,10 +3753,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1249">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1250">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1251">
          <state>EMPTY</state>
@@ -3765,16 +3765,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1253">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1254">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1255">
          <state>EMPTY</state>
       </cell>
       <cell id = "1256">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1257">
          <state>EMPTY</state>
@@ -3786,13 +3786,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1260">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1261">
          <state>EMPTY</state>
       </cell>
       <cell id = "1262">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1263">
          <state>EMPTY</state>
@@ -3801,10 +3801,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1265">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1266">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1267">
          <state>EMPTY</state>
@@ -3816,16 +3816,16 @@
          <state>FULL</state>
       </cell>
       <cell id = "1270">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1271">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1272">
          <state>EMPTY</state>
       </cell>
       <cell id = "1273">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1274">
          <state>EMPTY</state>
@@ -3834,25 +3834,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1276">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1277">
          <state>EMPTY</state>
       </cell>
       <cell id = "1278">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1279">
          <state>EMPTY</state>
       </cell>
       <cell id = "1280">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1281">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1282">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1283">
          <state>EMPTY</state>
@@ -3861,7 +3861,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1285">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1286">
          <state>EMPTY</state>
@@ -3882,13 +3882,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1292">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1293">
          <state>FULL</state>
       </cell>
-      <cell id = "1294">
+      <cell id = "1293">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "1294">
+         <state>FULL</state>
       </cell>
       <cell id = "1295">
          <state>EMPTY</state>
@@ -3903,7 +3903,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1299">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1300">
          <state>EMPTY</state>
@@ -3912,40 +3912,40 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1302">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1303">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1304">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1305">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1306">
          <state>EMPTY</state>
       </cell>
       <cell id = "1307">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1308">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1309">
          <state>EMPTY</state>
       </cell>
       <cell id = "1310">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1311">
          <state>EMPTY</state>
       </cell>
       <cell id = "1312">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1313">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1314">
          <state>EMPTY</state>
@@ -3960,13 +3960,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1318">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1319">
          <state>EMPTY</state>
       </cell>
       <cell id = "1320">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1321">
          <state>EMPTY</state>
@@ -3975,73 +3975,73 @@
          <state>PERCOLATED</state>
       </cell>
       <cell id = "1323">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1324">
          <state>EMPTY</state>
       </cell>
       <cell id = "1325">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1326">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1327">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1328">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1329">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1330">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1331">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1332">
          <state>EMPTY</state>
       </cell>
       <cell id = "1333">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1334">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1335">
          <state>EMPTY</state>
       </cell>
       <cell id = "1336">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1337">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1338">
          <state>EMPTY</state>
       </cell>
       <cell id = "1339">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1340">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1341">
          <state>EMPTY</state>
       </cell>
       <cell id = "1342">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1343">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1344">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1345">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1346">
          <state>EMPTY</state>
@@ -4053,7 +4053,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "1349">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1350">
          <state>EMPTY</state>
@@ -4062,7 +4062,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1352">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1353">
          <state>EMPTY</state>
@@ -4080,16 +4080,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1358">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1359">
          <state>EMPTY</state>
       </cell>
       <cell id = "1360">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1361">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1362">
          <state>EMPTY</state>
@@ -4107,16 +4107,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1367">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1368">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1369">
          <state>EMPTY</state>
       </cell>
       <cell id = "1370">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1371">
          <state>FULL</state>
@@ -4125,25 +4125,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1373">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1374">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1375">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1376">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1377">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1378">
          <state>FULL</state>
       </cell>
-      <cell id = "1379">
+      <cell id = "1375">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "1376">
+         <state>FULL</state>
+      </cell>
+      <cell id = "1377">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1378">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1379">
+         <state>FULL</state>
       </cell>
       <cell id = "1380">
          <state>EMPTY</state>
@@ -4164,22 +4164,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1386">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1387">
          <state>EMPTY</state>
       </cell>
       <cell id = "1388">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1389">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1390">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1391">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1392">
          <state>EMPTY</state>
@@ -4188,16 +4188,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1394">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1395">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1396">
          <state>EMPTY</state>
       </cell>
       <cell id = "1397">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1398">
          <state>EMPTY</state>
@@ -4209,7 +4209,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1401">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1402">
          <state>FULL</state>
@@ -4218,25 +4218,25 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1404">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1405">
          <state>EMPTY</state>
       </cell>
       <cell id = "1406">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1407">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1408">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1409">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1410">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1411">
          <state>EMPTY</state>
@@ -4245,19 +4245,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1413">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1414">
          <state>EMPTY</state>
       </cell>
-      <cell id = "1415">
+      <cell id = "1414">
          <state>FULL</state>
+      </cell>
+      <cell id = "1415">
+         <state>EMPTY</state>
       </cell>
       <cell id = "1416">
          <state>EMPTY</state>
       </cell>
       <cell id = "1417">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1418">
          <state>FULL</state>
@@ -4266,7 +4266,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1420">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1421">
          <state>EMPTY</state>
@@ -4281,13 +4281,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1425">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1426">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1427">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1428">
          <state>EMPTY</state>
@@ -4296,7 +4296,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1430">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1431">
          <state>EMPTY</state>
@@ -4305,7 +4305,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1433">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1434">
          <state>EMPTY</state>
@@ -4317,43 +4317,43 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1437">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1438">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1439">
          <state>EMPTY</state>
       </cell>
       <cell id = "1440">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1441">
          <state>EMPTY</state>
       </cell>
       <cell id = "1442">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1443">
          <state>EMPTY</state>
       </cell>
       <cell id = "1444">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1445">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1446">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1447">
          <state>EMPTY</state>
       </cell>
       <cell id = "1448">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1449">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1450">
          <state>EMPTY</state>
@@ -4365,34 +4365,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1453">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1454">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1455">
          <state>EMPTY</state>
       </cell>
       <cell id = "1456">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1457">
          <state>EMPTY</state>
       </cell>
       <cell id = "1458">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1459">
          <state>EMPTY</state>
       </cell>
       <cell id = "1460">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1461">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1462">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1463">
          <state>EMPTY</state>
@@ -4401,13 +4401,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1465">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1466">
          <state>EMPTY</state>
       </cell>
       <cell id = "1467">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1468">
          <state>FULL</state>
@@ -4419,10 +4419,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1471">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1472">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1473">
          <state>EMPTY</state>
@@ -4431,7 +4431,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1475">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1476">
          <state>EMPTY</state>
@@ -4449,16 +4449,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1481">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1482">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1483">
          <state>EMPTY</state>
       </cell>
       <cell id = "1484">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1485">
          <state>EMPTY</state>
@@ -4467,10 +4467,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1487">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1488">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1489">
          <state>EMPTY</state>
@@ -4479,19 +4479,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1491">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1492">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1493">
          <state>EMPTY</state>
       </cell>
       <cell id = "1494">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1495">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1496">
          <state>EMPTY</state>
@@ -4500,10 +4500,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1498">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1499">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1500">
          <state>EMPTY</state>
@@ -4512,22 +4512,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1502">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1503">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1504">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1505">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1506">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1507">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1508">
          <state>EMPTY</state>
@@ -4536,40 +4536,40 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1510">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1511">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1512">
          <state>EMPTY</state>
       </cell>
       <cell id = "1513">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1514">
          <state>EMPTY</state>
       </cell>
       <cell id = "1515">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1516">
          <state>EMPTY</state>
       </cell>
       <cell id = "1517">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1518">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1519">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1520">
          <state>PERCOLATED</state>
       </cell>
-      <cell id = "1521">
+      <cell id = "1520">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "1521">
+         <state>FULL</state>
       </cell>
       <cell id = "1522">
          <state>EMPTY</state>
@@ -4578,55 +4578,55 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1524">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1525">
          <state>EMPTY</state>
       </cell>
       <cell id = "1526">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1527">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1528">
          <state>EMPTY</state>
       </cell>
       <cell id = "1529">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1530">
          <state>EMPTY</state>
       </cell>
       <cell id = "1531">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1532">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1533">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1534">
          <state>EMPTY</state>
       </cell>
       <cell id = "1535">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1536">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1537">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1538">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1538">
+         <state>FULL</state>
+      </cell>
       <cell id = "1539">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1540">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1541">
          <state>EMPTY</state>
@@ -4638,7 +4638,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "1544">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1545">
          <state>EMPTY</state>
@@ -4647,19 +4647,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1547">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1548">
          <state>EMPTY</state>
       </cell>
       <cell id = "1549">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1550">
          <state>EMPTY</state>
       </cell>
       <cell id = "1551">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1552">
          <state>EMPTY</state>
@@ -4668,7 +4668,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1554">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1555">
          <state>EMPTY</state>
@@ -4686,19 +4686,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1560">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1561">
          <state>EMPTY</state>
       </cell>
       <cell id = "1562">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1563">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1564">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1565">
          <state>EMPTY</state>
@@ -4707,16 +4707,16 @@
          <state>FULL</state>
       </cell>
       <cell id = "1567">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1568">
          <state>EMPTY</state>
       </cell>
       <cell id = "1569">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1570">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1571">
          <state>EMPTY</state>
@@ -4731,46 +4731,46 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1575">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1576">
          <state>EMPTY</state>
       </cell>
       <cell id = "1577">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1578">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1579">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1580">
          <state>EMPTY</state>
       </cell>
       <cell id = "1581">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1582">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1583">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1584">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1585">
          <state>EMPTY</state>
       </cell>
       <cell id = "1586">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1587">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1588">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1589">
          <state>EMPTY</state>
@@ -4782,61 +4782,61 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1592">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1593">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1594">
          <state>EMPTY</state>
       </cell>
       <cell id = "1595">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1596">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1597">
          <state>EMPTY</state>
       </cell>
       <cell id = "1598">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1599">
          <state>EMPTY</state>
       </cell>
       <cell id = "1600">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1601">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1602">
          <state>EMPTY</state>
       </cell>
       <cell id = "1603">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1604">
          <state>EMPTY</state>
       </cell>
       <cell id = "1605">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1606">
          <state>EMPTY</state>
       </cell>
       <cell id = "1607">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1608">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1609">
          <state>EMPTY</state>
       </cell>
       <cell id = "1610">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1611">
          <state>EMPTY</state>
@@ -4845,19 +4845,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1613">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1614">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1615">
          <state>EMPTY</state>
       </cell>
       <cell id = "1616">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1617">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1618">
          <state>EMPTY</state>
@@ -4866,13 +4866,13 @@
          <state>FULL</state>
       </cell>
       <cell id = "1620">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1621">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1622">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1623">
          <state>EMPTY</state>
@@ -4881,22 +4881,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1625">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1626">
          <state>EMPTY</state>
       </cell>
       <cell id = "1627">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1628">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1629">
          <state>EMPTY</state>
       </cell>
       <cell id = "1630">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1631">
          <state>EMPTY</state>
@@ -4905,13 +4905,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1633">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1634">
          <state>EMPTY</state>
       </cell>
       <cell id = "1635">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1636">
          <state>EMPTY</state>
@@ -4920,13 +4920,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1638">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1639">
          <state>EMPTY</state>
       </cell>
       <cell id = "1640">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1641">
          <state>EMPTY</state>
@@ -4941,16 +4941,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1645">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1646">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1647">
          <state>EMPTY</state>
       </cell>
       <cell id = "1648">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1649">
          <state>EMPTY</state>
@@ -4959,19 +4959,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1651">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1652">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1653">
          <state>FULL</state>
       </cell>
+      <cell id = "1652">
+         <state>FULL</state>
+      </cell>
+      <cell id = "1653">
+         <state>EMPTY</state>
+      </cell>
       <cell id = "1654">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1655">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1656">
          <state>EMPTY</state>
@@ -4980,10 +4980,10 @@
          <state>FULL</state>
       </cell>
       <cell id = "1658">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1659">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1660">
          <state>EMPTY</state>
@@ -4992,7 +4992,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1662">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1663">
          <state>EMPTY</state>
@@ -5007,7 +5007,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "1667">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1668">
          <state>EMPTY</state>
@@ -5028,10 +5028,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1674">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1675">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1676">
          <state>FULL</state>
@@ -5043,13 +5043,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1679">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1680">
          <state>EMPTY</state>
       </cell>
       <cell id = "1681">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1682">
          <state>FULL</state>
@@ -5058,7 +5058,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1684">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1685">
          <state>EMPTY</state>
@@ -5070,7 +5070,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1688">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1689">
          <state>EMPTY</state>
@@ -5088,7 +5088,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1694">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1695">
          <state>EMPTY</state>
@@ -5097,28 +5097,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1697">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1698">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1699">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1700">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1701">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1702">
          <state>EMPTY</state>
       </cell>
       <cell id = "1703">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1704">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1705">
          <state>EMPTY</state>
@@ -5133,49 +5133,49 @@
          <state>FULL</state>
       </cell>
       <cell id = "1709">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1710">
          <state>FULL</state>
       </cell>
       <cell id = "1711">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1712">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1713">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1714">
          <state>EMPTY</state>
       </cell>
       <cell id = "1715">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1716">
          <state>EMPTY</state>
       </cell>
       <cell id = "1717">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1718">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1719">
          <state>FULL</state>
       </cell>
-      <cell id = "1720">
+      <cell id = "1719">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1720">
+         <state>FULL</state>
+      </cell>
       <cell id = "1721">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1722">
          <state>EMPTY</state>
       </cell>
       <cell id = "1723">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1724">
          <state>EMPTY</state>
@@ -5187,7 +5187,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1727">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1728">
          <state>EMPTY</state>
@@ -5196,22 +5196,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1730">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1731">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1732">
          <state>EMPTY</state>
       </cell>
       <cell id = "1733">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1734">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1735">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1736">
          <state>EMPTY</state>
@@ -5226,10 +5226,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1740">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1741">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1742">
          <state>FULL</state>
@@ -5250,40 +5250,40 @@
          <state>FULL</state>
       </cell>
       <cell id = "1748">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1749">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1750">
          <state>FULL</state>
       </cell>
-      <cell id = "1751">
+      <cell id = "1749">
+         <state>FULL</state>
+      </cell>
+      <cell id = "1750">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1751">
+         <state>PERCOLATED</state>
+      </cell>
       <cell id = "1752">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1753">
          <state>FULL</state>
       </cell>
       <cell id = "1754">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1755">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1756">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1757">
          <state>EMPTY</state>
       </cell>
       <cell id = "1758">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1759">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1760">
          <state>EMPTY</state>
@@ -5298,16 +5298,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1764">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1765">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1766">
          <state>EMPTY</state>
       </cell>
       <cell id = "1767">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1768">
          <state>EMPTY</state>
@@ -5322,13 +5322,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1772">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1773">
          <state>EMPTY</state>
       </cell>
       <cell id = "1774">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1775">
          <state>EMPTY</state>
@@ -5337,28 +5337,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1777">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1778">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1779">
          <state>EMPTY</state>
       </cell>
       <cell id = "1780">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1781">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1782">
          <state>EMPTY</state>
       </cell>
       <cell id = "1783">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1784">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1785">
          <state>EMPTY</state>
@@ -5367,16 +5367,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1787">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1788">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1789">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1790">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1791">
          <state>FULL</state>
@@ -5388,16 +5388,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1794">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1795">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1796">
          <state>EMPTY</state>
       </cell>
       <cell id = "1797">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1798">
          <state>EMPTY</state>
@@ -5409,13 +5409,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1801">
-         <state>FULL</state>
-      </cell>
-      <cell id = "1802">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1802">
+         <state>FULL</state>
+      </cell>
       <cell id = "1803">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1804">
          <state>FULL</state>
@@ -5427,25 +5427,25 @@
          <state>FULL</state>
       </cell>
       <cell id = "1807">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1808">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1809">
          <state>EMPTY</state>
       </cell>
       <cell id = "1810">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1811">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1812">
          <state>FULL</state>
       </cell>
       <cell id = "1813">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1814">
          <state>EMPTY</state>
@@ -5454,31 +5454,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1816">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1817">
          <state>EMPTY</state>
       </cell>
       <cell id = "1818">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1819">
          <state>EMPTY</state>
       </cell>
       <cell id = "1820">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1821">
          <state>EMPTY</state>
       </cell>
       <cell id = "1822">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1823">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1824">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1825">
          <state>EMPTY</state>
@@ -5487,16 +5487,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1827">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1828">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1829">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1830">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1831">
          <state>EMPTY</state>
@@ -5508,7 +5508,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1834">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1835">
          <state>EMPTY</state>
@@ -5517,19 +5517,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1837">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1838">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1839">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1840">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1841">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1842">
          <state>EMPTY</state>
@@ -5541,7 +5541,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1845">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1846">
          <state>EMPTY</state>
@@ -5553,10 +5553,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1849">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1850">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1851">
          <state>EMPTY</state>
@@ -5568,13 +5568,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1854">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1855">
          <state>EMPTY</state>
       </cell>
       <cell id = "1856">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1857">
          <state>EMPTY</state>
@@ -5589,7 +5589,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1861">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1862">
          <state>EMPTY</state>
@@ -5601,7 +5601,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1865">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1866">
          <state>EMPTY</state>
@@ -5628,10 +5628,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1874">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1875">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1876">
          <state>EMPTY</state>
@@ -5646,49 +5646,49 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1880">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1881">
          <state>FULL</state>
       </cell>
       <cell id = "1882">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1883">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1884">
          <state>EMPTY</state>
       </cell>
       <cell id = "1885">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1886">
          <state>EMPTY</state>
       </cell>
       <cell id = "1887">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1888">
          <state>EMPTY</state>
       </cell>
       <cell id = "1889">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1890">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1890">
+         <state>FULL</state>
+      </cell>
       <cell id = "1891">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1892">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1893">
          <state>EMPTY</state>
       </cell>
       <cell id = "1894">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1895">
          <state>EMPTY</state>
@@ -5700,7 +5700,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1898">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1899">
          <state>EMPTY</state>
@@ -5709,10 +5709,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1901">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1902">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1903">
          <state>EMPTY</state>
@@ -5733,31 +5733,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1909">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1910">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1911">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1912">
          <state>EMPTY</state>
       </cell>
       <cell id = "1913">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1914">
          <state>FULL</state>
       </cell>
       <cell id = "1915">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1916">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1917">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1918">
          <state>FULL</state>
@@ -5772,19 +5772,19 @@
          <state>FULL</state>
       </cell>
       <cell id = "1922">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1923">
          <state>EMPTY</state>
       </cell>
       <cell id = "1924">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1925">
          <state>EMPTY</state>
       </cell>
       <cell id = "1926">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1927">
          <state>EMPTY</state>
@@ -5796,7 +5796,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1930">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1931">
          <state>EMPTY</state>
@@ -5805,16 +5805,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1933">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "1934">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1935">
          <state>FULL</state>
       </cell>
-      <cell id = "1936">
+      <cell id = "1934">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "1935">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1936">
+         <state>FULL</state>
       </cell>
       <cell id = "1937">
          <state>FULL</state>
@@ -5823,28 +5823,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1939">
-         <state>FULL</state>
-      </cell>
-      <cell id = "1940">
          <state>EMPTY</state>
       </cell>
-      <cell id = "1941">
+      <cell id = "1940">
          <state>FULL</state>
+      </cell>
+      <cell id = "1941">
+         <state>EMPTY</state>
       </cell>
       <cell id = "1942">
          <state>EMPTY</state>
       </cell>
       <cell id = "1943">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1944">
          <state>EMPTY</state>
       </cell>
       <cell id = "1945">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1946">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1947">
          <state>EMPTY</state>
@@ -5853,13 +5853,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1949">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1950">
          <state>EMPTY</state>
       </cell>
       <cell id = "1951">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1952">
          <state>EMPTY</state>
@@ -5874,16 +5874,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1956">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1957">
          <state>EMPTY</state>
       </cell>
       <cell id = "1958">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1959">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1960">
          <state>EMPTY</state>
@@ -5892,19 +5892,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1962">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "1963">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1964">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1965">
          <state>EMPTY</state>
       </cell>
       <cell id = "1966">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1967">
          <state>EMPTY</state>
@@ -5919,22 +5919,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1971">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1972">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1973">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "1974">
          <state>FULL</state>
       </cell>
-      <cell id = "1975">
+      <cell id = "1972">
          <state>EMPTY</state>
       </cell>
+      <cell id = "1973">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1974">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "1975">
+         <state>FULL</state>
+      </cell>
       <cell id = "1976">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1977">
          <state>EMPTY</state>
@@ -5955,7 +5955,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1983">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1984">
          <state>EMPTY</state>
@@ -5970,7 +5970,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "1988">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1989">
          <state>EMPTY</state>
@@ -5982,22 +5982,22 @@
          <state>FULL</state>
       </cell>
       <cell id = "1992">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1993">
          <state>EMPTY</state>
       </cell>
       <cell id = "1994">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1995">
          <state>EMPTY</state>
       </cell>
       <cell id = "1996">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "1997">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "1998">
          <state>EMPTY</state>
@@ -6006,19 +6006,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2000">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2001">
          <state>EMPTY</state>
       </cell>
       <cell id = "2002">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2003">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2004">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2005">
          <state>EMPTY</state>
@@ -6030,7 +6030,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2008">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2009">
          <state>EMPTY</state>
@@ -6045,10 +6045,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2013">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2014">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2015">
          <state>EMPTY</state>
@@ -6066,7 +6066,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2020">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2021">
          <state>EMPTY</state>
@@ -6081,16 +6081,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2025">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2026">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2027">
          <state>EMPTY</state>
       </cell>
       <cell id = "2028">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2029">
          <state>EMPTY</state>
@@ -6102,37 +6102,37 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2032">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2033">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2034">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2035">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2036">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2037">
          <state>EMPTY</state>
       </cell>
       <cell id = "2038">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2039">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2040">
          <state>EMPTY</state>
       </cell>
       <cell id = "2041">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2042">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2043">
          <state>EMPTY</state>
@@ -6144,7 +6144,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2046">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2047">
          <state>EMPTY</state>
@@ -6156,10 +6156,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2050">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2051">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2052">
          <state>EMPTY</state>
@@ -6177,112 +6177,112 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2057">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2058">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2059">
          <state>EMPTY</state>
       </cell>
       <cell id = "2060">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2061">
          <state>FULL</state>
       </cell>
       <cell id = "2062">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2063">
          <state>EMPTY</state>
       </cell>
       <cell id = "2064">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "2065">
-         <state>FULL</state>
-      </cell>
-      <cell id = "2066">
          <state>EMPTY</state>
       </cell>
-      <cell id = "2067">
+      <cell id = "2065">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "2066">
          <state>FULL</state>
       </cell>
+      <cell id = "2067">
+         <state>EMPTY</state>
+      </cell>
       <cell id = "2068">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2069">
          <state>EMPTY</state>
       </cell>
       <cell id = "2070">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2071">
          <state>EMPTY</state>
       </cell>
       <cell id = "2072">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2073">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2074">
-         <state>FULL</state>
-      </cell>
-      <cell id = "2075">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "2076">
-         <state>FULL</state>
-      </cell>
-      <cell id = "2077">
          <state>EMPTY</state>
       </cell>
-      <cell id = "2078">
+      <cell id = "2075">
          <state>FULL</state>
+      </cell>
+      <cell id = "2076">
+         <state>EMPTY</state>
+      </cell>
+      <cell id = "2077">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2078">
+         <state>EMPTY</state>
       </cell>
       <cell id = "2079">
          <state>FULL</state>
       </cell>
       <cell id = "2080">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2081">
          <state>EMPTY</state>
       </cell>
       <cell id = "2082">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2083">
          <state>EMPTY</state>
       </cell>
       <cell id = "2084">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2085">
          <state>EMPTY</state>
       </cell>
       <cell id = "2086">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2087">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2088">
          <state>EMPTY</state>
       </cell>
       <cell id = "2089">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2090">
          <state>EMPTY</state>
       </cell>
       <cell id = "2091">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2092">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2093">
          <state>EMPTY</state>
@@ -6294,52 +6294,52 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2096">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2097">
          <state>EMPTY</state>
       </cell>
       <cell id = "2098">
-         <state>PERCOLATED</state>
-      </cell>
-      <cell id = "2099">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2100">
          <state>FULL</state>
       </cell>
-      <cell id = "2101">
+      <cell id = "2099">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2100">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "2101">
+         <state>FULL</state>
       </cell>
       <cell id = "2102">
          <state>EMPTY</state>
       </cell>
       <cell id = "2103">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2104">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2105">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2106">
          <state>EMPTY</state>
       </cell>
       <cell id = "2107">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2108">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2109">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2110">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2111">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2112">
          <state>EMPTY</state>
@@ -6348,7 +6348,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2114">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2115">
          <state>EMPTY</state>
@@ -6363,7 +6363,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2119">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2120">
          <state>EMPTY</state>
@@ -6381,28 +6381,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2125">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2126">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2127">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2128">
          <state>EMPTY</state>
       </cell>
       <cell id = "2129">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2130">
          <state>EMPTY</state>
       </cell>
       <cell id = "2131">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2132">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2133">
          <state>EMPTY</state>
@@ -6411,10 +6411,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2135">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2136">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2137">
          <state>FULL</state>
@@ -6432,22 +6432,22 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2142">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2143">
          <state>EMPTY</state>
       </cell>
       <cell id = "2144">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2145">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2146">
          <state>EMPTY</state>
       </cell>
       <cell id = "2147">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2148">
          <state>EMPTY</state>
@@ -6456,16 +6456,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2150">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2151">
          <state>EMPTY</state>
       </cell>
       <cell id = "2152">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2153">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2154">
          <state>EMPTY</state>
@@ -6474,7 +6474,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2156">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2157">
          <state>FULL</state>
@@ -6492,7 +6492,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2162">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2163">
          <state>EMPTY</state>
@@ -6501,7 +6501,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2165">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2166">
          <state>EMPTY</state>
@@ -6510,34 +6510,34 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2168">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2169">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2170">
          <state>FULL</state>
       </cell>
       <cell id = "2171">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2172">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2173">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2174">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2175">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2176">
          <state>EMPTY</state>
       </cell>
       <cell id = "2177">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2178">
          <state>EMPTY</state>
@@ -6546,10 +6546,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2180">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2181">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2182">
          <state>EMPTY</state>
@@ -6564,49 +6564,49 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2186">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2187">
          <state>EMPTY</state>
       </cell>
       <cell id = "2188">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2189">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2190">
          <state>FULL</state>
       </cell>
-      <cell id = "2191">
+      <cell id = "2190">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "2191">
+         <state>FULL</state>
       </cell>
       <cell id = "2192">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2193">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2194">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2195">
          <state>EMPTY</state>
       </cell>
       <cell id = "2196">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2197">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2198">
          <state>EMPTY</state>
       </cell>
       <cell id = "2199">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2200">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2201">
          <state>EMPTY</state>
@@ -6615,16 +6615,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2203">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2204">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2205">
          <state>EMPTY</state>
       </cell>
       <cell id = "2206">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2207">
          <state>EMPTY</state>
@@ -6636,7 +6636,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2210">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2211">
          <state>EMPTY</state>
@@ -6663,10 +6663,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2219">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2220">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2221">
          <state>EMPTY</state>
@@ -6675,13 +6675,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2223">
-         <state>FULL</state>
-      </cell>
-      <cell id = "2224">
          <state>EMPTY</state>
       </cell>
-      <cell id = "2225">
+      <cell id = "2224">
          <state>FULL</state>
+      </cell>
+      <cell id = "2225">
+         <state>EMPTY</state>
       </cell>
       <cell id = "2226">
          <state>EMPTY</state>
@@ -6702,10 +6702,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2232">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2233">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2234">
          <state>FULL</state>
@@ -6717,19 +6717,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2237">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2238">
          <state>EMPTY</state>
       </cell>
       <cell id = "2239">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2240">
          <state>EMPTY</state>
       </cell>
       <cell id = "2241">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2242">
          <state>EMPTY</state>
@@ -6741,31 +6741,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2245">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2246">
          <state>EMPTY</state>
       </cell>
       <cell id = "2247">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2248">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2249">
          <state>EMPTY</state>
       </cell>
       <cell id = "2250">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2251">
          <state>EMPTY</state>
       </cell>
       <cell id = "2252">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2253">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2254">
          <state>EMPTY</state>
@@ -6774,58 +6774,58 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2256">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2257">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2258">
          <state>EMPTY</state>
       </cell>
       <cell id = "2259">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2260">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2261">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2262">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2263">
          <state>EMPTY</state>
       </cell>
       <cell id = "2264">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2265">
          <state>EMPTY</state>
       </cell>
       <cell id = "2266">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2267">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2268">
          <state>EMPTY</state>
       </cell>
       <cell id = "2269">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2270">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2271">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2272">
          <state>EMPTY</state>
       </cell>
       <cell id = "2273">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2274">
          <state>EMPTY</state>
@@ -6834,19 +6834,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2276">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2277">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2278">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2279">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2280">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2281">
          <state>EMPTY</state>
@@ -6858,7 +6858,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2284">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2285">
          <state>EMPTY</state>
@@ -6876,13 +6876,13 @@
          <state>FULL</state>
       </cell>
       <cell id = "2290">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2291">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2292">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2293">
          <state>EMPTY</state>
@@ -6903,13 +6903,13 @@
          <state>FULL</state>
       </cell>
       <cell id = "2299">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2300">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2301">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2302">
          <state>FULL</state>
@@ -6918,10 +6918,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2304">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2305">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2306">
          <state>EMPTY</state>
@@ -6933,7 +6933,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2309">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2310">
          <state>EMPTY</state>
@@ -6942,7 +6942,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2312">
-         <state>FULL</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2313">
          <state>EMPTY</state>
@@ -6954,16 +6954,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2316">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2317">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2318">
          <state>EMPTY</state>
       </cell>
       <cell id = "2319">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2320">
          <state>EMPTY</state>
@@ -6975,13 +6975,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2323">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2324">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2325">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2326">
          <state>EMPTY</state>
@@ -6993,19 +6993,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2329">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2330">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2331">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2332">
          <state>FULL</state>
       </cell>
-      <cell id = "2333">
+      <cell id = "2331">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2332">
          <state>EMPTY</state>
+      </cell>
+      <cell id = "2333">
+         <state>FULL</state>
       </cell>
       <cell id = "2334">
          <state>EMPTY</state>
@@ -7014,10 +7014,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2336">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2337">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2338">
          <state>EMPTY</state>
@@ -7026,46 +7026,46 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2340">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2341">
          <state>EMPTY</state>
       </cell>
       <cell id = "2342">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2343">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2344">
          <state>EMPTY</state>
       </cell>
       <cell id = "2345">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2346">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2347">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2348">
          <state>FULL</state>
       </cell>
       <cell id = "2349">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2350">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2351">
          <state>EMPTY</state>
       </cell>
       <cell id = "2352">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2353">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2354">
          <state>EMPTY</state>
@@ -7080,7 +7080,7 @@
          <state>FULL</state>
       </cell>
       <cell id = "2358">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2359">
          <state>EMPTY</state>
@@ -7089,10 +7089,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2361">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2362">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2363">
          <state>EMPTY</state>
@@ -7104,13 +7104,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2366">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2367">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2368">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2369">
          <state>EMPTY</state>
@@ -7122,31 +7122,31 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2372">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2373">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2374">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2375">
          <state>EMPTY</state>
       </cell>
       <cell id = "2376">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2377">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2378">
          <state>EMPTY</state>
       </cell>
       <cell id = "2379">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2380">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2381">
          <state>EMPTY</state>
@@ -7158,16 +7158,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2384">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2385">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2386">
          <state>EMPTY</state>
       </cell>
       <cell id = "2387">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2388">
          <state>EMPTY</state>
@@ -7176,13 +7176,13 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2390">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2391">
          <state>EMPTY</state>
       </cell>
       <cell id = "2392">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2393">
          <state>EMPTY</state>
@@ -7197,19 +7197,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2397">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2398">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2399">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2400">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2401">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2402">
          <state>FULL</state>
@@ -7227,16 +7227,16 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2407">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2408">
          <state>EMPTY</state>
       </cell>
       <cell id = "2409">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2410">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2411">
          <state>EMPTY</state>
@@ -7248,19 +7248,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2414">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2415">
-         <state>EMPTY</state>
-      </cell>
-      <cell id = "2416">
          <state>FULL</state>
       </cell>
-      <cell id = "2417">
+      <cell id = "2415">
+         <state>FULL</state>
+      </cell>
+      <cell id = "2416">
          <state>EMPTY</state>
       </cell>
+      <cell id = "2417">
+         <state>FULL</state>
+      </cell>
       <cell id = "2418">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2419">
          <state>EMPTY</state>
@@ -7275,13 +7275,13 @@
          <state>FULL</state>
       </cell>
       <cell id = "2423">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2424">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2425">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2426">
          <state>EMPTY</state>
@@ -7290,10 +7290,10 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2428">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2429">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2430">
          <state>EMPTY</state>
@@ -7305,7 +7305,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2433">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2434">
          <state>EMPTY</state>
@@ -7317,7 +7317,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2437">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2438">
          <state>EMPTY</state>
@@ -7326,7 +7326,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2440">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2441">
          <state>EMPTY</state>
@@ -7335,7 +7335,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2443">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2444">
          <state>EMPTY</state>
@@ -7347,28 +7347,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2447">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2448">
          <state>EMPTY</state>
       </cell>
       <cell id = "2449">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2450">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2451">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2452">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2453">
          <state>EMPTY</state>
       </cell>
       <cell id = "2454">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2455">
          <state>EMPTY</state>
@@ -7380,19 +7380,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2458">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2459">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2460">
          <state>EMPTY</state>
       </cell>
       <cell id = "2461">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2462">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2463">
          <state>EMPTY</state>
@@ -7401,7 +7401,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2465">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2466">
          <state>EMPTY</state>
@@ -7413,28 +7413,28 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2469">
-         <state>FULL</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2470">
-         <state>PERCOLATED</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2471">
          <state>EMPTY</state>
       </cell>
       <cell id = "2472">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2473">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2474">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2475">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2476">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2477">
          <state>EMPTY</state>
@@ -7443,10 +7443,10 @@
          <state>FULL</state>
       </cell>
       <cell id = "2479">
-         <state>EMPTY</state>
+         <state>PERCOLATED</state>
       </cell>
       <cell id = "2480">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2481">
          <state>EMPTY</state>
@@ -7455,7 +7455,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2483">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2484">
          <state>EMPTY</state>
@@ -7470,7 +7470,7 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2488">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2489">
          <state>EMPTY</state>
@@ -7485,19 +7485,19 @@
          <state>EMPTY</state>
       </cell>
       <cell id = "2493">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2494">
          <state>EMPTY</state>
       </cell>
       <cell id = "2495">
-         <state>PERCOLATED</state>
+         <state>EMPTY</state>
       </cell>
       <cell id = "2496">
          <state>EMPTY</state>
       </cell>
       <cell id = "2497">
-         <state>EMPTY</state>
+         <state>FULL</state>
       </cell>
       <cell id = "2498">
          <state>EMPTY</state>

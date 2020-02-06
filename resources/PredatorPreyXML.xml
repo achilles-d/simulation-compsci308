@@ -2,7 +2,7 @@
 <simulation>
    <simulation_type id="PREDATOR/PREY">
       <author>Simulation Group 6</author>
-      <title>Percolation Simulation</title>
+      <title>Predator/Prey Simulation</title>
       <width>50</width>
       <height>50</height>
       <min_fish_turn_to_breed>2.0</min_fish_turn_to_breed>

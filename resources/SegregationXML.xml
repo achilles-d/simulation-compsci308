@@ -2,10 +2,10 @@
 <simulation>
    <simulation_type id="SEGREGATION">
       <author>Simulation Group 6</author>
-      <title>Percolation Simulation</title>
+      <title>Segregation Simulation</title>
       <width>50</width>
       <height>50</height>
-      <satisfaction_percentage>0.4</satisfaction_percentage>
+      <satisfaction_percentage>0.7</satisfaction_percentage>
       <cell id = "0">
          <state>EMPTY</state>
       </cell>

@@ -139,7 +139,6 @@ public class Controller {
             //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
-                //System.out.println("STATE: " + cellElement.getElementsByTagName("state").item(0).getTextContent());
                 cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
             }
         }
