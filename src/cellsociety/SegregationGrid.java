@@ -53,13 +53,7 @@ public class SegregationGrid extends Grid {
     }
 
     protected SegregationCell setCellState(String state) {
-        if (state.equals(SegregationCell.X.toString())) {
-            return SegregationCell.X;
-        } else if (state.equals(SegregationCell.O.toString())) {
-            return SegregationCell.O;
-        } else {
-            return SegregationCell.EMPTY;
-        }
+        return SegregationCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
@@ -78,12 +72,12 @@ public class SegregationGrid extends Grid {
         int oppositeCellNeighborCount;
         int sameCellNeighborCount;
         if(myCells[i][j] == SegregationCell.X){
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
         }
         else{
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
         }
         if(oppositeCellNeighborCount == 0){
             return true;

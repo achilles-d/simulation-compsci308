@@ -13,12 +13,15 @@ import java.util.stream.Stream;
 public abstract class Grid {
     protected static final int[] DELTA_X = {1, -1, 0, 0, 1, -1, 1, -1};
     protected static final int[] DELTA_Y = {0, 0, 1, -1, -1, 1, 1, -1};
+    protected static final int[][] STD_INDEX_DELTA = {{1, -1, 0, 0, 1, -1, 1, -1}, {0, 0, 1, -1, -1, 1, 1, -1}};
+    protected static final int[][] ALT_INDEX_DELTA = {{1, -1, 0, 0}, {0, 0, 1, -1}};
     protected static final int[] ALT_DELTA_X = {1, -1, 0, 0};
     protected static final int[] ALT_DELTA_Y = {0, 0, 1, -1};
-    protected static final int MAX_CELL_NEIGHBOR_COUNT = 8;
-    protected static final int ALT_CELL_NEIGHBOR_COUNT = 4;
+    protected static final int START_INDEX = 0;
     protected Enum[][] myCells;
 
+    // more than two packages,
+    // protected grid DS
     /**
      * Create a grid that runs the cellular automata (CA) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state
@@ -38,12 +41,7 @@ public abstract class Grid {
     }
 
     public List<String> getCellStates() {
-        Object[] states = myCells[0][0].getClass().getEnumConstants();
-        List<String> strings = new ArrayList<>();
-        for (Object o: states) {
-            strings.add(o.toString());
-        }
-        return strings;
+        return Arrays.asList(Arrays.toString(myCells[0][0].getClass().getEnumConstants()));
     }
 
     /**
@@ -67,7 +65,6 @@ public abstract class Grid {
         }
     }
 
-
     protected boolean inBounds(int i, int j){
         return (i >= 0 && i < myCells.length && j >= 0 && j< myCells[0].length);
     }
@@ -82,23 +79,12 @@ public abstract class Grid {
         return copy;
     }
 
-    protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell) {
+    protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell, int[][] indexDelta) {
         ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
-        for(int a = 0; a < MAX_CELL_NEIGHBOR_COUNT; a++){
-            if(inBounds(i + DELTA_X[a], j + DELTA_Y[a]) &&
-                    gridCopy[i + DELTA_X[a]][j + DELTA_Y[a]] == targetCell){
-                cellIndices.add(new IndexPair(i + DELTA_X[a], j + DELTA_Y[a]));
-            }
-        }
-        return cellIndices;
-    }
-
-    protected ArrayList<IndexPair> altFindNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell) {
-        ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
-        for(int a = 0; a < ALT_CELL_NEIGHBOR_COUNT; a++){
-            if(inBounds(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]) &&
-                    gridCopy[i + ALT_DELTA_X[a]][j + ALT_DELTA_Y[a]] == targetCell){
-                cellIndices.add(new IndexPair(i + ALT_DELTA_X[a], j + ALT_DELTA_Y[a]));
+        for(int a = 0; a < indexDelta[START_INDEX].length; a++){
+            if(inBounds(i + indexDelta[a][START_INDEX], j + indexDelta[a][START_INDEX + 1]) &&
+                    gridCopy[i + indexDelta[a][START_INDEX]][j + indexDelta[a][START_INDEX + 1]] == targetCell){
+                cellIndices.add(new IndexPair(i + indexDelta[a][START_INDEX], j + indexDelta[a][START_INDEX + 1]));
             }
         }
         return cellIndices;
