@@ -9,6 +9,8 @@ import java.util.Random;
  */
 public class PredatorPreyGrid extends Grid{
 
+    private static final int INIT_TURNS_TAKEN = 0;
+
     private int myMinFishTurnsToBreed;
     private int myMaxSharkTurns;
     private int myMinSharkTurnsToBreed;
@@ -36,8 +38,8 @@ public class PredatorPreyGrid extends Grid{
     @Override
     protected void initialize(String[][] initConfig){
         super.initialize(initConfig);
-        myCellTurnsSurvived = new int[myCells.length][myCells[0].length];
-        myTotalTurnsSurvived = new int[myCells.length][myCells[0].length];
+        myCellTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
+        myTotalTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
     }
 
 
@@ -64,9 +66,7 @@ public class PredatorPreyGrid extends Grid{
             myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()] = PredatorPreyCell.FISH;
             myCellTurnsSurvived[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()]
                 = myCellTurnsSurvived[i][j];
-            if(!tryBreedingEntity(i, j, PredatorPreyCell.FISH)){
-                setCellEmpty(i, j);
-            }
+            tryBreedingEntity(i, j, PredatorPreyCell.FISH);
         }
     }
 
@@ -91,22 +91,19 @@ public class PredatorPreyGrid extends Grid{
 
     private void setCellEmpty(int i, int j){
         myCells[i][j] = PredatorPreyCell.EMPTY;
-        myCellTurnsSurvived[i][j] = 0;
-        myTotalTurnsSurvived[i][j] = 0;
+        myCellTurnsSurvived[i][j] = INIT_TURNS_TAKEN;
+        myTotalTurnsSurvived[i][j] = INIT_TURNS_TAKEN;
     }
 
-    private boolean tryBreedingEntity(int i, int j, PredatorPreyCell cell){
-        if(cell == PredatorPreyCell.FISH && myCellTurnsSurvived[i][j] > myMinFishTurnsToBreed){
+    private void tryBreedingEntity(int i, int j, PredatorPreyCell cell){
+        if(((cell == PredatorPreyCell.FISH) && (myCellTurnsSurvived[i][j] > myMinFishTurnsToBreed)) ||
+            ((cell == PredatorPreyCell.SHARK) && (myTotalTurnsSurvived[i][j] > myMinSharkTurnsToBreed))){
             setCellEmpty(i, j);
-            myCells[i][j] = PredatorPreyCell.FISH;
-            return true;
+            myCells[i][j] = cell;
         }
-        else if(cell == PredatorPreyCell.SHARK && myTotalTurnsSurvived[i][j] > myMinSharkTurnsToBreed){
+        else {
             setCellEmpty(i, j);
-            myCells[i][j] = PredatorPreyCell.SHARK;
-            return true;
         }
-        return false;
     }
 
     private void eatNeighboringFish(int i, int j, Enum[][] gridCopy, ArrayList<IndexPair> fishCellIndices) {
@@ -114,7 +111,7 @@ public class PredatorPreyGrid extends Grid{
         int newRow = fishCellIndices.get(fishCellIndex).getRow();
         int newCol = fishCellIndices.get(fishCellIndex).getCol();
         myCells[newRow][newCol] = PredatorPreyCell.SHARK;
-        myCellTurnsSurvived[newRow][newCol] = 0;
+        myCellTurnsSurvived[newRow][newCol] = INIT_TURNS_TAKEN;
     }
 
     private void moveSharkToEmptyCell(int i, int j, Enum[][] gridCopy, ArrayList<IndexPair> emptyCellIndices) {
