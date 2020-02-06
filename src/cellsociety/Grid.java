@@ -1,6 +1,10 @@
 package cellsociety;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Provides a skeleton for the operation of each of the assigned cellular automata (CA) simulations
@@ -31,6 +35,15 @@ public abstract class Grid {
      */
     public String getCellState(int i, int j){
         return myCells[i][j].toString();
+    }
+
+    public List<String> getCellStates() {
+        Object[] states = myCells[0][0].getClass().getEnumConstants();
+        List<String> strings = new ArrayList<>();
+        for (Object o: states) {
+            strings.add(o.toString());
+        }
+        return strings;
     }
 
     /**

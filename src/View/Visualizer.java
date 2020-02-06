@@ -223,10 +223,6 @@ public class Visualizer {
   private void stopButtonPressed() {
     // Pause the Current Animation
     running = false;
-//    List<String> list = new ArrayList<>();
-//    list.add("test1");
-//    list.add("test2");
-//    new Graph("Test", "test", 200,200, list);
   }
 
   /**

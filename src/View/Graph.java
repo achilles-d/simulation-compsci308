@@ -1,5 +1,6 @@
 package View;
 
+import java.util.Date;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class Graph {
   private Map<String, Series> mySeries;
   private List<String> mySeriesKeys;
   private LineChart<Number,Number> lineChart;
+  private Integer myX = 0;
 
   public Graph(String windowTitle, String graphTitle, int windowWidth, int windowHeight, List<String> seriesKeys){
     makeStage(windowTitle, windowWidth, windowHeight);
@@ -47,7 +49,9 @@ public class Graph {
 
   public void addData(String seriesName, Data dataPoint){
     if (mySeriesKeys.contains(seriesName)){
+//      Data point = new Data(myX, dataPoint);
       mySeries.get(seriesName).getData().add(dataPoint);
+      myX++;
     }
   }
 
