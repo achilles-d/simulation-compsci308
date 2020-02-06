@@ -92,8 +92,8 @@ public class Controller {
                 myGrid = new GameOfLifeGrid(cellStatesGrid);
                 break;
             case "SEGREGATION":
-                //double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                //myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+                myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
                 break;
             case "PREDATOR/PREY":
                 int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
@@ -108,7 +108,7 @@ public class Controller {
                 break;
         }
     }
-   
+
 
     private double readDoubleParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
