@@ -6,21 +6,21 @@ package cellsociety;
  */
 public class FireGrid extends Grid {
 
-    private double probCatch;
-    private double probGrow;
+    private double myProbCatch;
+    private double myProbGrow;
 
     /**
      * Create a grid to run the Spreading of Fire simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state. "TREE" = cell with tree.
      *                   "EMPTY" = empty cell. "BURNING" = cell with burning tree
-     * @param pCatch probCatch, the probability that a cell with a tree neighboring a burning cell will also catch
+     * @param probCatch probCatch, the probability that a cell with a tree neighboring a burning cell will also catch
      *               on fire in the next step of the simulation
-     * @param pGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
+     * @param probGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
      */
-    public FireGrid(String[][] initConfig, double pCatch, double pGrow){
+    public FireGrid(String[][] initConfig, double probCatch, double probGrow){
         super(initConfig);
-        probCatch = pCatch;
-        probGrow = pGrow;
+        myProbCatch = probCatch;
+        myProbGrow = probGrow;
     }
 
     public FireCell setCellState(String state){
@@ -44,14 +44,14 @@ public class FireGrid extends Grid {
 
     private void updateTreeCells(int i, int j, Enum[][] gridCopy) {
         if(! findNeighborIndices(i, j, gridCopy , FireCell.BURNING, ALT_INDEX_DELTA).isEmpty()){
-            if(Math.random() < probCatch) {
+            if(Math.random() < myProbCatch) {
                 myCells[i][j] = FireCell.BURNING;
             }
         }
     }
 
     private void updateEmptyCells(int i, int j) {
-        if(Math.random() < probGrow){
+        if(Math.random() < myProbGrow){
             myCells[i][j] = FireCell.NEW_TREE;
         }
     }

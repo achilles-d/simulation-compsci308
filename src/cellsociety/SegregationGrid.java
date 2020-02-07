@@ -79,10 +79,8 @@ public class SegregationGrid extends Grid {
             oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
             sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
         }
-        if(oppositeCellNeighborCount == 0){
-            return true;
-        }
-        return ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;
+        return oppositeCellNeighborCount == 0 ||
+                ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;
 
     }
 

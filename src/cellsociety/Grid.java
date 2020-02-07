@@ -3,20 +3,14 @@ package cellsociety;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Provides a skeleton for the operation of each of the assigned cellular automata (CA) simulations
  * @author Achilles Dabrowski
  */
 public abstract class Grid {
-    protected static final int[] DELTA_X = {1, -1, 0, 0, 1, -1, 1, -1};
-    protected static final int[] DELTA_Y = {0, 0, 1, -1, -1, 1, 1, -1};
     protected static final int[][] STD_INDEX_DELTA = {{1, -1, 0, 0, 1, -1, 1, -1}, {0, 0, 1, -1, -1, 1, 1, -1}};
     protected static final int[][] ALT_INDEX_DELTA = {{1, -1, 0, 0}, {0, 0, 1, -1}};
-    protected static final int[] ALT_DELTA_X = {1, -1, 0, 0};
-    protected static final int[] ALT_DELTA_Y = {0, 0, 1, -1};
     protected static final int START_INDEX = 0;
     protected Enum[][] myCells;
 
@@ -80,9 +74,10 @@ public abstract class Grid {
     protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell, int[][] indexDelta) {
         ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
         for(int a = 0; a < indexDelta[START_INDEX].length; a++){
-            if(inBounds(i + indexDelta[a][START_INDEX], j + indexDelta[a][START_INDEX + 1]) &&
-                    gridCopy[i + indexDelta[a][START_INDEX]][j + indexDelta[a][START_INDEX + 1]] == targetCell){
-                cellIndices.add(new IndexPair(i + indexDelta[a][START_INDEX], j + indexDelta[a][START_INDEX + 1]));
+            int newRow = i + indexDelta[START_INDEX][a];
+            int newCol = j + indexDelta[START_INDEX + 1][a];
+            if(inBounds(newRow, newCol) && gridCopy[newRow][newCol] == targetCell){
+                cellIndices.add(new IndexPair(newRow, newCol));
             }
         }
         return cellIndices;
