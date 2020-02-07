@@ -16,6 +16,8 @@ public abstract class Grid {
     protected Enum[][] myCells;
     protected int[][] myIndexDelta;
 
+    // more than two packages,
+    // protected grid DS
     /**
      * Create a grid that runs the cellular automata (CA) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state

@@ -66,14 +66,41 @@ public class Controller {
             assignCellStates(doc);
             simulationType = getSimulationType(doc);
             return(doc);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+         catch (ParserConfigurationException|SAXException|IOException e) {
+            //Throw exception that tells that the document chosen cannot be read
+        }
+
         return null;
+    }
+
+    private void assignGridDimensions(Document doc) {
+        String widthString = doc.getElementsByTagName("width").item(0).getTextContent();
+        String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
+        GRID_WIDTH = Integer.parseInt(widthString);
+        GRID_HEIGHT = Integer.parseInt(heightString);
+        checkWidthAndHeightValues();
+        cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
+    }
+
+    private void assignCellStates(Document doc) {
+        NodeList cellList = doc.getElementsByTagName("cell");
+        checkNumberOfCells(cellList.getLength());
+        for(int i=0; i<cellList.getLength(); i++){
+            Node cellNode = cellList.item(i);
+            if(cellNode.getNodeType()==Node.ELEMENT_NODE){
+                Element cellElement = (Element) cellNode;
+                String givenCellStateForThisIndex = cellElement.getElementsByTagName("state").item(0).getTextContent();
+                checkValidityOfCellState(givenCellStateForThisIndex);
+                cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = givenCellStateForThisIndex;
+            }
+        }
+    }
+
+    private String getSimulationType(Document doc) {
+        String simulationType = doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
+        checkValidityOfSimulationType(simulationType);
+        return simulationType;
     }
 
     /**
@@ -92,41 +119,41 @@ public class Controller {
                 myGrid = new GameOfLifeGrid(cellStatesGrid);
                 break;
             case "SEGREGATION":
-                double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-                myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+                setParamsAndInitializeSegregation(doc);
                 break;
             case "PREDATOR/PREY":
-                int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
-                int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
-                int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-                myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+                setParamsAndInitializePredatorPrey(doc);
                 break;
             case "SPREADING FIRE":
-                double probCatch = readDoubleParameter(doc, "prob_catch");
-                double probGrow = readDoubleParameter(doc, "prob_grow");
-                myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+                setParamsAndInitializeSpreadingFire(doc);
                 break;
         }
     }
-    //check this one
 
-    /**
-     * This method is intended to be used by Visualizer class
-     * to both update the grid and get the 2D array information
-     * of the updated grid. (Not used as of this implementation).
-     * @param grid The grid that is intended to be updated.
-     * @return updatedGrid
-     */
-    public String[][] getUpdatedGrid(Grid grid){
-        grid.update();
-        String[][] updatedGrid = new String [cellStatesGrid.length][cellStatesGrid[0].length];
-        for(int i = 0; i < cellStatesGrid.length; i++){
-            for(int j = 0; j < cellStatesGrid[0].length; j++){
-                updatedGrid[i][j] = grid.getCellState(i,j);
-            }
-        }
-        return updatedGrid;
+    private void setParamsAndInitializeSegregation(Document doc) {
+        double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
+        myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
     }
+
+    private void setParamsAndInitializeSpreadingFire(Document doc) {
+        double probCatch = readDoubleParameter(doc, "prob_catch");
+        double probGrow = readDoubleParameter(doc, "prob_grow");
+        checkIfValueIsBetweenZeroAndOne(probCatch);
+        checkIfValueIsBetweenZeroAndOne(probGrow);
+        myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+    }
+
+    private void setParamsAndInitializePredatorPrey(Document doc) {
+        int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
+        int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
+        int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+        checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
+        checkIfIntegerIsOneOrHigher(maxSharkTurns);
+        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
+        myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+    }
+
 
     private double readDoubleParameter(Document doc, String parameterName){
         String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
@@ -137,28 +164,44 @@ public class Controller {
         return (int) Double.parseDouble(parameter);
     }
 
-    private String getSimulationType(Document doc) {
-        return doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
-    }
 
-    private void assignGridDimensions(Document doc) {
-        String widthString = doc.getElementsByTagName("width").item(0).getTextContent();
-        String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
-        GRID_WIDTH = Integer.parseInt(widthString);
-        GRID_HEIGHT = Integer.parseInt(heightString);
-        cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
-    }
+    //IMPORTANT: 1. ADD TRY AND CATCH FOR READER PARTS
+    //           2. Create xml tests for all of this.
 
-    private void assignCellStates(Document doc) {
-        //String[][] cellStates = new String[][];
-        NodeList cellList = doc.getElementsByTagName("cell");
-        for(int i=0; i<cellList.getLength(); i++){
-            Node cellNode = cellList.item(i);
-            //System.out.println("Node name for student " +i+ " " +cellNode.getNodeName());
-            if(cellNode.getNodeType()==Node.ELEMENT_NODE){
-                Element cellElement = (Element) cellNode;
-                cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = cellElement.getElementsByTagName("state").item(0).getTextContent();
-            }
+    private void checkNumberOfCells(int numberOfCells){
+        if(numberOfCells!=GRID_HEIGHT*GRID_WIDTH){
+            //throw error that tells that number of cells doesnot match grid size declared. (Or possibly cells are not named correctlu)
         }
     }
+
+    private void checkValidityOfCellState(String givenCellState){
+        //if(givenCellState is not in acceptableCellStates){
+            //throw an error that tells XML contains an illegal cell state
+       //}
+    }
+
+    private void checkValidityOfSimulationType(String simulationTypeInput) {
+        //if(simulationTypeInput is not an acceptable simulationtype){
+            //throw an error that tells, it is not an acceptable simulation type
+        //}
+    }
+
+    private void checkWidthAndHeightValues(){
+        if(GRID_WIDTH<=0 || GRID_HEIGHT<=0){
+            //throw an error saying the value inputs for grid width/height contains an error
+        }
+    }
+
+    private void checkIfValueIsBetweenZeroAndOne(Double valueIn){
+        if(valueIn<0 || valueIn>1){
+            //throw an error saying "Percentage Parameters are not within 0.0 to 1.0 range
+        }
+    }
+
+    private void checkIfIntegerIsOneOrHigher(int integerInput){
+        if(integerInput<=0){
+            //throw an error saying invalid Integer input
+        }
+    }
+
 }
