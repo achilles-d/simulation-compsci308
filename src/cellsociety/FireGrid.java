@@ -18,7 +18,7 @@ public class FireGrid extends Grid {
      * @param probGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
      */
     public FireGrid(String[][] initConfig, double probCatch, double probGrow){
-        super(initConfig);
+        super(initConfig, ALT_SQUARE_INDEX_DELTA);
         myProbCatch = probCatch;
         myProbGrow = probGrow;
     }
@@ -43,7 +43,7 @@ public class FireGrid extends Grid {
     }
 
     private void updateTreeCells(int i, int j, Enum[][] gridCopy) {
-        if(! findNeighborIndices(i, j, gridCopy , FireCell.BURNING, ALT_INDEX_DELTA).isEmpty()){
+        if(! findNeighborIndices(i, j, gridCopy , FireCell.BURNING).isEmpty()){
             if(Math.random() < myProbCatch) {
                 myCells[i][j] = FireCell.BURNING;
             }

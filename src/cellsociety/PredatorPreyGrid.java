@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * Facilitates a Wa-Tor World / Predator-Prey simulation
- * @author
+ * @author Achilles Dabrowski
  */
 public class PredatorPreyGrid extends Grid{
 
@@ -29,7 +29,7 @@ public class PredatorPreyGrid extends Grid{
      *                             before it can breed new fish
      */
     public PredatorPreyGrid(String[][] initConfig, int minFishTurnsToBreed, int maxSharkTurns, int minSharkTurnsToBreed){
-        super(initConfig);
+        super(initConfig, ALT_SQUARE_INDEX_DELTA);
         myMinFishTurnsToBreed = minFishTurnsToBreed;
         myMaxSharkTurns = maxSharkTurns;
         myMinSharkTurnsToBreed = minSharkTurnsToBreed;
@@ -40,6 +40,7 @@ public class PredatorPreyGrid extends Grid{
         super.initialize(initConfig);
         myCellTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
         myTotalTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
+        myIndexDelta = ALT_SQUARE_INDEX_DELTA;
     }
 
 
@@ -60,12 +61,13 @@ public class PredatorPreyGrid extends Grid{
     }
 
     private void updateFishCell(int i, int j, Enum[][] gridCopy) {
-        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY, ALT_INDEX_DELTA);
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
         if(!emptyCellIndices.isEmpty()) {
             int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
-            myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()] = PredatorPreyCell.FISH;
-            myCellTurnsSurvived[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()]
-                = myCellTurnsSurvived[i][j];
+            int newRow = emptyCellIndices.get(emptyCellIndex).getRow();
+            int newCol = emptyCellIndices.get(emptyCellIndex).getCol();
+            myCells[newRow][newCol] = PredatorPreyCell.FISH;
+            myCellTurnsSurvived[newRow][newCol] = myCellTurnsSurvived[i][j];
             tryBreedingEntity(i, j, PredatorPreyCell.FISH);
         }
     }
@@ -77,13 +79,13 @@ public class PredatorPreyGrid extends Grid{
             return;
         }
         else {
-            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH, ALT_INDEX_DELTA);
+            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH);
             if(!fishCellIndices.isEmpty()) {
                 eatNeighboringFish(i, j, gridCopy, fishCellIndices);
                 return;
             }
         }
-        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY, ALT_INDEX_DELTA);
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
         if(!emptyCellIndices.isEmpty()){
             moveSharkToEmptyCell(i, j, gridCopy, emptyCellIndices);
         }

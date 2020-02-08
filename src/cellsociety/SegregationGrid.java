@@ -21,7 +21,7 @@ public class SegregationGrid extends Grid {
      *                             the simulation - to be satisfied
      */
     public SegregationGrid(String[][] initConfig, double minAgentSatisfaction){
-        super(initConfig);
+        super(initConfig, SQUARE_INDEX_DELTA);
         myMinAgentSatisfaction = minAgentSatisfaction;
     }
 
@@ -72,12 +72,12 @@ public class SegregationGrid extends Grid {
         int oppositeCellNeighborCount;
         int sameCellNeighborCount;
         if(myCells[i][j] == SegregationCell.X){
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
         }
         else{
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
         }
         return oppositeCellNeighborCount == 0 ||
                 ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;

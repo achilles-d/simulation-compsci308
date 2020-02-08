@@ -14,7 +14,8 @@ public class PercolationGrid extends Grid {
      *                   "FULL" = filled cell. "EMPTY" = empty cell. "PERCOLATED" = percolated cell
      */
     public PercolationGrid(String[][] initConfig){
-        super(initConfig);
+        super(initConfig, SQUARE_INDEX_DELTA);
+
     }
 
     protected PercolationCell setCellState(String state){
@@ -22,11 +23,9 @@ public class PercolationGrid extends Grid {
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){
-        if(gridCopy[i][j] == PercolationCell.EMPTY) {
-            ArrayList<IndexPair> percolatedCellIndices = findNeighborIndices(i, j, gridCopy, PercolationCell.PERCOLATED, STD_INDEX_DELTA);
-            if (!percolatedCellIndices.isEmpty()) {
-                myCells[i][j] = PercolationCell.PERCOLATED;
-            }
+        ArrayList<IndexPair> percolatedCellIndices = findNeighborIndices(i, j, gridCopy, PercolationCell.PERCOLATED);
+        if(gridCopy[i][j] == PercolationCell.EMPTY && (!percolatedCellIndices.isEmpty()) ) {
+            myCells[i][j] = PercolationCell.PERCOLATED;
         }
     }
 }

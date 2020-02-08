@@ -15,7 +15,7 @@ public class GameOfLifeGrid extends Grid{
    *                   "DEAD" = cell with dead person
    */
   public GameOfLifeGrid(String[][] initConfig){
-    super(initConfig);
+    super(initConfig, SQUARE_INDEX_DELTA);
   }
 
   protected GameOfLifeCell setCellState(String state){
@@ -23,16 +23,12 @@ public class GameOfLifeGrid extends Grid{
   }
 
   protected void updateCellState(int i, int j, Enum[][] gridCopy){
-    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE, STD_INDEX_DELTA).size();
-    if(gridCopy[i][j] == GameOfLifeCell.ALIVE){
-      if((aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors)){
-        myCells[i][j] = GameOfLifeCell.DEAD;
-      }
+    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE).size();
+    if(gridCopy[i][j] == GameOfLifeCell.ALIVE && ( (aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors) )){
+      myCells[i][j] = GameOfLifeCell.DEAD;
     }
-    else{
-      if(aliveCount == maxAliveNeighbors){
-        myCells[i][j] = GameOfLifeCell.ALIVE;
-      }
+    else if(aliveCount == maxAliveNeighbors){
+      myCells[i][j] = GameOfLifeCell.ALIVE;
     }
   }
 
