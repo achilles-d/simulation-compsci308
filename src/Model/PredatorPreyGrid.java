@@ -44,8 +44,8 @@ public class PredatorPreyGrid extends Grid{
     }
 
 
-    public PredatorPreyCell setCellState(String state){
-        return PredatorPreyCell.valueOf(state);
+    public void setCellState(int i, int j, String state){
+        myCells[i][j] = PredatorPreyCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){

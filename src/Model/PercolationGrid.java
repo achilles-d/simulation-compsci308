@@ -15,11 +15,10 @@ public class PercolationGrid extends Grid {
      */
     public PercolationGrid(String[][] initConfig){
         super(initConfig, SQUARE_INDEX_DELTA);
-
     }
 
-    public PercolationCell setCellState(String state){
-        return PercolationCell.valueOf(state);
+    public void setCellState(int i, int j, String state){
+        myCells[i][j] = PercolationCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){

@@ -89,7 +89,7 @@ public abstract class Grid {
         myCells = new Enum[initConfig.length][initConfig[0].length];
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[START_INDEX].length; j++){
-                myCells[i][j] = setCellState(initConfig[i][j]);
+                setCellState(i, j, initConfig[i][j]);
             }
         }
     }
@@ -147,7 +147,7 @@ public abstract class Grid {
         return new IndexPair(newRow, newCol);
     }
 
-    abstract public Enum setCellState(String state);
+    abstract public void setCellState(int i, int j, String state);
 
     abstract protected void updateCellState(int i, int j, Enum[][] gridCopy);
 

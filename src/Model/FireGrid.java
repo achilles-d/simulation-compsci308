@@ -23,8 +23,8 @@ public class FireGrid extends Grid {
         myProbGrow = probGrow;
     }
 
-    public FireCell setCellState(String state){
-        return FireCell.valueOf(state);
+    public void setCellState(int i, int j, String state){
+        myCells[i][j] = FireCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){

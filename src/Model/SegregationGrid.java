@@ -43,17 +43,16 @@ public class SegregationGrid extends Grid {
         myEmptyCellIndices = new ArrayList<IndexPair>();
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
-                myCells[i][j] = setCellState(initConfig[i][j]);
+                setCellState(i, j, initConfig[i][j]);
                 if(initConfig[i][j].equals(SegregationCell.EMPTY.toString())){
                     myEmptyCellIndices.add(new IndexPair(i, j));
                 }
-
             }
         }
     }
 
-    public SegregationCell setCellState(String state) {
-        return SegregationCell.valueOf(state);
+    public void setCellState(int i, int j, String state) {
+        myCells[i][j] = SegregationCell.valueOf(state);
     }
 
     protected void updateCellState(int i, int j, Enum[][] gridCopy){

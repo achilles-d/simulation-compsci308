@@ -18,8 +18,8 @@ public class GameOfLifeGrid extends Grid{
     super(initConfig, SQUARE_INDEX_DELTA);
   }
 
-  public GameOfLifeCell setCellState(String state){
-    return GameOfLifeCell.valueOf(state);
+  public void setCellState(int i, int j, String state){
+    myCells[i][j] = GameOfLifeCell.valueOf(state);
   }
 
   protected void updateCellState(int i, int j, Enum[][] gridCopy){
