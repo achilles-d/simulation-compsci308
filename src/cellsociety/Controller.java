@@ -2,6 +2,7 @@ package cellsociety;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import org.w3c.dom.Attr;
@@ -24,10 +25,12 @@ import java.io.IOException;
 
 
 Hey change xml files and python codes simulation type thing
+Add try and catch or exception handler to save XML
  */
 public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
+    int NUMBER_OF_CELLS = GRID_HEIGHT*GRID_WIDTH;
     String [][] cellStatesGrid;
     private Grid myGrid;
     private String simulationType;
@@ -36,7 +39,7 @@ public class Controller {
     private final String REGULAR = "Regular";
     private final String RANDOM = "Random";
     private final String WEIGHTED = "Weighted";
-    private HashMap<String, Object> parameters;
+    private HashMap<String, String> parameters;
 
 
     public Controller(){
@@ -122,9 +125,9 @@ public class Controller {
     private void assignCellStatesUsingWeights(Document doc){
         String[] stateTypes = getStateTypes(doc);
         Double[] stateWeights = getStateWeights(doc);
-        int numberOfCells = GRID_HEIGHT*GRID_WIDTH;
+
         Double[] cumulativeWeights  = cumulativeSumOperationForWeights(stateWeights);
-        for(int i=0; i<numberOfCells; i++){
+        for(int i=0; i<NUMBER_OF_CELLS; i++){
             String stateChosen = getWeightedRandomChoice(stateTypes,cumulativeWeights);
             cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = stateChosen;
         }
@@ -149,8 +152,7 @@ public class Controller {
 
     private  void assignCellStatesRandomly(Document doc){
         String[] stateTypes = getStateTypes(doc);
-        int numberOfCells = GRID_HEIGHT*GRID_WIDTH;
-        for(int i=0; i<numberOfCells; i++){
+        for(int i=0; i<NUMBER_OF_CELLS; i++){
             cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = stateTypes[new Random().nextInt(stateTypes.length)];
         }
     }
@@ -223,11 +225,31 @@ public class Controller {
         createAndAppendElement(docOut, simulationTypeElement, "title", simulationType+" Simulation");
         createAndAppendElement(docOut, simulationTypeElement, "width", Integer.toString(GRID_WIDTH));
         createAndAppendElement(docOut, simulationTypeElement, "height", Integer.toString(GRID_HEIGHT));
-        for key,value parameters
+        createAndAppendParameters(docOut, simulationTypeElement);
         createAndAppendElement(docOut, simulationTypeElement, "init_config_type", "regular");
 
 
+        for(int i=0;i<NUMBER_OF_CELLS;i++) {
+            Element cellElement = docOut.createElement("cell");
+            simulationTypeElement.appendChild(cellElement);
 
+            Attr cellAttribute = docOut.createAttribute("id");
+            cellAttribute.setValue(Integer.toString(i));
+            cellElement.setAttributeNode(simulationTypeAttribute);
+            createAndAppendElement(docOut, cellElement, "state", cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH]);
+        }
+
+
+    }
+
+    private void createAndAppendParameters(Document docOut, Element simulationTypeElement) {
+        Iterator parameterIterator = parameters.entrySet().iterator();
+        while (parameterIterator.hasNext()) {
+            HashMap.Entry<String,String> pair = (HashMap.Entry)parameterIterator.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            createAndAppendElement(docOut,simulationTypeElement,pair.getKey(),pair.getValue());
+            parameterIterator.remove(); // avoids a ConcurrentModificationException
+        }
     }
 
     private void createAndAppendElement(Document doc, Element simulationTypeElement, String elementTag, String elementText) {
@@ -266,7 +288,7 @@ public class Controller {
     private void setParamsAndInitializeSegregation(Document doc) {
         double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
         checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
-        parameters.put("satisfaction_percentage",satisfactionPercentage);
+        parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
         myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
     }
 
@@ -275,8 +297,8 @@ public class Controller {
         double probGrow = readDoubleParameter(doc, "prob_grow");
         checkIfValueIsBetweenZeroAndOne(probCatch);
         checkIfValueIsBetweenZeroAndOne(probGrow);
-        parameters.put("prob_catch",probCatch);
-        parameters.put("prob_grow",probGrow);
+        parameters.put("prob_catch",Double.toString(probCatch));
+        parameters.put("prob_grow",Double.toString(probGrow));
         myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
     }
 
@@ -287,9 +309,9 @@ public class Controller {
         checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
         checkIfIntegerIsOneOrHigher(maxSharkTurns);
         checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
-        parameters.put("min_fish_turn_to_breed",minFishTurnToBreed);
-        parameters.put("max_shark_turns",maxSharkTurns);
-        parameters.put("min_shark_turns_to_breed",minSharkTurnsToBreed);
+        parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
+        parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
+        parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
         myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
         
     }
@@ -309,7 +331,7 @@ public class Controller {
     //           2. Create xml tests for all of this.
 
     private void checkNumberOfCells(int numberOfCells){
-        if(numberOfCells!=GRID_HEIGHT*GRID_WIDTH){
+        if(numberOfCells!=NUMBER_OF_CELLS){
             //throw error that tells that number of cells doesnot match grid size declared. (Or possibly cells are not named correctlu)
         }
     }
