@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 /**
  * Facilitates a simulation of the Game of Life
@@ -18,7 +18,7 @@ public class GameOfLifeGrid extends Grid{
     super(initConfig, SQUARE_INDEX_DELTA);
   }
 
-  protected GameOfLifeCell setCellState(String state){
+  public GameOfLifeCell setCellState(String state){
     return GameOfLifeCell.valueOf(state);
   }
 

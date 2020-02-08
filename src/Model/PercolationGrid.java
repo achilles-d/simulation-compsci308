@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class PercolationGrid extends Grid {
 
     }
 
-    protected PercolationCell setCellState(String state){
+    public PercolationCell setCellState(String state){
         return PercolationCell.valueOf(state);
     }
 

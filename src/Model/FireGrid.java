@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 /**
  * Facilitates a simulation of Spreading of Fire

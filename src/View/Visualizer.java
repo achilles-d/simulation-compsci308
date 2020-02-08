@@ -1,9 +1,7 @@
 package View;
 
-import cellsociety.Controller;
+import Model.Controller;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

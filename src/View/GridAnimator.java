@@ -1,6 +1,6 @@
 package View;
 
-import cellsociety.Controller;
+import Model.Controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;

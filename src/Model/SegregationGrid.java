@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -52,7 +52,7 @@ public class SegregationGrid extends Grid {
         }
     }
 
-    protected SegregationCell setCellState(String state) {
+    public SegregationCell setCellState(String state) {
         return SegregationCell.valueOf(state);
     }
 

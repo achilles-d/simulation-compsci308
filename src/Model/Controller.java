@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.io.File;
 import org.w3c.dom.Document;

@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,7 +147,7 @@ public abstract class Grid {
         return new IndexPair(newRow, newCol);
     }
 
-    abstract protected Enum setCellState(String state);
+    abstract public Enum setCellState(String state);
 
     abstract protected void updateCellState(int i, int j, Enum[][] gridCopy);
 

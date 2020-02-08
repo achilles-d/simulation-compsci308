@@ -1,5 +1,5 @@
 import View.Visualizer;
-import cellsociety.Controller;
+import Model.Controller;
 import java.awt.Dimension;
 import javafx.application.Application;
 import javafx.stage.Stage;

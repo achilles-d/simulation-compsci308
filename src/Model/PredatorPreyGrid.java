@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -44,7 +44,7 @@ public class PredatorPreyGrid extends Grid{
     }
 
 
-    protected PredatorPreyCell setCellState(String state){
+    public PredatorPreyCell setCellState(String state){
         return PredatorPreyCell.valueOf(state);
     }
 

@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 /**
  * Represents the possible states of cells in the Game of Life simulation
