@@ -1,6 +1,10 @@
 package cellsociety;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,15 +19,27 @@ import java.io.IOException;
  * @Author Cemal Yagcioglu
  * Parses XML File, initiates the grid.
  */
+
+/*
+
+
+Hey change xml files and python codes simulation type thing
+ */
 public class Controller {
     int GRID_WIDTH;
     int GRID_HEIGHT;
     String [][] cellStatesGrid;
     private Grid myGrid;
-    String simulationType;
+    private String simulationType;
+    private String configurationType;
+    private String cellInputType;  //Either "Regular", "Random", or "Weighted"
+    private final String REGULAR = "Regular";
+    private final String RANDOM = "Random";
+    private final String WEIGHTED = "Weighted";
+    private HashMap<String, Object> parameters;
+
 
     public Controller(){
-
     }
 
     public void printPretty(Grid grid) {
@@ -63,6 +79,7 @@ public class Controller {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlDoc);
             assignGridDimensions(doc);
+            configurationType = getInitialConfigurationType(doc)
             assignCellStates(doc);
             simulationType = getSimulationType(doc);
             return(doc);
@@ -82,8 +99,92 @@ public class Controller {
         checkWidthAndHeightValues();
         cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
     }
+    private String getInitialConfigurationType(Document doc){
+        String initialConfigurationType = doc.getElementsByTagName("init_config_type").item(0).getAttributes().item(0).getTextContent();
+        checkValidityOfConfigurationType(initialConfigurationType);
+        return initialConfigurationType;
+    }
+
+
 
     private void assignCellStates(Document doc) {
+        if(configurationType=="Regular") {
+            assignCellStatesRegularlyByParsingXml(doc);
+        }
+        else if(configurationType=="Random"){
+            assignCellStatesRandomly(doc);
+        }
+        else if(configurationType=="Weighted"){
+            assignCellStatesUsingWeights(doc);
+        }
+    }
+
+    private void assignCellStatesUsingWeights(Document doc){
+        String[] stateTypes = getStateTypes(doc);
+        Double[] stateWeights = getStateWeights(doc);
+        int numberOfCells = GRID_HEIGHT*GRID_WIDTH;
+        Double[] cumulativeWeights  = cumulativeSumOperationForWeights(stateWeights);
+        for(int i=0; i<numberOfCells; i++){
+            String stateChosen = getWeightedRandomChoice(stateTypes,cumulativeWeights);
+            cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = stateChosen;
+        }
+    }
+
+    private Double[] cumulativeSumOperationForWeights(Double[] stateWeights){
+        double sum=0;
+        Double[] cumulativeWeights = new Double[stateWeights.length];
+        for(int i=0; i<stateWeights.length;i++){
+            sum += stateWeights[i];
+            cumulativeWeights[i] = sum;
+        }
+    }
+    private String getWeightedRandomChoice(String[] stateTypes, Double[] cumulativeWeights){
+        double r = new Random().nextDouble();
+        for(int i=0; i<stateTypes.length; i++){
+            if(r<=cumulativeWeights[i]){
+                return stateTypes[i];
+            }
+        }
+    }
+
+    private  void assignCellStatesRandomly(Document doc){
+        String[] stateTypes = getStateTypes(doc);
+        int numberOfCells = GRID_HEIGHT*GRID_WIDTH;
+        for(int i=0; i<numberOfCells; i++){
+            cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = stateTypes[new Random().nextInt(stateTypes.length)];
+        }
+    }
+
+    private String[] getStateTypes(Document doc){
+        NodeList stateTypesNodes = doc.getElementsByTagName("state_type");
+        String[] stateTypes = new String [stateTypesNodes.getLength()];
+        for(int i=0;i<stateTypesNodes.getLength();i++){
+            Node stateNode = stateTypesNodes.item(i);
+            if(stateNode.getNodeType()==Node.ELEMENT_NODE){
+                Element stateElement = (Element) stateNode;
+                String givenState = stateElement.getElementsByTagName("state").item(0).getTextContent();
+                checkValidityOfCellState(givenState);
+                stateTypes[i]=givenState;
+            }
+        }
+        return stateTypes;
+    }
+    private Double[] getStateWeights(Document doc){
+        NodeList stateTypesNodes = doc.getElementsByTagName("state_type");
+        Double[] stateWeights = new Double [stateTypesNodes.getLength()];
+        for(int i=0;i<stateTypesNodes.getLength();i++){
+            Node stateNode = stateTypesNodes.item(i);
+            if(stateNode.getNodeType()==Node.ELEMENT_NODE){
+                Element stateElement = (Element) stateNode;
+                String givenStateWeight = stateElement.getElementsByTagName("weight").item(0).getTextContent();
+                Double stateWeightValue = Double.parseDouble(givenStateWeight);
+                checkIfValueIsBetweenZeroAndOne(stateWeightValue);
+                stateWeights[i]=stateWeightValue;
+            }
+        }
+        return stateWeights;
+    }
+    private void assignCellStatesRegularlyByParsingXml(Document doc) {
         NodeList cellList = doc.getElementsByTagName("cell");
         checkNumberOfCells(cellList.getLength());
         for(int i=0; i<cellList.getLength(); i++){
@@ -101,6 +202,38 @@ public class Controller {
         String simulationType = doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
         checkValidityOfSimulationType(simulationType);
         return simulationType;
+    }
+
+    public void saveAsXml(){
+        DocumentBuilderFactory outputDocumentFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder outputDocumentBuilder = outputDocumentFactory.newDocumentBuilder();
+
+        Document docOut = outputDocumentBuilder.newDocument();
+        Element root = docOut.createElement("simulation");
+        docOut.appendChild(root);
+
+        Element simulationTypeElement = docOut.createElement("simulation_type");
+        root.appendChild(simulationTypeElement);
+
+        Attr simulationTypeAttribute = docOut.createAttribute("id");
+        simulationTypeAttribute.setValue(simulationType);
+        simulationTypeElement.setAttributeNode(simulationTypeAttribute);
+
+        createAndAppendElement(docOut, simulationTypeElement, "author", "Simulation Group 6");
+        createAndAppendElement(docOut, simulationTypeElement, "title", simulationType+" Simulation");
+        createAndAppendElement(docOut, simulationTypeElement, "width", Integer.toString(GRID_WIDTH));
+        createAndAppendElement(docOut, simulationTypeElement, "height", Integer.toString(GRID_HEIGHT));
+        for key,value parameters
+        createAndAppendElement(docOut, simulationTypeElement, "init_config_type", "regular");
+
+
+
+    }
+
+    private void createAndAppendElement(Document doc, Element simulationTypeElement, String elementTag, String elementText) {
+        Element author = doc.createElement(elementTag);
+        author.appendChild((doc.createTextNode(elementText)));
+        simulationTypeElement.appendChild(author);
     }
 
     /**
@@ -133,6 +266,7 @@ public class Controller {
     private void setParamsAndInitializeSegregation(Document doc) {
         double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
         checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
+        parameters.put("satisfaction_percentage",satisfactionPercentage);
         myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
     }
 
@@ -141,6 +275,8 @@ public class Controller {
         double probGrow = readDoubleParameter(doc, "prob_grow");
         checkIfValueIsBetweenZeroAndOne(probCatch);
         checkIfValueIsBetweenZeroAndOne(probGrow);
+        parameters.put("prob_catch",probCatch);
+        parameters.put("prob_grow",probGrow);
         myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
     }
 
@@ -151,6 +287,9 @@ public class Controller {
         checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
         checkIfIntegerIsOneOrHigher(maxSharkTurns);
         checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
+        parameters.put("min_fish_turn_to_breed",minFishTurnToBreed);
+        parameters.put("max_shark_turns",maxSharkTurns);
+        parameters.put("min_shark_turns_to_breed",minSharkTurnsToBreed);
         myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
         
     }
@@ -183,7 +322,12 @@ public class Controller {
 
     private void checkValidityOfSimulationType(String simulationTypeInput) {
         //if(simulationTypeInput is not an acceptable simulationtype){
-            //throw an error that tells, it is not an acceptable simulation type
+        //throw an error that tells, it is not an acceptable simulation type
+        //}
+    }
+    private void checkValidityOfConfigurationType(String initialConfigTypeInput) {
+        //if(initialConfigTypeInput is not an acceptable config type){
+        //throw an error that tells, it is not an acceptable config type
         //}
     }
 

@@ -13,8 +13,11 @@ stateTypesListForAll = [["EMPTY","FULL","PERCOLATED"],["ALIVE","DEAD"],["X","O",
 stateTypesForThis = stateTypesListForAll[simulationTypeNo]
 extraParamListForAll = [[],[],["satisfaction_percentage"],["min_fish_turn_to_breed","max_shark_turns","min_shark_turns_to_breed"],["prob_catch","prob_grow"]]
 extraParamForThis = extraParamListForAll[simulationTypeNo]
+simulationConfigurationType = int(input("Choose number corresponding to the simulation config type: \n 1: Regular (each cell specified \n 2: Random \n 3: Weighted \n"))-1
+configurationTypes = ["Regular","Random","Weighted"]
+thisConfig = configurationTypes[simulationConfigurationType]
 print("\nState Types for the simulation are: " + " ".join(stateTypesForThis))
-print("Enter Cell Type Distribution: \n")
+print("Enter Cell Type Distribution Percent out of 100 (integer): \n")
 parameter_weights=[]
 parameter_vals=[]
 for i in range(len(stateTypesForThis)):
@@ -31,14 +34,29 @@ f.write('      <width>'+str(colNo)+'</width>\n')
 f.write('      <height>'+str(rowNo)+'</height>\n')
 for i in range(len(parameter_vals)):
   f.write('      <'+extraParamForThis[i]+'>'+str(parameter_vals[i])+'</'+extraParamForThis[i]+'>\n')
-for i in range(colNo*rowNo):
-  if(simulationTypeNo==4 and (i//colNo==0 or i//colNo==rowNo-1 or i%colNo==0 or i%colNo==colNo-1)):
-    thisState = ["EMPTY"]
-  else:
-    thisState = random.choices(stateTypesForThis,parameter_weights)
-  f.write('      <cell id = "'+str(i)+'">\n')
-  f.write('         <state>'+thisState[0]+'</state>\n')
-  f.write('      </cell>\n')
+if(thisConfig=="Regular"):
+  f.write('      <init_config_type>Regular</init_config_type>\n')
+  for i in range(colNo*rowNo):
+    if(simulationTypeNo==4 and (i//colNo==0 or i//colNo==rowNo-1 or i%colNo==0 or i%colNo==colNo-1)):
+      thisState = ["EMPTY"]
+    else:
+      thisState = random.choices(stateTypesForThis,parameter_weights)
+    f.write('      <cell id = "'+str(i)+'">\n')
+    f.write('         <state>'+thisState[0]+'</state>\n')
+    f.write('      </cell>\n')
+elif(thisConfig=="Random"):
+  f.write('      <init_config_type>Random</init_config_type>\n')
+  for i in range(len(stateTypesForThis)):
+    f.write('      <state_type id = "'+str(i)+'">\n')
+    f.write('         <state>'+stateTypesForThis[i]+'</state>\n')
+
+else:
+  f.write('      <init_config_type>Weighted</init_config_type>\n')
+  for i in range(len(stateTypesForThis)):
+    f.write('      <state_type id = "'+str(i)+'">\n')
+    f.write('         <state>'+stateTypesForThis[i]+'</state>\n')
+    f.write('         <weight>'+str(parameter_weights[i]/100)+'</weight>\n')
+
 f.write('   </simulation_type >\n')
 f.write('</simulation>\n')
 f.close()
