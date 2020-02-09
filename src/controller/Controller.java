@@ -8,10 +8,13 @@ import cellsociety.PredatorPreyGrid;
 import cellsociety.SegregationGrid;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.ResourceBundle;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -41,6 +44,14 @@ Hey change xml files and python codes simulation type thing
 Add try and catch or exception handler to save XML
  */
 public class Controller {
+
+    public static final String REGULAR_INIT_TYPE = "Regular";
+    public static final String PERCOLATION = "PERCOLATION";
+    public static final String GAME_OF_LIFE = "GAME OF LIFE";
+    public static final String SEGREGATION = "SEGREGATION";
+    public static final String PREDATOR_PREY = "PREDATOR/PREY";
+    public static final String SPREADING_FIRE = "SPREADING FIRE";
+    public static final String[] SIMULATION_TYPES_ARRAY = {PERCOLATION,GAME_OF_LIFE,SEGREGATION,PREDATOR_PREY,SPREADING_FIRE};
     private static int GRID_WIDTH;
     private static int GRID_HEIGHT;
     private static int NUMBER_OF_CELLS;
@@ -48,20 +59,36 @@ public class Controller {
     private Grid myGrid;
     private String simulationType;
     private String configurationType;
+    private String simulationCellShapes;
+    private String simulationWrapStyle;
+
+    private  String[] INIT_CONFIGS;
     private String cellInputType;  //Either "Regular", "Random", or "Weighted"
     private final String REGULAR = "Regular";
     private final String RANDOM = "Random";
     private final String WEIGHTED = "Weighted";
+    private final String [] INIT_CONFIG_TYPES_ARRAY = {REGULAR,RANDOM,WEIGHTED};
     private HashMap<String, String> parameters = new HashMap<>();
+    private ResourceBundle cellTypeResources;
+    private ResourceBundle simulationConfigurationResources;
+    private ResourceBundle exceptionMessagesResources;
+    private static final String RESOURCES = "resources";
+    public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
 
 
     public Controller(){
+        cellTypeResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "Colors");
+        simulationConfigurationResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "SimulationConfiguration");
+        exceptionMessagesResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "ControllerExceptionMessages");
+        simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
+        simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
+
         String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
         File delete = new File(mypath);
         Document del = parseXmlFile(delete);
         readParamsAndInitialize(del);
         printPretty(myGrid);
-        saveAsXml();
+        //saveAsXml();
     }
 
     public void printPretty(Grid grid) {
@@ -77,8 +104,8 @@ public class Controller {
     }
 
 
-    public Grid getGrid(){
-        return myGrid;
+    public String getCellState(int i, int j){
+        return myGrid.getCellState(i,j);
     }
 
 
@@ -125,16 +152,23 @@ public class Controller {
         cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
         NUMBER_OF_CELLS = GRID_HEIGHT*GRID_WIDTH;
     }
+
     private String getInitialConfigurationType(Document doc){
         String initialConfigurationType = doc.getElementsByTagName("init_config_type").item(0).getTextContent();
         checkValidityOfConfigurationType(initialConfigurationType);
         return initialConfigurationType;
     }
 
-
+    private void cycleCellState(int i, int j){
+        ArrayList<String> possibleStates = myGrid.getCellStates();
+        String cellsState = myGrid.getCellState(i,j);
+        int stateIndex = possibleStates.indexOf(cellsState);
+        String nextPossibleState = possibleStates.get((stateIndex+1)%possibleStates.size());
+        myGrid.setCellState(i,j,nextPossibleState);
+    }
 
     private void assignCellStates(Document doc) {
-        if(configurationType.equals("Regular")) {
+        if(configurationType.equals(REGULAR_INIT_TYPE)) {
             assignCellStatesRegularlyByParsingXml(doc);
         }
         else if(configurationType.equals("Random")){
@@ -206,7 +240,7 @@ public class Controller {
                 Element stateElement = (Element) stateNode;
                 String givenStateWeight = stateElement.getElementsByTagName("weight").item(0).getTextContent();
                 Double stateWeightValue = Double.parseDouble(givenStateWeight);
-                checkIfValueIsBetweenZeroAndOne(stateWeightValue);
+                checkIfValueIsBetweenZeroAndOne(stateWeightValue, "Occurance rate weight");
                 stateWeights[i]=stateWeightValue;
             }
         }
@@ -275,20 +309,15 @@ public class Controller {
         Transformer transformerDoc = null;
         try {
             transformerDoc = transformerFactory.newTransformer();
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
+            DOMSource source = new DOMSource(docOut);
+            String outPathFolder = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/output/";
+            String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
+            String outFileName = "outputXML_" + date;
+            String mypath = outPathFolder + outFileName;
+            StreamResult result = new StreamResult(new File(mypath));
         }
-        DOMSource source = new DOMSource(docOut);
-        String outPathFolder = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/output/";
-        String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
-        String outFileName = "outputXML_" + date;
-        String mypath = outPathFolder + outFileName;
-        StreamResult result = new StreamResult(new File(mypath));
-
-        try {
-            transformerDoc.transform(source, result);
-        } catch (TransformerException e) {
-            e.printStackTrace();
+        catch (Exception e){
+            throw new ControllerException(exceptionMessagesResources.getString("XmlSaveError"));
         }
 
         System.out.println("File saved!");
@@ -321,19 +350,19 @@ public class Controller {
     public void readParamsAndInitialize(Document doc) {
         System.out.println(simulationType);
         switch(simulationType){
-            case "PERCOLATION":
-                myGrid = new PercolationGrid(cellStatesGrid);
+            case PERCOLATION:
+                myGrid = new PercolationGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
                 break;
-            case "GAME OF LIFE":
-                myGrid = new GameOfLifeGrid(cellStatesGrid);
+            case GAME_OF_LIFE:
+                myGrid = new GameOfLifeGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
                 break;
-            case "SEGREGATION":
+            case SEGREGATION:
                 setParamsAndInitializeSegregation(doc);
                 break;
-            case "PREDATOR/PREY":
+            case PREDATOR_PREY:
                 setParamsAndInitializePredatorPrey(doc);
                 break;
-            case "SPREADING FIRE":
+            case SPREADING_FIRE:
                 setParamsAndInitializeSpreadingFire(doc);
                 break;
         }
@@ -341,9 +370,9 @@ public class Controller {
 
     private void setParamsAndInitializeSegregation(Document doc) {
         double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage);
+        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
         parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
-        myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
+        myGrid = new SegregationGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,satisfactionPercentage);
     }
 
     private void deletePrintStringArr(String[][] in){
@@ -358,29 +387,27 @@ public class Controller {
         System.out.println("");
     }
 
-
-
     private void setParamsAndInitializeSpreadingFire(Document doc) {
         double probCatch = readDoubleParameter(doc, "prob_catch");
         double probGrow = readDoubleParameter(doc, "prob_grow");
-        checkIfValueIsBetweenZeroAndOne(probCatch);
-        checkIfValueIsBetweenZeroAndOne(probGrow);
+        checkIfValueIsBetweenZeroAndOne(probCatch, "Probability of catching fire");
+        checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
         parameters.put("prob_catch",Double.toString(probCatch));
         parameters.put("prob_grow",Double.toString(probGrow));
-        myGrid = new FireGrid(cellStatesGrid,probCatch,probGrow);
+        myGrid = new FireGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,probCatch,probGrow);
     }
 
     private void setParamsAndInitializePredatorPrey(Document doc) {
         int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
         int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
         int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-        checkIfIntegerIsOneOrHigher(minFishTurnToBreed);
-        checkIfIntegerIsOneOrHigher(maxSharkTurns);
-        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed);
+        checkIfIntegerIsOneOrHigher(minFishTurnToBreed, "minFishTurnToBreed");
+        checkIfIntegerIsOneOrHigher(maxSharkTurns, "maxSharkTurns");
+        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed, "minSharkTurnsToBreed");
         parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
         parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
         parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
-        myGrid = new PredatorPreyGrid(cellStatesGrid,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+        myGrid = new PredatorPreyGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
         
     }
 
@@ -400,42 +427,46 @@ public class Controller {
 
     private void checkNumberOfCells(int numberOfCells){
         if(numberOfCells!=NUMBER_OF_CELLS){
-            //throw error that tells that number of cells doesnot match grid size declared. (Or possibly cells are not named correctlu)
+            throw new ControllerException(exceptionMessagesResources.getString("CellNoMismatch"));
         }
     }
 
     private void checkValidityOfCellState(String givenCellState){
-        //if(givenCellState is not in acceptableCellStates){
-            //throw an error that tells XML contains an illegal cell state
-       //}
+        try {
+            cellTypeResources.getString(givenCellState);
+        }
+        catch (Exception e){
+            throw new ControllerException(exceptionMessagesResources.getString("IllegalCellState"));
+        }
     }
 
     private void checkValidityOfSimulationType(String simulationTypeInput) {
-        //if(simulationTypeInput is not an acceptable simulationtype){
-        //throw an error that tells, it is not an acceptable simulation type
-        //}
+        if(Arrays.stream(SIMULATION_TYPES_ARRAY).anyMatch(simulationTypeInput::equals)){
+            throw new ControllerException(exceptionMessagesResources.getString("SimulationTypeError"));
+
+        }
     }
     private void checkValidityOfConfigurationType(String initialConfigTypeInput) {
-        //if(initialConfigTypeInput is not an acceptable config type){
-        //throw an error that tells, it is not an acceptable config type
-        //}
+        if(Arrays.stream(INIT_CONFIG_TYPES_ARRAY).anyMatch(initialConfigTypeInput::equals)) {
+            throw new ControllerException(exceptionMessagesResources.getString("ConfigurationTypeError"));
+        }
     }
 
     private void checkWidthAndHeightValues(){
         if(GRID_WIDTH<=0 || GRID_HEIGHT<=0){
-            //throw an error saying the value inputs for grid width/height contains an error
+            throw new ControllerException(exceptionMessagesResources.getString("NegativeDimensionError"));
         }
     }
 
-    private void checkIfValueIsBetweenZeroAndOne(Double valueIn){
+    private void checkIfValueIsBetweenZeroAndOne(Double valueIn, String variableName){
         if(valueIn<0 || valueIn>1){
-            //throw an error saying "Percentage Parameters are not within 0.0 to 1.0 range
+            throw new ControllerException(exceptionMessagesResources.getString("WrongDoubleProvided") +": "+ variableName);
         }
     }
 
-    private void checkIfIntegerIsOneOrHigher(int integerInput){
+    private void checkIfIntegerIsOneOrHigher(int integerInput, String variableName){
         if(integerInput<=0){
-            //throw an error saying invalid Integer input
+            throw new ControllerException(exceptionMessagesResources.getString("WrongIntegerProvided")+": "+variableName);
         }
     }
 
