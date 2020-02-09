@@ -4,11 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * Facilitates the Foraging Ants simulation
+ * @Author Achilles Dabrowski
+ */
 public class ForagingAntsGrid extends Grid{
 
   private ArrayList<ForagingAntsCell>[][] myAnts;
   private double[][] myCellProbVisited;
 
+  /**
+   * Create a grid to run the Foraging Ants simulation
+   * @param initConfig an array of Strings corresponding to each cell's initial state.
+   */
   public ForagingAntsGrid(String[][] initConfig){
     super(null, ALT_SQUARE_INDEX_DELTA);
     myCellsCopy = myCells;
@@ -16,6 +24,13 @@ public class ForagingAntsGrid extends Grid{
     myCellProbVisited = new double[initConfig.length][initConfig[START_INDEX].length];
   }
 
+  /**
+   * Return the current state of the cell at the ith row and jth column of the simulation's grid
+   * @param i the row of the desired cell in the simulation's grid
+   * @param j the column of the desired cell in the simulation's grid
+   * @return the String representing the current state of the cell at row i and column j of the grid. "EMPTY" = empty cell;
+   * "ANT" = cell occupied by at least one ant
+   */
   @Override
   public String getCellState(int i, int j){
     if(!myAnts[i][j].isEmpty()){
@@ -26,9 +41,18 @@ public class ForagingAntsGrid extends Grid{
     }
   }
 
+  /**
+   * Set the state of the cell at the ith row and jth column of the simulation's grid
+   * @param i the row of the desired cell in the simulation's grid
+   * @param j the column of the desired cell in the simulation's grid
+   * @param state the String representation of the desired state of the selected cell. "EMPTY" = empty cell;
+   * "ANT" = cell occupied by at least one ant
+   */
   public void setCellState(int i, int j, String state){
-    myAnts[i][j] = new ArrayList<ForagingAntsCell>();
-    myCellProbVisited[i][j] = .1;
+    myAnts[i][j] = new ArrayList<>();
+    if(state.equals(ForagingAntsCell.ANT)){
+      myAnts[i][j].add(ForagingAntsCell.ANT);
+    }
   }
 
   protected void updateCellState(int i, int j){
