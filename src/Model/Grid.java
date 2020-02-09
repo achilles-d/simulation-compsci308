@@ -17,6 +17,7 @@ public abstract class Grid {
     protected static final String TOROIDAL_GRID_EDGE_OPTION = "TOROIDAL";
 
     protected Enum[][] myCells;
+    protected Enum[][] myCellsCopy;
     protected int[][] myIndexDelta;
     protected String myGridEdgeType;
 
@@ -48,10 +49,12 @@ public abstract class Grid {
      * Move the grid one step forward in the simulation according to the simulation's rules
      */
     public void update(){
-        Enum[][] temp = copyCells();
-        for(int i = 0; i < temp.length; i++){
-            for(int j = 0; j < temp[START_INDEX].length; j++){
-                updateCellState(i, j, temp);
+        if(myCells != myCellsCopy) {
+            myCellsCopy = copyCells();
+        }
+        for(int i = 0; i < myCellsCopy.length; i++){
+            for(int j = 0; j < myCellsCopy[START_INDEX].length; j++){
+                updateCellState(i, j);
             }
         }
     }
@@ -108,26 +111,26 @@ public abstract class Grid {
         return copy;
     }
 
-    protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum[][] gridCopy, Enum targetCell) {
+    protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum targetCell) {
         ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
         for(int a = 0; a < myIndexDelta[START_INDEX].length; a++){
             int newRow = i + myIndexDelta[START_INDEX][a];
             int newCol = j + myIndexDelta[START_INDEX + 1][a];
-            if(neighborMatchesTarget(newRow, newCol, gridCopy, targetCell)){
-                cellIndices.add(new IndexPair(newRow, newCol));
+            if(neighborMatchesTarget(newRow, newCol, targetCell)){
+                cellIndices.add(connectEdgeIndices(newRow, newCol));
             }
         }
         return cellIndices;
     }
 
-    protected boolean neighborMatchesTarget(int newRow, int newCol, Enum[][] gridCopy, Enum targetCell){
+    protected boolean neighborMatchesTarget(int newRow, int newCol, Enum targetCell){
         if(!myGridEdgeType.equals(TOROIDAL_GRID_EDGE_OPTION)){
-            return inBounds(newRow, newCol) && (gridCopy[newRow][newCol] == targetCell);
+            return inBounds(newRow, newCol) && (myCellsCopy[newRow][newCol] == targetCell);
         }
         else{
             IndexPair edgeIndices = connectEdgeIndices(newRow, newCol);
             return inBounds(edgeIndices.getRow(), edgeIndices.getCol()) &&
-                    (gridCopy[edgeIndices.getRow()][edgeIndices.getCol()] == targetCell);
+                    (myCellsCopy[edgeIndices.getRow()][edgeIndices.getCol()] == targetCell);
         }
     }
 
@@ -149,6 +152,6 @@ public abstract class Grid {
 
     abstract public void setCellState(int i, int j, String state);
 
-    abstract protected void updateCellState(int i, int j, Enum[][] gridCopy);
+    abstract protected void updateCellState(int i, int j);
 
 }

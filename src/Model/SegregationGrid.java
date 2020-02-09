@@ -22,19 +22,8 @@ public class SegregationGrid extends Grid {
      */
     public SegregationGrid(String[][] initConfig, double minAgentSatisfaction){
         super(initConfig, SQUARE_INDEX_DELTA);
+        myCellsCopy = myCells;
         myMinAgentSatisfaction = minAgentSatisfaction;
-    }
-
-    @Override
-    /**
-     * Move the Segregation grid simulation one step forward
-     */
-    public void update(){
-        for(int i = 0; i < myCells.length; i++){
-            for(int j = 0; j < myCells[0].length; j++){
-                updateCellState(i, j, myCells);
-            }
-        }
     }
 
     @Override
@@ -55,7 +44,7 @@ public class SegregationGrid extends Grid {
         myCells[i][j] = SegregationCell.valueOf(state);
     }
 
-    protected void updateCellState(int i, int j, Enum[][] gridCopy){
+    protected void updateCellState(int i, int j){
         if((myCells[i][j] != SegregationCell.EMPTY) && !(isSatisfied(i, j)) && !(myEmptyCellIndices.isEmpty())){
             int emptyCellIndex = new Random().nextInt(myEmptyCellIndices.size());
             int newRow = myEmptyCellIndices.get(emptyCellIndex).getRow();
@@ -71,12 +60,12 @@ public class SegregationGrid extends Grid {
         int oppositeCellNeighborCount;
         int sameCellNeighborCount;
         if(myCells[i][j] == SegregationCell.X){
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, SegregationCell.O).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, SegregationCell.X).size();
         }
         else{
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, SegregationCell.X).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, SegregationCell.O).size();
         }
         return oppositeCellNeighborCount == 0 ||
                 ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;

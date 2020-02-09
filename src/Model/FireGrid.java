@@ -27,14 +27,14 @@ public class FireGrid extends Grid {
         myCells[i][j] = FireCell.valueOf(state);
     }
 
-    protected void updateCellState(int i, int j, Enum[][] gridCopy){
-        if(gridCopy[i][j] == FireCell.TREE){
-            updateTreeCells(i, j, gridCopy);
+    protected void updateCellState(int i, int j){
+        if(myCellsCopy[i][j] == FireCell.TREE){
+            updateTreeCells(i, j);
         }
-        else if(gridCopy[i][j] == FireCell.BURNING){
+        else if(myCellsCopy[i][j] == FireCell.BURNING){
             myCells[i][j] = FireCell.EMPTY;
         }
-        else if(gridCopy[i][j] == FireCell.NEW_TREE){
+        else if(myCellsCopy[i][j] == FireCell.NEW_TREE){
             myCells[i][j] = FireCell.TREE;
         }
         else{
@@ -42,8 +42,8 @@ public class FireGrid extends Grid {
         }
     }
 
-    private void updateTreeCells(int i, int j, Enum[][] gridCopy) {
-        if(! findNeighborIndices(i, j, gridCopy , FireCell.BURNING).isEmpty()){
+    private void updateTreeCells(int i, int j) {
+        if(! findNeighborIndices(i, j, FireCell.BURNING).isEmpty()){
             if(Math.random() < myProbCatch) {
                 myCells[i][j] = FireCell.BURNING;
             }

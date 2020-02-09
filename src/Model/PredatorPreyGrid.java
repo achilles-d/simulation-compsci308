@@ -30,6 +30,7 @@ public class PredatorPreyGrid extends Grid{
      */
     public PredatorPreyGrid(String[][] initConfig, int minFishTurnsToBreed, int maxSharkTurns, int minSharkTurnsToBreed){
         super(initConfig, ALT_SQUARE_INDEX_DELTA);
+        myCellsCopy = myCells;
         myMinFishTurnsToBreed = minFishTurnsToBreed;
         myMaxSharkTurns = maxSharkTurns;
         myMinSharkTurnsToBreed = minSharkTurnsToBreed;
@@ -48,20 +49,20 @@ public class PredatorPreyGrid extends Grid{
         myCells[i][j] = PredatorPreyCell.valueOf(state);
     }
 
-    protected void updateCellState(int i, int j, Enum[][] gridCopy){
-        if(! (gridCopy[i][j] == PredatorPreyCell.EMPTY) ) {
+    protected void updateCellState(int i, int j){
+        if(myCells[i][j] != PredatorPreyCell.EMPTY) {
             myCellTurnsSurvived[i][j]++;
         }
-        if(gridCopy[i][j] == PredatorPreyCell.SHARK){
-            updateSharkCell(i, j, gridCopy);
+        if(myCells[i][j] == PredatorPreyCell.SHARK){
+            updateSharkCell(i, j);
         }
-        else if(gridCopy[i][j] == PredatorPreyCell.FISH){
-            updateFishCell(i, j, gridCopy);
+        else if(myCells[i][j] == PredatorPreyCell.FISH){
+            updateFishCell(i, j);
         }
     }
 
-    private void updateFishCell(int i, int j, Enum[][] gridCopy) {
-        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
+    private void updateFishCell(int i, int j) {
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
         if(!emptyCellIndices.isEmpty()) {
             int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
             int newRow = emptyCellIndices.get(emptyCellIndex).getRow();
@@ -72,22 +73,22 @@ public class PredatorPreyGrid extends Grid{
         }
     }
 
-    private void updateSharkCell(int i, int j, Enum[][] gridCopy) {
+    private void updateSharkCell(int i, int j) {
         myTotalTurnsSurvived[i][j]++;
         if(myCellTurnsSurvived[i][j] > myMaxSharkTurns){
             setCellEmpty(i,j);
             return;
         }
         else {
-            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.FISH);
+            ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, PredatorPreyCell.FISH);
             if(!fishCellIndices.isEmpty()) {
-                eatNeighboringFish(i, j, gridCopy, fishCellIndices);
+                eatNeighboringFish(i, j, fishCellIndices);
                 return;
             }
         }
-        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, gridCopy, PredatorPreyCell.EMPTY);
+        ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
         if(!emptyCellIndices.isEmpty()){
-            moveSharkToEmptyCell(i, j, gridCopy, emptyCellIndices);
+            moveSharkToEmptyCell(i, j, emptyCellIndices);
         }
     }
 
@@ -108,7 +109,7 @@ public class PredatorPreyGrid extends Grid{
         }
     }
 
-    private void eatNeighboringFish(int i, int j, Enum[][] gridCopy, ArrayList<IndexPair> fishCellIndices) {
+    private void eatNeighboringFish(int i, int j, ArrayList<IndexPair> fishCellIndices) {
         int fishCellIndex = new Random().nextInt(fishCellIndices.size());
         int newRow = fishCellIndices.get(fishCellIndex).getRow();
         int newCol = fishCellIndices.get(fishCellIndex).getCol();
@@ -116,7 +117,7 @@ public class PredatorPreyGrid extends Grid{
         myCellTurnsSurvived[newRow][newCol] = INIT_TURNS_TAKEN;
     }
 
-    private void moveSharkToEmptyCell(int i, int j, Enum[][] gridCopy, ArrayList<IndexPair> emptyCellIndices) {
+    private void moveSharkToEmptyCell(int i, int j, ArrayList<IndexPair> emptyCellIndices) {
         int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
         myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex).getCol()] = PredatorPreyCell.SHARK;
         setCellEmpty(i, j);

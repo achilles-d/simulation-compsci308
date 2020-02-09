@@ -16,15 +16,16 @@ public class GameOfLifeGrid extends Grid{
    */
   public GameOfLifeGrid(String[][] initConfig){
     super(initConfig, SQUARE_INDEX_DELTA);
+    myCellsCopy = copyCells();
   }
 
   public void setCellState(int i, int j, String state){
     myCells[i][j] = GameOfLifeCell.valueOf(state);
   }
 
-  protected void updateCellState(int i, int j, Enum[][] gridCopy){
-    int aliveCount = findNeighborIndices(i, j, gridCopy, GameOfLifeCell.ALIVE).size();
-    if(gridCopy[i][j] == GameOfLifeCell.ALIVE && ( (aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors) )){
+  protected void updateCellState(int i, int j){
+    int aliveCount = findNeighborIndices(i, j, GameOfLifeCell.ALIVE).size();
+    if(myCellsCopy[i][j] == GameOfLifeCell.ALIVE && ( (aliveCount > maxAliveNeighbors) || (aliveCount < minAliveNeighbors) )){
       myCells[i][j] = GameOfLifeCell.DEAD;
     }
     else if(aliveCount == maxAliveNeighbors){
