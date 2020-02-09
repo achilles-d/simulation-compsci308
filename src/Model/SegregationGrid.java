@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,20 +21,9 @@ public class SegregationGrid extends Grid {
      *                             the simulation - to be satisfied
      */
     public SegregationGrid(String[][] initConfig, double minAgentSatisfaction){
-        super(initConfig);
+        super(initConfig, SQUARE_INDEX_DELTA);
+        myCellsCopy = myCells;
         myMinAgentSatisfaction = minAgentSatisfaction;
-    }
-
-    @Override
-    /**
-     * Move the Segregation grid simulation one step forward
-     */
-    public void update(){
-        for(int i = 0; i < myCells.length; i++){
-            for(int j = 0; j < myCells[0].length; j++){
-                updateCellState(i, j, myCells);
-            }
-        }
     }
 
     @Override
@@ -43,20 +32,19 @@ public class SegregationGrid extends Grid {
         myEmptyCellIndices = new ArrayList<IndexPair>();
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[0].length; j++){
-                myCells[i][j] = setCellState(initConfig[i][j]);
+                setCellState(i, j, initConfig[i][j]);
                 if(initConfig[i][j].equals(SegregationCell.EMPTY.toString())){
                     myEmptyCellIndices.add(new IndexPair(i, j));
                 }
-
             }
         }
     }
 
-    protected SegregationCell setCellState(String state) {
-        return SegregationCell.valueOf(state);
+    public void setCellState(int i, int j, String state) {
+        myCells[i][j] = SegregationCell.valueOf(state);
     }
 
-    protected void updateCellState(int i, int j, Enum[][] gridCopy){
+    protected void updateCellState(int i, int j){
         if((myCells[i][j] != SegregationCell.EMPTY) && !(isSatisfied(i, j)) && !(myEmptyCellIndices.isEmpty())){
             int emptyCellIndex = new Random().nextInt(myEmptyCellIndices.size());
             int newRow = myEmptyCellIndices.get(emptyCellIndex).getRow();
@@ -72,17 +60,15 @@ public class SegregationGrid extends Grid {
         int oppositeCellNeighborCount;
         int sameCellNeighborCount;
         if(myCells[i][j] == SegregationCell.X){
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, SegregationCell.O).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, SegregationCell.X).size();
         }
         else{
-            oppositeCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.X, STD_INDEX_DELTA).size();
-            sameCellNeighborCount = findNeighborIndices(i, j, myCells, SegregationCell.O, STD_INDEX_DELTA).size();
+            oppositeCellNeighborCount = findNeighborIndices(i, j, SegregationCell.X).size();
+            sameCellNeighborCount = findNeighborIndices(i, j, SegregationCell.O).size();
         }
-        if(oppositeCellNeighborCount == 0){
-            return true;
-        }
-        return ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;
+        return oppositeCellNeighborCount == 0 ||
+                ((double)sameCellNeighborCount) / ((double)oppositeCellNeighborCount) > myMinAgentSatisfaction;
 
     }
 
