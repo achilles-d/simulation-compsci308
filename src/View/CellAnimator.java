@@ -28,6 +28,7 @@ public class CellAnimator {
     myCell = new Rectangle(width, height);
     myCell.setFill(color);
     pane.add(myCell, X, Y, 1,1);
+    myCell.setOnMouseClicked(e -> handleClick());
   }
 
   /**
@@ -37,5 +38,9 @@ public class CellAnimator {
    */
   public void changeCellState (Paint color) {
     myCell.setFill(color);
+  }
+
+  private void handleClick(){
+    
   }
 }

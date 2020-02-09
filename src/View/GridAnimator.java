@@ -15,7 +15,7 @@ import javafx.scene.layout.GridPane;
  * @author Caleb Sanford
  */
 public class GridAnimator {
-  private static final String RESOURCES = "resources";
+  private static final String RESOURCES = "View/resources";
   public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
 
   private GridPane myPane;
@@ -94,7 +94,7 @@ public class GridAnimator {
   }
 
   /**
-   * Use the resources file to convert the String
+   * Use the View.resources file to convert the String
    * states for each simulation to hex color values
    *
    * @param state String from Cell instance

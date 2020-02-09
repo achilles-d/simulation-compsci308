@@ -79,7 +79,7 @@ The Buttons will allow the user to:
 - step the simulation forward in single step increments 
 - The animation rate will be selected with a slider
 
-Note: all of the text displayed in the user interface will not be hard coded, it will be set using a resources file. This 
+Note: all of the text displayed in the user interface will not be hard coded, it will be set using a View.resources file. This 
 will allow button names to be easily adjusted in the future. 
 ## Design Details & Considerations
 * __Grid:__
