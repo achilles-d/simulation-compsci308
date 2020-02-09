@@ -1,10 +1,23 @@
-package cellsociety;
+package controller;
 
+import cellsociety.FireGrid;
+import cellsociety.GameOfLifeGrid;
+import cellsociety.Grid;
+import cellsociety.PercolationGrid;
+import cellsociety.PredatorPreyGrid;
+import cellsociety.SegregationGrid;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,9 +41,9 @@ Hey change xml files and python codes simulation type thing
 Add try and catch or exception handler to save XML
  */
 public class Controller {
-    int GRID_WIDTH;
-    int GRID_HEIGHT;
-    int NUMBER_OF_CELLS = GRID_HEIGHT*GRID_WIDTH;
+    private static int GRID_WIDTH;
+    private static int GRID_HEIGHT;
+    private static int NUMBER_OF_CELLS;
     String [][] cellStatesGrid;
     private Grid myGrid;
     private String simulationType;
@@ -39,17 +52,24 @@ public class Controller {
     private final String REGULAR = "Regular";
     private final String RANDOM = "Random";
     private final String WEIGHTED = "Weighted";
-    private HashMap<String, String> parameters;
+    private HashMap<String, String> parameters = new HashMap<>();
 
 
     public Controller(){
+        String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
+        File delete = new File(mypath);
+        Document del = parseXmlFile(delete);
+        readParamsAndInitialize(del);
+        printPretty(myGrid);
+        saveAsXml();
     }
 
     public void printPretty(Grid grid) {
         for(int i = 0; i < cellStatesGrid.length; i++){
             for(int j = 0; j < cellStatesGrid[0].length; j++){
-                String padded = String.format("%15s", grid.getCellState(i,j)).replace(' ', ' ');
+                String padded = String.format("%15s", myGrid.getCellState(i,j)).replace(' ', ' ');
                 System.out.print(padded);
+                //System.out.print(grid.getCellStates(i,j));
             }
             System.out.println("");
         }
@@ -60,6 +80,7 @@ public class Controller {
     public Grid getGrid(){
         return myGrid;
     }
+
 
     public int getGridWidth(){
         return GRID_WIDTH;
@@ -82,7 +103,7 @@ public class Controller {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlDoc);
             assignGridDimensions(doc);
-            configurationType = getInitialConfigurationType(doc)
+            configurationType = getInitialConfigurationType(doc);
             assignCellStates(doc);
             simulationType = getSimulationType(doc);
             return(doc);
@@ -99,11 +120,13 @@ public class Controller {
         String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
         GRID_WIDTH = Integer.parseInt(widthString);
         GRID_HEIGHT = Integer.parseInt(heightString);
+
         checkWidthAndHeightValues();
         cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
+        NUMBER_OF_CELLS = GRID_HEIGHT*GRID_WIDTH;
     }
     private String getInitialConfigurationType(Document doc){
-        String initialConfigurationType = doc.getElementsByTagName("init_config_type").item(0).getAttributes().item(0).getTextContent();
+        String initialConfigurationType = doc.getElementsByTagName("init_config_type").item(0).getTextContent();
         checkValidityOfConfigurationType(initialConfigurationType);
         return initialConfigurationType;
     }
@@ -111,18 +134,19 @@ public class Controller {
 
 
     private void assignCellStates(Document doc) {
-        if(configurationType=="Regular") {
+        if(configurationType.equals("Regular")) {
             assignCellStatesRegularlyByParsingXml(doc);
         }
-        else if(configurationType=="Random"){
+        else if(configurationType.equals("Random")){
             assignCellStatesRandomly(doc);
         }
-        else if(configurationType=="Weighted"){
+        else if(configurationType.equals("Weighted")){
             assignCellStatesUsingWeights(doc);
         }
     }
 
     private void assignCellStatesUsingWeights(Document doc){
+
         String[] stateTypes = getStateTypes(doc);
         Double[] stateWeights = getStateWeights(doc);
 
@@ -140,6 +164,7 @@ public class Controller {
             sum += stateWeights[i];
             cumulativeWeights[i] = sum;
         }
+        return cumulativeWeights;
     }
     private String getWeightedRandomChoice(String[] stateTypes, Double[] cumulativeWeights){
         double r = new Random().nextDouble();
@@ -148,6 +173,7 @@ public class Controller {
                 return stateTypes[i];
             }
         }
+        return "";
     }
 
     private  void assignCellStatesRandomly(Document doc){
@@ -190,6 +216,7 @@ public class Controller {
         NodeList cellList = doc.getElementsByTagName("cell");
         checkNumberOfCells(cellList.getLength());
         for(int i=0; i<cellList.getLength(); i++){
+
             Node cellNode = cellList.item(i);
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
@@ -208,7 +235,12 @@ public class Controller {
 
     public void saveAsXml(){
         DocumentBuilderFactory outputDocumentFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder outputDocumentBuilder = outputDocumentFactory.newDocumentBuilder();
+        DocumentBuilder outputDocumentBuilder = null;
+        try {
+            outputDocumentBuilder = outputDocumentFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
 
         Document docOut = outputDocumentBuilder.newDocument();
         Element root = docOut.createElement("simulation");
@@ -235,9 +267,31 @@ public class Controller {
 
             Attr cellAttribute = docOut.createAttribute("id");
             cellAttribute.setValue(Integer.toString(i));
-            cellElement.setAttributeNode(simulationTypeAttribute);
+            cellElement.setAttributeNode(cellAttribute);
             createAndAppendElement(docOut, cellElement, "state", cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH]);
         }
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformerDoc = null;
+        try {
+            transformerDoc = transformerFactory.newTransformer();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        }
+        DOMSource source = new DOMSource(docOut);
+        String outPathFolder = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/output/";
+        String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
+        String outFileName = "outputXML_" + date;
+        String mypath = outPathFolder + outFileName;
+        StreamResult result = new StreamResult(new File(mypath));
+
+        try {
+            transformerDoc.transform(source, result);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("File saved!");
 
 
     }
@@ -246,7 +300,6 @@ public class Controller {
         Iterator parameterIterator = parameters.entrySet().iterator();
         while (parameterIterator.hasNext()) {
             HashMap.Entry<String,String> pair = (HashMap.Entry)parameterIterator.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
             createAndAppendElement(docOut,simulationTypeElement,pair.getKey(),pair.getValue());
             parameterIterator.remove(); // avoids a ConcurrentModificationException
         }
@@ -266,6 +319,7 @@ public class Controller {
      * @param doc Document that is parsed in parseXmlFile method.
      */
     public void readParamsAndInitialize(Document doc) {
+        System.out.println(simulationType);
         switch(simulationType){
             case "PERCOLATION":
                 myGrid = new PercolationGrid(cellStatesGrid);
@@ -291,6 +345,20 @@ public class Controller {
         parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
         myGrid = new SegregationGrid(cellStatesGrid,satisfactionPercentage);
     }
+
+    private void deletePrintStringArr(String[][] in){
+        for(int i=0;i<in.length;i++){
+            for(int j=0;j<in[0].length;j++){
+                String padded = String.format("%15s", in[i][j]).replace(' ', ' ');
+                System.out.print(padded);
+                //System.out.print(grid.getCellStates(i,j));
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+    }
+
+
 
     private void setParamsAndInitializeSpreadingFire(Document doc) {
         double probCatch = readDoubleParameter(doc, "prob_catch");

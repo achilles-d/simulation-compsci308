@@ -7,11 +7,14 @@
       <height>5</height>
       <satisfaction_percentage>0.4</satisfaction_percentage>
       <init_config_type>Random</init_config_type>
-      <state_type id = "0">
+      <state_type id="0">
          <state>X</state>
+      </state_type>
       <state_type id = "1">
          <state>O</state>
+      </state_type>
       <state_type id = "2">
          <state>EMPTY</state>
+      </state_type>
    </simulation_type >
 </simulation>

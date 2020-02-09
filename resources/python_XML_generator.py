@@ -49,6 +49,8 @@ elif(thisConfig=="Random"):
   for i in range(len(stateTypesForThis)):
     f.write('      <state_type id = "'+str(i)+'">\n')
     f.write('         <state>'+stateTypesForThis[i]+'</state>\n')
+    f.write('         </state_type>')
+
 
 else:
   f.write('      <init_config_type>Weighted</init_config_type>\n')
@@ -56,6 +58,7 @@ else:
     f.write('      <state_type id = "'+str(i)+'">\n')
     f.write('         <state>'+stateTypesForThis[i]+'</state>\n')
     f.write('         <weight>'+str(parameter_weights[i]/100)+'</weight>\n')
+    f.write('         </state_type>')
 
 f.write('   </simulation_type >\n')
 f.write('</simulation>\n')
