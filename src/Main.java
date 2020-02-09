@@ -1,5 +1,4 @@
-import View.Visualizer;
-import Model.Controller;
+import controller.Controller;
 import java.awt.Dimension;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -23,12 +22,12 @@ public class Main extends Application {
     public void start (Stage stage) {
         // create program specific components
         Controller control = new Controller();
-        Visualizer display = new Visualizer(stage, control, "English");
+        //Visualizer display = new Visualizer(stage, control, "English");  //uncomment
         // give the window a title
-        stage.setTitle(TITLE);
+       // stage.setTitle(TITLE); //uncomment
         // add our user interface components to Frame and show it
-        stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height));
-        stage.show();
+        //stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height)); //uncomment
+        //stage.show(); //uncomment
     }
 
     /**

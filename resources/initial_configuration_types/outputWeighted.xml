@@ -7,8 +7,17 @@
       <height>5</height>
       <satisfaction_percentage>0.4</satisfaction_percentage>
       <init_config_type>Weighted</init_config_type>
-      <distribution_weight>X 0.3</distribution_weight>
-      <distribution_weight>O 0.2</distribution_weight>
-      <distribution_weight>EMPTY 0.5</distribution_weight>
+      <state_type id = "0">
+         <state>X</state>
+         <weight>0.2</weight>
+      </state_type>
+      <state_type id = "1">
+         <state>O</state>
+         <weight>0.3</weight>
+      </state_type>
+      <state_type id = "2">
+         <state>EMPTY</state>
+         <weight>0.5</weight>
+      </state_type>
    </simulation_type >
 </simulation>
