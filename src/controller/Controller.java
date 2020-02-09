@@ -1,11 +1,11 @@
 package controller;
 
-import cellsociety.FireGrid;
-import cellsociety.GameOfLifeGrid;
-import cellsociety.Grid;
-import cellsociety.PercolationGrid;
-import cellsociety.PredatorPreyGrid;
-import cellsociety.SegregationGrid;
+import Model.FireGrid;
+import Model.GameOfLifeGrid;
+import Model.Grid;
+import Model.PercolationGrid;
+import Model.PredatorPreyGrid;
+import Model.SegregationGrid;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,12 +56,12 @@ public class Controller {
 
 
     public Controller(){
-        String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
-        File delete = new File(mypath);
-        Document del = parseXmlFile(delete);
-        readParamsAndInitialize(del);
-        printPretty(myGrid);
-        saveAsXml();
+        //String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
+        //File delete = new File(mypath);
+        //Document del = parseXmlFile(delete);
+        //readParamsAndInitialize(del);
+        //printPretty(myGrid);
+        //saveAsXml();
     }
 
     public void printPretty(Grid grid) {

@@ -38,6 +38,7 @@ public abstract class Grid {
      * @return the String representing the current state of the cell at row i and column j of the grid
      */
     public String getCellState(int i, int j){
+        System.out.println(myCells[i][j].toString());
         return myCells[i][j].toString();
     }
 
