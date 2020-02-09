@@ -1,4 +1,4 @@
-package cellsociety;
+package Model;
 
 /**
  * A container for indices corresponding to an element of interest in a 2D-grid

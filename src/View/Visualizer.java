@@ -1,6 +1,6 @@
 package View;
 
-import cellsociety.Controller;
+import controller.Controller;
 import java.io.File;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
