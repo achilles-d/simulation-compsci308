@@ -13,8 +13,8 @@ public class PercolationGrid extends Grid {
      * @param initConfig an array of Strings corresponding to each cell's initial state.
      *                   "FULL" = filled cell. "EMPTY" = empty cell. "PERCOLATED" = percolated cell
      */
-    public PercolationGrid(String[][] initConfig){
-        super(initConfig, SQUARE_INDEX_DELTA);
+    public PercolationGrid(String[][] initConfig, String edgeType, String neighborType){
+        super(initConfig, edgeType, neighborType);
         myCellsCopy = copyCells();
     }
 

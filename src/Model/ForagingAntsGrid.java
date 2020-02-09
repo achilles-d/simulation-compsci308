@@ -17,8 +17,8 @@ public class ForagingAntsGrid extends Grid{
    * Create a grid to run the Foraging Ants simulation
    * @param initConfig an array of Strings corresponding to each cell's initial state.
    */
-  public ForagingAntsGrid(String[][] initConfig){
-    super(null, ALT_SQUARE_INDEX_DELTA);
+  public ForagingAntsGrid(String[][] initConfig, String edgeType, String neighborType){
+    super(initConfig, edgeType, neighborType);
     myCellsCopy = myCells;
     myAnts = new ArrayList[initConfig.length][initConfig[START_INDEX].length];
     myCellProbVisited = new double[initConfig.length][initConfig[START_INDEX].length];
