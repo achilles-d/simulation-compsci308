@@ -75,7 +75,7 @@ public class Controller {
     private ResourceBundle cellTypeResources;
     private ResourceBundle simulationConfigurationResources;
     private ResourceBundle exceptionMessagesResources;
-    private static final String RESOURCES = "controller.resources.";
+    public static final String RESOURCES = "controller.resources.";
 
 
     public Controller(){
