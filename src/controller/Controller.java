@@ -66,8 +66,6 @@ public class Controller {
     private String simulationCellShapes;
     private String simulationWrapStyle;
 
-    private  String[] INIT_CONFIGS;
-    private String cellInputType;  //Either "Regular", "Random", or "Weighted"
     private final String REGULAR = "Regular";
     private final String RANDOM = "Random";
     private final String WEIGHTED = "Weighted";
@@ -149,15 +147,14 @@ public class Controller {
         String heightString = doc.getElementsByTagName("height").item(0).getTextContent();
         GRID_WIDTH = Integer.parseInt(widthString);
         GRID_HEIGHT = Integer.parseInt(heightString);
-
-        //checkWidthAndHeightValues();
+        checkWidthAndHeightValues();
         cellStatesGrid = new String [GRID_HEIGHT][GRID_WIDTH];
         NUMBER_OF_CELLS = GRID_HEIGHT*GRID_WIDTH;
     }
 
     private String getInitialConfigurationType(Document doc){
         String initialConfigurationType = doc.getElementsByTagName("init_config_type").item(0).getTextContent();
-        //checkValidityOfConfigurationType(initialConfigurationType);
+        checkValidityOfConfigurationType(initialConfigurationType);
         return initialConfigurationType;
     }
 
@@ -227,7 +224,7 @@ public class Controller {
             if(stateNode.getNodeType()==Node.ELEMENT_NODE){
                 Element stateElement = (Element) stateNode;
                 String givenState = stateElement.getElementsByTagName("state").item(0).getTextContent();
-                //checkValidityOfCellState(givenState);
+                checkValidityOfCellState(givenState);
                 stateTypes[i]=givenState;
             }
         }
@@ -242,7 +239,7 @@ public class Controller {
                 Element stateElement = (Element) stateNode;
                 String givenStateWeight = stateElement.getElementsByTagName("weight").item(0).getTextContent();
                 Double stateWeightValue = Double.parseDouble(givenStateWeight);
-                //checkIfValueIsBetweenZeroAndOne(stateWeightValue, "Occurance rate weight");
+                checkIfValueIsBetweenZeroAndOne(stateWeightValue, "Occurance rate weight");
                 stateWeights[i]=stateWeightValue;
             }
         }
@@ -250,14 +247,14 @@ public class Controller {
     }
     private void assignCellStatesRegularlyByParsingXml(Document doc) {
         NodeList cellList = doc.getElementsByTagName("cell");
-        //checkNumberOfCells(cellList.getLength());
+        checkNumberOfCells(cellList.getLength());
         for(int i=0; i<cellList.getLength(); i++){
 
             Node cellNode = cellList.item(i);
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
                 String givenCellStateForThisIndex = cellElement.getElementsByTagName("state").item(0).getTextContent();
-                //checkValidityOfCellState(givenCellStateForThisIndex);
+                checkValidityOfCellState(givenCellStateForThisIndex);
                 cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH] = givenCellStateForThisIndex;
             }
         }
@@ -265,7 +262,7 @@ public class Controller {
 
     private String getSimulationType(Document doc) {
         String simulationType = doc.getElementsByTagName("simulation_type").item(0).getAttributes().item(0).getTextContent();
-        //checkValidityOfSimulationType(simulationType);
+        checkValidityOfSimulationType(simulationType);
         return simulationType;
     }
 
@@ -386,7 +383,7 @@ public class Controller {
 
     private void setParamsAndInitializeSegregation(Document doc) {
         double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-        //checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
+        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
         parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
         myGrid = new SegregationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,satisfactionPercentage);
 
@@ -395,7 +392,7 @@ public class Controller {
 
     private void setParamsAndInitializeRockPaperScissors(Document doc){
         int threshold = readIntegerParameter(doc,"threshold");
-        //checkIfIntegerIsOneOrHigher(threshold,"threshold");
+        checkIfIntegerIsOneOrHigher(threshold,"threshold");
         parameters.put("threshold",Integer.toString(threshold));
         myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,threshold);
     }
@@ -415,8 +412,8 @@ public class Controller {
     private void setParamsAndInitializeSpreadingFire(Document doc) {
         double probCatch = readDoubleParameter(doc, "prob_catch");
         double probGrow = readDoubleParameter(doc, "prob_grow");
-        //checkIfValueIsBetweenZeroAndOne(probCatch, "Probability of catching fire");
-        //checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
+        checkIfValueIsBetweenZeroAndOne(probCatch, "Probability of catching fire");
+        checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
         parameters.put("prob_catch",Double.toString(probCatch));
         parameters.put("prob_grow",Double.toString(probGrow));
         myGrid = new FireGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,probCatch,probGrow);
@@ -426,9 +423,9 @@ public class Controller {
         int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
         int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
         int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-        //checkIfIntegerIsOneOrHigher(minFishTurnToBreed, "minFishTurnToBreed");
-        //checkIfIntegerIsOneOrHigher(maxSharkTurns, "maxSharkTurns");
-        //checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed, "minSharkTurnsToBreed");
+        checkIfIntegerIsOneOrHigher(minFishTurnToBreed, "minFishTurnToBreed");
+        checkIfIntegerIsOneOrHigher(maxSharkTurns, "maxSharkTurns");
+        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed, "minSharkTurnsToBreed");
         parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
         parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
         parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
@@ -466,13 +463,13 @@ public class Controller {
     }
 
     private void checkValidityOfSimulationType(String simulationTypeInput) {
-        if(Arrays.stream(SIMULATION_TYPES_ARRAY).anyMatch(simulationTypeInput::equals)){
+        if(!Arrays.stream(SIMULATION_TYPES_ARRAY).anyMatch(simulationTypeInput::equals)){
             throw new ControllerException(exceptionMessagesResources.getString("SimulationTypeError"));
 
         }
     }
     private void checkValidityOfConfigurationType(String initialConfigTypeInput) {
-        if(Arrays.stream(INIT_CONFIG_TYPES_ARRAY).anyMatch(initialConfigTypeInput::equals)) {
+        if(!Arrays.stream(INIT_CONFIG_TYPES_ARRAY).anyMatch(initialConfigTypeInput::equals)) {
             throw new ControllerException(exceptionMessagesResources.getString("ConfigurationTypeError"));
         }
     }
