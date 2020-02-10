@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -50,17 +51,23 @@ public class PredatorPreyGrid extends Grid {
     myMinSharkTurnsToBreed = minSharkTurnsToBreed;
   }
 
+  /**
+   * Set the state of the cell in the ith row and jth column of the simulation grid
+   * @param i the row of the desired cell in the grid
+   * @param j the column of the desired cell in the grid
+   * @param state the String representation of the desired state of the cell. "FISH" = cell with fish. "SHARK" = cell
+   *             with shark. "EMPTY" = empty cell
+   */
+  public void setCellState(int i, int j, String state) {
+    myCells[i][j] = PredatorPreyCell.valueOf(state);
+  }
+
   @Override
   protected void initializeCells(String[][] initConfig) {
     super.initializeCells(initConfig);
     myCellTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
     myTotalTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
     myNeighborType = SQUARE_NO_DIAGONAL_TYPE;
-  }
-
-
-  public void setCellState(int i, int j, String state) {
-    myCells[i][j] = PredatorPreyCell.valueOf(state);
   }
 
   protected void updateCellState(int i, int j) {
@@ -75,11 +82,11 @@ public class PredatorPreyGrid extends Grid {
   }
 
   private void updateFishCell(int i, int j) {
-    ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
+    ArrayList<Point> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
     if (!emptyCellIndices.isEmpty()) {
       int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
-      int newRow = emptyCellIndices.get(emptyCellIndex).getRow();
-      int newCol = emptyCellIndices.get(emptyCellIndex).getCol();
+      int newRow = (int) emptyCellIndices.get(emptyCellIndex).getX();
+      int newCol = (int) emptyCellIndices.get(emptyCellIndex).getY();
       myCells[newRow][newCol] = PredatorPreyCell.FISH;
       myCellTurnsSurvived[newRow][newCol] = myCellTurnsSurvived[i][j];
       tryBreedingEntity(i, j, PredatorPreyCell.FISH);
@@ -92,13 +99,13 @@ public class PredatorPreyGrid extends Grid {
       setCellEmpty(i, j);
       return;
     } else {
-      ArrayList<IndexPair> fishCellIndices = findNeighborIndices(i, j, PredatorPreyCell.FISH);
+      ArrayList<Point> fishCellIndices = findNeighborIndices(i, j, PredatorPreyCell.FISH);
       if (!fishCellIndices.isEmpty()) {
         eatNeighboringFish(i, j, fishCellIndices);
         return;
       }
     }
-    ArrayList<IndexPair> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
+    ArrayList<Point> emptyCellIndices = findNeighborIndices(i, j, PredatorPreyCell.EMPTY);
     if (!emptyCellIndices.isEmpty()) {
       moveSharkToEmptyCell(i, j, emptyCellIndices);
     }
@@ -121,18 +128,17 @@ public class PredatorPreyGrid extends Grid {
     }
   }
 
-  private void eatNeighboringFish(int i, int j, ArrayList<IndexPair> fishCellIndices) {
+  private void eatNeighboringFish(int i, int j, ArrayList<Point> fishCellIndices) {
     int fishCellIndex = new Random().nextInt(fishCellIndices.size());
-    int newRow = fishCellIndices.get(fishCellIndex).getRow();
-    int newCol = fishCellIndices.get(fishCellIndex).getCol();
+    int newRow = (int) fishCellIndices.get(fishCellIndex).getX();
+    int newCol = (int) fishCellIndices.get(fishCellIndex).getY();
     myCells[newRow][newCol] = PredatorPreyCell.SHARK;
     myCellTurnsSurvived[newRow][newCol] = INIT_TURNS_TAKEN;
   }
 
-  private void moveSharkToEmptyCell(int i, int j, ArrayList<IndexPair> emptyCellIndices) {
+  private void moveSharkToEmptyCell(int i, int j, ArrayList<Point> emptyCellIndices) {
     int emptyCellIndex = new Random().nextInt(emptyCellIndices.size());
-    myCells[emptyCellIndices.get(emptyCellIndex).getRow()][emptyCellIndices.get(emptyCellIndex)
-        .getCol()] = PredatorPreyCell.SHARK;
+    myCells[(int) emptyCellIndices.get(emptyCellIndex).getX()][(int) emptyCellIndices.get(emptyCellIndex).getY()] = PredatorPreyCell.SHARK;
     setCellEmpty(i, j);
   }
 

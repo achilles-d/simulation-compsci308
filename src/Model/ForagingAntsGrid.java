@@ -1,11 +1,11 @@
 package Model;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import javax.xml.stream.events.StartDocument;
 
 /**
  * Facilitates the Foraging Ants simulation
@@ -14,7 +14,13 @@ import javax.xml.stream.events.StartDocument;
  */
 public class ForagingAntsGrid extends Grid {
 
-  private HashMap<IndexPair, ArrayList<ForagingAntsCell>> myAnts;
+  private static double INIT_CELL_PROB_VISITED;
+  private static double CELL_PROB_VISITED_BONUS;
+  private static int INDICES_CHOICE_ONE_ID = 0;
+  private static int INDICES_CHOICE_TWO_ID = 1;
+  private static int PROB_LIST_LENGTH_MULTIPLIER = 10;
+
+  private HashMap<Point, ArrayList<ForagingAntsCell>> myAnts;
   private double[][] myCellProbVisited;
 
   /**
@@ -42,18 +48,24 @@ public class ForagingAntsGrid extends Grid {
    *
    * @param i the row of the desired cell in the simulation's grid
    * @param j the column of the desired cell in the simulation's grid
-   * @return the String representing the current state of the cell at row i and column j of the
-   * grid. "EMPTY" = empty cell; "ANT" = cell occupied by at least one ant
+   * @return the String representation the current state of the cell at row i and column j of the
+   * grid. "EMPTY" = empty cell. "ANT" = cell occupied by at least one ant. "ANT_RETURNING" = cell occupied by only
+   * ants returning to the nest
    */
   @Override
   public String getCellState(int i, int j) {
-    if (!myAnts.containsKey(new IndexPair(i, j))) {
+    if (!myAnts.containsKey(new Point(i, j))) {
       return ForagingAntsCell.EMPTY.toString();
     } else {
       return ForagingAntsCell.ANT.toString();
     }
   }
 
+  /**
+   * Return the possible cell states of the simulation
+   * @return the String representation of the different possible cell states in the simulation. "EMPTY" = empty cell.
+   * "ANT" = cell occupied by at least one ant. "ANT_RETURNING" = cell occupied by only ants returning to the nest
+   */
   @Override
   public List<String> getCellStates() {
     ForagingAntsCell cell = ForagingAntsCell.ANT;
@@ -74,7 +86,7 @@ public class ForagingAntsGrid extends Grid {
    *              empty cell; "ANT" = cell occupied by at least one ant
    */
   public void setCellState(int i, int j, String state) {
-    IndexPair antIndices = new IndexPair(i, j);
+    Point antIndices = new Point(i, j);
     if (state.equals(ForagingAntsCell.ANT.toString())) {
       if (!myAnts.containsKey(antIndices)) {
         myAnts.put(antIndices, new ArrayList<>());
@@ -92,8 +104,8 @@ public class ForagingAntsGrid extends Grid {
    */
   @Override
   public void update() {
-    for (int i = 0; i < myCells.length; i++) {
-      for (int j = 0; j < myCells[START_INDEX].length; j++) {
+    for (int i = START_INDEX; i < myCells.length; i++) {
+      for (int j = START_INDEX; j < myCells[START_INDEX].length; j++) {
         updateCellState(i, j);
       }
     }
@@ -103,16 +115,16 @@ public class ForagingAntsGrid extends Grid {
   protected void initializeCells(String[][] initConfig) {
     myAnts = new HashMap<>();
     myCellProbVisited = new double[initConfig.length][initConfig[START_INDEX].length];
-    for (int i = 0; i < initConfig.length; i++) {
-      for (int j = 0; j < initConfig[START_INDEX].length; j++) {
+    for (int i = START_INDEX; i < initConfig.length; i++) {
+      for (int j = START_INDEX; j < initConfig[START_INDEX].length; j++) {
         setCellState(i, j, initConfig[i][j]);
-        myCellProbVisited[i][j] = .1;
+        myCellProbVisited[i][j] = INIT_CELL_PROB_VISITED;
       }
     }
   }
 
   protected void updateCellState(int i, int j) {
-    if (myAnts.containsKey(new IndexPair(i, j))) {
+    if (myAnts.containsKey(new Point(i, j))) {
       updateAnts(i, j);
     }
   }
@@ -121,20 +133,20 @@ public class ForagingAntsGrid extends Grid {
     if (i == START_INDEX && j == START_INDEX) {
       spawnAnt();
     }
-    if (i == myCells.length - 1 && j == myCells[START_INDEX].length - 1) {
-      sendAntsToNest(myCells.length - 1, myCells[START_INDEX].length - 1);
+    if (i == myCells.length - NEXT_INDEX && j == myCells[START_INDEX].length - 1) {
+      sendAntsToNest(myCells.length - NEXT_INDEX, myCells[START_INDEX].length - 1);
     }
-    myCellProbVisited[i][j] += 1.0;
+    myCellProbVisited[i][j] += CELL_PROB_VISITED_BONUS;
     iterateThroughAntList(i, j);
 
   }
 
   private void iterateThroughAntList(int i, int j) {
-    IndexPair antIndices = new IndexPair(i, j);
+    Point antIndices = new Point(i, j);
     Iterator<ForagingAntsCell> antsItr = myAnts.get(antIndices).iterator();
     while (antsItr.hasNext()) {
       ForagingAntsCell ant = antsItr.next();
-      IndexPair newIndices;
+      Point newIndices;
       if (ant == ForagingAntsCell.ANT_RETURNING) {
         newIndices = moveAntTowardNest(i, j);
       } else {
@@ -149,7 +161,7 @@ public class ForagingAntsGrid extends Grid {
   }
 
   private void spawnAnt() {
-    IndexPair nestIndices = new IndexPair(myCells.length, myCells[START_INDEX].length);
+    Point nestIndices = new Point(myCells.length, myCells[START_INDEX].length);
     if (!myAnts.containsKey((nestIndices))) {
       myAnts.put(nestIndices, new ArrayList<>());
     }
@@ -157,43 +169,43 @@ public class ForagingAntsGrid extends Grid {
   }
 
   private void sendAntsToNest(int i, int j) {
-    IndexPair antIndices = new IndexPair(i, j);
+    Point antIndices = new Point(i, j);
     if (myAnts.containsKey(antIndices)) {
-      for (int a = 0; a < myAnts.get(antIndices).size(); a++) {
+      for (int a = START_INDEX; a < myAnts.get(antIndices).size(); a++) {
         myAnts.get(antIndices).set(a, ForagingAntsCell.ANT_RETURNING);
       }
     }
   }
 
-  private IndexPair moveAntTowardFood(int i, int j) {
-    return selectNextCell(new IndexPair(i - 1, j), new IndexPair(i, j - 1));
+  private Point moveAntTowardFood(int i, int j) {
+    return selectNextCell(new Point(i - NEXT_INDEX, j), new Point(i, j - NEXT_INDEX));
   }
 
-  private IndexPair moveAntTowardNest(int i, int j) {
-    return selectNextCell(new IndexPair(i + 1, j), new IndexPair(i, j + 1));
+  private Point moveAntTowardNest(int i, int j) {
+    return selectNextCell(new Point(i + NEXT_INDEX, j), new Point(i, j + NEXT_INDEX));
   }
 
-  private IndexPair selectNextCell(IndexPair choice1, IndexPair choice2) {
-    if (!inBounds(choice1.getRow(), choice1.getCol())) {
+  private Point selectNextCell(Point choice1, Point choice2) {
+    if (!inBounds(choice1)) {
       return choice2;
-    } else if (!inBounds(choice2.getRow(), choice2.getCol())) {
+    } else if (!inBounds(choice2)) {
       return choice1;
     }
-    ArrayList<Integer> probList = buildProbabilityList(0, choice1);
-    probList.addAll(buildProbabilityList(1, choice2));
+    ArrayList<Integer> probList = buildProbabilityList(INDICES_CHOICE_ONE_ID, choice1);
+    probList.addAll(buildProbabilityList(INDICES_CHOICE_TWO_ID, choice2));
     int selectIndex = new Random().nextInt(probList.size());
-    if (probList.get(selectIndex) != 0 || (!inBounds(choice2.getRow(), choice2.getCol()))) {
+    if (probList.get(selectIndex) != INDICES_CHOICE_ONE_ID) {
       return choice1;
     } else {
       return choice2;
     }
   }
 
-  private ArrayList<Integer> buildProbabilityList(int id, IndexPair possibleIndex) {
+  private ArrayList<Integer> buildProbabilityList(int id, Point possibleIndex) {
     ArrayList<Integer> probList = new ArrayList<>();
-    int probListLength = (int) (myCellProbVisited[possibleIndex.getRow()][possibleIndex.getCol()]
-        * 10);
-    for (int i = 0; i < probListLength; i++) {
+    int probListLength = (int) (myCellProbVisited[(int) possibleIndex.getX()][(int) possibleIndex.getY()]
+        * PROB_LIST_LENGTH_MULTIPLIER);
+    for (int i = START_INDEX; i < probListLength; i++) {
       probList.add(id);
     }
     return probList;
