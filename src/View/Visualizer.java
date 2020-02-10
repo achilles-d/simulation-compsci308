@@ -115,11 +115,7 @@ public class Visualizer {
     } else {
       throw (Throwable) TypeNotPresentException;
     }
-    // create scene to hold UI
-    Scene scene = new Scene(root, width, height);
-    // activate CSS styling
-    //scene.getStylesheets().add(getClass().getResource(DEFAULT_RESOURCE_PACKAGE + STYLESHEET).toExternalForm());
-    return scene;
+    return new Scene(root, width, height);
   }
 
   /**

@@ -40,6 +40,13 @@ public class CellAnimator {
     makeCell(pane, width, height, color);
   }
 
+  /**
+   *
+   * @param pane Pane to draw rectangle on
+   * @param width Width in pixels of rectangle
+   * @param height Height in pixels of rectangle
+   * @param color Color of rectangle
+   */
   protected void makeCell(GridPane pane, double width, double height, Paint color){
     myCell = new Rectangle(width, height);
     myCell.setFill(color);

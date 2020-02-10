@@ -20,6 +20,9 @@ public class HexGridAnimator extends GridAnimator {
     super(pane, controller, gridDimension);
   }
 
+  /**
+   *
+   */
   @Override
   public void makeCellArray(){
     makeGraph();
