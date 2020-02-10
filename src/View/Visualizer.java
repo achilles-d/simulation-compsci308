@@ -31,6 +31,7 @@ import org.w3c.dom.Document;
  * @author Caleb Sanford
  */
 public class Visualizer {
+
   public static final String RESOURCES = "View/ViewResources";
   public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
   public static final String DEFAULT_RESOURCE_FOLDER = "/" + RESOURCES + "/";
@@ -51,14 +52,14 @@ public class Visualizer {
   private Object TypeNotPresentException;
 
   /**
-   * Constructor for Visualizer class. Sets instance variables and
-   * creates the continual loop for updating the simulation
+   * Constructor for Visualizer class. Sets instance variables and creates the continual loop for
+   * updating the simulation
    *
-   * @param stage This is the main stage for the Application
+   * @param stage      This is the main stage for the Application
    * @param controller Instance of the Controller of the simulation
-   * @param language Determines which resource file to use for the GUI strings
+   * @param language   Determines which resource file to use for the GUI strings
    */
-  public Visualizer (Stage stage, Controller controller, String language) {
+  public Visualizer(Stage stage, Controller controller, String language) {
     myController = controller;
     myStage = stage;
     myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + language);
@@ -74,14 +75,14 @@ public class Visualizer {
   }
 
   /**
-   * This method is called time interval based on FRAMES_PER_SECOND.
-   * Responsible for animating the simulation
+   * This method is called time interval based on FRAMES_PER_SECOND. Responsible for animating the
+   * simulation
    *
    * @param elapsedTime time between calls to step()
    */
-  public void step (double elapsedTime) {
+  public void step(double elapsedTime) {
     currTime += elapsedTime;
-    if (running && currTime*10 > mySlider.getValue()) {
+    if (running && currTime * 10 > mySlider.getValue()) {
       myController.updateGrid();
       myAnimator.updateCells();
       currTime = 0;
@@ -91,11 +92,11 @@ public class Visualizer {
   /**
    * Creates the scene that displays the GUI
    *
-   * @param width width in pixels of the GUI
+   * @param width  width in pixels of the GUI
    * @param height height in pixels of the GUI
    * @return the main Scene for the GUI
    */
-  public Scene makeScene (int width, int height) throws Throwable {
+  public Scene makeScene(int width, int height) throws Throwable {
     BorderPane root = new BorderPane();
 
     // must be first since other panels may refer to page
@@ -106,11 +107,12 @@ public class Visualizer {
     vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
 
-    ResourceBundle simResources = ResourceBundle.getBundle(Controller.RESOURCES +"SimulationConfiguration");
+    ResourceBundle simResources = ResourceBundle
+        .getBundle(Controller.RESOURCES + "SimulationConfiguration");
     if (simResources.getString("SimulationCellShapes").equals("SQUARE_DIAGONAL") ||
-        simResources.getString("SimulationCellShapes").equals("SQUARE_NO_DIAGONAL")){
+        simResources.getString("SimulationCellShapes").equals("SQUARE_NO_DIAGONAL")) {
       myAnimator = new GridAnimator(myGridPane, myController, 500);
-    } else if (simResources.getString("SimulationCellShapes").equals("HEXAGONAL")){
+    } else if (simResources.getString("SimulationCellShapes").equals("HEXAGONAL")) {
       myAnimator = new HexGridAnimator(myGridPane, myController, 500);
     } else {
       throw (Throwable) TypeNotPresentException;
@@ -119,7 +121,6 @@ public class Visualizer {
   }
 
   /**
-   *
    * @return The GridPane that the cells will be displayed on
    */
   private GridPane makeGrid() {
@@ -154,22 +155,22 @@ public class Visualizer {
   }
 
   /**
-   * makes a button using either an image or a label
-   * taken from lab_browser
+   * makes a button using either an image or a label taken from lab_browser
    *
    * @param property String to look for in the View.resources file
-   * @param handler to handle user clicks
+   * @param handler  to handle user clicks
    * @return Button instance
    */
-  private Button makeButton (String property, EventHandler<ActionEvent> handler) {
+  private Button makeButton(String property, EventHandler<ActionEvent> handler) {
     // represent all supported image suffixes
-    final String IMAGEFILE_SUFFIXES = String.format(".*\\.(%s)", String.join("|", ImageIO.getReaderFileSuffixes()));
+    final String IMAGEFILE_SUFFIXES = String
+        .format(".*\\.(%s)", String.join("|", ImageIO.getReaderFileSuffixes()));
     Button result = new Button();
     String label = myResources.getString(property);
     if (label.matches(IMAGEFILE_SUFFIXES)) {
-      result.setGraphic(new ImageView(new Image(getClass().getResourceAsStream(DEFAULT_RESOURCE_FOLDER + label))));
-    }
-    else {
+      result.setGraphic(new ImageView(
+          new Image(getClass().getResourceAsStream(DEFAULT_RESOURCE_FOLDER + label))));
+    } else {
       result.setText(label);
     }
     result.setOnAction(handler);
@@ -181,7 +182,7 @@ public class Visualizer {
    *
    * @return Slider instance
    */
-  private Slider makeSlider () {
+  private Slider makeSlider() {
     Slider result = new Slider(0, 100, 50);
     // enable the marks
     result.setShowTickMarks(true);
@@ -191,8 +192,7 @@ public class Visualizer {
   }
 
   /**
-   * Show file dialog and call ReadXML with
-   * user selected file.
+   * Show file dialog and call ReadXML with user selected file.
    */
   private void fileButtonPressed() {
     running = false;
@@ -214,7 +214,7 @@ public class Visualizer {
    */
   private void startButtonPressed() {
     // Step forward at the current animation rate
-    if (!fileLoaded){
+    if (!fileLoaded) {
       System.out.println("You must load a file before starting");
       return;
     }
@@ -234,7 +234,7 @@ public class Visualizer {
    * Called when Step Forward button is pressed.
    */
   private void stepButtonPressed() {
-    if (!fileLoaded){
+    if (!fileLoaded) {
       System.out.println("You must load a file before starting");
       return;
     }

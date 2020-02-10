@@ -24,7 +24,7 @@ public class HexGridAnimator extends GridAnimator {
    *
    */
   @Override
-  public void makeCellArray(){
+  public void makeCellArray() {
     makeGraph();
     height = myController.getGridHeight();
     width = myController.getGridWidth();
@@ -33,22 +33,23 @@ public class HexGridAnimator extends GridAnimator {
     // Set all the count to zero
     myCellCounts = new HashMap<>();
     System.out.println(myController.getCellStates());
-    for (String s: myController.getCellStates()){
-      System.out.println("S: "+s);
+    for (String s : myController.getCellStates()) {
+      System.out.println("S: " + s);
       myCellCounts.put(s, 0);
     }
 
-    for (int i=0; i < height; i++) {
-      for (int j=0; j<width; j++) {
-        String state = myController.getCellState(i,j);
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        String state = myController.getCellState(i, j);
         System.out.println(state);
-        myCellCounts.put(state, myCellCounts.get(state)+1);
+        myCellCounts.put(state, myCellCounts.get(state) + 1);
         Color color = convertStateToPaint(state);
-        myCells[i][j] = new HexCellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController, myColors);
+        myCells[i][j] = new HexCellAnimator(myPane, i, j, maxGridDimension / width,
+            maxGridDimension / height, color, myController, myColors);
       }
     }
 
-    for (String s: myCellCounts.keySet()){
+    for (String s : myCellCounts.keySet()) {
       myGraph.addData(s, new Data<Integer, Integer>(myX, myCellCounts.get(s)));
     }
   }
