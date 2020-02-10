@@ -9,12 +9,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.layout.GridPane;
 
 /**
- * Class to hold the array of CellAnimators and
- * update Cell values
+ * Class to hold the array of CellAnimators and update Cell values
  *
  * @author Caleb Sanford
  */
 public class GridAnimator {
+
   protected static final String RESOURCES = "View/ViewResources";
   protected static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
 
@@ -32,8 +32,8 @@ public class GridAnimator {
   /**
    * Create new instance of the GridAnimator
    *
-   * @param pane This is grid that the cells will be drawn on
-   * @param controller Controller that holds the simulation parameters
+   * @param pane          This is grid that the cells will be drawn on
+   * @param controller    Controller that holds the simulation parameters
    * @param gridDimension max dimension for the grid to display on the screen
    */
   public GridAnimator(GridPane pane, Controller controller, int gridDimension) {
@@ -46,7 +46,7 @@ public class GridAnimator {
   /**
    * Create the initial cell array when a new simulation is loaded
    */
-  public void makeCellArray () {
+  public void makeCellArray() {
     makeGraph();
     height = myController.getGridHeight();
     width = myController.getGridWidth();
@@ -54,20 +54,21 @@ public class GridAnimator {
     myX = 0;
     // Set all the count to zero
     myCellCounts = new HashMap<>();
-    for (String s: myController.getCellStates()){
+    for (String s : myController.getCellStates()) {
       myCellCounts.put(s, 0);
     }
 
-    for (int i=0; i < height; i++) {
-      for (int j=0; j<width; j++) {
-        String state = myController.getCellState(i,j);
-        myCellCounts.put(state, myCellCounts.get(state)+1);
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        String state = myController.getCellState(i, j);
+        myCellCounts.put(state, myCellCounts.get(state) + 1);
         Color color = convertStateToPaint(state);
-        myCells[i][j] = new CellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController, myColors);
+        myCells[i][j] = new CellAnimator(myPane, i, j, maxGridDimension / width,
+            maxGridDimension / height, color, myController, myColors);
       }
     }
 
-    for (String s: myCellCounts.keySet()){
+    for (String s : myCellCounts.keySet()) {
       myGraph.addData(s, new Data<Integer, Integer>(myX, myCellCounts.get(s)));
     }
   }
@@ -75,27 +76,27 @@ public class GridAnimator {
   /**
    * Loop through all of the cells and change to the new state
    */
-  public void updateCells () {
+  public void updateCells() {
     // Set all the count to zero
     myCellCounts.replaceAll((s, v) -> 0);
     myX++;
 
-    for (int i=0; i < height; i++) {
-      for (int j=0; j<width; j++) {
-        String state = myController.getCellState(i,j);
-        myCellCounts.put(state, myCellCounts.get(state)+1);
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        String state = myController.getCellState(i, j);
+        myCellCounts.put(state, myCellCounts.get(state) + 1);
         myCells[i][j].changeCellState(convertStateToPaint(state));
       }
     }
 
-    for (String s: myCellCounts.keySet()){
+    for (String s : myCellCounts.keySet()) {
       myGraph.addData(s, new Data<Integer, Integer>(myX, myCellCounts.get(s)));
     }
   }
 
   /**
-   * Use the View.resources file to convert the String
-   * states for each simulation to hex color values
+   * Use the View.resources file to convert the String states for each simulation to hex color
+   * values
    *
    * @param state String from Cell instance
    * @return Color
@@ -104,7 +105,7 @@ public class GridAnimator {
     return Color.web(myColors.getString(state));
   }
 
-  protected void makeGraph(){
+  protected void makeGraph() {
     myGraph = new Graph("State Graph", "Cell States", 300, 300, myController.getCellStates());
   }
 }

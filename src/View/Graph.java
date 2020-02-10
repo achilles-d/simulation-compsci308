@@ -28,18 +28,20 @@ import javafx.stage.Stage;
 import javax.print.attribute.standard.NumberUp;
 
 public class Graph {
+
   private Map<String, Series> mySeries;
   private List<String> mySeriesKeys;
-  private LineChart<Number,Number> lineChart;
+  private LineChart<Number, Number> lineChart;
   private Integer myX = 0;
 
-  public Graph(String windowTitle, String graphTitle, int windowWidth, int windowHeight, List<String> seriesKeys){
+  public Graph(String windowTitle, String graphTitle, int windowWidth, int windowHeight,
+      List<String> seriesKeys) {
     makeStage(windowTitle, windowWidth, windowHeight);
     lineChart.setTitle(graphTitle);
     mySeriesKeys = seriesKeys;
 
     mySeries = new HashMap<>();
-    for (String s: mySeriesKeys){
+    for (String s : mySeriesKeys) {
       Series series = new Series();
       series.setName(s);
       lineChart.getData().add(series);
@@ -47,8 +49,8 @@ public class Graph {
     }
   }
 
-  public void addData(String seriesName, Data dataPoint){
-    if (mySeriesKeys.contains(seriesName)){
+  public void addData(String seriesName, Data dataPoint) {
+    if (mySeriesKeys.contains(seriesName)) {
 //      Data point = new Data(myX, dataPoint);
       mySeries.get(seriesName).getData().add(dataPoint);
       myX++;
@@ -59,19 +61,19 @@ public class Graph {
     Stage stage = new Stage();
     stage.setTitle(windowTitle);
     lineChart = createChart();
-    Scene scene  = new Scene(lineChart,windowWidth,windowHeight);
+    Scene scene = new Scene(lineChart, windowWidth, windowHeight);
     stage.setScene(scene);
     stage.show();
     return stage;
   }
 
-  private LineChart<Number, Number> createChart(){
+  private LineChart<Number, Number> createChart() {
     //defining the axes
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
     xAxis.setLabel("Step");
     yAxis.setLabel("State Count");
 
-    return new LineChart<Number,Number>(xAxis,yAxis);
+    return new LineChart<Number, Number>(xAxis, yAxis);
   }
 }

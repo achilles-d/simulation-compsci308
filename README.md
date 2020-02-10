@@ -41,7 +41,15 @@ Data files needed:
 
 Features implemented:
 - Simulation
-- Controller
+- Controller:
+    - Allows simulation initial configurations to be set by (These three can be tested using files in resources/initial_configuration_types/):
+        -list of specific locations and states
+        -completely randomly based on a total number of locations to occupy
+        -randomly based on given probabilities
+   - Allows user to save simulation as XML file that can be loaded back. (OutputDuringSimulationExample.xml)
+   - It can be styled using SimulationConfiguration.properties. 
+   - It does error checking both with file reading, and the values provided (whether they are integer, within the range etc) yet these error are not
+      fully handled by the rest of the program. (So it is not a fully functioning feature.)
 - Visualizer
     - Display Hex and Square Grids
     - Display a graph of stats about the populations of all of the "kinds" of cells over the time of the simulation
