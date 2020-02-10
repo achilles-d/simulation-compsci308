@@ -4,6 +4,17 @@ public class RockPaperScissorsGrid extends Grid{
 
     private int myThreshold;
 
+    /**
+     *
+     * @param initConfig
+     * @param edgeType the type of grid edges to be used in the simulation. "FINITE" = finite edges
+     *                 (edges across from one another are not connected). "TOROIDAL" = toroidal edges
+     *                 (edges across from one another are connected).
+     * @param neighborType the type of cell neighborhood to be used in the simulation. "SQUARE_DIAGONAL" =
+     *                     square neighborhood with eight neighbors, including diagonals, at most.
+     *                     "SQUARE_NO_DIAGONAL" = square neighborhood with four neighbors at most and no diagonals.
+     *                     "HEXAGONAL" = hexagonal neighborhood with six neighbors, including diagonals, at most.
+     */
     public RockPaperScissorsGrid(String[][] initConfig, String edgeType, String neighborType, int threshold){
         super(initConfig, edgeType, neighborType);
         myThreshold = threshold;

@@ -13,6 +13,13 @@ public class GameOfLifeGrid extends Grid{
    * Create a grid to run the Game of Life simulation
    * @param initConfig an array of Strings corresponding to each cell's initial state. "ALIVE" = cell with living person.
    *                   "DEAD" = cell with dead person
+   * @param edgeType the type of grid edges to be used in the simulation. "FINITE" = finite edges
+   *                 (edges across from one another are not connected). "TOROIDAL" = toroidal edges
+   *                 (edges across from one another are connected).
+   * @param neighborType the type of cell neighborhood to be used in the simulation. "SQUARE_DIAGONAL" =
+   *                     square neighborhood with eight neighbors, including diagonals, at most.
+   *                     "SQUARE_NO_DIAGONAL" = square neighborhood with four neighbors at most and no diagonals.
+   *                     "HEXAGONAL" = hexagonal neighborhood with six neighbors, including diagonals, at most.
    */
   public GameOfLifeGrid(String[][] initConfig, String edgeType, String neighborType){
     super(initConfig, edgeType, neighborType);
