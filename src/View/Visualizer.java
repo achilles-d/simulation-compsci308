@@ -48,6 +48,7 @@ public class Visualizer {
 
   private boolean running = false;
   private boolean fileLoaded = false;
+  private Object TypeNotPresentException;
 
   /**
    * Constructor for Visualizer class. Sets instance variables and
@@ -94,7 +95,7 @@ public class Visualizer {
    * @param height height in pixels of the GUI
    * @return the main Scene for the GUI
    */
-  public Scene makeScene (int width, int height) {
+  public Scene makeScene (int width, int height) throws Throwable {
     BorderPane root = new BorderPane();
 
     // must be first since other panels may refer to page
@@ -108,9 +109,10 @@ public class Visualizer {
     if (simResources.getString("SimulationCellShapes").equals("SQUARE_DIAGONAL") ||
         simResources.getString("SimulationCellShapes").equals("SQUARE_NO_DIAGONAL")){
       myAnimator = new GridAnimator(myGridPane, myController, 500);
-    }
-    if (simResources.getString("SimulationCellShapes").equals("HEXAGONAL")){
+    } else if (simResources.getString("SimulationCellShapes").equals("HEXAGONAL")){
       myAnimator = new HexGridAnimator(myGridPane, myController, 500);
+    } else {
+      throw (Throwable) TypeNotPresentException;
     }
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
