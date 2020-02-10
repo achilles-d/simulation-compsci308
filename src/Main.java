@@ -1,5 +1,6 @@
 import View.Visualizer;
 import controller.Controller;
+import controller.ControllerException;
 import java.awt.Dimension;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ public class Main extends Application {
         try {
             stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height)); //uncomment
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            throw new ControllerException("Stage scene resulted in error.");
         }
         stage.show(); //uncomment
     }
