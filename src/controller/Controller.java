@@ -9,10 +9,7 @@ import Model.PredatorPreyGrid;
 import Model.RockPaperScissorsGrid;
 import Model.SegregationGrid;
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -78,28 +75,17 @@ public class Controller {
     private ResourceBundle cellTypeResources;
     private ResourceBundle simulationConfigurationResources;
     private ResourceBundle exceptionMessagesResources;
-    private static final String RESOURCES = "resources";
-    public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
+    private static final String RESOURCES = "controller.resources.";
 
 
     public Controller(){
-//        cellTypeResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "Colors");
-//        simulationConfigurationResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "SimulationConfiguration");
-//        exceptionMessagesResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "ControllerExceptionMessages");
-//        simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
-//        simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
+        cellTypeResources = ResourceBundle.getBundle(RESOURCES+"Colors");
+        simulationConfigurationResources = ResourceBundle.getBundle(RESOURCES + "SimulationConfiguration");
+        exceptionMessagesResources = ResourceBundle.getBundle(RESOURCES + "ControllerExceptionMessages");
+        simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
+        simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
 
-//        String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
-//        File delete = new File(mypath);
-//        Document del = parseXmlFile(delete);
-//        readParamsAndInitialize(del);
-//        printPretty(myGrid);
-        //String mypath = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/resources/initial_configuration_types/outputWeighted.xml";
-        //File delete = new File(mypath);
-        //Document del = parseXmlFile(delete);
-        //readParamsAndInitialize(del);
-        //printPretty(myGrid);
-        //saveAsXml();
+
     }
 
     public void printPretty(Grid grid) {
@@ -329,10 +315,11 @@ public class Controller {
         try {
             transformerDoc = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(docOut);
-            String outPathFolder = "/Users/Cemal/Desktop/2019_Spring_Classes/2020 Spring/CS308/simulation_team06/output/";
+            String outPathFolder = "./output/";
             String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
             String outFileName = "outputXML_" + date;
             String mypath = outPathFolder + outFileName;
+            System.out.println(mypath);
             StreamResult result = new StreamResult(new File(mypath));
         }
         catch (Exception e){
@@ -370,10 +357,10 @@ public class Controller {
         System.out.println(simulationType);
         switch(simulationType){
             case PERCOLATION:
-                myGrid = new PercolationGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
+                myGrid = new PercolationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
                 break;
             case GAME_OF_LIFE:
-                myGrid = new GameOfLifeGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
+                myGrid = new GameOfLifeGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
                 break;
             case SEGREGATION:
                 setParamsAndInitializeSegregation(doc);
@@ -388,7 +375,7 @@ public class Controller {
                 setParamsAndInitializeRockPaperScissors(doc);
                 break;
             case FORAGING_ANTS:
-                myGrid = new ForagingAntsGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
+                myGrid = new ForagingAntsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
 
         }
     }
@@ -397,16 +384,16 @@ public class Controller {
         double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
         //checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
         parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
-        myGrid = new SegregationGrid(cellStatesGrid,"FINITE","SQUARE_NO_DIAGONAL",satisfactionPercentage);
-        //myGrid = new SegregationGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,satisfactionPercentage);
+        myGrid = new SegregationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,satisfactionPercentage);
+
 
     }
 
     private void setParamsAndInitializeRockPaperScissors(Document doc){
         int threshold = readIntegerParameter(doc,"threshold");
-        checkIfIntegerIsOneOrHigher(threshold,"threshold");
+        //checkIfIntegerIsOneOrHigher(threshold,"threshold");
         parameters.put("threshold",Integer.toString(threshold));
-        myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,threshold);
+        myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,threshold);
     }
 
     private void deletePrintStringArr(String[][] in){
@@ -428,7 +415,7 @@ public class Controller {
         //checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
         parameters.put("prob_catch",Double.toString(probCatch));
         parameters.put("prob_grow",Double.toString(probGrow));
-        myGrid = new FireGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,probCatch,probGrow);
+        myGrid = new FireGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,probCatch,probGrow);
     }
 
     private void setParamsAndInitializePredatorPrey(Document doc) {
@@ -441,7 +428,7 @@ public class Controller {
         parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
         parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
         parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
-        myGrid = new PredatorPreyGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+        myGrid = new PredatorPreyGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
         
     }
 
@@ -458,7 +445,7 @@ public class Controller {
 
     //IMPORTANT: 1. ADD TRY AND CATCH FOR READER PARTS
     //           2. Create xml tests for all of this.
-/*
+
     private void checkNumberOfCells(int numberOfCells){
         if(numberOfCells!=NUMBER_OF_CELLS){
             throw new ControllerException(exceptionMessagesResources.getString("CellNoMismatch"));
@@ -503,5 +490,5 @@ public class Controller {
             throw new ControllerException(exceptionMessagesResources.getString("WrongIntegerProvided")+": "+variableName);
         }
     }
-*/
+
 }
