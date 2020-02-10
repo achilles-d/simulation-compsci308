@@ -1,9 +1,12 @@
 package View;
 
+import controller.Controller;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 /**
  * Class to store the state of Cells and display those
@@ -12,7 +15,10 @@ import javafx.scene.shape.Rectangle;
  * @author Caleb Sanford
  */
 public class CellAnimator {
-  private Rectangle myCell;
+  protected Rectangle myCell;
+  protected Controller myController;
+  protected int myX;
+  protected int myY;
 
   /**
    * Create new instance
@@ -24,10 +30,17 @@ public class CellAnimator {
    * @param height Height in pixels of rectangle
    * @param color Color of rectangle
    */
-  public CellAnimator (GridPane pane, int X, int Y, int width, int height, Color color){
+  public CellAnimator (GridPane pane, int X, int Y, double width, double height, Color color, Controller controller){
+    myController = controller;
+    myX = X;
+    myY = Y;
+    makeCell(pane, width, height, color);
+  }
+
+  protected void makeCell(GridPane pane, double width, double height, Paint color){
     myCell = new Rectangle(width, height);
     myCell.setFill(color);
-    pane.add(myCell, X, Y, 1,1);
+    pane.add(myCell, myX, myY, 1,1);
     myCell.setOnMouseClicked(e -> handleClick());
   }
 
@@ -40,7 +53,10 @@ public class CellAnimator {
     myCell.setFill(color);
   }
 
-  private void handleClick(){
-    
+  /**
+   *
+   */
+  protected void handleClick(){
+    //myController.cycleState(myX, myY);
   }
 }

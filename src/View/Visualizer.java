@@ -104,7 +104,7 @@ public class Visualizer {
     vBox.getChildren().add(makeInputPanel());
     vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
-    myAnimator = new GridAnimator(myGridPane, myController, 500);
+    myAnimator = new HexGridAnimator(myGridPane, myController, 500);
 
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
@@ -238,6 +238,6 @@ public class Visualizer {
   }
 
   private void saveXMLPressed() {
-
+    myController.saveAsXml();
   }
 }
