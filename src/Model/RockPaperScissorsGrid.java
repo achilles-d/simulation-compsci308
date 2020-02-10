@@ -29,6 +29,12 @@ public class RockPaperScissorsGrid extends Grid{
         if(myCells[i][j] == RockPaperScissorsCell.ROCK){
             myCells[i][j] = playRock(i, j);
         }
+        else if(myCells[i][j] == RockPaperScissorsCell.PAPER){
+            myCells[i][j] = playPaper(i, j);
+        }
+        else{
+            myCells[i][j] = playScissors(i, j);
+        }
     }
 
     private RockPaperScissorsCell playRock(int i, int j){
