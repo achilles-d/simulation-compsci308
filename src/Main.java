@@ -25,6 +25,7 @@ public class Main extends Application {
         Controller control = new Controller();
         Visualizer display = new Visualizer(stage, control, "English");  //uncomment
         // give the window a title
+        //stage.setTitle(TITLE); //uncomment
         stage.setTitle(TITLE); //uncomment
         // add our user interface components to Frame and show it
         stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height)); //uncomment
