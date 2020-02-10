@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<simulation>
+    <simulation_type id="SEGREGATION">
+        <author>Simulation Group 6</author>
+        <title>SEGREGATION Simulation</title>
+        <width>5</width>
+        <height>5</height>
+        <satisfaction_percentage>0.4</satisfaction_percentage>
+        <init_config_type>Regular</init_config_type>
+        <cell id="0">
+            <state>O</state>
+        </cell>
+        <cell id="1">
+            <state>X</state>
+        </cell>
+        <cell id="2">
+            <state>O</state>
+        </cell>
+        <cell id="3">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="4">
+            <state>X</state>
+        </cell>
+        <cell id="5">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="6">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="7">
+            <state>X</state>
+        </cell>
+        <cell id="8">
+            <state>O</state>
+        </cell>
+        <cell id="9">
+            <state>O</state>
+        </cell>
+        <cell id="10">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="11">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="12">
+            <state>X</state>
+        </cell>
+        <cell id="13">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="14">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="15">
+            <state>X</state>
+        </cell>
+        <cell id="16">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="17">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="18">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="19">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="20">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="21">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="22">
+            <state>X</state>
+        </cell>
+        <cell id="23">
+            <state>EMPTY</state>
+        </cell>
+        <cell id="24">
+            <state>EMPTY</state>
+        </cell>
+    </simulation_type>
+</simulation>
