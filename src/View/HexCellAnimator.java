@@ -1,12 +1,11 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Shape;
 
 public class HexCellAnimator extends CellAnimator {
   protected Polygon myCell;

@@ -9,7 +9,7 @@ Cemal Yagcioglu
 The goal of this project is to write a Java program using OpenJFX that animates any 2D CA simulation. The simulation
 parameters and starting configuration will be read from an XML file. The structure of our code will be broken up into 
 three high-level concepts:
-- __The Model:__ This is the backend controller that manages the rules of the simulation and the data associated with
+- __The Model:__ This is the backend Controller that manages the rules of the simulation and the data associated with
 it.
 - __The View:__ This controls all of the visualizations created on the screen.
 - __The Controller:__ Acts as an interface between the Model and the View. 
@@ -83,7 +83,7 @@ Note: all of the text displayed in the user interface will not be hard coded, it
 will allow button names to be easily adjusted in the future. 
 ## Design Details & Considerations
 * __Grid:__
-    Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is run, it is on Visualizer to make use of it for its purposes. 
+    Grid is the class responsible for 2D data handling. It is used two initiate and access the ‘grid-like’ data calculated and updated by the Controller. Each of its data bits are of Cell Class type. Its instrance variables defines the parameters specific to the grid structure required by the current simulation (for example: grid size).  Grid has also update method that updates the 2D data to the next state, according to the rules Controller method initialized it with. After this update method is run, it is on Visualizer to make use of it for its purposes. 
 	
 	Grid has 5 subclasses, each dedicated to a specific type of simulation.
 
@@ -96,7 +96,7 @@ will allow button names to be easily adjusted in the future.
 
 
 * __Controller:__
-	Controller initializes the Grid class according to the rules of the simulation. After it initializing Grid (and Grid initializing Cell), it (or Visualizer, depending on the implementation) call call update() method in Grid class to the next state. (To be more clear on both options, the team discussed whether the simulation should be pre-calculated and 2D data should be stored as 3D data with their respective ’simulation step’ numbers or should the  calculation of the grid should be made on the go during the simulation. In first option updating in controller makes more sense, in the latter updating in the visualizer makes more sense).
+	Controller initializes the Grid class according to the rules of the simulation. After it initializing Grid (and Grid initializing Cell), it (or Visualizer, depending on the implementation) call call update() method in Grid class to the next state. (To be more clear on both options, the team discussed whether the simulation should be pre-calculated and 2D data should be stored as 3D data with their respective ’simulation step’ numbers or should the  calculation of the grid should be made on the go during the simulation. In first option updating in Controller makes more sense, in the latter updating in the visualizer makes more sense).
 
 * __Visualizer:__:
 	Visualizer is the class responsible for using the 2D Grid object along with UI components to output a visually informing interface to the user. It makes use of JavaFx, and visualizes the simulation using cell’s state(and their chosen color) for the given simulation step. If ‘calculation on-the-go’ is implemented as discussed by the group, visualizer calls the update method of Grid objectfor every simulation step iteration and recalls its own updater for updating the visual objects according to the new calcuated grid. It also recognizes if the input file is changed by the user, and automatically updates the grid visual on the screen accordingly (even changing its size if necessary). 
@@ -117,7 +117,7 @@ Use cases:
  
 * 4: XML file is read by the file reader, and the first initialization of Grid Object by Controller class specifically initializes “Fire simulation” type Grid, which initializes Fire Simulation type Cells. During the initialization, probCatch is set as global parameter. 
 
-* 5: Visualizer’s update method checks whether the XML file is changed, it deletes the current objects, calls controller class method for initialization again, which reads XML file, and initializes Grid Object accordingly. 
+* 5: Visualizer’s update method checks whether the XML file is changed, it deletes the current objects, calls Controller class method for initialization again, which reads XML file, and initializes Grid Object accordingly. 
 	
 
 

@@ -1,6 +1,6 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.io.File;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;

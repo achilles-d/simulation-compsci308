@@ -1,6 +1,6 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;

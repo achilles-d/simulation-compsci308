@@ -1,13 +1,11 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 /**
  * Class to store the state of Cells and display those

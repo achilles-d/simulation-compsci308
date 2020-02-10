@@ -1,6 +1,6 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.HashMap;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.layout.GridPane;
