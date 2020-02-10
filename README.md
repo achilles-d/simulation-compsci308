@@ -51,6 +51,8 @@ Assumptions or Simplifications:
 Interesting data files:
 
 Known Bugs:
+- Error Handling
+- 
 
 Extra credit:
 
