@@ -19,6 +19,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -83,20 +84,6 @@ public class Controller {
         exceptionMessagesResources = ResourceBundle.getBundle(RESOURCES + "ControllerExceptionMessages");
         simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
         simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
-
-
-    }
-
-    public void printPretty(Grid grid) {
-        for(int i = 0; i < cellStatesGrid.length; i++){
-            for(int j = 0; j < cellStatesGrid[0].length; j++){
-                String padded = String.format("%15s", myGrid.getCellState(i,j)).replace(' ', ' ');
-                System.out.print(padded);
-                //System.out.print(grid.getCellStates(i,j));
-            }
-            System.out.println("");
-        }
-        System.out.println("");
     }
 
 
@@ -120,7 +107,7 @@ public class Controller {
      * @param xmlDoc XML file.
      * @return doc
      */
-    public Document parseXmlFile(File xmlDoc){ //add a argument
+    public Document parseXmlFile(File xmlDoc){
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -132,10 +119,8 @@ public class Controller {
             return(doc);
         }
          catch (ParserConfigurationException|SAXException|IOException e) {
-            //Throw exception that tells that the document chosen cannot be read
+            throw new ControllerException("Could not parse the Xml File.");
         }
-
-        return null;
     }
 
     public List<String> getCellStates() {
@@ -275,29 +260,55 @@ public class Controller {
         DocumentBuilder outputDocumentBuilder = null;
         try {
             outputDocumentBuilder = outputDocumentFactory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            Document docOut = outputDocumentBuilder.newDocument();
+            Element root = docOut.createElement("simulation");
+            docOut.appendChild(root);
+            Element simulationTypeElement = createSimulationElementWithIdForXmlOutput(docOut, root);
+            createInitialElementsOfXmlOutput(docOut, simulationTypeElement);
+            createCellNodesForXmlOutput(docOut, simulationTypeElement);
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            writeXmlOutputIntoFile(docOut, transformerFactory);
+        }
+        catch (Exception e){
+            throw new ControllerException(exceptionMessagesResources.getString("XmlSaveError"));
         }
 
-        Document docOut = outputDocumentBuilder.newDocument();
-        Element root = docOut.createElement("simulation");
-        docOut.appendChild(root);
+    }
 
+    private Element createSimulationElementWithIdForXmlOutput(Document docOut, Element root) {
         Element simulationTypeElement = docOut.createElement("simulation_type");
         root.appendChild(simulationTypeElement);
 
         Attr simulationTypeAttribute = docOut.createAttribute("id");
         simulationTypeAttribute.setValue(simulationType);
         simulationTypeElement.setAttributeNode(simulationTypeAttribute);
+        return simulationTypeElement;
+    }
 
+    private void writeXmlOutputIntoFile(Document docOut, TransformerFactory transformerFactory)
+        throws TransformerException {
+        Transformer transformerDoc;
+        transformerDoc = transformerFactory.newTransformer();
+        transformerDoc.setOutputProperty(OutputKeys.INDENT, "yes");
+        DOMSource source = new DOMSource(docOut);
+        String filePath = new File("").getAbsolutePath();
+        String date = new SimpleDateFormat("dd-MM-yyyy_HH-mm").format(new Date());
+        String outFileName = "/output/outputXML_" + date + ".xml";
+        String myPath = filePath + outFileName;
+        StreamResult result = new StreamResult(new File(myPath));
+        transformerDoc.transform(source,result);
+    }
+
+    private void createInitialElementsOfXmlOutput(Document docOut, Element simulationTypeElement) {
         createAndAppendElement(docOut, simulationTypeElement, "author", "Simulation Group 6");
         createAndAppendElement(docOut, simulationTypeElement, "title", simulationType+" Simulation");
         createAndAppendElement(docOut, simulationTypeElement, "width", Integer.toString(GRID_WIDTH));
         createAndAppendElement(docOut, simulationTypeElement, "height", Integer.toString(GRID_HEIGHT));
         createAndAppendParameters(docOut, simulationTypeElement);
         createAndAppendElement(docOut, simulationTypeElement, "init_config_type", "Regular");
+    }
 
-
+    private void createCellNodesForXmlOutput(Document docOut, Element simulationTypeElement) {
         for(int i=0;i<NUMBER_OF_CELLS;i++) {
             Element cellElement = docOut.createElement("cell");
             simulationTypeElement.appendChild(cellElement);
@@ -307,29 +318,6 @@ public class Controller {
             cellElement.setAttributeNode(cellAttribute);
             createAndAppendElement(docOut, cellElement, "state", cellStatesGrid[i/GRID_HEIGHT][i%GRID_WIDTH]);
         }
-
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformerDoc = null;
-
-        try {
-            transformerDoc = transformerFactory.newTransformer();
-            transformerDoc.setOutputProperty(OutputKeys.INDENT, "yes");
-            DOMSource source = new DOMSource(docOut);
-            String filePath = new File("").getAbsolutePath();
-            String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
-            String outFileName = "/output/outputXML_" + date + ".xml";
-            String mypath = filePath + outFileName;
-            System.out.println(mypath);
-            StreamResult result = new StreamResult(new File(mypath));
-            transformerDoc.transform(source,result);
-        }
-        catch (Exception e){
-            throw new ControllerException(exceptionMessagesResources.getString("XmlSaveError"));
-        }
-
-        System.out.println("File saved!");
-
-
     }
 
     private void createAndAppendParameters(Document docOut, Element simulationTypeElement) {
@@ -337,7 +325,7 @@ public class Controller {
         while (parameterIterator.hasNext()) {
             HashMap.Entry<String,String> pair = (HashMap.Entry)parameterIterator.next();
             createAndAppendElement(docOut,simulationTypeElement,pair.getKey(),pair.getValue());
-            parameterIterator.remove(); // avoids a ConcurrentModificationException
+            parameterIterator.remove();
         }
     }
 
@@ -355,7 +343,6 @@ public class Controller {
      * @param doc Document that is parsed in parseXmlFile method.
      */
     public void readParamsAndInitialize(Document doc) {
-        System.out.println(simulationType);
         switch(simulationType){
             case PERCOLATION:
                 myGrid = new PercolationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
@@ -376,8 +363,6 @@ public class Controller {
                 setParamsAndInitializeRockPaperScissors(doc);
                 break;
             case FORAGING_ANTS:
-                System.out.println(simulationCellShapes + " "+simulationWrapStyle);
-                deletePrintStringArr(cellStatesGrid);
                 myGrid = new ForagingAntsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
 
         }
@@ -399,17 +384,6 @@ public class Controller {
         myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,threshold);
     }
 
-    private void deletePrintStringArr(String[][] in){
-        for(int i=0;i<in.length;i++){
-            for(int j=0;j<in[0].length;j++){
-                String padded = String.format("%15s", in[i][j]).replace(' ', ' ');
-                System.out.print(padded);
-                //System.out.print(grid.getCellStates(i,j));
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-    }
 
     private void setParamsAndInitializeSpreadingFire(Document doc) {
         double probCatch = readDoubleParameter(doc, "prob_catch");
@@ -445,9 +419,6 @@ public class Controller {
         return (int) Double.parseDouble(parameter);
     }
 
-
-    //IMPORTANT: 1. ADD TRY AND CATCH FOR READER PARTS
-    //           2. Create xml tests for all of this.
 
     private void checkNumberOfCells(int numberOfCells){
         if(numberOfCells!=NUMBER_OF_CELLS){
