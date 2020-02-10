@@ -317,7 +317,7 @@ public class Controller {
             DOMSource source = new DOMSource(docOut);
             String filePath = new File("").getAbsolutePath();
             String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
-            String outFileName = "/src/output/outputXML_" + date + ".xml";
+            String outFileName = "/output/outputXML_" + date + ".xml";
             String mypath = filePath + outFileName;
             System.out.println(mypath);
             StreamResult result = new StreamResult(new File(mypath));
