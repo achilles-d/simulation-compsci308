@@ -15,7 +15,7 @@ import javafx.scene.layout.GridPane;
  * @author Caleb Sanford
  */
 public class GridAnimator {
-  protected static final String RESOURCES = "View/resources";
+  protected static final String RESOURCES = "View/ViewResources";
   protected static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
 
   protected GridPane myPane;
@@ -63,7 +63,7 @@ public class GridAnimator {
         String state = myController.getCellState(i,j);
         myCellCounts.put(state, myCellCounts.get(state)+1);
         Color color = convertStateToPaint(state);
-        myCells[i][j] = new CellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController);
+        myCells[i][j] = new CellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController, myColors);
       }
     }
 

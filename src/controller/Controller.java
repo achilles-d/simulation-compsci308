@@ -169,7 +169,7 @@ public class Controller {
         return initialConfigurationType;
     }
 
-    private void cycleCellState(int i, int j){
+    public void cycleCellState(int i, int j){
         List<String> possibleStates = myGrid.getCellStates();
         String cellsState = myGrid.getCellState(i,j);
         int stateIndex = possibleStates.indexOf(cellsState);

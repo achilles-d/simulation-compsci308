@@ -1,6 +1,7 @@
 package View;
 
 import controller.Controller;
+import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -21,12 +22,14 @@ public class HexCellAnimator extends CellAnimator {
    * @param controller
    */
   public HexCellAnimator(GridPane pane, int X, int Y, double width, double height,
-      Color color, Controller controller) {
-    super(pane, X, Y, width, height, color, controller);
+      Color color, Controller controller, ResourceBundle resourceColors) {
+    super(pane, X, Y, width, height, color, controller, resourceColors);
   }
 
   @Override
   protected void makeCell(GridPane pane, double width, double height, Paint color){
+    width = width/2;
+    height = height/2;
     myCell = new Polygon();
     myCell.getPoints().addAll(height/4, 0.0,
         height*3/4, 0.0,

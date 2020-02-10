@@ -1,6 +1,7 @@
 package View;
 
 import controller.Controller;
+import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,6 +18,7 @@ import javafx.scene.shape.Shape;
 public class CellAnimator {
   protected Rectangle myCell;
   protected Controller myController;
+  protected ResourceBundle myColors;
   protected int myX;
   protected int myY;
 
@@ -30,8 +32,9 @@ public class CellAnimator {
    * @param height Height in pixels of rectangle
    * @param color Color of rectangle
    */
-  public CellAnimator (GridPane pane, int X, int Y, double width, double height, Color color, Controller controller){
+  public CellAnimator (GridPane pane, int X, int Y, double width, double height, Color color, Controller controller, ResourceBundle resourceColors){
     myController = controller;
+    myColors = resourceColors;
     myX = X;
     myY = Y;
     makeCell(pane, width, height, color);
@@ -57,6 +60,7 @@ public class CellAnimator {
    *
    */
   protected void handleClick(){
-    //myController.cycleState(myX, myY);
+    myController.cycleCellState(myX, myY);
+    this.changeCellState(Color.web(myColors.getString(myController.getCellState(myX, myY))));
   }
 }
