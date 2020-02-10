@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <simulation>
-   <simulation_type id="SEGREGATION">
-      <author>Simulation Group 6</author>
-      <title>Percolation Simulation</title>
-      <width>5</width>
-      <height>5</height>
-      <satisfaction_percentage>0.4</satisfaction_percentage>
-      <init_config_type>Weighted</init_config_type>
-      <state_type id = "0">
-         <state>X</state>
-         <weight>0.2</weight>
-      </state_type>
-      <state_type id = "1">
-         <state>O</state>
-         <weight>0.3</weight>
-      </state_type>
-      <state_type id = "2">
-         <state>EMPTY</state>
-         <weight>0.5</weight>
-      </state_type>
-   </simulation_type >
+    <simulation_type id="SEGREGATION">
+        <author>Simulation Group 6</author>
+        <title>Percolation Simulation</title>
+        <width>5</width>
+        <height>5</height>
+        <satisfaction_percentage>0.4</satisfaction_percentage>
+        <init_config_type>Weighted</init_config_type>
+        <state_type id="0">
+            <state>X</state>
+            <weight>0.2</weight>
+        </state_type>
+        <state_type id="1">
+            <state>O</state>
+            <weight>0.3</weight>
+        </state_type>
+        <state_type id="2">
+            <state>EMPTY</state>
+            <weight>0.5</weight>
+        </state_type>
+    </simulation_type>
 </simulation>
