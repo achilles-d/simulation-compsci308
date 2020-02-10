@@ -31,4 +31,15 @@ public class IndexPair {
     public int getCol(){
         return myCol;
     }
+
+    @Override
+    public int hashCode(){
+        return (myCol + 1)*2 + myRow;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        IndexPair pair = (IndexPair) o;
+        return (pair.getRow() == myRow) && (pair.getCol() == myCol);
+    }
 }
