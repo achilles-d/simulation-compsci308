@@ -17,6 +17,8 @@ Hours Spent: 80
 Caleb Sanford: all View classes
 
 ### Resources Used
+For exception class, got help from BrowserException.java from browser project.
+For saving Xml File as output, got help from https://mkyong.com/java/how-to-create-xml-file-in-java-dom/. 
 
 
 ### Running the Program
