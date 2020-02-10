@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation_type id="GAME OF LIFE">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>10</width>
+      <height>10</height>
+      <cell id = "0">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "1">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "2">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "3">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "4">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "5">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "6">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "7">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "8">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "9">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "10">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "11">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "12">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "13">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "14">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "15">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "16">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "17">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "18">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "19">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "20">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "21">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "22">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "23">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "24">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "25">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "26">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "27">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "28">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "29">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "30">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "31">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "32">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "33">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "34">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "35">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "36">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "37">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "38">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "39">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "40">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "41">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "42">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "43">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "44">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "45">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "46">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "47">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "48">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "49">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "50">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "51">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "52">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "53">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "54">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "55">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "56">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "57">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "58">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "59">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "60">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "61">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "62">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "63">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "64">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "65">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "66">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "67">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "68">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "69">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "70">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "71">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "72">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "73">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "74">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "75">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "76">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "77">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "78">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "79">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "80">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "81">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "82">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "83">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "84">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "85">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "86">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "87">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "88">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "89">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "90">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "91">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "92">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "93">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "94">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "95">
+         <state>DEAD</state>
+      </cell>
+      <cell id = "96">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "97">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "98">
+         <state>ALIVE</state>
+      </cell>
+      <cell id = "99">
+         <state>ALIVE</state>
+      </cell>
+   </simulation_type >
+</simulation>

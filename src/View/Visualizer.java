@@ -31,7 +31,7 @@ import org.w3c.dom.Document;
  * @author Caleb Sanford
  */
 public class Visualizer {
-  private static final String RESOURCES = "resources";
+  private static final String RESOURCES = "View/resources";
   public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
   public static final String DEFAULT_RESOURCE_FOLDER = "/" + RESOURCES + "/";
   public static final String STYLESHEET = "default.css";
@@ -81,7 +81,7 @@ public class Visualizer {
   public void step (double elapsedTime) {
     currTime += elapsedTime;
     if (running && currTime*10 > mySlider.getValue()) {
-      myController.getGrid().update();
+      myController.updateGrid();
       myAnimator.updateCells();
       currTime = 0;
     }
@@ -104,7 +104,7 @@ public class Visualizer {
     vBox.getChildren().add(makeInputPanel());
     vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
-    myAnimator = new GridAnimator(myGridPane, myController, 500);
+    myAnimator = new HexGridAnimator(myGridPane, myController, 500);
 
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);
@@ -135,6 +135,7 @@ public class Visualizer {
     Button myStopButton = makeButton("StopCommand", event -> stopButtonPressed());
     Button myStepButton = makeButton("StepForwardCommand", event -> stepButtonPressed());
     Button myFileButton = makeButton("LoadNewFileCommand", event -> fileButtonPressed());
+    Button mySaveButton = makeButton("SaveXMLCommand", event -> saveXMLPressed());
     mySlider = makeSlider();
 
     result.getChildren().add(myStartButton);
@@ -143,6 +144,7 @@ public class Visualizer {
     result.getChildren().add(new Label(myResources.getString("AnimationRateCommand")));
     result.getChildren().add(mySlider);
     result.getChildren().add(myFileButton);
+    result.getChildren().add(mySaveButton);
     return result;
   }
 
@@ -150,7 +152,7 @@ public class Visualizer {
    * makes a button using either an image or a label
    * taken from lab_browser
    *
-   * @param property String to look for in the resources file
+   * @param property String to look for in the View.resources file
    * @param handler to handle user clicks
    * @return Button instance
    */
@@ -231,7 +233,11 @@ public class Visualizer {
       System.out.println("You must load a file before starting");
       return;
     }
-    myController.getGrid().update();
+    myController.updateGrid();
     myAnimator.updateCells();
+  }
+
+  private void saveXMLPressed() {
+    myController.saveAsXml();
   }
 }

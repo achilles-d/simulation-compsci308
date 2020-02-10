@@ -69,8 +69,8 @@ public class Graph {
     //defining the axes
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
-    xAxis.setLabel("Number of Month");
-    yAxis.setLabel("Number of Month");
+    xAxis.setLabel("Step");
+    yAxis.setLabel("State Count");
 
     return new LineChart<Number,Number>(xAxis,yAxis);
   }
