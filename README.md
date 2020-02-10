@@ -52,10 +52,14 @@ Interesting data files:
 
 Known Bugs:
 - Error Handling
+- New Tree in Spreading Fire Simulation
 - 
 
 Extra credit:
+- XML python generator
 
 
 ### Impressions
 
+Caleb: This project allowed me to learn a lot about coding 
+with a group. Overall a good experience.
