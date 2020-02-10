@@ -70,7 +70,7 @@ Features implemented:
 
 Assumptions or Simplifications:
 
-- In the foraging ants simulation, the top left cell of the grid is considered the location of the food. The top right cell
+- In the foraging ants simulation, the top left cell of the grid is considered the location of the food. The bottom right cell
 is considered the location of the ants' nest. 
 
 Interesting data files:
