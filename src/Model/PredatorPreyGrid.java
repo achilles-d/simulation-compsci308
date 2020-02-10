@@ -21,6 +21,13 @@ public class PredatorPreyGrid extends Grid{
      * Create a grid to run the Predator-Prey (Wa-tor World) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state. "FISH" = cell with fish. "SHARK"
      *                   = cell with shark. "EMPTY" = empty cell
+     * @param edgeType the type of grid edges to be used in the simulation. "FINITE" = finite edges
+     *                 (edges across from one another are not connected). "TOROIDAL" = toroidal edges
+     *                 (edges across from one another are connected).
+     * @param neighborType the type of cell neighborhood to be used in the simulation. "SQUARE_DIAGONAL" =
+     *                     square neighborhood with eight neighbors, including diagonals, at most.
+     *                     "SQUARE_NO_DIAGONAL" = square neighborhood with four neighbors at most and no diagonals.
+     *                     "HEXAGONAL" = hexagonal neighborhood with six neighbors, including diagonals, at most.
      * @param minFishTurnsToBreed the amount of turns for which a fish must be alive in the simulation
      *                            before it can breed new fish
      * @param maxSharkTurns the maximum amount of turns for which a shark can live in the simulation

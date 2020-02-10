@@ -13,6 +13,13 @@ public class FireGrid extends Grid {
      * Create a grid to run the Spreading of Fire simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state. "TREE" = cell with tree.
      *                   "EMPTY" = empty cell. "BURNING" = cell with burning tree
+     * @param edgeType the type of grid edges to be used in the simulation. "FINITE" = finite edges
+     *                 (edges across from one another are not connected). "TOROIDAL" = toroidal edges
+     *                 (edges across from one another are connected).
+     * @param neighborType the type of cell neighborhood to be used in the simulation. "SQUARE_DIAGONAL" =
+     *                     square neighborhood with eight neighbors, including diagonals, at most.
+     *                     "SQUARE_NO_DIAGONAL" = square neighborhood with four neighbors at most and no diagonals.
+     *                     "HEXAGONAL" = hexagonal neighborhood with six neighbors, including diagonals, at most.
      * @param probCatch probCatch, the probability that a cell with a tree neighboring a burning cell will also catch
      *               on fire in the next step of the simulation
      * @param probGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
