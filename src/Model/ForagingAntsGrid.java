@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Random;
  */
 public class ForagingAntsGrid extends Grid{
 
-  private ArrayList<ForagingAntsCell>[][] myAnts;
+  private ArrayList[][] myAnts;
   private double[][] myCellProbVisited;
 
   /**
@@ -26,8 +27,8 @@ public class ForagingAntsGrid extends Grid{
    */
   public ForagingAntsGrid(String[][] initConfig, String edgeType, String neighborType){
     super(initConfig, edgeType, neighborType);
-    myCellsCopy = myCells;
     myAnts = new ArrayList[initConfig.length][initConfig[START_INDEX].length];
+    myCellsCopy = myCells;
     myCellProbVisited = new double[initConfig.length][initConfig[START_INDEX].length];
   }
 
@@ -48,6 +49,17 @@ public class ForagingAntsGrid extends Grid{
     }
   }
 
+  @Override
+  public List<String> getCellStates() {
+    ForagingAntsCell cell = ForagingAntsCell.ANT;
+    Object[] states = cell.getClass().getEnumConstants();
+    List<String> strings = new ArrayList<>();
+    for (Object o: states) {
+      strings.add(o.toString());
+    }
+    return strings;
+  }
+
   /**
    * Set the state of the cell at the ith row and jth column of the simulation's grid
    * @param i the row of the desired cell in the simulation's grid
@@ -59,6 +71,16 @@ public class ForagingAntsGrid extends Grid{
     myAnts[i][j] = new ArrayList<>();
     if(state.equals(ForagingAntsCell.ANT)){
       myAnts[i][j].add(ForagingAntsCell.ANT);
+    }
+  }
+
+  @Override
+  protected void initializeCells(String[][] initConfig){
+    myAnts = new ArrayList[initConfig.length][initConfig[START_INDEX].length];
+    for(int i = 0; i < initConfig.length; i++){
+      for(int j = 0; j < initConfig[START_INDEX].length; j++){
+        setCellState(i, j, initConfig[i][j]);
+      }
     }
   }
 
@@ -80,7 +102,7 @@ public class ForagingAntsGrid extends Grid{
     while(antItr.hasNext()){
       ForagingAntsCell ant = antItr.next();
       IndexPair newIndices;
-      if(ant.isLeavingNest){
+      if(ant == ForagingAntsCell.ANT_RETURNING){
         newIndices = moveAntTowardFood(i, j);
       }
       else{
@@ -96,8 +118,8 @@ public class ForagingAntsGrid extends Grid{
   }
 
   private void sendAntsToNest(){
-    for(ForagingAntsCell ant : myAnts[myAnts.length - 1][myAnts[START_INDEX].length - 1]){
-      ant.isLeavingNest = true;
+    for(int a = 0; a < myAnts[myAnts.length - 1][myAnts[START_INDEX].length - 1].size(); a++){
+      myAnts[myAnts.length - 1][myAnts[START_INDEX].length - 1].set(a, ForagingAntsCell.ANT_RETURNING);
     }
   }
 

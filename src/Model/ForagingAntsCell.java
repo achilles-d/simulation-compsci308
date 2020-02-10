@@ -7,7 +7,7 @@ package Model;
  */
 public enum ForagingAntsCell {
 
-  ANT(true), EMPTY(true);
+  ANT(true), ANT_RETURNING(false), EMPTY(true);
   boolean isLeavingNest;
 
   private ForagingAntsCell(boolean leavingNest){
