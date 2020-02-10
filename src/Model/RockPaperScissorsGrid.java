@@ -4,8 +4,8 @@ public class RockPaperScissorsGrid extends Grid{
 
     private int myThreshold;
 
-    public RockPaperScissorsGrid(String[][] initConfig, int threshold){
-        super(initConfig, SQUARE_INDEX_DELTA);
+    public RockPaperScissorsGrid(String[][] initConfig, String edgeType, String neighborType, int threshold){
+        super(initConfig, edgeType, neighborType);
         myThreshold = threshold;
         myCellsCopy = copyCells();
     }

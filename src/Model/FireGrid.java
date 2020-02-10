@@ -17,8 +17,8 @@ public class FireGrid extends Grid {
      *               on fire in the next step of the simulation
      * @param probGrow probGrow, the probability that a tree will grow in an empty cell in the next step in the simulation
      */
-    public FireGrid(String[][] initConfig, double probCatch, double probGrow){
-        super(initConfig, ALT_SQUARE_INDEX_DELTA);
+    public FireGrid(String[][] initConfig, String edgeType, String neighborType, double probCatch, double probGrow){
+        super(initConfig, edgeType, neighborType);
         myProbCatch = probCatch;
         myProbGrow = probGrow;
     }

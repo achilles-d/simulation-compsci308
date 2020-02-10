@@ -28,8 +28,9 @@ public class PredatorPreyGrid extends Grid{
      * @param minSharkTurnsToBreed the amount of turns for which a fish must be alive in the simulation
      *                             before it can breed new fish
      */
-    public PredatorPreyGrid(String[][] initConfig, int minFishTurnsToBreed, int maxSharkTurns, int minSharkTurnsToBreed){
-        super(initConfig, ALT_SQUARE_INDEX_DELTA);
+    public PredatorPreyGrid(String[][] initConfig, String edgeType, String neighborType,
+        int minFishTurnsToBreed, int maxSharkTurns, int minSharkTurnsToBreed){
+        super(initConfig, edgeType, neighborType);
         myCellsCopy = myCells;
         myMinFishTurnsToBreed = minFishTurnsToBreed;
         myMaxSharkTurns = maxSharkTurns;
@@ -37,11 +38,11 @@ public class PredatorPreyGrid extends Grid{
     }
 
     @Override
-    protected void initialize(String[][] initConfig){
-        super.initialize(initConfig);
+    protected void initializeCells(String[][] initConfig){
+        super.initializeCells(initConfig);
         myCellTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
         myTotalTurnsSurvived = new int[myCells.length][myCells[START_INDEX].length];
-        myIndexDelta = ALT_SQUARE_INDEX_DELTA;
+        myNeighborType = SQUARE_NO_DIAGONAL_TYPE;
     }
 
 
