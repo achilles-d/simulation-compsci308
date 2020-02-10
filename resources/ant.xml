@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation_type id="FORAGING ANTS">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>5</width>
+      <height>5</height>
+      <init_config_type>Random</init_config_type>
+      <state_type id = "0">
+         <state>ANT</state>
+         </state_type>
+      <state_type id = "1">
+         <state>EMPTY</state>
+         </state_type>
+   </simulation_type >
+</simulation>
