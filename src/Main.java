@@ -1,6 +1,6 @@
 import View.Visualizer;
-import controller.Controller;
-import controller.ControllerException;
+import Controller.Controller;
+import Controller.ControllerException;
 import java.awt.Dimension;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -12,7 +12,6 @@ import javafx.stage.Stage;
  * @author Caleb Sanford
  */
 public class Main extends Application {
-    // convenience constants
     public static final String TITLE = "Simulation";
     public static final Dimension DEFAULT_SIZE = new Dimension(800, 600);
 
@@ -22,19 +21,15 @@ public class Main extends Application {
      */
     @Override
     public void start (Stage stage) {
-        // create program specific components
         Controller control = new Controller();
-        Visualizer display = new Visualizer(stage, control, "English");  //uncomment
-        // give the window a title
-        //stage.setTitle(TITLE); //uncomment
-        stage.setTitle(TITLE); //uncomment
-        // add our user interface components to Frame and show it
+        Visualizer display = new Visualizer(stage, control, "English");
+        stage.setTitle(TITLE);
         try {
-            stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height)); //uncomment
+            stage.setScene(display.makeScene(DEFAULT_SIZE.width, DEFAULT_SIZE.height)); 
         } catch (Throwable throwable) {
             throw new ControllerException("Stage scene resulted in error.");
         }
-        stage.show(); //uncomment
+        stage.show();
     }
 
     /**

@@ -1,12 +1,11 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Shape;
 
 public class HexCellAnimator extends CellAnimator {
   protected Polygon myCell;
@@ -26,6 +25,13 @@ public class HexCellAnimator extends CellAnimator {
     super(pane, X, Y, width, height, color, controller, resourceColors);
   }
 
+  /**
+   *
+   * @param pane Pane to draw rectangle on
+   * @param width Width in pixels of rectangle
+   * @param height Height in pixels of rectangle
+   * @param color Color of rectangle
+   */
   @Override
   protected void makeCell(GridPane pane, double width, double height, Paint color){
     width = width/2;
@@ -49,6 +55,9 @@ public class HexCellAnimator extends CellAnimator {
     myCell.setOnMouseClicked(e->handleClick());
   }
 
+  /**
+   * @param color New state color
+   */
   @Override
   public void changeCellState (Paint color) {
     myCell.setFill(color);

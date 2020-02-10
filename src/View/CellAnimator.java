@@ -1,13 +1,11 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.ResourceBundle;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 /**
  * Class to store the state of Cells and display those
@@ -40,6 +38,13 @@ public class CellAnimator {
     makeCell(pane, width, height, color);
   }
 
+  /**
+   *
+   * @param pane Pane to draw rectangle on
+   * @param width Width in pixels of rectangle
+   * @param height Height in pixels of rectangle
+   * @param color Color of rectangle
+   */
   protected void makeCell(GridPane pane, double width, double height, Paint color){
     myCell = new Rectangle(width, height);
     myCell.setFill(color);

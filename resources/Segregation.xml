@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation_type id="SEGREGATION">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>25</width>
+      <height>25</height>
+      <satisfaction_percentage>0.5</satisfaction_percentage>
+      <init_config_type>Random</init_config_type>
+      <state_type id = "0">
+         <state>X</state>
+         </state_type>      <state_type id = "1">
+         <state>O</state>
+         </state_type>      <state_type id = "2">
+         <state>EMPTY</state>
+         </state_type>   </simulation_type >
+</simulation>

@@ -1,6 +1,6 @@
 package View;
 
-import controller.Controller;
+import Controller.Controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -37,7 +37,7 @@ public class GridAnimator {
    * @param gridDimension max dimension for the grid to display on the screen
    */
   public GridAnimator(GridPane pane, Controller controller, int gridDimension) {
-    myColors = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + "Colors");
+    myColors = ResourceBundle.getBundle(Controller.RESOURCES + "Colors");
     myPane = pane;
     myController = controller;
     maxGridDimension = gridDimension;
