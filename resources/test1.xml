@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<simulation>
+   <simulation_type id="ROCK PAPER SCISSORS">
+      <author>Simulation Group 6</author>
+      <title>Percolation Simulation</title>
+      <width>75</width>
+      <height>75</height>
+      <threshold>5.0</threshold>
+      <init_config_type>Random</init_config_type>
+      <state_type id = "0">
+         <state>ROCK</state>
+         </state_type>      <state_type id = "1">
+         <state>PAPER</state>
+         </state_type>      <state_type id = "2">
+         <state>SCISSORS</state>
+         </state_type>   </simulation_type >
+</simulation>
