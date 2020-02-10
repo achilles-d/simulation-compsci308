@@ -35,8 +35,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 /**
- * @Author Cemal Yagcioglu
- * Parses XML File, initiates the grid.
+ * @Author Cemal Yagcioglu Parses XML File, initiates the grid.
  */
 
 public class Controller {
@@ -72,14 +71,15 @@ public class Controller {
     private ResourceBundle exceptionMessagesResources;
 
 
-    public Controller(){
-        cellTypeResources = ResourceBundle.getBundle(RESOURCES+"Colors");
-        simulationConfigurationResources = ResourceBundle.getBundle(RESOURCES + "SimulationConfiguration");
-        exceptionMessagesResources = ResourceBundle.getBundle(RESOURCES + "ControllerExceptionMessages");
-        simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
-        simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
+    public Controller() {
+      cellTypeResources = ResourceBundle.getBundle(RESOURCES + "Colors");
+      simulationConfigurationResources = ResourceBundle
+          .getBundle(RESOURCES + "SimulationConfiguration");
+      exceptionMessagesResources = ResourceBundle
+          .getBundle(RESOURCES + "ControllerExceptionMessages");
+      simulationCellShapes = simulationConfigurationResources.getString("SimulationCellShapes");
+      simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
     }
-
 
     /**
      * This method reads the xml file, parse it, and assign the grid dimensions,
@@ -468,16 +468,19 @@ public class Controller {
         }
     }
 
-    private void checkIfValueIsBetweenZeroAndOne(Double valueIn, String variableName){
-        if(valueIn<0 || valueIn>1){
-            throw new ControllerException(exceptionMessagesResources.getString("WrongDoubleProvided") +": "+ variableName);
-        }
+    private void checkIfValueIsBetweenZeroAndOne(Double valueIn, String variableName) {
+      if (valueIn < 0 || valueIn > 1) {
+        throw new ControllerException(
+            exceptionMessagesResources.getString("WrongDoubleProvided") + ": " + variableName);
+      }
     }
 
-    private void checkIfIntegerIsOneOrHigher(int integerInput, String variableName){
-        if(integerInput<=0){
-            throw new ControllerException(exceptionMessagesResources.getString("WrongIntegerProvided")+": "+variableName);
-        }
+
+  private void checkIfIntegerIsOneOrHigher(int integerInput, String variableName) {
+    if (integerInput <= 0) {
+      throw new ControllerException(
+          exceptionMessagesResources.getString("WrongIntegerProvided") + ": " + variableName);
     }
+  }
 
 }
