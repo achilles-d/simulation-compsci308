@@ -20,14 +20,14 @@ public class SegregationGrid extends Grid {
      *                             as that cell (excluding empty cells) for the cell - the agent in
      *                             the simulation - to be satisfied
      */
-    public SegregationGrid(String[][] initConfig, double minAgentSatisfaction){
-        super(initConfig, SQUARE_INDEX_DELTA);
+    public SegregationGrid(String[][] initConfig, String edgeType, String neighborType, double minAgentSatisfaction){
+        super(initConfig, edgeType, neighborType);
         myCellsCopy = myCells;
         myMinAgentSatisfaction = minAgentSatisfaction;
     }
 
     @Override
-    protected void initialize(String[][] initConfig){
+    protected void initializeCells(String[][] initConfig){
         myCells = new Enum[initConfig.length][initConfig[0].length];
         myEmptyCellIndices = new ArrayList<IndexPair>();
         for(int i = 0; i < initConfig.length; i++){

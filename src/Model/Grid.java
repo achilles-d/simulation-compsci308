@@ -1,34 +1,47 @@
 package Model;
 
+import static java.util.Map.entry;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Provides a skeleton for the operation of each of the assigned cellular automata (CA) simulations
  * @author Achilles Dabrowski
  */
 public abstract class Grid {
-    protected static final int[][] SQUARE_INDEX_DELTA = {{1, -1, 0, 0, 1, -1, 1, -1}, {0, 0, 1, -1, -1, 1, 1, -1}};
-    protected static final int[][] ALT_SQUARE_INDEX_DELTA = {{1, -1, 0, 0}, {0, 0, 1, -1}};
-    protected static final int[][] HEX_INDEX_DELTA = {{-1, 0, 1, 0, -1, -1}, {-1, -1, 0, 1, 1, 0}};
+    protected static final int[][] SQUARE_DIAGONAL_TYPE = {{1, -1, 0, 0, 1, -1, 1, -1}, {0, 0, 1, -1, -1, 1, 1, -1}};
+    protected static final int[][] SQUARE_NO_DIAGONAL_TYPE = {{1, -1, 0, 0}, {0, 0, 1, -1}};
+    protected static final int[][] HEXAGONAL_TYPE = {{-1, 0, 1, 0, -1, -1}, {-1, -1, 0, 1, 1, 0}};
     protected static final int START_INDEX = 0;
-    protected static final String FINITE_GRID_EDGE_OPTION = "FINITE";
-    protected static final String TOROIDAL_GRID_EDGE_OPTION = "TOROIDAL";
+    protected static final String FINITE_GRID_EDGE_TYPE = "FINITE";
+    protected static final String TOROIDAL_GRID_EDGE_TYPE = "TOROIDAL";
+    protected static final Map<String, int[][]> NEIGHBOR_TYPES =
+        (Map<String, int[][]>) Map.ofEntries(entry("SQUARE_DIAGONAL", SQUARE_DIAGONAL_TYPE),
+            entry("SQUARE_NO_DIAGONAL", SQUARE_NO_DIAGONAL_TYPE), entry("HEXAGONAL", HEXAGONAL_TYPE));
 
     protected Enum[][] myCells;
     protected Enum[][] myCellsCopy;
-    protected int[][] myIndexDelta;
+    protected int[][] myNeighborType;
     protected String myGridEdgeType;
 
     /**
      * Create a grid that runs the cellular automata (CA) simulation
      * @param initConfig an array of Strings corresponding to each cell's initial state
+     * @param edgeType the type of grid edges to be used in the simulation. "FINITE" = finite edges
+     *                 (edges across from one another are not connected). "TOROIDAL" = toroidal edges
+     *                 (edges across from one another are connected).
+     * @param neighborType the type of cell neighborhood to be used in the simulation. "SQUARE_DIAGONAL" =
+     *                     square neighborhood with eight neighbors, including diagonals, at most.
+     *                     "SQUARE_NO_DIAGONAL" = square neighborhood with four neighbors at most and no diagonals.
+     *                     "HEXAGONAL" = hexagonal neighborhood with six neighbors, including diagonals, at most.
      */
-    public Grid(String[][] initConfig, int[][] indexDelta){
-        myIndexDelta = indexDelta;
-        makeEdgesFinite();
-        initialize(initConfig);
+    public Grid(String[][] initConfig, String edgeType, String neighborType){
+        initializeCells(initConfig);
+        myGridEdgeType = edgeType;
+        myNeighborType = NEIGHBOR_TYPES.get(neighborType);
     }
 
     /**
@@ -61,17 +74,17 @@ public abstract class Grid {
     }
 
     /**
-     * Make the simulation grid use a square layout of cells for finding cell neighbors
+     * Make the simulation grid's cell neighborhoods
      */
-    public void makeGridSquare(){
-        myIndexDelta = SQUARE_INDEX_DELTA;
+    public void makeGridSquareDiagonal(){
+        myNeighborType = SQUARE_DIAGONAL_TYPE;
     }
 
     /**
      * Make the simulation grid use a hexagonal layout of cells for finding cell neighbors
      */
     public void makeGridHexagonal(){
-        myIndexDelta = HEX_INDEX_DELTA;
+        myNeighborType = HEXAGONAL_TYPE;
     }
 
     /**
@@ -79,17 +92,17 @@ public abstract class Grid {
      * Set by default when an instance of Grid is created
      */
     public void makeEdgesFinite(){
-        myGridEdgeType = FINITE_GRID_EDGE_OPTION;
+        myGridEdgeType = FINITE_GRID_EDGE_TYPE;
     }
 
     /**
      * Make the simulation's edges toroidal. Cells at one edge will be connected to cells on the edge across from it
      */
     public void makeEdgesToroidal(){
-        myGridEdgeType = TOROIDAL_GRID_EDGE_OPTION;
+        myGridEdgeType = TOROIDAL_GRID_EDGE_TYPE;
     }
 
-    protected void initialize(String[][] initConfig){
+    protected void initializeCells(String[][] initConfig){
         myCells = new Enum[initConfig.length][initConfig[0].length];
         for(int i = 0; i < initConfig.length; i++){
             for(int j = 0; j < initConfig[START_INDEX].length; j++){
@@ -114,9 +127,9 @@ public abstract class Grid {
 
     protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum targetCell) {
         ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
-        for(int a = 0; a < myIndexDelta[START_INDEX].length; a++){
-            int newRow = i + myIndexDelta[START_INDEX][a];
-            int newCol = j + myIndexDelta[START_INDEX + 1][a];
+        for(int a = 0; a < myNeighborType[START_INDEX].length; a++){
+            int newRow = i + myNeighborType[START_INDEX][a];
+            int newCol = j + myNeighborType[START_INDEX + 1][a];
             if(neighborMatchesTarget(newRow, newCol, targetCell)){
                 cellIndices.add(connectEdgeIndices(newRow, newCol));
             }
@@ -125,7 +138,7 @@ public abstract class Grid {
     }
 
     protected boolean neighborMatchesTarget(int newRow, int newCol, Enum targetCell){
-        if(!myGridEdgeType.equals(TOROIDAL_GRID_EDGE_OPTION)){
+        if(!myGridEdgeType.equals(TOROIDAL_GRID_EDGE_TYPE)){
             return inBounds(newRow, newCol) && (myCellsCopy[newRow][newCol] == targetCell);
         }
         else{

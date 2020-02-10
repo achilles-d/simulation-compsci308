@@ -14,8 +14,8 @@ public class GameOfLifeGrid extends Grid{
    * @param initConfig an array of Strings corresponding to each cell's initial state. "ALIVE" = cell with living person.
    *                   "DEAD" = cell with dead person
    */
-  public GameOfLifeGrid(String[][] initConfig){
-    super(initConfig, SQUARE_INDEX_DELTA);
+  public GameOfLifeGrid(String[][] initConfig, String edgeType, String neighborType){
+    super(initConfig, edgeType, neighborType);
     myCellsCopy = copyCells();
   }
 
