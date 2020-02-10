@@ -83,3 +83,6 @@ Extra credit:
 
 Caleb: This project allowed me to learn a lot about coding 
 with a group. Overall a good experience.
+
+Cemal: This project had great combination of group work and individual work due to compartialized class
+structure it offered. Great hands-on learning experience.
