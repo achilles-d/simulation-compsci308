@@ -376,6 +376,8 @@ public class Controller {
                 setParamsAndInitializeRockPaperScissors(doc);
                 break;
             case FORAGING_ANTS:
+                System.out.println(simulationCellShapes + " "+simulationWrapStyle);
+                deletePrintStringArr(cellStatesGrid);
                 myGrid = new ForagingAntsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
 
         }
