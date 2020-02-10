@@ -31,7 +31,7 @@ import org.w3c.dom.Document;
  * @author Caleb Sanford
  */
 public class Visualizer {
-  private static final String RESOURCES = "View/resources";
+  public static final String RESOURCES = "View/ViewResources";
   public static final String DEFAULT_RESOURCE_PACKAGE = RESOURCES + ".";
   public static final String DEFAULT_RESOURCE_FOLDER = "/" + RESOURCES + "/";
   public static final String STYLESHEET = "default.css";
@@ -104,7 +104,15 @@ public class Visualizer {
     vBox.getChildren().add(makeInputPanel());
     vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
-    myAnimator = new HexGridAnimator(myGridPane, myController, 500);
+    ResourceBundle simResources = ResourceBundle.getBundle(myController.RESOURCES+"SimulationConfiguration");
+    if (simResources.getString(SimulationCellShapes) == "SQUARE_DIAGONAL" ||
+        simResources.getString(SimulationCellShapes) == "SQUARE_NO_DIAGONAL"){
+      myAnimator = new GridAnimator(myGridPane, myController, 500);
+    }
+    if (simResources.getString(SimulationCellShapes) == "HEXAGONAL"){
+      myAnimator = new HexGridAnimator(myGridPane, myController, 500);
+    }
+    myAnimator = new GridAnimator(myGridPane, myController, 500);
 
     // create scene to hold UI
     Scene scene = new Scene(root, width, height);

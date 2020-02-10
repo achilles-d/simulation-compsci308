@@ -41,7 +41,7 @@ public class HexGridAnimator extends GridAnimator {
         System.out.println(state);
         myCellCounts.put(state, myCellCounts.get(state)+1);
         Color color = convertStateToPaint(state);
-        myCells[i][j] = new HexCellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController);
+        myCells[i][j] = new HexCellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController, myColors);
       }
     }
 
