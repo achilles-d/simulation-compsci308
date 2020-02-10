@@ -56,7 +56,12 @@ public abstract class Grid {
     }
 
     public List<String> getCellStates() {
-        return Arrays.asList(Arrays.toString(myCells[0][0].getClass().getEnumConstants()));
+        Object[] states = myCells[0][0].getClass().getEnumConstants();
+        List<String> strings = new ArrayList<>();
+        for (Object o: states) {
+            strings.add(o.toString());
+        }
+        return strings;
     }
 
     /**

@@ -29,13 +29,16 @@ public class HexGridAnimator extends GridAnimator {
     myX = 0;
     // Set all the count to zero
     myCellCounts = new HashMap<>();
-    for (String s: myController.getGrid().getCellStates()){
+    System.out.println(myController.getCellStates());
+    for (String s: myController.getCellStates()){
+      System.out.println("S: "+s);
       myCellCounts.put(s, 0);
     }
 
     for (int i=0; i < height; i++) {
       for (int j=0; j<width; j++) {
-        String state = myController.getGrid().getCellState(i,j);
+        String state = myController.getCellState(i,j);
+        System.out.println(state);
         myCellCounts.put(state, myCellCounts.get(state)+1);
         Color color = convertStateToPaint(state);
         myCells[i][j] = new HexCellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController);

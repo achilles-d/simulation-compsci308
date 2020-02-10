@@ -54,13 +54,13 @@ public class GridAnimator {
     myX = 0;
     // Set all the count to zero
     myCellCounts = new HashMap<>();
-    for (String s: myController.getGrid().getCellStates()){
+    for (String s: myController.getCellStates()){
       myCellCounts.put(s, 0);
     }
 
     for (int i=0; i < height; i++) {
       for (int j=0; j<width; j++) {
-        String state = myController.getGrid().getCellState(i,j);
+        String state = myController.getCellState(i,j);
         myCellCounts.put(state, myCellCounts.get(state)+1);
         Color color = convertStateToPaint(state);
         myCells[i][j] = new CellAnimator(myPane, i, j, maxGridDimension/width, maxGridDimension/height, color, myController);
@@ -82,7 +82,7 @@ public class GridAnimator {
 
     for (int i=0; i < height; i++) {
       for (int j=0; j<width; j++) {
-        String state = myController.getGrid().getCellState(i,j);
+        String state = myController.getCellState(i,j);
         myCellCounts.put(state, myCellCounts.get(state)+1);
         myCells[i][j].changeCellState(convertStateToPaint(state));
       }
@@ -105,6 +105,6 @@ public class GridAnimator {
   }
 
   protected void makeGraph(){
-    myGraph = new Graph("State Graph", "Cell States", 300, 300, myController.getGrid().getCellStates());
+    myGraph = new Graph("State Graph", "Cell States", 300, 300, myController.getCellStates());
   }
 }

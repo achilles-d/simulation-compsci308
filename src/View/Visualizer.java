@@ -81,7 +81,7 @@ public class Visualizer {
   public void step (double elapsedTime) {
     currTime += elapsedTime;
     if (running && currTime*10 > mySlider.getValue()) {
-      myController.getGrid().update();
+      myController.updateGrid();
       myAnimator.updateCells();
       currTime = 0;
     }
@@ -233,7 +233,7 @@ public class Visualizer {
       System.out.println("You must load a file before starting");
       return;
     }
-    myController.getGrid().update();
+    myController.updateGrid();
     myAnimator.updateCells();
   }
 

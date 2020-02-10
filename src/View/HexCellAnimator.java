@@ -45,4 +45,9 @@ public class HexCellAnimator extends CellAnimator {
     }
     myCell.setOnMouseClicked(e->handleClick());
   }
+
+  @Override
+  public void changeCellState (Paint color) {
+    myCell.setFill(color);
+  }
 }
