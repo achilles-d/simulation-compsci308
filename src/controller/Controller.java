@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -297,7 +298,7 @@ public class Controller {
         createAndAppendElement(docOut, simulationTypeElement, "width", Integer.toString(GRID_WIDTH));
         createAndAppendElement(docOut, simulationTypeElement, "height", Integer.toString(GRID_HEIGHT));
         createAndAppendParameters(docOut, simulationTypeElement);
-        createAndAppendElement(docOut, simulationTypeElement, "init_config_type", "regular");
+        createAndAppendElement(docOut, simulationTypeElement, "init_config_type", "Regular");
 
 
         for(int i=0;i<NUMBER_OF_CELLS;i++) {
@@ -312,15 +313,18 @@ public class Controller {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformerDoc = null;
+
         try {
             transformerDoc = transformerFactory.newTransformer();
+            transformerDoc.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(docOut);
-            String outPathFolder = "./output/";
+            String filePath = new File("").getAbsolutePath();
             String date = new SimpleDateFormat("dd-MM-yyyy:HH-mm").format(new Date());
-            String outFileName = "outputXML_" + date;
-            String mypath = outPathFolder + outFileName;
+            String outFileName = "/src/output/outputXML_" + date + ".xml";
+            String mypath = filePath + outFileName;
             System.out.println(mypath);
             StreamResult result = new StreamResult(new File(mypath));
+            transformerDoc.transform(source,result);
         }
         catch (Exception e){
             throw new ControllerException(exceptionMessagesResources.getString("XmlSaveError"));

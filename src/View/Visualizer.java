@@ -104,12 +104,14 @@ public class Visualizer {
     vBox.getChildren().add(makeInputPanel());
     vBox.setAlignment(Pos.CENTER);
     root.setRight(vBox);
+
     ResourceBundle simResources = ResourceBundle.getBundle(Controller.RESOURCES +"SimulationConfiguration");
     if (simResources.getString("SimulationCellShapes").equals("SQUARE_DIAGONAL") ||
         simResources.getString("SimulationCellShapes").equals("SQUARE_NO_DIAGONAL")){
       myAnimator = new GridAnimator(myGridPane, myController, 500);
     }
     if (simResources.getString("SimulationCellShapes").equals("HEXAGONAL")){
+
       myAnimator = new HexGridAnimator(myGridPane, myController, 500);
     }
     // create scene to hold UI
