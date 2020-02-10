@@ -5,8 +5,8 @@
       <title>Percolation Simulation</title>
       <width>25</width>
       <height>25</height>
-      <prob_catch>50.0</prob_catch>
-      <prob_grow>50.0</prob_grow>
+      <prob_catch>0.5</prob_catch>
+      <prob_grow>0.5</prob_grow>
       <init_config_type>Random</init_config_type>
       <state_type id = "0">
          <state>EMPTY</state>

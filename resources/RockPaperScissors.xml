@@ -5,7 +5,7 @@
       <title>Percolation Simulation</title>
       <width>25</width>
       <height>25</height>
-      <threshold>2.0</threshold>
+      <threshold>1.0</threshold>
       <init_config_type>Random</init_config_type>
       <state_type id = "0">
          <state>ROCK</state>
