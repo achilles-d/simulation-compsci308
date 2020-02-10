@@ -2,16 +2,16 @@
 # This python code runs in terminal and generates the desired XML file.
 import random
 outputFileName = input("Type File name that ends with .xml for the output. Example: output.xml \n")
-simulationTypeNo = int(input("Choose the number corresponding to the simulation: \n 1:PERCOLATION \n 2:GAME OF LIFE \n 3:SEGREGATION \n 4:PREDATOR/PREY \n 5:SPREADING FIRE \n    YOUR INPUT: "))-1
-nameOfSimulationsList = ["PERCOLATION","GAME OF LIFE","SEGREGATION","PREDATOR/PREY","SPREADING FIRE"]
+simulationTypeNo = int(input("Choose the number corresponding to the simulation: \n 1:PERCOLATION \n 2:GAME OF LIFE \n 3:SEGREGATION \n 4:PREDATOR/PREY \n 5:SPREADING FIRE \n 6: ROCK PAPER SCISSORS \n 7: FORAGING ANTS \n   YOUR INPUT: "))-1
+nameOfSimulationsList = ["PERCOLATION","GAME OF LIFE","SEGREGATION","PREDATOR/PREY","SPREADING FIRE","ROCK PAPER SCISSORS","FORAGING ANTS"]
 simulation_type=nameOfSimulationsList[simulationTypeNo]
 print("Chosen Simulation Type:" + simulation_type + "\n")
 print("Enter Grid Dimensions:")
 rowNo = int(input("  Number of rows: "))
 colNo = int(input("  Number of cols: "))
-stateTypesListForAll = [["EMPTY","FULL","PERCOLATED"],["ALIVE","DEAD"],["X","O","EMPTY"],["EMPTY","SHARK","FISH"],["EMPTY","TREE","BURNING"]]
+stateTypesListForAll = [["EMPTY","FULL","PERCOLATED"],["ALIVE","DEAD"],["X","O","EMPTY"],["EMPTY","SHARK","FISH"],["EMPTY","TREE","BURNING"],["ROCK","PAPER","SCISSORS"],["ANT","EMPTY"]];
 stateTypesForThis = stateTypesListForAll[simulationTypeNo]
-extraParamListForAll = [[],[],["satisfaction_percentage"],["min_fish_turn_to_breed","max_shark_turns","min_shark_turns_to_breed"],["prob_catch","prob_grow"]]
+extraParamListForAll = [[],[],["satisfaction_percentage"],["min_fish_turn_to_breed","max_shark_turns","min_shark_turns_to_breed"],["prob_catch","prob_grow"],["threshold"],[]]
 extraParamForThis = extraParamListForAll[simulationTypeNo]
 simulationConfigurationType = int(input("Choose number corresponding to the simulation config type: \n 1: Regular (each cell specified \n 2: Random \n 3: Weighted \n"))-1
 configurationTypes = ["Regular","Random","Weighted"]

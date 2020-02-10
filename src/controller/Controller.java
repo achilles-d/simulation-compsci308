@@ -1,10 +1,12 @@
 package controller;
 
 import Model.FireGrid;
+import Model.ForagingAntsGrid;
 import Model.GameOfLifeGrid;
 import Model.Grid;
 import Model.PercolationGrid;
 import Model.PredatorPreyGrid;
+import Model.RockPaperScissorsGrid;
 import Model.SegregationGrid;
 import java.io.File;
 import java.nio.file.Path;
@@ -52,7 +54,10 @@ public class Controller {
     public static final String SEGREGATION = "SEGREGATION";
     public static final String PREDATOR_PREY = "PREDATOR/PREY";
     public static final String SPREADING_FIRE = "SPREADING FIRE";
-    public static final String[] SIMULATION_TYPES_ARRAY = {PERCOLATION,GAME_OF_LIFE,SEGREGATION,PREDATOR_PREY,SPREADING_FIRE};
+    public static final String ROCK_PAPER_SCISSORS = "ROCK PAPER SCISSORS";
+    public static final String FORAGING_ANTS = "FORAGING ANTS";
+    public static final String[] SIMULATION_TYPES_ARRAY = {PERCOLATION,GAME_OF_LIFE,SEGREGATION,PREDATOR_PREY,
+                                                            SPREADING_FIRE,ROCK_PAPER_SCISSORS,FORAGING_ANTS};
     private static int GRID_WIDTH;
     private static int GRID_HEIGHT;
     private static int NUMBER_OF_CELLS;
@@ -379,6 +384,12 @@ public class Controller {
             case SPREADING_FIRE:
                 setParamsAndInitializeSpreadingFire(doc);
                 break;
+            case ROCK_PAPER_SCISSORS:
+                setParamsAndInitializeRockPaperScissors(doc);
+                break;
+            case FORAGING_ANTS:
+                myGrid = new ForagingAntsGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle);
+
         }
     }
 
@@ -389,6 +400,13 @@ public class Controller {
         myGrid = new SegregationGrid(cellStatesGrid,"FINITE","SQUARE_NO_DIAGONAL",satisfactionPercentage);
         //myGrid = new SegregationGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,satisfactionPercentage);
 
+    }
+
+    private void setParamsAndInitializeRockPaperScissors(Document doc){
+        int threshold = readIntegerParameter(doc,"threshold");
+        checkIfIntegerIsOneOrHigher(threshold,"threshold");
+        parameters.put("threshold",Integer.toString(threshold));
+        myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationCellShapes,simulationWrapStyle,threshold);
     }
 
     private void deletePrintStringArr(String[][] in){
