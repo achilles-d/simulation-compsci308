@@ -72,7 +72,6 @@ public class Controller {
     private ResourceBundle exceptionMessagesResources;
 
 
-
     public Controller(){
         cellTypeResources = ResourceBundle.getBundle(RESOURCES+"Colors");
         simulationConfigurationResources = ResourceBundle.getBundle(RESOURCES + "SimulationConfiguration");
@@ -81,31 +80,6 @@ public class Controller {
         simulationWrapStyle = simulationConfigurationResources.getString("WrapStyle");
     }
 
-
-    /**
-     * This method returns the state of cell for the given index i and j.
-     * @param i row index.
-     * @param j column index.
-     * @return Cell State String
-     */
-    public String getCellState(int i, int j){
-        return myGrid.getCellState(i,j);
-    }
-
-    /**
-     * Return Grid's Width
-     * @return GRID_WIDTH.
-     */
-    public int getGridWidth(){
-        return GRID_WIDTH;
-    }
-    /**
-     * Return Grid's Height
-     * @return GRID_HEIGHT.
-     */
-    public int  getGridHeight(){
-        return GRID_HEIGHT;
-    }
 
     /**
      * This method reads the xml file, parse it, and assign the grid dimensions,
@@ -130,13 +104,6 @@ public class Controller {
         }
     }
 
-    /**
-     * Returns the possible cell states for the given simulation
-     * @return possible cell states.
-     */
-    public List<String> getCellStates() {
-        return myGrid.getCellStates();
-    }
 
     private void assignGridDimensions(Document doc) {
         String widthString = doc.getElementsByTagName("width").item(0).getTextContent();
@@ -154,19 +121,6 @@ public class Controller {
         return initialConfigurationType;
     }
 
-    /**
-     * This method cycles the clicked cell on Viewer to next state.
-     * @param i
-     * @param j
-     */
-    public void cycleCellState(int i, int j){
-        List<String> possibleStates = myGrid.getCellStates();
-        String cellsState = myGrid.getCellState(i,j);
-        int stateIndex = possibleStates.indexOf(cellsState);
-        String nextPossibleState = possibleStates.get((stateIndex+1)%possibleStates.size());
-        myGrid.setCellState(i,j,nextPossibleState);
-    }
-
     private void assignCellStates(Document doc) {
         if(configurationType.equals(REGULAR)) {
             assignCellStatesRegularlyByParsingXml(doc);
@@ -180,10 +134,8 @@ public class Controller {
     }
 
     private void assignCellStatesUsingWeights(Document doc){
-
         String[] stateTypes = getStateTypes(doc);
         Double[] stateWeights = getStateWeights(doc);
-
         Double[] cumulativeWeights  = cumulativeSumOperationForWeights(stateWeights);
         for(int i=0; i<NUMBER_OF_CELLS; i++){
             String stateChosen = getWeightedRandomChoice(stateTypes,cumulativeWeights);
@@ -231,6 +183,7 @@ public class Controller {
         }
         return stateTypes;
     }
+
     private Double[] getStateWeights(Document doc){
         NodeList stateTypesNodes = doc.getElementsByTagName("state_type");
         Double[] stateWeights = new Double [stateTypesNodes.getLength()];
@@ -250,7 +203,6 @@ public class Controller {
         NodeList cellList = doc.getElementsByTagName("cell");
         checkNumberOfCells(cellList.getLength());
         for(int i=0; i<cellList.getLength(); i++){
-
             Node cellNode = cellList.item(i);
             if(cellNode.getNodeType()==Node.ELEMENT_NODE){
                 Element cellElement = (Element) cellNode;
@@ -268,10 +220,138 @@ public class Controller {
     }
 
     /**
+     * This method cycles the clicked cell on Viewer to next state.
+     * @param i
+     * @param j
+     */
+    public void cycleCellState(int i, int j){
+        List<String> possibleStates = myGrid.getCellStates();
+        String cellsState = myGrid.getCellState(i,j);
+        int stateIndex = possibleStates.indexOf(cellsState);
+        String nextPossibleState = possibleStates.get((stateIndex+1)%possibleStates.size());
+        myGrid.setCellState(i,j,nextPossibleState);
+    }
+
+    /**
      * Updates the simulation grid to the next step of the simulation.
      */
     public void updateGrid(){
         myGrid.update();
+    }
+
+
+    /**
+     * This method uses document read by parseXmlFile
+     * to initiate the correct simulation type. For some simulations
+     * that require additional parameters to run, it also reads and
+     * passes those arguments to the initializer.
+     * @param doc Document that is parsed in parseXmlFile method.
+     */
+    public void readParamsAndInitialize(Document doc) {
+        switch(simulationType){
+            case PERCOLATION:
+                myGrid = new PercolationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
+                break;
+            case GAME_OF_LIFE:
+                myGrid = new GameOfLifeGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
+                break;
+            case SEGREGATION:
+                setParamsAndInitializeSegregation(doc);
+                break;
+            case PREDATOR_PREY:
+                setParamsAndInitializePredatorPrey(doc);
+                break;
+            case SPREADING_FIRE:
+                setParamsAndInitializeSpreadingFire(doc);
+                break;
+            case ROCK_PAPER_SCISSORS:
+                setParamsAndInitializeRockPaperScissors(doc);
+                break;
+            case FORAGING_ANTS:
+                myGrid = new ForagingAntsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
+        }
+    }
+
+    private void setParamsAndInitializeSegregation(Document doc) {
+        double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
+        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
+        parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
+        myGrid = new SegregationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,satisfactionPercentage);
+    }
+
+    private void setParamsAndInitializeRockPaperScissors(Document doc){
+        int threshold = readIntegerParameter(doc,"threshold");
+        checkIfIntegerIsOneOrHigher(threshold,"threshold");
+        parameters.put("threshold",Integer.toString(threshold));
+        myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,threshold);
+    }
+
+
+    private void setParamsAndInitializeSpreadingFire(Document doc) {
+        double probCatch = readDoubleParameter(doc, "prob_catch");
+        double probGrow = readDoubleParameter(doc, "prob_grow");
+        checkIfValueIsBetweenZeroAndOne(probCatch, "Probability of catching fire");
+        checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
+        parameters.put("prob_catch",Double.toString(probCatch));
+        parameters.put("prob_grow",Double.toString(probGrow));
+        myGrid = new FireGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,probCatch,probGrow);
+    }
+
+    private void setParamsAndInitializePredatorPrey(Document doc) {
+        int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
+        int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
+        int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
+        checkIfIntegerIsOneOrHigher(minFishTurnToBreed, "minFishTurnToBreed");
+        checkIfIntegerIsOneOrHigher(maxSharkTurns, "maxSharkTurns");
+        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed, "minSharkTurnsToBreed");
+        parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
+        parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
+        parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
+        myGrid = new PredatorPreyGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
+    }
+
+    /**
+     * Returns the possible cell states for the given simulation
+     * @return possible cell states.
+     */
+    public List<String> getCellStates() {
+        return myGrid.getCellStates();
+    }
+
+    /**
+     * This method returns the state of cell for the given index i and j.
+     * @param i row index.
+     * @param j column index.
+     * @return Cell State String
+     */
+    public String getCellState(int i, int j){
+        return myGrid.getCellState(i,j);
+    }
+
+    /**
+     * Return Grid's Width
+     * @return GRID_WIDTH.
+     */
+    public int getGridWidth(){
+        return GRID_WIDTH;
+    }
+    /**
+     * Return Grid's Height
+     * @return GRID_HEIGHT.
+     */
+    public int  getGridHeight(){
+        return GRID_HEIGHT;
+    }
+
+
+    private double readDoubleParameter(Document doc, String parameterName){
+        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
+        return Double.parseDouble(parameter);
+    }
+
+    private int readIntegerParameter(Document doc, String parameterName){
+        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
+        return (int) Double.parseDouble(parameter);
     }
 
     /**
@@ -294,13 +374,11 @@ public class Controller {
         catch (Exception e){
             throw new ControllerException(exceptionMessagesResources.getString("XmlSaveError"));
         }
-
     }
 
     private Element createSimulationElementWithIdForXmlOutput(Document docOut, Element root) {
         Element simulationTypeElement = docOut.createElement("simulation_type");
         root.appendChild(simulationTypeElement);
-
         Attr simulationTypeAttribute = docOut.createAttribute("id");
         simulationTypeAttribute.setValue(simulationType);
         simulationTypeElement.setAttributeNode(simulationTypeAttribute);
@@ -334,7 +412,6 @@ public class Controller {
         for(int i=0;i<NUMBER_OF_CELLS;i++) {
             Element cellElement = docOut.createElement("cell");
             simulationTypeElement.appendChild(cellElement);
-
             Attr cellAttribute = docOut.createAttribute("id");
             cellAttribute.setValue(Integer.toString(i));
             cellElement.setAttributeNode(cellAttribute);
@@ -355,90 +432,6 @@ public class Controller {
         Element author = doc.createElement(elementTag);
         author.appendChild((doc.createTextNode(elementText)));
         simulationTypeElement.appendChild(author);
-    }
-
-    /**
-     * This method uses document read by parseXmlFile
-     * to initiate the correct simulation type. For some simulations
-     * that require additional parameters to run, it also reads and
-     * passes those arguments to the initializer.
-     * @param doc Document that is parsed in parseXmlFile method.
-     */
-    public void readParamsAndInitialize(Document doc) {
-        switch(simulationType){
-            case PERCOLATION:
-                myGrid = new PercolationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
-                break;
-            case GAME_OF_LIFE:
-                myGrid = new GameOfLifeGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
-                break;
-            case SEGREGATION:
-                setParamsAndInitializeSegregation(doc);
-                break;
-            case PREDATOR_PREY:
-                setParamsAndInitializePredatorPrey(doc);
-                break;
-            case SPREADING_FIRE:
-                setParamsAndInitializeSpreadingFire(doc);
-                break;
-            case ROCK_PAPER_SCISSORS:
-                setParamsAndInitializeRockPaperScissors(doc);
-                break;
-            case FORAGING_ANTS:
-                myGrid = new ForagingAntsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes);
-
-        }
-    }
-
-    private void setParamsAndInitializeSegregation(Document doc) {
-        double satisfactionPercentage = readDoubleParameter(doc, "satisfaction_percentage");
-        checkIfValueIsBetweenZeroAndOne(satisfactionPercentage, "satisfaction percentage");
-        parameters.put("satisfaction_percentage",Double.toString(satisfactionPercentage));
-        myGrid = new SegregationGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,satisfactionPercentage);
-
-
-    }
-
-    private void setParamsAndInitializeRockPaperScissors(Document doc){
-        int threshold = readIntegerParameter(doc,"threshold");
-        checkIfIntegerIsOneOrHigher(threshold,"threshold");
-        parameters.put("threshold",Integer.toString(threshold));
-        myGrid = new RockPaperScissorsGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,threshold);
-    }
-
-
-    private void setParamsAndInitializeSpreadingFire(Document doc) {
-        double probCatch = readDoubleParameter(doc, "prob_catch");
-        double probGrow = readDoubleParameter(doc, "prob_grow");
-        checkIfValueIsBetweenZeroAndOne(probCatch, "Probability of catching fire");
-        checkIfValueIsBetweenZeroAndOne(probGrow, "Probability of growing tree");
-        parameters.put("prob_catch",Double.toString(probCatch));
-        parameters.put("prob_grow",Double.toString(probGrow));
-        myGrid = new FireGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,probCatch,probGrow);
-    }
-
-    private void setParamsAndInitializePredatorPrey(Document doc) {
-        int minFishTurnToBreed = readIntegerParameter(doc, "min_fish_turn_to_breed");
-        int maxSharkTurns = readIntegerParameter(doc, "max_shark_turns");
-        int minSharkTurnsToBreed = readIntegerParameter(doc, "min_shark_turns_to_breed");
-        checkIfIntegerIsOneOrHigher(minFishTurnToBreed, "minFishTurnToBreed");
-        checkIfIntegerIsOneOrHigher(maxSharkTurns, "maxSharkTurns");
-        checkIfIntegerIsOneOrHigher(minSharkTurnsToBreed, "minSharkTurnsToBreed");
-        parameters.put("min_fish_turn_to_breed",Integer.toString(minFishTurnToBreed));
-        parameters.put("max_shark_turns",Integer.toString(maxSharkTurns));
-        parameters.put("min_shark_turns_to_breed",Integer.toString(minSharkTurnsToBreed));
-        myGrid = new PredatorPreyGrid(cellStatesGrid,simulationWrapStyle,simulationCellShapes,minFishTurnToBreed,maxSharkTurns,minSharkTurnsToBreed);
-        
-    }
-
-
-    private double readDoubleParameter(Document doc, String parameterName){
-        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return Double.parseDouble(parameter);
-    }
-    private int readIntegerParameter(Document doc, String parameterName){
-        String parameter = doc.getElementsByTagName(parameterName).item(0).getTextContent();
-        return (int) Double.parseDouble(parameter);
     }
 
 
