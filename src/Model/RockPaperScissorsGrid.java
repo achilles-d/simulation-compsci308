@@ -1,11 +1,18 @@
 package Model;
 
+/**
+ * Facilitates the Rock, Paper, Scissors simulation
+ * @Author Achilles Dabrowski
+ */
 public class RockPaperScissorsGrid extends Grid {
 
   private int myThreshold;
 
   /**
-   * @param initConfig
+   * Create the grid to run a simulation of Rock, Paper, Scissors
+   *
+   * @param initConfig   an array of Strings corresponding to each cell's initial state. "ROCK" = cell playing rock.
+   *                     "PAPER" = cell playing paper. "SCISSORS" = cell playing scissors
    * @param edgeType     the type of grid edges to be used in the simulation. "FINITE" = finite
    *                     edges (edges across from one another are not connected). "TOROIDAL" =
    *                     toroidal edges (edges across from one another are connected).
@@ -22,6 +29,14 @@ public class RockPaperScissorsGrid extends Grid {
     myCellsCopy = copyCells();
   }
 
+  /**
+   * Set the state of the cell in the ith row and jth column of the simulation grid
+   *
+   * @param i the row of the desired cell in the grid
+   * @param j the column of the desired cell in the grid
+   * @param state the String representation of the desired state of the cell. "ROCK" = cell playing rock. "PAPER" = cell
+   *              playing paper. "SCISSORS" = cell playing scissors
+   */
   public void setCellState(int i, int j, String state) {
     myCells[i][j] = RockPaperScissorsCell.valueOf(state);
   }

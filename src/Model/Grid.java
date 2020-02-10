@@ -2,6 +2,7 @@ package Model;
 
 import static java.util.Map.entry;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,10 +20,10 @@ public abstract class Grid {
   protected static final int[][] SQUARE_NO_DIAGONAL_TYPE = {{1, -1, 0, 0}, {0, 0, 1, -1}};
   protected static final int[][] HEXAGONAL_TYPE = {{-1, 0, 1, 0, -1, -1}, {-1, -1, 0, 1, 1, 0}};
   protected static final int START_INDEX = 0;
+  protected static final int NEXT_INDEX = 1;
   protected static final String FINITE_GRID_EDGE_TYPE = "FINITE";
   protected static final String TOROIDAL_GRID_EDGE_TYPE = "TOROIDAL";
-  protected static final Map<String, int[][]> NEIGHBOR_TYPES =
-      (Map<String, int[][]>) Map.ofEntries(entry("SQUARE_DIAGONAL", SQUARE_DIAGONAL_TYPE),
+  protected static final Map<String, int[][]> NEIGHBOR_TYPES = Map.ofEntries(entry("SQUARE_DIAGONAL", SQUARE_DIAGONAL_TYPE),
           entry("SQUARE_NO_DIAGONAL", SQUARE_NO_DIAGONAL_TYPE), entry("HEXAGONAL", HEXAGONAL_TYPE));
 
   protected Enum[][] myCells;
@@ -61,7 +62,7 @@ public abstract class Grid {
   }
 
   public List<String> getCellStates() {
-    Object[] states = myCells[0][0].getClass().getEnumConstants();
+    Object[] states = myCells[START_INDEX][START_INDEX].getClass().getEnumConstants();
     List<String> strings = new ArrayList<>();
     for (Object o : states) {
       strings.add(o.toString());
@@ -76,8 +77,8 @@ public abstract class Grid {
     if (myCells != myCellsCopy) {
       myCellsCopy = copyCells();
     }
-    for (int i = 0; i < myCellsCopy.length; i++) {
-      for (int j = 0; j < myCellsCopy[START_INDEX].length; j++) {
+    for (int i = START_INDEX; i < myCellsCopy.length; i++) {
+      for (int j = START_INDEX; j < myCellsCopy[START_INDEX].length; j++) {
         updateCellState(i, j);
       }
     }
@@ -114,16 +115,20 @@ public abstract class Grid {
   }
 
   protected void initializeCells(String[][] initConfig) {
-    myCells = new Enum[initConfig.length][initConfig[0].length];
-    for (int i = 0; i < initConfig.length; i++) {
-      for (int j = 0; j < initConfig[START_INDEX].length; j++) {
+    myCells = new Enum[initConfig.length][initConfig[START_INDEX].length];
+    for (int i = START_INDEX; i < initConfig.length; i++) {
+      for (int j = START_INDEX; j < initConfig[START_INDEX].length; j++) {
         setCellState(i, j, initConfig[i][j]);
       }
     }
   }
 
   protected boolean inBounds(int i, int j) {
-    return (i >= 0 && i < myCells.length && j >= 0 && j < myCells[0].length);
+    return (i >= START_INDEX && i < myCells.length && j >= START_INDEX && j < myCells[START_INDEX].length);
+  }
+
+  protected boolean inBounds(Point indices){
+    return indices.getX() >= START_INDEX && indices.getX() < myCells.length && indices.getY() >= START_INDEX && indices.getY() < myCells[START_INDEX].length;
   }
 
   protected Enum[][] copyCells() {
@@ -136,11 +141,11 @@ public abstract class Grid {
     return copy;
   }
 
-  protected ArrayList<IndexPair> findNeighborIndices(int i, int j, Enum targetCell) {
-    ArrayList<IndexPair> cellIndices = new ArrayList<IndexPair>();
-    for (int a = 0; a < myNeighborType[START_INDEX].length; a++) {
+  protected ArrayList<Point> findNeighborIndices(int i, int j, Enum targetCell) {
+    ArrayList<Point> cellIndices = new ArrayList<>();
+    for (int a = START_INDEX; a < myNeighborType[START_INDEX].length; a++) {
       int newRow = i + myNeighborType[START_INDEX][a];
-      int newCol = j + myNeighborType[START_INDEX + 1][a];
+      int newCol = j + myNeighborType[START_INDEX + NEXT_INDEX][a];
       if (neighborMatchesTarget(newRow, newCol, targetCell)) {
         cellIndices.add(connectEdgeIndices(newRow, newCol));
       }
@@ -152,24 +157,24 @@ public abstract class Grid {
     if (!myGridEdgeType.equals(TOROIDAL_GRID_EDGE_TYPE)) {
       return inBounds(newRow, newCol) && (myCellsCopy[newRow][newCol] == targetCell);
     } else {
-      IndexPair edgeIndices = connectEdgeIndices(newRow, newCol);
-      return inBounds(edgeIndices.getRow(), edgeIndices.getCol()) &&
-          (myCellsCopy[edgeIndices.getRow()][edgeIndices.getCol()] == targetCell);
+      Point edgeIndices = connectEdgeIndices(newRow, newCol);
+      return inBounds(edgeIndices) &&
+          (myCellsCopy[(int) edgeIndices.getX()][(int) edgeIndices.getY()] == targetCell);
     }
   }
 
-  protected IndexPair connectEdgeIndices(int newRow, int newCol) {
-    if (newRow == -1) {
-      newRow = myCells.length - 1;
+  protected Point connectEdgeIndices(int newRow, int newCol) {
+    if (newRow == -NEXT_INDEX) {
+      newRow = myCells.length - NEXT_INDEX;
     } else if (newRow == myCells.length) {
-      newRow = 0;
+      newRow = START_INDEX;
     }
-    if (newCol == -1) {
-      newCol = myCells[START_INDEX].length - 1;
+    if (newCol == -NEXT_INDEX) {
+      newCol = myCells[START_INDEX].length - NEXT_INDEX;
     } else if (newCol == myCells[START_INDEX].length) {
-      newCol = 0;
+      newCol = START_INDEX;
     }
-    return new IndexPair(newRow, newCol);
+    return new Point(newRow, newCol);
   }
 
   abstract public void setCellState(int i, int j, String state);

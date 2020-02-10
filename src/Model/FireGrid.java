@@ -35,6 +35,13 @@ public class FireGrid extends Grid {
     myProbGrow = probGrow;
   }
 
+  /**
+   * Set the state of the cell in the ith row and jth column of the simulation grid
+   * @param i the row of the desired cell in the grid
+   * @param j the column of the desired cell in the grid
+   * @param state the String representation of the desired state of the cell. "EMPTY" = empty cell. "TREE" = cell with tree.
+   *              "BURNING" = cell with burning tree. "NEW_TREE" = tree that grew from previously empty cell in the last turn
+   */
   public void setCellState(int i, int j, String state) {
     myCells[i][j] = FireCell.valueOf(state);
   }

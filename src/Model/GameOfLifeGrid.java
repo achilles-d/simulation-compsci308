@@ -29,6 +29,13 @@ public class GameOfLifeGrid extends Grid {
     myCellsCopy = copyCells();
   }
 
+  /**
+   * Set the state of the cell in the ith row and jth column of the simulation grid
+   * @param i the row of the desired cell in the grid
+   * @param j the column of the desired cell in the grid
+   * @param state the String representation of the desired state of the cell. "ALIVE" = cell with living person.
+   *              "DEAD" = cell with dead person
+   */
   public void setCellState(int i, int j, String state) {
     myCells[i][j] = GameOfLifeCell.valueOf(state);
   }
