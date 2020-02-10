@@ -39,15 +39,8 @@ import java.io.IOException;
  * Parses XML File, initiates the grid.
  */
 
-/*
-
-
-Hey change xml files and python codes simulation type thing
-Add try and catch or exception handler to save XML
- */
 public class Controller {
 
-    public static final String REGULAR_INIT_TYPE = "Regular";
     public static final String PERCOLATION = "PERCOLATION";
     public static final String GAME_OF_LIFE = "GAME OF LIFE";
     public static final String SEGREGATION = "SEGREGATION";
@@ -57,25 +50,27 @@ public class Controller {
     public static final String FORAGING_ANTS = "FORAGING ANTS";
     public static final String[] SIMULATION_TYPES_ARRAY = {PERCOLATION,GAME_OF_LIFE,SEGREGATION,PREDATOR_PREY,
                                                             SPREADING_FIRE,ROCK_PAPER_SCISSORS,FORAGING_ANTS};
+    public static final String RESOURCES = "controller.resources.";
+    private final String REGULAR = "Regular";
+    private final String RANDOM = "Random";
+    private final String WEIGHTED = "Weighted";
+    private final String [] INIT_CONFIG_TYPES_ARRAY = {REGULAR,RANDOM,WEIGHTED};
+
     private static int GRID_WIDTH;
     private static int GRID_HEIGHT;
     private static int NUMBER_OF_CELLS;
-    String [][] cellStatesGrid;
+    private String [][] cellStatesGrid;
     private Grid myGrid;
     private String simulationType;
     private String configurationType;
     private String simulationCellShapes;
     private String simulationWrapStyle;
 
-    private final String REGULAR = "Regular";
-    private final String RANDOM = "Random";
-    private final String WEIGHTED = "Weighted";
-    private final String [] INIT_CONFIG_TYPES_ARRAY = {REGULAR,RANDOM,WEIGHTED};
     private HashMap<String, String> parameters = new HashMap<>();
     private ResourceBundle cellTypeResources;
     private ResourceBundle simulationConfigurationResources;
     private ResourceBundle exceptionMessagesResources;
-    public static final String RESOURCES = "controller.resources.";
+
 
 
     public Controller(){
@@ -87,15 +82,27 @@ public class Controller {
     }
 
 
+    /**
+     * This method returns the state of cell for the given index i and j.
+     * @param i row index.
+     * @param j column index.
+     * @return Cell State String
+     */
     public String getCellState(int i, int j){
         return myGrid.getCellState(i,j);
     }
 
-
+    /**
+     * Return Grid's Width
+     * @return GRID_WIDTH.
+     */
     public int getGridWidth(){
         return GRID_WIDTH;
     }
-
+    /**
+     * Return Grid's Height
+     * @return GRID_HEIGHT.
+     */
     public int  getGridHeight(){
         return GRID_HEIGHT;
     }
@@ -123,6 +130,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Returns the possible cell states for the given simulation
+     * @return possible cell states.
+     */
     public List<String> getCellStates() {
         return myGrid.getCellStates();
     }
@@ -143,6 +154,11 @@ public class Controller {
         return initialConfigurationType;
     }
 
+    /**
+     * This method cycles the clicked cell on Viewer to next state.
+     * @param i
+     * @param j
+     */
     public void cycleCellState(int i, int j){
         List<String> possibleStates = myGrid.getCellStates();
         String cellsState = myGrid.getCellState(i,j);
@@ -152,13 +168,13 @@ public class Controller {
     }
 
     private void assignCellStates(Document doc) {
-        if(configurationType.equals(REGULAR_INIT_TYPE)) {
+        if(configurationType.equals(REGULAR)) {
             assignCellStatesRegularlyByParsingXml(doc);
         }
-        else if(configurationType.equals("Random")){
+        else if(configurationType.equals(RANDOM)){
             assignCellStatesRandomly(doc);
         }
-        else if(configurationType.equals("Weighted")){
+        else if(configurationType.equals(WEIGHTED)){
             assignCellStatesUsingWeights(doc);
         }
     }
@@ -251,10 +267,16 @@ public class Controller {
         return simulationType;
     }
 
+    /**
+     * Updates the simulation grid to the next step of the simulation.
+     */
     public void updateGrid(){
         myGrid.update();
     }
 
+    /**
+     * Saves the current simulation as Xml file to output folder.
+     */
     public void saveAsXml(){
         DocumentBuilderFactory outputDocumentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder outputDocumentBuilder = null;
