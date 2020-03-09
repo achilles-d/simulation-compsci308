@@ -42,11 +42,11 @@ public class GameOfLifeGrid extends Grid {
     }
 
     protected void updateCellState(int i, int j) {
-        int aliveCount = findNeighborIndices(i, j, GameOfLifeCell.ALIVE).size();
-        if (myCellsCopy[i][j] == GameOfLifeCell.ALIVE && ((aliveCount > maxAliveNeighbors) || (
-                aliveCount < minAliveNeighbors))) {
+        int aliveNeighborCount = findNeighborIndices(i, j, GameOfLifeCell.ALIVE).size();
+        if (myCellsCopy[i][j] == GameOfLifeCell.ALIVE && ((aliveNeighborCount > maxAliveNeighbors) || (
+                aliveNeighborCount < minAliveNeighbors))) {
             myCells[i][j] = GameOfLifeCell.DEAD;
-        } else if (aliveCount == maxAliveNeighbors) {
+        } else if (aliveNeighborCount == maxAliveNeighbors) {
             myCells[i][j] = GameOfLifeCell.ALIVE;
         }
     }
