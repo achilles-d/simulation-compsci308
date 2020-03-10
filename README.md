@@ -14,9 +14,9 @@ Finish Date: 3rd February, 2020.
 Hours Spent: 80 
 
 ### Primary Roles
-Caleb Sanford: all View classes
-Achilles Dabrowski: all Model classes and enums 
-Cemal Yagcioglu: Controller class, Control Exception class, Xml files, python xml generator. 
+* Caleb Sanford: all View classes
+* Achilles Dabrowski: all Model classes and enums 
+* Cemal Yagcioglu: Controller class, Control Exception class, Xml files, python xml generator. 
 
 ### Resources Used
 For exception class, got help from BrowserException.java from browser project.
