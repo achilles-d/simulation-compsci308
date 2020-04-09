@@ -1,7 +1,7 @@
 simulation
 ====
 
-This project implements a cellular automata (CA) simulator.
+This project implements a [cellular automata](https://www2.cs.duke.edu/courses/compsci308/current/assign/02_simulation/index.php) (CA) simulator.
 
 Names: Achilles Dabrowski, Caleb Sanford, Cemal Yagcioglu
 
