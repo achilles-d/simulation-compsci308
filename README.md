@@ -3,7 +3,7 @@ simulation
 
 This project implements a [cellular automata](https://www2.cs.duke.edu/courses/compsci308/current/assign/02_simulation/index.php) (CA) simulator.
 
-Names: Achilles Dabrowski (branch **"ajd"**), Caleb Sanford, Cemal Yagcioglu
+Names: Achilles Dabrowski (branch **"ajd66"**), Caleb Sanford, Cemal Yagcioglu
 
 ### Timeline
 
